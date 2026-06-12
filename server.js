@@ -34,6 +34,8 @@ const scheduleRoutes = require('./src/routes/schedule');
 const createPlatformRoutes = require('./src/routes/platform');
 const smsService = require('./src/services/smsService');
 
+const PUBLIC_DIR = path.join(__dirname, 'public');
+
 const logger = require('./src/config/logger');
 const errorHandler = require('./src/middleware/errorHandler');
 
@@ -351,36 +353,52 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(morgan(NODE_ENV === 'production' ? 'combined' : 'dev'));
 
 // ============================================
-// Static Files
+// Static Files - بهبود یافته و کامل (رفع 404)
 // ============================================
 
-// فقط پوشه‌های عمومی را static کن.
-// مسیرهای جدید زیر /assets هستند؛ مسیرهای قدیمی /css, /js, /images, /fonts برای سازگاری باقی مانده‌اند.
-app.use('/assets', express.static(PUBLIC_ASSETS_DIR));
+const path = require('path');
+
+// Public directories
+const PUBLIC_DIR = path.join(__dirname, 'public');
+const PUBLIC_ASSETS_DIR = path.join(PUBLIC_DIR, 'assets');
+const PUBLIC_UPLOADS_DIR = path.join(PUBLIC_DIR, 'uploads');
+
+// Main static serving
+app.use(express.static(PUBLIC_DIR));                    // root public
+app.use('/assets', express.static(PUBLIC_ASSETS_DIR));  // main assets
+
+// Legacy compatibility
 app.use('/css', express.static(path.join(PUBLIC_ASSETS_DIR, 'css')));
 app.use('/js', express.static(path.join(PUBLIC_ASSETS_DIR, 'js')));
 app.use('/images', express.static(path.join(PUBLIC_ASSETS_DIR, 'images')));
 app.use('/fonts', express.static(path.join(PUBLIC_ASSETS_DIR, 'fonts')));
 
-// Public uploads only. Patient documents stay outside public static exposure unless served by authenticated APIs.
-app.use('/uploads/public', express.static(path.join(PUBLIC_UPLOADS_DIR, 'public')));
+// Uploads
+app.use('/uploads', express.static(PUBLIC_UPLOADS_DIR));
 
-// Dashboard panels - new clean routes and legacy aliases
+// Dashboard & Panel routes (مهم‌ترین بخش برای رفع 404)
+const publicPage = (base, folder) => path.join(PUBLIC_DIR, 'pages', base, folder || '');
+
+app.use('/dashboard', express.static(path.join(PUBLIC_DIR, 'pages', 'dashboard')));
+app.use('/admin', express.static(path.join(PUBLIC_DIR, 'pages', 'admin')));
+app.use('/panel', express.static(path.join(PUBLIC_DIR, 'pages', 'panel')));
+
+// Specific panel routes
 app.use('/dashboard/admin', express.static(publicPage('dashboard', 'admin')));
+app.use('/dashboard/clinic-admin', express.static(publicPage('dashboard', 'clinic-manager')));
 app.use('/dashboard/clinic', express.static(publicPage('dashboard', 'clinic-manager')));
-app.use('/dashboard/clinic-manager', express.static(publicPage('dashboard', 'clinic-manager')));
 app.use('/dashboard/doctor', express.static(publicPage('dashboard', 'doctor')));
-app.use('/dashboard/secretary', express.static(publicPage('dashboard', 'secretary')));
 app.use('/dashboard/reception', express.static(publicPage('dashboard', 'secretary')));
+app.use('/dashboard/secretary', express.static(publicPage('dashboard', 'secretary')));
 app.use('/dashboard/patient', express.static(publicPage('dashboard', 'patient')));
 
 app.use('/dashboard/panel/admin', express.static(publicPage('dashboard', 'admin')));
 app.use('/dashboard/panel/clinic-admin', express.static(publicPage('dashboard', 'clinic-manager')));
 app.use('/dashboard/panel/doctor', express.static(publicPage('dashboard', 'doctor')));
-app.use('/dashboard/panel/patient', express.static(publicPage('dashboard', 'patient')));
 app.use('/dashboard/panel/reception', express.static(publicPage('dashboard', 'secretary')));
+app.use('/dashboard/panel/patient', express.static(publicPage('dashboard', 'patient')));
 
-// جلوگیری از cache شدن پاسخ‌های API مخصوصاً /api/auth/me
+// API cache control
 app.use('/api', (req, res, next) => {
     res.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
     res.set('Pragma', 'no-cache');
