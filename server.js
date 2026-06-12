@@ -34,8 +34,6 @@ const scheduleRoutes = require('./src/routes/schedule');
 const createPlatformRoutes = require('./src/routes/platform');
 const smsService = require('./src/services/smsService');
 
-const PUBLIC_DIR = path.join(__dirname, 'public');
-
 const logger = require('./src/config/logger');
 const errorHandler = require('./src/middleware/errorHandler');
 
@@ -356,18 +354,11 @@ app.use(morgan(NODE_ENV === 'production' ? 'combined' : 'dev'));
 // Static Files - بهبود یافته و کامل (رفع 404)
 // ============================================
 
-const path = require('path');
-
-// Public directories
-const PUBLIC_DIR = path.join(__dirname, 'public');
-const PUBLIC_ASSETS_DIR = path.join(PUBLIC_DIR, 'assets');
-const PUBLIC_UPLOADS_DIR = path.join(PUBLIC_DIR, 'uploads');
-
 // Main static serving
-app.use(express.static(PUBLIC_DIR));                    // root public
-app.use('/assets', express.static(PUBLIC_ASSETS_DIR));  // main assets
+app.use(express.static(PUBLIC_DIR));
+app.use('/assets', express.static(PUBLIC_ASSETS_DIR));
 
-// Legacy compatibility
+// Legacy compatibility paths
 app.use('/css', express.static(path.join(PUBLIC_ASSETS_DIR, 'css')));
 app.use('/js', express.static(path.join(PUBLIC_ASSETS_DIR, 'js')));
 app.use('/images', express.static(path.join(PUBLIC_ASSETS_DIR, 'images')));
@@ -376,27 +367,17 @@ app.use('/fonts', express.static(path.join(PUBLIC_ASSETS_DIR, 'fonts')));
 // Uploads
 app.use('/uploads', express.static(PUBLIC_UPLOADS_DIR));
 
-// Dashboard & Panel routes (مهم‌ترین بخش برای رفع 404)
-const publicPage = (base, folder) => path.join(PUBLIC_DIR, 'pages', base, folder || '');
-
-app.use('/dashboard', express.static(path.join(PUBLIC_DIR, 'pages', 'dashboard')));
-app.use('/admin', express.static(path.join(PUBLIC_DIR, 'pages', 'admin')));
-app.use('/panel', express.static(path.join(PUBLIC_DIR, 'pages', 'panel')));
+// Dashboard & Panel routes (مهم برای رفع 404)
+app.use('/dashboard', express.static(path.join(PUBLIC_PAGES_DIR, 'dashboard')));
+app.use('/admin', express.static(path.join(PUBLIC_PAGES_DIR, 'admin')));
+app.use('/panel', express.static(path.join(PUBLIC_PAGES_DIR, 'panel')));
 
 // Specific panel routes
-app.use('/dashboard/admin', express.static(publicPage('dashboard', 'admin')));
-app.use('/dashboard/clinic-admin', express.static(publicPage('dashboard', 'clinic-manager')));
-app.use('/dashboard/clinic', express.static(publicPage('dashboard', 'clinic-manager')));
-app.use('/dashboard/doctor', express.static(publicPage('dashboard', 'doctor')));
-app.use('/dashboard/reception', express.static(publicPage('dashboard', 'secretary')));
-app.use('/dashboard/secretary', express.static(publicPage('dashboard', 'secretary')));
-app.use('/dashboard/patient', express.static(publicPage('dashboard', 'patient')));
-
-app.use('/dashboard/panel/admin', express.static(publicPage('dashboard', 'admin')));
-app.use('/dashboard/panel/clinic-admin', express.static(publicPage('dashboard', 'clinic-manager')));
-app.use('/dashboard/panel/doctor', express.static(publicPage('dashboard', 'doctor')));
-app.use('/dashboard/panel/reception', express.static(publicPage('dashboard', 'secretary')));
-app.use('/dashboard/panel/patient', express.static(publicPage('dashboard', 'patient')));
+app.use('/dashboard/panel/admin', express.static(path.join(PUBLIC_PAGES_DIR, 'dashboard', 'admin')));
+app.use('/dashboard/panel/clinic-admin', express.static(path.join(PUBLIC_PAGES_DIR, 'dashboard', 'clinic-manager')));
+app.use('/dashboard/panel/doctor', express.static(path.join(PUBLIC_PAGES_DIR, 'dashboard', 'doctor')));
+app.use('/dashboard/panel/reception', express.static(path.join(PUBLIC_PAGES_DIR, 'dashboard', 'secretary')));
+app.use('/dashboard/panel/patient', express.static(path.join(PUBLIC_PAGES_DIR, 'dashboard', 'patient')));
 
 // API cache control
 app.use('/api', (req, res, next) => {
