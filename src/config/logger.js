@@ -1,37 +1,45 @@
+// src/config/logger.js
 const winston = require('winston');
 const path = require('path');
 
-// Define log directory
-const logDir = path.join(__dirname, '../../logs');
+const logDir = 'logs';
 
-// Create logs directory if not exists
+// ایجاد پوشه logs اگر وجود نداشت
 const fs = require('fs');
 if (!fs.existsSync(logDir)) {
-  fs.mkdirSync(logDir, { recursive: true });
+  fs.mkdirSync(logDir);
 }
 
 const logger = winston.createLogger({
-  level: process.env.NODE_ENV === 'production' ? 'info' : 'debug',
+  level: process.env.NODE_ENV === 'development' ? 'debug' : 'info',
   format: winston.format.combine(
     winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
     winston.format.errors({ stack: true }),
     winston.format.splat(),
     winston.format.json()
   ),
-  defaultMeta: { service: 'noorvista' },
+  defaultMeta: { service: 'noorvista-clinic' },
   transports: [
-    // Console transport with colors
-    new winston.transports.Console({
-      format: winston.format.combine(
-        winston.format.colorize(),
-        winston.format.simple()
-      )
+    // لاگ خطاها در فایل جدا
+    new winston.transports.File({ 
+      filename: path.join(logDir, 'error.log'), 
+      level: 'error' 
     }),
-    // Error log file
-    new winston.transports.File({ filename: path.join(logDir, 'error.log'), level: 'error' }),
-    // Combined log file
-    new winston.transports.File({ filename: path.join(logDir, 'combined.log') })
+    // لاگ همه چیز
+    new winston.transports.File({ 
+      filename: path.join(logDir, 'combined.log') 
+    })
   ]
 });
+
+// نمایش در کنسول در محیط development
+if (process.env.NODE_ENV !== 'production') {
+  logger.add(new winston.transports.Console({
+    format: winston.format.combine(
+      winston.format.colorize(),
+      winston.format.simple()
+    )
+  }));
+}
 
 module.exports = logger;
