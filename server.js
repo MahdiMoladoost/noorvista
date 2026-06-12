@@ -34,6 +34,9 @@ const scheduleRoutes = require('./src/routes/schedule');
 const createPlatformRoutes = require('./src/routes/platform');
 const smsService = require('./src/services/smsService');
 
+const logger = require('./src/config/logger');
+const errorHandler = require('./src/middleware/errorHandler');
+
 const app = express();
 
 const PORT = process.env.PORT || 3000;
@@ -2910,6 +2913,7 @@ async function startServer() {
         const pool = await db.getPool();
         await ensurePhase1Tables(pool);
         startAppointmentReminderScheduler(pool);
+        app.use(errorHandler);
 
         app.listen(PORT, () => {
             console.log(`
