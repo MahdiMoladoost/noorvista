@@ -1,0 +1,3 @@
+-- src/database/migrations/2026-06-11-slot-actions-sms-fix.sql
+-- No schema change is required for this patch.
+-- It only uses existing appointment_slots.status and appointments.status.

@@ -1,0 +1,22 @@
+/* NOORVISTA schedule recurring mode UI */
+body[data-appointment-page="schedules"] .nv-schedule-one-time-hidden {
+  display: none !important;
+}
+
+body[data-appointment-page="schedules"] .nv-schedule-mode-hint {
+  display: block !important;
+  margin-top: 6px !important;
+  padding: 8px 10px !important;
+  border-radius: 12px !important;
+  background: #f0f9ff !important;
+  color: #075985 !important;
+  font-size: 11.5px !important;
+  font-weight: 850 !important;
+  line-height: 1.7 !important;
+  border: 1px solid rgba(14, 165, 233, .18) !important;
+}
+
+body[data-appointment-page="schedules"] #end_date:disabled {
+  opacity: .65 !important;
+  cursor: not-allowed !important;
+}

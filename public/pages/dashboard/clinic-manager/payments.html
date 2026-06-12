@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa">
+<head>
+<link href="/css/local-fonts.css" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>مدیریت مالی | NOORVISTA</title>
+<link href="/css/open-iconic-bootstrap.min.css" rel="stylesheet"/>
+<link href="/css/ionicons.min.css" rel="stylesheet"/>
+<link href="/css/icomoon.css" rel="stylesheet"/>
+<link href="/css/panel-common.css" rel="stylesheet"/>
+<link href="/css/clinic-admin-fixes.css" rel="stylesheet"/>
+<link href="/css/persian-datepicker.css" rel="stylesheet"/>
+<style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #f5f7fa; font-family: 'Vazir', Tahoma, Arial; }
+        
+        .sidebar { position: fixed; right: 0; top: 0; bottom: 0; width: 280px; background: #1a2c3e; z-index: 1000; }
+        .sidebar-header { padding: 25px 20px; text-align: center; border-bottom: 1px solid #2c4053; }
+        .sidebar-logo { font-size: 24px; font-weight: 700; color: #ffffff; }
+        .sidebar-logo span { color: #4fc3f7; }
+        .sidebar-subtitle { font-size: 11px; color: #8898aa; }
+        .sidebar-nav { padding: 20px 0; list-style: none; }
+        .nav-item { margin-bottom: 2px; }
+        .nav-link { display: flex; align-items: center; padding: 12px 24px; color: #cdd9ed; text-decoration: none; gap: 12px; font-size: 14px; }
+        .nav-link:hover { background: #2c4053; color: white; }
+        .nav-link.active { background: #2c4053; color: white; border-right: 3px solid #4fc3f7; }
+        
+        .main-content { margin-right: 280px; min-height: 100vh; padding: 20px; }
+        
+        .top-header { background: white; border-radius: 8px; padding: 15px 20px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #e5e7eb; }
+        .page-title h1 { font-size: 20px; font-weight: 600; color: #1f2937; }
+        .page-title p { font-size: 12px; color: #6b7280; }
+        .search-box { position: relative; }
+        .search-box input { padding: 8px 35px 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; width: 250px; font-size: 13px; }
+        .search-box input:focus { outline: none; border-color: #3b82f6; }
+        .search-box i { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: #9ca3af; }
+        .user-info { display: flex; align-items: center; gap: 10px; cursor: pointer; padding: 5px 10px; border-radius: 6px; }
+        .user-info:hover { background: #f3f4f6; }
+        .user-avatar { width: 36px; height: 36px; background: #3b82f6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
+        .user-name { font-weight: 500; color: #374151; font-size: 13px; }
+        .notification-btn { background: none; border: none; font-size: 18px; color: #6b7280; cursor: pointer; position: relative; }
+        .notification-badge { position: absolute; top: -5px; right: -5px; background: #ef4444; color: white; font-size: 9px; padding: 2px 5px; border-radius: 10px; min-width: 16px; text-align: center; }
+        
+        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 25px; }
+        .stat-card { background: white; border-radius: 8px; padding: 16px 20px; display: flex; align-items: center; gap: 15px; border: 1px solid #e5e7eb; }
+        .stat-icon { width: 48px; height: 48px; background: #eef2ff; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        .stat-icon i { font-size: 24px; color: #3b82f6; }
+        .stat-info h3 { font-size: 24px; font-weight: 700; color: #1f2937; margin: 0; }
+        .stat-info p { font-size: 12px; color: #6b7280; margin: 4px 0 0; }
+        
+        .card { background: white; border-radius: 8px; border: 1px solid #e5e7eb; margin-bottom: 20px; }
+        .card-header { padding: 15px 20px; border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center; background: #f9fafb; flex-wrap: wrap; gap: 10px; }
+        .card-header h4 { font-size: 16px; font-weight: 600; display: flex; align-items: center; gap: 8px; margin: 0; }
+        .card-header h4 i { color: #3b82f6; }
+        .card-body { padding: 0; overflow-x: auto; }
+        
+        .filter-bar { background: white; border-radius: 8px; padding: 15px 20px; margin-bottom: 20px; display: flex; gap: 15px; flex-wrap: wrap; align-items: flex-end; border: 1px solid #e5e7eb; }
+        .filter-group { flex: 1; min-width: 160px; }
+        .filter-group label { font-size: 11px; font-weight: 600; color: #4b5563; margin-bottom: 5px; display: block; }
+        .filter-group input, .filter-group select { width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 13px; }
+        
+        .btn { padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 500; cursor: pointer; border: none; display: inline-flex; align-items: center; gap: 6px; }
+        .btn-primary { background: #3b82f6; color: white; }
+        .btn-primary:hover { background: #2563eb; }
+        .btn-outline { background: white; border: 1px solid #d1d5db; color: #374151; }
+        .btn-outline:hover { border-color: #3b82f6; color: #3b82f6; background: #eff6ff; }
+        .btn-danger { background: #ef4444; color: white; }
+        .btn-danger:hover { background: #dc2626; }
+        .btn-sm { padding: 4px 10px; font-size: 12px; }
+        
+        .data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        .data-table th, .data-table td { padding: 12px; border: 1px solid #e5e7eb; text-align: center; }
+        .data-table th { background: #f9fafb; font-weight: 600; color: #374151; }
+        .data-table td { color: #4b5563; }
+        .data-table tbody tr:hover { background: #f9fafb; }
+        
+        .badge-paid { background: #dcfce7; color: #059669; padding: 4px 12px; border-radius: 20px; font-size: 11px; display: inline-block; }
+        .badge-pending { background: #fef3c7; color: #d97706; padding: 4px 12px; border-radius: 20px; font-size: 11px; display: inline-block; }
+        
+        .date-input { cursor: pointer; background-color: white; }
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 2000; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all .2s; }
+        .modal-overlay.show { opacity: 1; visibility: visible; }
+        .modal-container { background: white; border-radius: 8px; width: 90%; max-width: 520px; max-height: 90vh; overflow-y: auto; }
+        .modal-header { padding: 16px 20px; border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center; }
+        .modal-header h3 { margin: 0; font-size: 16px; }
+        .modal-close { background: none; border: 0; font-size: 22px; cursor: pointer; color: #9ca3af; }
+        .modal-body { padding: 20px; }
+        .modal-footer { padding: 12px 20px; border-top: 1px solid #e5e7eb; display: flex; justify-content: flex-end; gap: 10px; background: #f9fafb; }
+        .form-group { margin-bottom: 14px; }
+        .form-group label { display: block; font-size: 12px; font-weight: 600; color: #374151; margin-bottom: 6px; }
+        .form-control { width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 13px; }
+        .detail-item { padding: 8px 0; border-bottom: 1px solid #f3f4f6; }
+        
+        @media (max-width: 992px) { .sidebar { right: -280px; } .main-content { margin-right: 0; } .stats-grid { grid-template-columns: 1fr; } }
+    </style>
+<link href="/css/clinic-admin-theme.css" rel="stylesheet"/>
+<link href="/css/clinic-admin-hardening.css" rel="stylesheet"/>
+<link href="/css/noorvista-panel-polish.css" rel="stylesheet"/>
+<link href="/css/noorvista-admin-header.css" rel="stylesheet"/>
+<link href="/css/noorvista-manager-ui.css" rel="stylesheet"/>
+<link href="/assets/css/panel-sidebar-unified-final.css" rel="stylesheet"/>
+<link href="/assets/css/panel-ui-final-fixes.css" rel="stylesheet"/>
+<link href="/assets/css/panel-pretty-selects-global.css" rel="stylesheet"/><link href="/assets/css/clinic-manager-single-role-guard.css" rel="stylesheet"/></head>
+<body><script src="/assets/js/clinic-manager-single-role-guard.js"></script>
+<div class="sidebar">
+<div class="sidebar-header"><div class="sidebar-logo">NOOR<span>VISTA</span></div></div>
+<ul class="sidebar-nav"><li class="nav-item"><a class="nav-link" data-sidebar-match="index.html," href="index.html"><i class="icon-dashboard"></i><span>داشبورد</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="doctors.html" href="doctors.html"><i class="icon-user-md"></i><span>مدیریت پزشکان</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="schedule.html" href="schedule.html"><i class="icon-clock"></i><span>زمان‌بندی پزشکان</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="patients.html" href="patients.html"><i class="icon-users"></i><span>مدیریت بیماران</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="appointments.html" href="appointments.html"><i class="icon-calendar"></i><span>مدیریت نوبت‌ها</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="staff.html" href="staff.html"><i class="icon-briefcase"></i><span>مدیریت کارکنان</span></a></li><li class="nav-item"><a class="nav-link active" data-sidebar-match="payments.html" href="payments.html"><i class="icon-credit-card"></i><span>مدیریت مالی</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="faqs.html,notifications.html" href="faqs.html"><i class="icon-comments nv-faq-icon"></i><span>سوالات و اعلانات</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="reports.html" href="reports.html"><i class="icon-bar-chart"></i><span>گزارشات</span></a></li></ul>
+</div>
+<div class="main-content">
+<div class="top-header nv-standard-top-header">
+<div class="page-heading">
+<h1>مدیریت مالی</h1>
+<p>مشاهده و مدیریت پرداخت‌ها و درآمد کلینیک</p>
+</div>
+<div class="header-actions">
+<button aria-label="اعلان‌ها" class="notification-button" title="اعلان‌ها" type="button"><i class="icon-bell"></i><span aria-hidden="true" class="notification-dot"></span></button>
+<div class="user-menu nv-user-menu">
+<button aria-expanded="false" aria-haspopup="true" class="user-menu-trigger" type="button">
+<span class="user-avatar nv-header-avatar">نو</span>
+<span class="user-menu-text"><strong class="user-name nv-header-user-name">کاربر NOORVISTA</strong><small class="user-role nv-header-user-role">کاربر سیستم</small></span>
+<i aria-hidden="true" class="icon-chevron-down nv-user-menu-chevron"></i>
+</button>
+<div class="user-dropdown nv-user-dropdown" role="menu">
+<button class="user-dropdown-item" data-nv-profile="" role="menuitem" type="button"><i class="icon-user"></i><span>مشاهده پروفایل</span></button>
+<button class="user-dropdown-item" data-nv-edit-account="" role="menuitem" type="button"><i class="icon-pencil"></i><span>ویرایش اطلاعات حساب</span></button>
+<button class="user-dropdown-item" data-nv-change-password="" role="menuitem" type="button"><i class="icon-lock"></i><span>تغییر رمز عبور</span></button>
+<button class="user-dropdown-item" data-nv-account-settings="" role="menuitem" type="button"><i class="icon-cog"></i><span>تنظیمات حساب</span></button>
+<div aria-hidden="true" class="user-dropdown-divider"></div>
+<button class="user-dropdown-item danger" data-nv-logout="" role="menuitem" type="button"><i class="icon-sign-out"></i><span>خروج از حساب</span></button>
+</div>
+</div>
+</div>
+</div>
+<div class="stats-grid">
+<div class="stat-card"><div class="stat-icon"><i class="icon-credit-card"></i></div><div class="stat-info"><div class="stat-number" id="totalIncome">۰</div><div class="stat-label">کل درآمد</div></div></div>
+<div class="stat-card"><div class="stat-icon"><i class="icon-warning"></i></div><div class="stat-info"><div class="stat-number" id="pendingPayments">۰</div><div class="stat-label">پرداخت‌های معوق</div></div></div>
+<div class="stat-card"><div class="stat-icon"><i class="icon-check"></i></div><div class="stat-info"><div class="stat-number" id="paidPayments">۰</div><div class="stat-label">پرداخت‌های انجام شده</div></div></div>
+</div>
+<div class="filter-bar">
+<div class="filter-group"><label>از تاریخ</label><input autocomplete="off" class="date-input jalali-date-input" id="startDate" placeholder="انتخاب تاریخ" type="text"/></div>
+<div class="filter-group"><label>تا تاریخ</label><input autocomplete="off" class="date-input jalali-date-input" id="endDate" placeholder="انتخاب تاریخ" type="text"/></div>
+<div class="filter-group"><label>وضعیت</label><select id="statusFilter"><option value="all">همه</option><option value="completed">پرداخت شده</option><option value="pending">در انتظار</option></select></div>
+<div class="filter-group"><label> </label><button class="btn btn-primary" onclick="loadPayments()"><i class="icon-search"></i> جستجو</button></div>
+<div class="filter-group"><label> </label><button class="btn btn-outline" onclick="resetFilters()"><i class="icon-refresh"></i> پاک‌سازی</button></div>
+</div>
+<div class="card">
+<div class="card-header"><h4><i class="icon-list"></i> لیست پرداخت‌ها</h4></div>
+<div class="card-body">
+<div class="table-responsive">
+<table class="data-table" id="paymentsTable">
+<thead>
+<tr>
+<th>شناسه</th>
+<th>تاریخ</th>
+<th>بیمار</th>
+<th>مبلغ</th>
+<th>روش پرداخت</th>
+<th>وضعیت</th>
+<th>شماره رسید</th>
+<th>عملیات</th>
+</tr>
+</thead>
+<tbody id="paymentsTableBody">
+<tr><td class="empty-state" colspan="8" style="text-align:center">در حال بارگذاری...</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="modal-overlay" id="viewPaymentModal">
+<div class="modal-container">
+<div class="modal-header"><h3>جزئیات پرداخت</h3><button class="modal-close" onclick="closeModal('viewPaymentModal')">×</button></div>
+<div class="modal-body" id="viewPaymentContent"></div>
+<div class="modal-footer">
+<button class="btn btn-outline" onclick="closeModal('viewPaymentModal')">بستن</button>
+<button class="btn btn-primary" id="viewPaymentEditBtn">ویرایش</button>
+</div>
+</div>
+</div>
+<div class="modal-overlay" id="paymentModal">
+<div class="modal-container">
+<div class="modal-header"><h3>ویرایش پرداخت</h3><button class="modal-close" onclick="closeModal('paymentModal')">×</button></div>
+<div class="modal-body">
+<input id="editPaymentId" type="hidden"/>
+<div class="form-group"><label>مبلغ</label><input class="form-control" id="paymentAmount" type="number"/></div>
+<div class="form-group"><label>روش پرداخت</label><select class="form-control" id="paymentMethod"><option value="cash">نقدی</option><option value="card">کارت بانکی</option><option value="online">آنلاین</option></select></div>
+<div class="form-group"><label>وضعیت</label><select class="form-control" id="paymentStatus"><option value="completed">پرداخت شده</option><option value="pending">در انتظار</option><option value="cancelled">ابطال شده</option></select></div>
+<div class="form-group"><label>شماره رسید</label><input class="form-control" id="paymentReceipt" type="text"/></div>
+<div class="form-group"><label>توضیحات</label><textarea class="form-control" id="paymentDescription" rows="2"></textarea></div>
+</div>
+<div class="modal-footer">
+<button class="btn btn-outline" onclick="closeModal('paymentModal')">انصراف</button>
+<button class="btn btn-primary" onclick="savePayment()">ذخیره تغییرات</button>
+</div>
+</div>
+</div>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/panel-common.js"></script>
+<script src="/js/jalali.js"></script>
+<script src="/js/clinic-admin-fixes.js"></script>
+<script src="/js/persian-datepicker.js"></script>
+<script>
+let allPayments = [];
+
+const paymentStatusText = {
+    completed: 'پرداخت شده',
+    paid: 'پرداخت شده',
+    success: 'پرداخت شده',
+    pending: 'در انتظار',
+    cancelled: 'ابطال شده',
+    failed: 'ناموفق'
+};
+const paymentMethodText = { cash: 'نقدی', card: 'کارت بانکی', online: 'آنلاین' };
+
+function normalizePaymentStatus(status) {
+    if (['paid', 'success'].includes(status)) return 'completed';
+    return status || 'pending';
+}
+
+async function loadPayments() {
+    try {
+        const startDate = document.getElementById('startDate')?.value;
+        const endDate = document.getElementById('endDate')?.value;
+        const status = document.getElementById('statusFilter')?.value;
+        
+        const params = {};
+        if (startDate) params.start = toGregorian(startDate);
+        if (endDate) params.end = toGregorian(endDate);
+        if (status && status !== 'all') params.status = status;
+        
+        const result = await getPayments(params);
+        allPayments = result.payments || [];
+        
+        document.getElementById('totalIncome').innerHTML = formatPrice(result.total_income || 0);
+        document.getElementById('pendingPayments').innerHTML = formatPrice(result.pending_total || 0);
+        document.getElementById('paidPayments').innerHTML = formatPrice(result.paid_total || 0);
+        
+        renderPaymentsTable(allPayments);
+    } catch(e) {
+        showToast(e.message, 'error');
+    }
+}
+
+function renderPaymentsTable(payments) {
+    const tbody = document.getElementById('paymentsTableBody');
+    if (!payments.length) {
+        tbody.innerHTML = '<tr><td colspan="8" style="text-align:center">هیچ پرداختی یافت نشد</td></tr>';
+        return;
+    }
+    
+    tbody.innerHTML = payments.map(p => {
+        const status = normalizePaymentStatus(p.status);
+        const isPaid = status === 'completed';
+        return `
+            <tr>
+                <td>${toPersianNumber(p.id)}</td>
+                <td>${p.payment_date ? toJalali(p.payment_date) : '-'}</td>
+                <td>${escapeHtml(p.patient_name || '-')}</td>
+                <td>${formatPrice(p.amount)}</td>
+                <td>${paymentMethodText[p.payment_method] || escapeHtml(p.payment_method || '-')}</td>
+                <td><span class="${isPaid ? 'badge-paid' : 'badge-pending'}">${paymentStatusText[status] || escapeHtml(status)}</span></td>
+                <td>${escapeHtml(p.receipt_number || '-')}</td>
+                <td>
+                    <button class="btn btn-outline btn-sm" onclick="viewPayment(${Number(p.id)})"><i class="icon-eye"></i> مشاهده</button>
+                    <button class="btn btn-outline btn-sm" onclick="openEditPaymentModal(${Number(p.id)})"><i class="icon-pencil"></i> ویرایش</button>
+                    <button class="btn btn-danger btn-sm" onclick="deletePayment(${Number(p.id)})"><i class="icon-trash"></i> حذف</button>
+                </td>
+            </tr>
+        `;
+    }).join('');
+}
+
+function findPayment(id) {
+    return allPayments.find(x => String(x.id) === String(id));
+}
+
+function viewPayment(id) {
+    const p = findPayment(id);
+    if (!p) return showToast('پرداخت مورد نظر یافت نشد', 'error');
+    const status = normalizePaymentStatus(p.status);
+    document.getElementById('viewPaymentContent').innerHTML = `
+        <div class="detail-item"><strong>شناسه:</strong> ${toPersianNumber(p.id)}</div>
+        <div class="detail-item"><strong>تاریخ:</strong> ${p.payment_date ? toJalali(p.payment_date) : '-'}</div>
+        <div class="detail-item"><strong>بیمار:</strong> ${escapeHtml(p.patient_name || '-')}</div>
+        <div class="detail-item"><strong>مبلغ:</strong> ${formatPrice(p.amount)}</div>
+        <div class="detail-item"><strong>روش پرداخت:</strong> ${paymentMethodText[p.payment_method] || escapeHtml(p.payment_method || '-')}</div>
+        <div class="detail-item"><strong>وضعیت:</strong> ${paymentStatusText[status] || escapeHtml(status)}</div>
+        <div class="detail-item"><strong>شماره رسید:</strong> ${escapeHtml(p.receipt_number || '-')}</div>
+        <div class="detail-item"><strong>توضیحات:</strong> ${escapeHtml(p.description || '-')}</div>
+    `;
+    document.getElementById('viewPaymentEditBtn').onclick = () => { closeModal('viewPaymentModal'); openEditPaymentModal(id); };
+    openModal('viewPaymentModal');
+}
+
+function openEditPaymentModal(id) {
+    const p = findPayment(id);
+    if (!p) return showToast('پرداخت مورد نظر یافت نشد', 'error');
+    document.getElementById('editPaymentId').value = p.id || '';
+    document.getElementById('paymentAmount').value = p.amount || 0;
+    document.getElementById('paymentMethod').value = p.payment_method || 'cash';
+    document.getElementById('paymentStatus').value = normalizePaymentStatus(p.status);
+    document.getElementById('paymentReceipt').value = p.receipt_number || '';
+    document.getElementById('paymentDescription').value = p.description || '';
+    openModal('paymentModal');
+}
+
+async function savePayment() {
+    const id = document.getElementById('editPaymentId').value;
+    if (!id) return showToast('پرداخت انتخاب نشده است', 'error');
+    const payload = {
+        amount: Number(document.getElementById('paymentAmount').value) || 0,
+        payment_method: document.getElementById('paymentMethod').value,
+        status: document.getElementById('paymentStatus').value,
+        receipt_number: document.getElementById('paymentReceipt').value.trim(),
+        description: document.getElementById('paymentDescription').value.trim()
+    };
+    try {
+        await updatePayment(id, payload);
+        showToast('پرداخت ویرایش شد', 'success');
+        closeModal('paymentModal');
+        loadPayments();
+    } catch(e) {
+        showToast(e.message, 'error');
+    }
+}
+
+async function deletePayment(id) {
+    if (!confirm('آیا از حذف/ابطال این پرداخت اطمینان دارید؟')) return;
+    try {
+        await deletePaymentApi(id);
+        showToast('پرداخت ابطال شد', 'success');
+        loadPayments();
+    } catch(e) {
+        showToast(e.message, 'error');
+    }
+}
+
+function bindPaymentSearch() {
+    const input = document.getElementById('searchInput');
+    if (!input) return;
+    input.addEventListener('input', () => {
+        const q = input.value.trim().toLowerCase();
+        const list = allPayments.filter(p => `${p.patient_name || ''} ${p.receipt_number || ''} ${p.amount || ''}`.toLowerCase().includes(q));
+        renderPaymentsTable(list);
+    });
+}
+
+function resetFilters() {
+    document.getElementById('startDate').value = '';
+    document.getElementById('endDate').value = '';
+    document.getElementById('statusFilter').value = 'all';
+    document.getElementById('searchInput').value = '';
+    loadPayments();
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+    if (!await initPage()) return;
+    bindPaymentSearch();
+    loadPayments();
+});
+    </script>
+<script src="/js/noorvista-panel-polish.js"></script>
+<script src="/js/noorvista-admin-header.js"></script>
+<script src="/js/noorvista-manager-ui.js"></script>
+<script src="/assets/js/panel-final-fixes.js"></script>
+<script src="/assets/js/panel-pretty-selects-global.js"></script></body>
+</html>

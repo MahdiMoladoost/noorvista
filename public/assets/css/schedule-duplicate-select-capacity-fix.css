@@ -1,0 +1,37 @@
+/* NOORVISTA schedule duplicate select + default capacity fix */
+
+body[data-appointment-page="schedules"] .appt-filter-field > select.nvps-native {
+  display: none !important;
+}
+
+body[data-appointment-page="schedules"] .appt-filter-field > .nvps-select {
+  width: 100% !important;
+}
+
+body[data-appointment-page="schedules"] .appt-filter-field .nvps-select + select,
+body[data-appointment-page="schedules"] .appt-filter-field select + .nvps-select {
+  margin-top: 0 !important;
+}
+
+/* In case an old orphan pretty wrapper remains beside a moved select, hide wrappers without select. */
+body[data-appointment-page="schedules"] .nvps-select:not(:has(select)) {
+  display: none !important;
+}
+
+/* Compact table filters after fixing duplicate wrappers */
+body[data-appointment-page="schedules"] .appt-filter-card .appt-card-body:first-of-type {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 12px 14px !important;
+  align-items: end !important;
+}
+
+body[data-appointment-page="schedules"] .appt-filter-card .appt-card-body:first-of-type > .appt-filter-field:nth-last-child(1):nth-child(odd) {
+  grid-column: 1 / -1 !important;
+}
+
+@media (max-width: 850px) {
+  body[data-appointment-page="schedules"] .appt-filter-card .appt-card-body:first-of-type {
+    grid-template-columns: 1fr !important;
+  }
+}

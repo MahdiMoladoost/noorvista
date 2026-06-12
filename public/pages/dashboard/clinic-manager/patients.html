@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa">
+<head>
+<link href="/css/local-fonts.css" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>مدیریت بیماران | NOORVISTA</title>
+<link href="/css/open-iconic-bootstrap.min.css" rel="stylesheet"/>
+<link href="/css/ionicons.min.css" rel="stylesheet"/>
+<link href="/css/icomoon.css" rel="stylesheet"/>
+<link href="/css/panel-common.css" rel="stylesheet"/>
+<link href="/css/clinic-admin-fixes.css" rel="stylesheet"/>
+<style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #f5f7fa; font-family: 'Vazir', Tahoma, Arial; }
+        
+        .sidebar { position: fixed; right: 0; top: 0; bottom: 0; width: 280px; background: #1a2c3e; z-index: 1000; }
+        .sidebar-header { padding: 25px 20px; text-align: center; border-bottom: 1px solid #2c4053; }
+        .sidebar-logo { font-size: 24px; font-weight: 700; color: #ffffff; }
+        .sidebar-logo span { color: #4fc3f7; }
+        .sidebar-subtitle { font-size: 11px; color: #8898aa; }
+        .sidebar-nav { padding: 20px 0; list-style: none; }
+        .nav-item { margin-bottom: 2px; }
+        .nav-link { display: flex; align-items: center; padding: 12px 24px; color: #cdd9ed; text-decoration: none; gap: 12px; font-size: 14px; }
+        .nav-link:hover { background: #2c4053; color: white; }
+        .nav-link.active { background: #2c4053; color: white; border-right: 3px solid #4fc3f7; }
+        
+        .main-content { margin-right: 280px; min-height: 100vh; padding: 20px; }
+        
+        .top-header { background: white; border-radius: 8px; padding: 15px 20px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #e5e7eb; }
+        .page-title h1 { font-size: 20px; font-weight: 600; color: #1f2937; }
+        .page-title p { font-size: 12px; color: #6b7280; }
+        
+        .card { background: white; border-radius: 8px; border: 1px solid #e5e7eb; }
+        .card-header { padding: 15px 20px; border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center; background: #f9fafb; }
+        .card-header h4 { font-size: 16px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+        .card-body { padding: 0; overflow-x: auto; }
+        
+        .data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        .data-table th, .data-table td { padding: 12px; border: 1px solid #e5e7eb; text-align: center; }
+        .data-table th { background: #f9fafb; font-weight: 600; }
+        
+        .btn { padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 500; cursor: pointer; border: none; display: inline-flex; align-items: center; gap: 6px; }
+        .btn-primary { background: #3b82f6; color: white; }
+        .btn-primary:hover { background: #2563eb; }
+        .btn-outline { background: white; border: 1px solid #d1d5db; color: #374151; }
+        .btn-outline:hover { border-color: #3b82f6; color: #3b82f6; background: #eff6ff; }
+        .btn-danger { background: #ef4444; color: white; }
+        .btn-danger:hover { background: #dc2626; }
+        .btn-sm { padding: 4px 12px; font-size: 12px; }
+        
+        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 2000; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.2s; }
+        .modal-overlay.show { opacity: 1; visibility: visible; }
+        .modal-container { background: white; border-radius: 8px; width: 90%; max-width: 500px; max-height: 90vh; overflow-y: auto; }
+        .modal-header { padding: 16px 20px; border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center; }
+        .modal-header h3 { margin: 0; font-size: 16px; font-weight: 600; }
+        .modal-close { background: none; border: none; font-size: 22px; cursor: pointer; color: #9ca3af; }
+        .modal-close:hover { color: #ef4444; }
+        .modal-body { padding: 20px; }
+        .modal-footer { padding: 12px 20px; border-top: 1px solid #e5e7eb; display: flex; justify-content: flex-end; gap: 10px; background: #f9fafb; }
+        
+        .form-group { margin-bottom: 16px; }
+        .form-group label { font-size: 12px; font-weight: 600; color: #374151; margin-bottom: 6px; display: block; }
+        .form-control { width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 13px; }
+        .form-control:focus { outline: none; border-color: #3b82f6; }
+        
+        .search-box { position: relative; }
+        .search-box input { padding: 8px 35px 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; width: 250px; font-size: 13px; }
+        .search-box input:focus { outline: none; border-color: #3b82f6; }
+        .search-box i { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: #9ca3af; }
+        
+        .user-avatar { width: 36px; height: 36px; background: #3b82f6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
+        
+        .toast { position: fixed; bottom: 20px; left: 20px; background: #1f2937; color: white; padding: 12px 20px; border-radius: 8px; z-index: 3000; animation: slideIn 0.3s ease; }
+        @keyframes slideIn { from { transform: translateX(-100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+        
+        @media (max-width: 992px) { .sidebar { right: -280px; } .main-content { margin-right: 0; } }
+        @media (max-width: 576px) { .card-header { flex-direction: column; align-items: stretch; gap: 10px; } }
+    </style>
+<link href="/css/clinic-admin-theme.css" rel="stylesheet"/>
+<link href="/css/clinic-admin-hardening.css" rel="stylesheet"/>
+<link href="/css/noorvista-panel-polish.css" rel="stylesheet"/>
+<link href="/css/noorvista-admin-header.css" rel="stylesheet"/>
+<link href="/css/noorvista-manager-ui.css" rel="stylesheet"/>
+<link href="/assets/css/panel-sidebar-unified-final.css" rel="stylesheet"/>
+<link href="/assets/css/panel-ui-final-fixes.css" rel="stylesheet"/>
+<link href="/assets/css/panel-pretty-selects-global.css" rel="stylesheet"/><link href="/assets/css/clinic-manager-single-role-guard.css" rel="stylesheet"/></head>
+<body><script src="/assets/js/clinic-manager-single-role-guard.js"></script>
+<div class="sidebar">
+<div class="sidebar-header"><div class="sidebar-logo">NOOR<span>VISTA</span></div></div>
+<ul class="sidebar-nav"><li class="nav-item"><a class="nav-link" data-sidebar-match="index.html," href="index.html"><i class="icon-dashboard"></i><span>داشبورد</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="doctors.html" href="doctors.html"><i class="icon-user-md"></i><span>مدیریت پزشکان</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="schedule.html" href="schedule.html"><i class="icon-clock"></i><span>زمان‌بندی پزشکان</span></a></li><li class="nav-item"><a class="nav-link active" data-sidebar-match="patients.html" href="patients.html"><i class="icon-users"></i><span>مدیریت بیماران</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="appointments.html" href="appointments.html"><i class="icon-calendar"></i><span>مدیریت نوبت‌ها</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="staff.html" href="staff.html"><i class="icon-briefcase"></i><span>مدیریت کارکنان</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="payments.html" href="payments.html"><i class="icon-credit-card"></i><span>مدیریت مالی</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="faqs.html,notifications.html" href="faqs.html"><i class="icon-comments nv-faq-icon"></i><span>سوالات و اعلانات</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="reports.html" href="reports.html"><i class="icon-bar-chart"></i><span>گزارشات</span></a></li></ul>
+</div>
+<div class="main-content">
+<div class="top-header nv-standard-top-header">
+<div class="page-heading">
+<h1>مدیریت بیماران</h1>
+<p>مشاهده، ثبت و مدیریت اطلاعات بیماران</p>
+</div>
+<div class="header-actions">
+<button aria-label="اعلان‌ها" class="notification-button" title="اعلان‌ها" type="button"><i class="icon-bell"></i><span aria-hidden="true" class="notification-dot"></span></button>
+<div class="user-menu nv-user-menu">
+<button aria-expanded="false" aria-haspopup="true" class="user-menu-trigger" type="button">
+<span class="user-avatar nv-header-avatar">نو</span>
+<span class="user-menu-text"><strong class="user-name nv-header-user-name">کاربر NOORVISTA</strong><small class="user-role nv-header-user-role">کاربر سیستم</small></span>
+<i aria-hidden="true" class="icon-chevron-down nv-user-menu-chevron"></i>
+</button>
+<div class="user-dropdown nv-user-dropdown" role="menu">
+<button class="user-dropdown-item" data-nv-profile="" role="menuitem" type="button"><i class="icon-user"></i><span>مشاهده پروفایل</span></button>
+<button class="user-dropdown-item" data-nv-edit-account="" role="menuitem" type="button"><i class="icon-pencil"></i><span>ویرایش اطلاعات حساب</span></button>
+<button class="user-dropdown-item" data-nv-change-password="" role="menuitem" type="button"><i class="icon-lock"></i><span>تغییر رمز عبور</span></button>
+<button class="user-dropdown-item" data-nv-account-settings="" role="menuitem" type="button"><i class="icon-cog"></i><span>تنظیمات حساب</span></button>
+<div aria-hidden="true" class="user-dropdown-divider"></div>
+<button class="user-dropdown-item danger" data-nv-logout="" role="menuitem" type="button"><i class="icon-sign-out"></i><span>خروج از حساب</span></button>
+</div>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header">
+<h4><i class="icon-users"></i> لیست بیماران</h4>
+<button class="btn btn-primary btn-sm" onclick="openAddPatientModal()" type="button"><i class="icon-plus"></i> بیمار جدید</button>
+</div>
+<div class="card-body">
+<div class="filter-section" style="padding:16px 20px;display:flex;gap:12px;align-items:end;flex-wrap:wrap;border-bottom:1px solid #e5e7eb;background:#fff;">
+<div class="filter-group" style="min-width:260px;flex:1;">
+<label style="display:block;font-size:12px;font-weight:900;color:#374151;margin-bottom:6px;">جستجو</label>
+<input class="form-control" id="searchInput" placeholder="جستجو بر اساس نام، تلفن، ایمیل یا کد ملی..." type="text"/>
+</div>
+</div>
+<table class="data-table" id="patientsTable">
+<thead>
+<tr>
+<th>شناسه</th>
+<th>نام بیمار</th>
+<th>تلفن</th>
+<th>ایمیل</th>
+<th>تعداد نوبت</th>
+<th>تاریخ ثبت</th>
+<th>عملیات</th>
+</tr>
+</thead>
+<tbody id="patientsTableBody">
+<tr><td colspan="7" style="text-align:center">در حال بارگذاری...</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- مودال افزودن/ویرایش بیمار -->
+<div class="modal-overlay" id="patientModal">
+<div class="modal-container">
+<div class="modal-header">
+<h3 id="patientModalTitle">ثبت بیمار جدید</h3>
+<button class="modal-close" onclick="closeModal('patientModal')" type="button">×</button>
+</div>
+<div class="modal-body">
+<input id="editPatientId" type="hidden"/>
+<div class="form-group">
+<label>نام کامل</label>
+<input class="form-control" id="fullName" placeholder="مثال: احمد احمدی" required="" type="text"/>
+</div>
+<div class="form-group">
+<label>نام کاربری</label>
+<input class="form-control" id="username" placeholder="نام کاربری" required="" type="text"/>
+</div>
+<div class="form-group">
+<label>شماره تلفن</label>
+<input class="form-control" id="phone" placeholder="۰۹۱۲۳۴۵۶۷۸۹" required="" type="tel"/>
+</div>
+<div class="form-group">
+<label>ایمیل</label>
+<input class="form-control" id="email" placeholder="example@mail.com" type="email"/>
+</div>
+<div class="form-row patient-extra-row">
+<div class="form-group">
+<label>کد ملی</label>
+<input class="form-control" id="nationalCode" inputmode="numeric" maxlength="10" placeholder="مثال: ۰۰۱۲۳۴۵۶۷۸" type="text"/>
+</div>
+<div class="form-group">
+<label>تاریخ تولد</label>
+<input class="form-control" id="birthDateJalali" placeholder="مثال: ۱۳۷۰/۰۵/۲۰" type="text"/>
+</div>
+</div>
+<div class="form-row patient-extra-row">
+<div class="form-group">
+<label>جنسیت</label>
+<select class="form-control" id="gender">
+<option value="">انتخاب نشده</option>
+<option value="male">مرد</option>
+<option value="female">زن</option>
+<option value="other">سایر</option>
+</select>
+</div>
+<div class="form-group">
+<label>بیمه پایه</label>
+<input class="form-control" id="insuranceProvider" placeholder="مثلاً تامین اجتماعی، سلامت، نیروهای مسلح" type="text"/>
+</div>
+</div>
+<div class="form-row patient-extra-row">
+<div class="form-group">
+<label>شماره بیمه</label>
+<input class="form-control" id="insuranceNumber" placeholder="شماره بیمه/پرونده بیمه" type="text"/>
+</div>
+<div class="form-group">
+<label>تلفن همراه اضطراری</label>
+<input class="form-control" id="emergencyContactPhone" placeholder="شماره همراه خانواده/همراه" type="tel"/>
+</div>
+</div>
+<div class="form-group">
+<label>نام همراه اضطراری</label>
+<input class="form-control" id="emergencyContactName" placeholder="مثال: علی احمدی" type="text"/>
+</div>
+<div class="form-group">
+<label>آدرس</label>
+<textarea class="form-control" id="address" placeholder="آدرس محل سکونت" rows="2"></textarea>
+</div>
+<div class="form-group">
+<label>حساسیت دارویی/غذایی</label>
+<textarea class="form-control" id="allergies" placeholder="مثلاً حساسیت به پنی‌سیلین" rows="2"></textarea>
+</div>
+<div class="form-group">
+<label>داروهای مصرفی</label>
+<textarea class="form-control" id="medications" placeholder="داروهای فعلی بیمار" rows="2"></textarea>
+</div>
+<div class="form-group">
+<label>بیماری‌های زمینه‌ای</label>
+<textarea class="form-control" id="chronicDiseases" placeholder="دیابت، فشار خون، بیماری قلبی و..." rows="2"></textarea>
+</div>
+<div class="form-group">
+<label>سابقه پزشکی / توضیحات چشم‌پزشکی</label>
+<textarea class="form-control" id="medicalHistory" placeholder="سابقه جراحی چشم، عینک، لیزیک، آب مروارید و..." rows="3"></textarea>
+</div>
+<div class="form-group">
+<label>یادداشت داخلی</label>
+<textarea class="form-control" id="patientNotes" placeholder="یادداشت مخصوص کلینیک" rows="2"></textarea>
+</div>
+<div class="form-group">
+<label id="passwordLabel">رمز عبور</label>
+<input class="form-control" id="password" placeholder="********" required="" type="password"/>
+</div>
+</div>
+<div class="modal-footer">
+<button class="btn btn-outline" onclick="closeModal('patientModal')" type="button">انصراف</button>
+<button class="btn btn-primary" onclick="savePatient()" type="button"><span id="patientSubmitText">ثبت بیمار</span></button>
+</div>
+</div>
+</div>
+<!-- مودال مشاهده جزئیات بیمار -->
+<div class="modal-overlay" id="viewPatientModal">
+<div class="modal-container" style="max-width: 760px;">
+<div class="modal-header">
+<h3>جزئیات بیمار</h3>
+<button class="modal-close" onclick="closeModal('viewPatientModal')" type="button">×</button>
+</div>
+<div class="modal-body" id="viewPatientContent"></div>
+<div class="modal-footer">
+<button class="btn btn-outline" onclick="closeModal('viewPatientModal')" type="button">بستن</button>
+<button class="btn btn-primary" id="viewPatientEditBtn" type="button">ویرایش</button>
+</div>
+</div>
+</div>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/panel-common.js"></script>
+<script src="/js/clinic-admin-fixes.js"></script>
+<script src="/js/jalali.js"></script>
+<script>
+let allPatients = [];
+const PATIENT_API_BASE = '/api/clinic/patients';
+async function getPatients() { return window.apiRequest(PATIENT_API_BASE); }
+async function getPatient(id) { return window.apiRequest(`${PATIENT_API_BASE}/${encodeURIComponent(id)}`); }
+async function createPatient(data) { return window.apiRequest(PATIENT_API_BASE, 'POST', data); }
+async function updatePatient(id, data) { return window.apiRequest(`${PATIENT_API_BASE}/${encodeURIComponent(id)}`, 'PUT', data); }
+async function deletePatientApi(id) { return window.apiRequest(`${PATIENT_API_BASE}/${encodeURIComponent(id)}`, 'DELETE'); }
+
+function normalizePatient(p = {}) {
+    const fullName = p.full_name || p.fullname || p.name || p.display_name || '-';
+    return {
+        ...p,
+        id: p.id,
+        full_name: fullName,
+        username: p.username || '',
+        phone: p.phone || p.mobile || '',
+        email: p.email || '',
+        national_code: p.national_code || '',
+        birth_date: p.birth_date || '',
+        gender: p.gender || '',
+        address: p.address || '',
+        emergency_contact_name: p.emergency_contact_name || '',
+        emergency_contact_phone: p.emergency_contact_phone || '',
+        insurance_provider: p.insurance_provider || '',
+        insurance_number: p.insurance_number || '',
+        allergies: p.allergies || '',
+        medications: p.medications || '',
+        chronic_diseases: p.chronic_diseases || '',
+        medical_history: p.medical_history || '',
+        notes: p.notes || '',
+        appointment_count: p.appointment_count || 0,
+        created_at: p.created_at || p.created_date || '',
+        is_active: p.is_active === undefined ? true : !!p.is_active
+    };
+}
+
+async function loadPatients() {
+    try {
+        const result = await getPatients();
+        allPatients = Array.isArray(result?.patients) ? result.patients.map(normalizePatient) : [];
+        renderPatientsTable(allPatients);
+    } catch(e) {
+        showToast(e.message || 'خطا در بارگذاری بیماران', 'error');
+    }
+}
+
+function renderPatientsTable(patients) {
+    const tbody = document.getElementById('patientsTableBody');
+    if (!tbody) return;
+    const list = Array.isArray(patients) ? patients : [];
+    if (!list.length) {
+        tbody.innerHTML = '<tr><td colspan="7" style="text-align:center">هیچ بیماری یافت نشد</td></tr>';
+        return;
+    }
+    tbody.innerHTML = list.map(raw => {
+        const p = normalizePatient(raw);
+        return `
+        <tr>
+            <td>${toPersianNumber(p.id)}</td>
+            <td>${escapeHtml(p.full_name)}</td>
+            <td>${toPersianNumber(p.phone || '-')}</td>
+            <td>${escapeHtml(p.email || '-')}</td>
+            <td>${toPersianNumber(p.appointment_count || 0)}</td>
+            <td>${p.created_at ? toJalali(p.created_at) : '-'}</td>
+            <td class="action-buttons">
+                <button type="button" class="btn btn-sm action-btn view patient-action" data-action="view" data-id="${Number(p.id)}"><i class="icon-eye"></i> مشاهده</button>
+                <button type="button" class="btn btn-sm action-btn edit patient-action" data-action="edit" data-id="${Number(p.id)}"><i class="icon-pencil"></i> ویرایش</button>
+                <button type="button" class="btn btn-sm action-btn delete patient-action" data-action="delete" data-id="${Number(p.id)}"><i class="icon-trash"></i> حذف</button>
+            </td>
+        </tr>`;
+    }).join('');
+}
+
+function setPatientModalMode(mode, patient = null) {
+    const p = patient ? normalizePatient(patient) : null;
+    const isEdit = mode === 'edit';
+    document.getElementById('editPatientId').value = p?.id || '';
+    document.getElementById('fullName').value = p?.full_name || '';
+    document.getElementById('username').value = p?.username || '';
+    document.getElementById('phone').value = p?.phone || '';
+    document.getElementById('email').value = p?.email || '';
+    document.getElementById('nationalCode').value = p?.national_code || '';
+    document.getElementById('birthDateJalali').value = p?.birth_date ? toJalali(p.birth_date) : '';
+    document.getElementById('gender').value = p?.gender || '';
+    document.getElementById('address').value = p?.address || '';
+    document.getElementById('emergencyContactName').value = p?.emergency_contact_name || '';
+    document.getElementById('emergencyContactPhone').value = p?.emergency_contact_phone || '';
+    document.getElementById('insuranceProvider').value = p?.insurance_provider || '';
+    document.getElementById('insuranceNumber').value = p?.insurance_number || '';
+    document.getElementById('allergies').value = p?.allergies || '';
+    document.getElementById('medications').value = p?.medications || '';
+    document.getElementById('chronicDiseases').value = p?.chronic_diseases || '';
+    document.getElementById('medicalHistory').value = p?.medical_history || '';
+    document.getElementById('patientNotes').value = p?.notes || '';
+    document.getElementById('password').value = '';
+    document.getElementById('patientModalTitle').textContent = isEdit ? 'ویرایش بیمار' : 'ثبت بیمار جدید';
+    document.getElementById('patientSubmitText').textContent = isEdit ? 'ذخیره تغییرات' : 'ثبت بیمار';
+    document.getElementById('passwordLabel').textContent = isEdit ? 'رمز عبور جدید (اختیاری)' : 'رمز عبور';
+    document.getElementById('password').required = !isEdit;
+}
+
+function openAddPatientModal() {
+    setPatientModalMode('add');
+    openModal('patientModal');
+}
+
+function openEditPatientModal(id) {
+    const p = allPatients.find(x => String(x.id) === String(id));
+    if (!p) return showToast('بیمار مورد نظر یافت نشد', 'error');
+    setPatientModalMode('edit', p);
+    openModal('patientModal');
+}
+
+function renderPatientDetails(raw) {
+    const p = normalizePatient(raw);
+    document.getElementById('viewPatientContent').innerHTML = `
+        <div class="detail-item"><strong>نام:</strong> ${escapeHtml(p.full_name)}</div>
+        <div class="detail-item"><strong>نام کاربری:</strong> ${escapeHtml(p.username || '-')}</div>
+        <div class="detail-item"><strong>تلفن:</strong> ${toPersianNumber(p.phone || '-')}</div>
+        <div class="detail-item"><strong>ایمیل:</strong> ${escapeHtml(p.email || '-')}</div>
+        <div class="detail-item"><strong>کد ملی:</strong> ${toPersianNumber(p.national_code || '-')}</div>
+        <div class="detail-item"><strong>تاریخ تولد:</strong> ${p.birth_date ? toJalali(p.birth_date) : '-'}</div>
+        <div class="detail-item"><strong>جنسیت:</strong> ${p.gender === 'male' ? 'مرد' : p.gender === 'female' ? 'زن' : (p.gender || '-')}</div>
+        <div class="detail-item"><strong>بیمه:</strong> ${escapeHtml(p.insurance_provider || '-')} ${p.insurance_number ? ' / ' + escapeHtml(p.insurance_number) : ''}</div>
+        <div class="detail-item"><strong>همراه اضطراری:</strong> ${escapeHtml(p.emergency_contact_name || '-')} ${p.emergency_contact_phone ? ' / ' + toPersianNumber(p.emergency_contact_phone) : ''}</div>
+        <div class="detail-item"><strong>آدرس:</strong> ${escapeHtml(p.address || '-')}</div>
+        <div class="detail-item"><strong>حساسیت‌ها:</strong> ${escapeHtml(p.allergies || '-')}</div>
+        <div class="detail-item"><strong>داروها:</strong> ${escapeHtml(p.medications || '-')}</div>
+        <div class="detail-item"><strong>بیماری‌های زمینه‌ای:</strong> ${escapeHtml(p.chronic_diseases || '-')}</div>
+        <div class="detail-item"><strong>سابقه پزشکی:</strong> ${escapeHtml(p.medical_history || '-')}</div>
+        <div class="detail-item"><strong>یادداشت:</strong> ${escapeHtml(p.notes || '-')}</div>
+        <div class="detail-item"><strong>تعداد نوبت:</strong> ${toPersianNumber(p.appointment_count || 0)}</div>
+        <div class="detail-item"><strong>وضعیت:</strong> ${p.is_active ? 'فعال' : 'غیرفعال'}</div>
+        <div class="detail-item"><strong>تاریخ ثبت:</strong> ${p.created_at ? toJalali(p.created_at) : '-'}</div>
+    `;
+}
+
+async function viewPatient(id) {
+    let p = allPatients.find(x => String(x.id) === String(id));
+    if (!p) return showToast('بیمار مورد نظر یافت نشد', 'error');
+    renderPatientDetails(p);
+    document.getElementById('viewPatientEditBtn').onclick = () => { closeModal('viewPatientModal'); openEditPatientModal(id); };
+    openModal('viewPatientModal');
+    try {
+        const result = await getPatient(id);
+        if (result?.patient) {
+            p = normalizePatient({ ...p, ...result.patient });
+            allPatients = allPatients.map(item => String(item.id) === String(id) ? p : item);
+            renderPatientDetails(p);
+        }
+    } catch (_) {}
+}
+
+function bindPatientSearch() {
+    const input = document.getElementById('searchInput');
+    if (!input) return;
+    input.addEventListener('input', () => {
+        const q = input.value.trim().toLowerCase();
+        const list = allPatients.filter(p => `${p.full_name || ''} ${p.username || ''} ${p.phone || ''} ${p.email || ''}`.toLowerCase().includes(q));
+        renderPatientsTable(list);
+    });
+}
+
+async function savePatient() {
+    const id = document.getElementById('editPatientId').value;
+    const fullName = document.getElementById('fullName').value.trim();
+    const username = document.getElementById('username').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    if (!fullName || !username || !phone || (!id && !password)) {
+        showToast('لطفاً فیلدهای الزامی را پر کنید', 'error');
+        return;
+    }
+    const birthDateJalali = document.getElementById('birthDateJalali').value.trim();
+    if (birthDateJalali && window.isValidJalaliDate && !window.isValidJalaliDate(birthDateJalali)) {
+        showToast('تاریخ تولد را به‌صورت شمسی و معتبر وارد کنید؛ مثال: ۱۳۷۰/۰۵/۲۰', 'error');
+        return;
+    }
+    const payload = {
+        full_name: fullName,
+        fullname: fullName,
+        username,
+        phone,
+        email,
+        national_code: document.getElementById('nationalCode').value.trim(),
+        birth_date: birthDateJalali ? (window.toGregorianDateString ? window.toGregorianDateString(birthDateJalali) : birthDateJalali) : '',
+        gender: document.getElementById('gender').value,
+        address: document.getElementById('address').value.trim(),
+        emergency_contact_name: document.getElementById('emergencyContactName').value.trim(),
+        emergency_contact_phone: document.getElementById('emergencyContactPhone').value.trim(),
+        insurance_provider: document.getElementById('insuranceProvider').value.trim(),
+        insurance_number: document.getElementById('insuranceNumber').value.trim(),
+        allergies: document.getElementById('allergies').value.trim(),
+        medications: document.getElementById('medications').value.trim(),
+        chronic_diseases: document.getElementById('chronicDiseases').value.trim(),
+        medical_history: document.getElementById('medicalHistory').value.trim(),
+        notes: document.getElementById('patientNotes').value.trim()
+    };
+    if (password) payload.password = password;
+    try {
+        if (id) {
+            await updatePatient(id, payload);
+            showToast('اطلاعات بیمار ویرایش شد', 'success');
+        } else {
+            await createPatient(payload);
+            showToast('بیمار با موفقیت ثبت شد', 'success');
+        }
+        closeModal('patientModal');
+        await loadPatients();
+    } catch(e) {
+        showToast(e.message || 'خطا در ذخیره بیمار', 'error');
+    }
+}
+
+async function deletePatient(id) {
+    const p = allPatients.find(x => String(x.id) === String(id));
+    const ok = window.NOORVISTA?.confirm
+        ? await window.NOORVISTA.confirm({
+            title: 'حذف / غیرفعال‌سازی بیمار',
+            message: `آیا از حذف یا غیرفعال‌سازی ${p ? p.full_name : 'این بیمار'} اطمینان دارید؟`,
+            okText: 'حذف بیمار',
+            danger: true
+        })
+        : confirm('آیا از حذف/غیرفعال‌سازی این بیمار اطمینان دارید؟');
+    if (!ok) return;
+    try {
+        await deletePatientApi(id);
+        showToast('بیمار حذف/غیرفعال شد', 'success');
+        await loadPatients();
+    } catch(e) {
+        showToast(e.message || 'خطا در حذف بیمار', 'error');
+    }
+}
+
+
+function bindPatientActions() {
+    const tbody = document.getElementById('patientsTableBody');
+    if (!tbody || tbody.dataset.actionsBound === '1') return;
+    tbody.dataset.actionsBound = '1';
+    tbody.addEventListener('click', function(event) {
+        const btn = event.target.closest('.patient-action');
+        if (!btn) return;
+        event.preventDefault();
+        event.stopPropagation();
+        const id = btn.dataset.id;
+        const action = btn.dataset.action;
+        if (action === 'view') return viewPatient(id);
+        if (action === 'edit') return openEditPatientModal(id);
+        if (action === 'delete') return deletePatient(id);
+    });
+}
+
+window.loadPatients = loadPatients;
+window.openAddPatientModal = openAddPatientModal;
+window.openEditPatientModal = openEditPatientModal;
+window.viewPatient = viewPatient;
+window.deletePatient = deletePatient;
+window.savePatient = savePatient;
+
+document.addEventListener('DOMContentLoaded', async () => {
+    if (!await initPage()) return;
+    bindPatientSearch();
+    bindPatientActions();
+    loadPatients();
+});
+    </script>
+<script src="/js/noorvista-panel-polish.js"></script>
+<script src="/js/noorvista-admin-header.js"></script>
+<script src="/js/noorvista-manager-ui.js"></script>
+<script src="/assets/js/panel-final-fixes.js"></script>
+<script src="/assets/js/panel-pretty-selects-global.js"></script></body>
+</html>

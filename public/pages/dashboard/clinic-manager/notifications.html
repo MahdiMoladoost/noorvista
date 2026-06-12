@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa">
+<head>
+<link href="/css/local-fonts.css" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>مدیریت اعلانات | NOORVISTA</title>
+<link href="/css/open-iconic-bootstrap.min.css" rel="stylesheet"/>
+<link href="/css/ionicons.min.css" rel="stylesheet"/>
+<link href="/css/icomoon.css" rel="stylesheet"/>
+<link href="/css/panel-common.css" rel="stylesheet"/>
+<link href="/css/noorvista-admin-header.css" rel="stylesheet"/>
+<link href="/css/noorvista-panel-polish.css" rel="stylesheet"/>
+<link href="/css/noorvista-manager-ui.css" rel="stylesheet"/>
+<style>
+        * { box-sizing: border-box; }
+        body { margin:0; background:#f5f7fa; font-family:'Vazir', Tahoma, Arial; color:#172033; }
+        .sidebar { position:fixed; right:0; top:0; bottom:0; width:280px; background:#1a2c3e; z-index:1000; transition:width .22s ease; }
+        .sidebar-header { position:relative; padding:25px 20px; text-align:center; border-bottom:1px solid #2c4053; }
+        .sidebar-logo { font-size:24px; font-weight:900; color:#fff; letter-spacing:.5px; }
+        .sidebar-logo span { color:#4fc3f7; }
+        .sidebar-nav { padding:18px 0; list-style:none; margin:0; }
+        .nav-item { margin-bottom:2px; }
+        .nav-link { display:flex; align-items:center; padding:12px 24px; color:#cdd9ed; text-decoration:none; gap:12px; font-size:14px; border-right:3px solid transparent; }
+        .nav-link:hover, .nav-link.active { background:#2c4053; color:#fff; border-right-color:#4fc3f7; }
+        .main-content { margin-right:280px; min-height:100vh; padding:20px; transition:margin-right .22s ease; }
+        .card { background:#fff; border:1px solid #e5e7eb; border-radius:20px; box-shadow:0 16px 36px rgba(15,35,55,.07); overflow:hidden; }
+        .card-header { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; padding:16px 20px; border-bottom:1px solid #e5e7eb; background:#f9fafb; }
+        .card-header h4 { margin:0; display:flex; align-items:center; gap:8px; font-size:16px; font-weight:900; }
+        .toolbar { display:flex; gap:12px; align-items:end; flex-wrap:wrap; margin-bottom:18px; }
+        .toolbar .form-group { min-width:170px; flex:1; }
+        .card-body { padding:20px; }
+        .form-control { width:100%; padding:10px 12px; border:1px solid #d1d5db; border-radius:14px; font-size:13px; background:#fff; }
+        .form-control:focus { outline:none; border-color:#1897e8; box-shadow:0 0 0 4px rgba(24,151,232,.10); }
+        .data-table { width:100%; border-collapse:collapse; font-size:13px; min-width:880px; }
+        .data-table th, .data-table td { border:1px solid #e5e7eb; padding:12px; text-align:center; vertical-align:middle; }
+        .data-table th { background:#f8fafc; font-weight:900; color:#334155; }
+        .table-responsive { overflow:auto; }
+        .badge { display:inline-flex; align-items:center; justify-content:center; padding:4px 10px; border-radius:999px; font-size:11px; font-weight:900; }
+        .badge-info { background:#e0f2fe; color:#0369a1; }
+        .badge-success { background:#dcfce7; color:#047857; }
+        .badge-warning { background:#fef3c7; color:#b45309; }
+        .badge-danger { background:#fee2e2; color:#b91c1c; }
+        .badge-muted { background:#f1f5f9; color:#64748b; }
+        .modal-overlay { position:fixed; inset:0; background:rgba(15,23,42,.55); z-index:3500; display:none; align-items:center; justify-content:center; padding:20px; }
+        .modal-overlay.show { display:flex; }
+        .modal-container { width:min(760px,96vw); max-height:90vh; overflow:hidden; display:flex; flex-direction:column; background:#fff; border-radius:22px; box-shadow:0 24px 70px rgba(0,0,0,.22); }
+        .modal-header, .modal-footer { padding:16px 20px; border-bottom:1px solid #e5e7eb; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+        .modal-footer { border-top:1px solid #e5e7eb; border-bottom:0; justify-content:flex-end; background:#f9fafb; flex-wrap:wrap; }
+        .modal-body { padding:20px; overflow:auto; }
+        .modal-close { border:0; width:34px; height:34px; border-radius:50%; background:#f1f5f9; cursor:pointer; font-size:22px; color:#64748b; }
+        .form-row { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+        .form-group { margin-bottom:14px; }
+        .form-group label { display:block; margin-bottom:6px; font-size:12px; font-weight:900; color:#374151; }
+        textarea.form-control { min-height:120px; resize:vertical; }
+        .empty-state { text-align:center; padding:35px; color:#64748b; }
+        @media(max-width:992px){ .sidebar{right:-280px}.main-content{margin-right:0}.form-row{grid-template-columns:1fr} }
+    </style>
+<link href="/assets/css/admin-persian-date.css" rel="stylesheet"/>
+<link href="/assets/css/panel-sidebar-unified-final.css" rel="stylesheet"/>
+<link href="/assets/css/panel-ui-final-fixes.css" rel="stylesheet"/>
+<link href="/assets/css/panel-pretty-selects-global.css" rel="stylesheet"/><link href="/assets/css/clinic-manager-single-role-guard.css" rel="stylesheet"/></head>
+<body><script src="/assets/js/clinic-manager-single-role-guard.js"></script>
+<div class="sidebar">
+<div class="sidebar-header"><div class="sidebar-logo">NOOR<span>VISTA</span></div></div>
+<ul class="sidebar-nav"><li class="nav-item"><a class="nav-link" data-sidebar-match="index.html," href="index.html"><i class="icon-dashboard"></i><span>داشبورد</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="doctors.html" href="doctors.html"><i class="icon-user-md"></i><span>مدیریت پزشکان</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="schedule.html" href="schedule.html"><i class="icon-clock"></i><span>زمان‌بندی پزشکان</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="patients.html" href="patients.html"><i class="icon-users"></i><span>مدیریت بیماران</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="appointments.html" href="appointments.html"><i class="icon-calendar"></i><span>مدیریت نوبت‌ها</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="staff.html" href="staff.html"><i class="icon-briefcase"></i><span>مدیریت کارکنان</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="payments.html" href="payments.html"><i class="icon-credit-card"></i><span>مدیریت مالی</span></a></li><li class="nav-item"><a class="nav-link active" data-sidebar-match="faqs.html,notifications.html" href="faqs.html"><i class="icon-comments nv-faq-icon"></i><span>سوالات و اعلانات</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="reports.html" href="reports.html"><i class="icon-bar-chart"></i><span>گزارشات</span></a></li></ul>
+</div>
+<div class="main-content">
+<div class="top-header">
+<div class="page-title"><h1>مدیریت اعلانات</h1><p>ثبت، ویرایش و ارسال اعلان برای نقش‌های مختلف سیستم</p></div>
+</div>
+<div class="card">
+<div class="card-header">
+<h4><i class="icon-bell"></i> لیست اعلانات</h4>
+<button class="btn btn-primary" id="addNotificationBtn" type="button"><i class="icon-plus"></i> اعلان جدید</button>
+</div>
+<div class="card-body">
+<div class="toolbar">
+<div class="form-group"><label>جستجو</label><input class="form-control" id="notificationSearch" placeholder="جستجو در عنوان یا متن..."/></div>
+<div class="form-group"><label>وضعیت</label><select class="form-control" id="statusFilter"><option value="all">همه</option><option selected="" value="active">فعال</option><option value="inactive">غیرفعال</option></select></div>
+<button class="btn btn-secondary" id="reloadBtn" type="button"><i class="icon-refresh"></i> بروزرسانی</button>
+</div>
+<div class="table-responsive">
+<table class="data-table">
+<thead><tr><th>ردیف</th><th>عنوان</th><th>نوع</th><th>مخاطب</th><th>وضعیت</th><th>تاریخ ثبت</th><th>عملیات</th></tr></thead>
+<tbody id="notificationsTableBody"><tr><td class="empty-state" colspan="7">در حال بارگذاری...</td></tr></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="modal-overlay" id="notificationModal">
+<div class="modal-container">
+<div class="modal-header"><h3 id="notificationModalTitle">ثبت اعلان جدید</h3><button class="modal-close" data-close-modal="notificationModal" type="button">×</button></div>
+<div class="modal-body">
+<input id="notificationId" type="hidden"/>
+<div class="form-group"><label>عنوان</label><input class="form-control" id="notificationTitle" maxlength="255" required=""/></div>
+<div class="form-group"><label>متن اعلان</label><textarea class="form-control" id="notificationMessage" required=""></textarea></div>
+<div class="form-row">
+<div class="form-group"><label>نوع اعلان</label><select class="form-control" id="notificationType"><option value="info">اطلاع‌رسانی</option><option value="success">موفقیت</option><option value="warning">هشدار</option><option value="danger">مهم / خطر</option></select></div>
+<div class="form-group"><label>مخاطب</label><select class="form-control" id="targetRoles"><option value="">همه نقش‌ها</option><option value="system_admin,admin,super_admin">مدیران سیستم</option><option value="clinic_admin,clinic_manager,clinic">مدیران کلینیک</option><option value="doctor">پزشکان</option><option value="receptionist,reception,staff">منشی/کارکنان</option><option value="patient">بیماران</option></select></div>
+</div>
+<div class="form-row">
+<div class="form-group"><label>شروع نمایش</label><input autocomplete="off" class="form-control nv-jalali-datetime" id="startsAt" inputmode="numeric" placeholder="۱۴۰۴/۰۱/۰۱ ۰۹:۰۰" type="text"/></div>
+<div class="form-group"><label>پایان نمایش</label><input autocomplete="off" class="form-control nv-jalali-datetime" id="expiresAt" inputmode="numeric" placeholder="۱۴۰۴/۰۱/۰۱ ۲۳:۰۰" type="text"/></div>
+</div>
+<div class="form-group"><label><input checked="" id="notificationActive" type="checkbox"/> فعال باشد</label></div>
+</div>
+<div class="modal-footer"><button class="btn btn-secondary" data-close-modal="notificationModal" type="button">انصراف</button><button class="btn btn-primary" id="saveNotificationBtn" type="button"><i class="icon-check"></i> ذخیره</button></div>
+</div>
+</div>
+<div class="modal-overlay" id="viewNotificationModal">
+<div class="modal-container">
+<div class="modal-header"><h3><i class="icon-eye"></i> مشاهده اعلان</h3><button class="modal-close" data-close-modal="viewNotificationModal" type="button">×</button></div>
+<div class="modal-body" id="viewNotificationContent"></div>
+<div class="modal-footer"><button class="btn btn-secondary" data-close-modal="viewNotificationModal" type="button">بستن</button></div>
+</div>
+</div>
+<script src="/js/panel-common.js"></script>
+<script src="/js/noorvista-panel-polish.js"></script>
+<script src="/js/noorvista-admin-header.js"></script>
+<script src="/js/noorvista-manager-ui.js"></script>
+<script>
+    (function(){
+      'use strict';
+      const state = { all: [] };
+      const token = () => localStorage.getItem('token') || '';
+      const headers = () => ({ 'Content-Type': 'application/json', ...(token() ? { Authorization: 'Bearer ' + token() } : {}) });
+      const esc = v => String(v ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch]));
+      const faNum = v => typeof window.toPersianNumber === 'function' ? window.toPersianNumber(v) : String(v ?? '').replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[Number(d)]);
+      const toast = (m,t='info') => window.showToast ? window.showToast(m,t) : alert(m);
+      const modal = (id, show=true) => { const el=document.getElementById(id); if(el){ el.classList.toggle('show', show); el.style.display=show?'flex':'none'; } };
+      async function request(url, method='GET', data=null){ const res=await fetch(url,{method,headers:headers(),body:data&&['POST','PUT','PATCH','DELETE'].includes(method)?JSON.stringify(data):undefined,cache:'no-store'}); const body=await res.json().catch(()=>({})); if(!res.ok||body.success===false) throw new Error(body.message||'خطای سرور: '+res.status); return body; }
+      function typeBadge(type){ const map={info:'اطلاع‌رسانی',success:'موفقیت',warning:'هشدار',danger:'مهم'}; return `<span class="badge badge-${esc(type||'info')}">${map[type]||type||'اطلاع‌رسانی'}</span>`; }
+      function roleLabel(v){ if(!v) return 'همه نقش‌ها'; return String(v).replace(/system_admin|admin|super_admin/g,'مدیر سیستم').replace(/clinic_admin|clinic_manager|clinic/g,'مدیر کلینیک').replace(/doctor/g,'پزشک').replace(/receptionist|reception|staff/g,'کارکنان').replace(/patient/g,'بیمار'); }
+      function render(){ const q=(document.getElementById('notificationSearch').value||'').trim().toLowerCase(); const st=document.getElementById('statusFilter').value; let list=state.all.filter(n => (!q || `${n.title} ${n.message}`.toLowerCase().includes(q)) && (st==='all' || (st==='active'?n.is_active:!n.is_active))); const body=document.getElementById('notificationsTableBody'); if(!list.length){ body.innerHTML='<tr><td colspan="7" class="empty-state">اعلانی ثبت نشده است</td></tr>'; return; } body.innerHTML=list.map((n,i)=>`<tr><td>${faNum(i+1)}</td><td><strong>${esc(n.title)}</strong><br><small>${esc(String(n.message||'').slice(0,80))}${String(n.message||'').length>80?'...':''}</small></td><td>${typeBadge(n.type)}</td><td>${esc(roleLabel(n.target_roles))}</td><td>${n.is_active?'<span class="badge badge-success">فعال</span>':'<span class="badge badge-muted">غیرفعال</span>'}</td><td>${n.created_at?faNum(String(n.created_at).slice(0,10)):'-'}</td><td class="table-actions"><button type="button" class="action-btn view" data-action="view" data-id="${n.id}"><i class="icon-eye"></i> مشاهده</button><button type="button" class="action-btn edit" data-action="edit" data-id="${n.id}"><i class="icon-pencil"></i> ویرایش</button><button type="button" class="action-btn delete" data-action="delete" data-id="${n.id}"><i class="icon-trash"></i> حذف</button></td></tr>`).join(''); window.NOORVISTA?.refreshUI?.(); }
+      async function load(){ try{ const data=await request('/api/admin/notifications'); state.all=Array.isArray(data.notifications)?data.notifications:[]; render(); }catch(e){ document.getElementById('notificationsTableBody').innerHTML='<tr><td colspan="7" class="empty-state">'+esc(e.message||'خطا در دریافت اعلانات')+'</td></tr>'; toast(e.message||'خطا در دریافت اعلانات','error'); } }
+      function find(id){ return state.all.find(n=>String(n.id)===String(id)); }
+      function fill(n=null){ document.getElementById('notificationModalTitle').textContent=n?'ویرایش اعلان':'ثبت اعلان جدید'; document.getElementById('notificationId').value=n?.id||''; document.getElementById('notificationTitle').value=n?.title||''; document.getElementById('notificationMessage').value=n?.message||''; document.getElementById('notificationType').value=n?.type||'info'; document.getElementById('targetRoles').value=n?.target_roles||''; document.getElementById('startsAt').value=n?.starts_at?(window.NVDate?.toJalaliDateTime?window.NVDate.toJalaliDateTime(n.starts_at):String(n.starts_at).slice(0,16)):''; document.getElementById('expiresAt').value=n?.expires_at?(window.NVDate?.toJalaliDateTime?window.NVDate.toJalaliDateTime(n.expires_at):String(n.expires_at).slice(0,16)):''; window.NVDate?.initFields?.(); document.getElementById('notificationActive').checked=n?!!n.is_active:true; }
+      function collect(){ return { title:document.getElementById('notificationTitle').value.trim(), message:document.getElementById('notificationMessage').value.trim(), type:document.getElementById('notificationType').value, target_roles:document.getElementById('targetRoles').value, starts_at:(document.getElementById('startsAt').value?(window.NVDate?.toGregorianDateTime?window.NVDate.toGregorianDateTime(document.getElementById('startsAt').value):document.getElementById('startsAt').value):null), expires_at:(document.getElementById('expiresAt').value?(window.NVDate?.toGregorianDateTime?window.NVDate.toGregorianDateTime(document.getElementById('expiresAt').value):document.getElementById('expiresAt').value):null), is_active:document.getElementById('notificationActive').checked }; }
+      async function save(){ const id=document.getElementById('notificationId').value; const data=collect(); if(!data.title||!data.message) return toast('عنوان و متن اعلان الزامی است','warning'); const btn=document.getElementById('saveNotificationBtn'); btn.disabled=true; try{ await request(id?'/api/admin/notifications/'+encodeURIComponent(id):'/api/admin/notifications', id?'PUT':'POST', data); modal('notificationModal',false); await load(); toast('اعلان ذخیره شد','success'); }catch(e){ toast(e.message||'خطا در ذخیره اعلان','error'); }finally{ btn.disabled=false; } }
+      function view(id){ const n=find(id); if(!n) return; document.getElementById('viewNotificationContent').innerHTML=`<div class="detail-grid"><div class="detail-item full"><span class="detail-label">عنوان</span><span class="detail-value">${esc(n.title)}</span></div><div class="detail-item full"><span class="detail-label">متن</span><span class="detail-value">${esc(n.message)}</span></div><div class="detail-item"><span class="detail-label">نوع</span><span class="detail-value">${typeBadge(n.type)}</span></div><div class="detail-item"><span class="detail-label">مخاطب</span><span class="detail-value">${esc(roleLabel(n.target_roles))}</span></div></div>`; modal('viewNotificationModal',true); }
+      function edit(id){ const n=find(id); if(!n) return; fill(n); modal('notificationModal',true); }
+      async function remove(id){ if(!confirm('آیا از حذف/غیرفعال‌سازی این اعلان مطمئن هستید؟')) return; try{ await request('/api/admin/notifications/'+encodeURIComponent(id),'DELETE'); await load(); toast('اعلان حذف شد','success'); }catch(e){ toast(e.message||'خطا در حذف اعلان','error'); } }
+      document.addEventListener('DOMContentLoaded',()=>{ window.NVDate?.initFields?.(); document.getElementById('addNotificationBtn').addEventListener('click',()=>{fill();modal('notificationModal',true);}); document.getElementById('saveNotificationBtn').addEventListener('click',save); document.getElementById('reloadBtn').addEventListener('click',load); document.getElementById('notificationSearch').addEventListener('input',render); document.getElementById('statusFilter').addEventListener('change',render); document.querySelectorAll('[data-close-modal]').forEach(b=>b.addEventListener('click',()=>modal(b.dataset.closeModal,false))); document.querySelectorAll('.modal-overlay').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)modal(m.id,false)})); document.getElementById('notificationsTableBody').addEventListener('click',e=>{ const b=e.target.closest('[data-action]'); if(!b)return; const a=b.dataset.action,id=b.dataset.id; if(a==='view')view(id); if(a==='edit')edit(id); if(a==='delete')remove(id); }); load(); });
+    })();
+    </script>
+<script src="/assets/js/admin-persian-date.js"></script>
+<script src="/assets/js/panel-final-fixes.js"></script>
+<script src="/assets/js/panel-pretty-selects-global.js"></script></body>
+</html>

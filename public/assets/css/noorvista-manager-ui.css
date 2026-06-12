@@ -1,0 +1,328 @@
+/* NOORVISTA manager panels shared UI v18
+   Scope: visual system only. Does not bind CRUD events or mutate table data.
+   Goals: unified buttons, table actions, modals, empty/loading states and responsive spacing. */
+:root {
+  --nv-primary: #1799e8;
+  --nv-primary-dark: #0f78bd;
+  --nv-primary-soft: #eaf7ff;
+  --nv-secondary: #f1f5f9;
+  --nv-success: #10b981;
+  --nv-success-soft: #ecfdf5;
+  --nv-warning: #f59e0b;
+  --nv-warning-soft: #fffbeb;
+  --nv-danger: #ef4444;
+  --nv-danger-soft: #fff1f2;
+  --nv-info: #6366f1;
+  --nv-info-soft: #eef2ff;
+  --nv-text: #102033;
+  --nv-muted: #64748b;
+  --nv-border: #dbe5ef;
+  --nv-surface: #ffffff;
+  --nv-soft: #f8fbff;
+  --nv-shadow-sm: 0 8px 20px rgba(15, 35, 52, .08);
+  --nv-shadow-md: 0 16px 36px rgba(15, 35, 52, .13);
+  --nv-radius-sm: 10px;
+  --nv-radius-md: 14px;
+  --nv-radius-lg: 20px;
+  --nv-transition: 160ms ease;
+}
+
+button,
+.btn,
+.action-btn,
+.action-icon,
+.btn-sm,
+.btn-action {
+  font-family: 'Vazir', Tahoma, Arial, sans-serif !important;
+}
+
+.btn,
+.btn-sm,
+.action-btn,
+.action-icon,
+.btn-action,
+button.btn,
+a.btn {
+  appearance: none;
+  border: 0;
+  border-radius: var(--nv-radius-sm) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  cursor: pointer;
+  text-decoration: none !important;
+  line-height: 1.25 !important;
+  white-space: nowrap;
+  font-weight: 750 !important;
+  transition: transform var(--nv-transition), box-shadow var(--nv-transition), background var(--nv-transition), color var(--nv-transition), border-color var(--nv-transition), opacity var(--nv-transition);
+  user-select: none;
+}
+
+.btn,
+.btn-action { padding: 9px 16px !important; font-size: 13px !important; min-height: 38px; }
+.btn-sm { padding: 7px 12px !important; font-size: 12px !important; min-height: 32px; }
+.action-btn,
+.action-icon { padding: 7px 11px !important; font-size: 12px !important; min-height: 32px; }
+
+.btn i,
+.btn-sm i,
+.action-btn i,
+.action-icon i,
+.btn-action i { font-size: 15px; line-height: 1; }
+
+.btn:hover,
+.btn-sm:hover,
+.action-btn:hover,
+.action-icon:hover,
+.btn-action:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--nv-shadow-sm);
+}
+
+.btn:active,
+.btn-sm:active,
+.action-btn:active,
+.action-icon:active,
+.btn-action:active { transform: translateY(0); box-shadow: none; }
+
+.btn:disabled,
+.btn.disabled,
+.btn-sm:disabled,
+.action-btn:disabled,
+.action-icon:disabled,
+.btn-action:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.btn-primary { background: linear-gradient(135deg, var(--nv-primary), #27b8ff) !important; color: #fff !important; box-shadow: 0 8px 18px rgba(23,153,232,.22); }
+.btn-primary:hover { background: linear-gradient(135deg, var(--nv-primary-dark), var(--nv-primary)) !important; color: #fff !important; }
+
+.btn-secondary,
+.btn-outline { background: #fff !important; color: var(--nv-text) !important; border: 1px solid var(--nv-border) !important; box-shadow: none; }
+.btn-secondary:hover,
+.btn-outline:hover { background: var(--nv-primary-soft) !important; color: var(--nv-primary-dark) !important; border-color: rgba(23,153,232,.4) !important; }
+
+.btn-success { background: linear-gradient(135deg, var(--nv-success), #34d399) !important; color: #fff !important; }
+.btn-warning { background: linear-gradient(135deg, var(--nv-warning), #fbbf24) !important; color: #fff !important; }
+.btn-danger { background: linear-gradient(135deg, var(--nv-danger), #fb7185) !important; color: #fff !important; }
+.btn-info { background: linear-gradient(135deg, var(--nv-info), #818cf8) !important; color: #fff !important; }
+
+.table-actions,
+.action-buttons,
+.actions,
+td.actions,
+td .action-buttons {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+}
+
+.btn-action,
+.action-btn,
+.action-icon {
+  background: #fff !important;
+  border: 1px solid var(--nv-border) !important;
+  box-shadow: none;
+}
+
+.action-view,
+.action-btn.view,
+.action-icon.view,
+.btn-action.view { background: var(--nv-info-soft) !important; color: #4f46e5 !important; border-color: #dbe3ff !important; }
+.action-view:hover,
+.action-btn.view:hover,
+.action-icon.view:hover,
+.btn-action.view:hover { background: #4f46e5 !important; color: #fff !important; border-color: #4f46e5 !important; }
+
+.action-edit,
+.action-btn.edit,
+.action-icon.edit,
+.btn-action.edit { background: var(--nv-warning-soft) !important; color: #d97706 !important; border-color: #fde68a !important; }
+.action-edit:hover,
+.action-btn.edit:hover,
+.action-icon.edit:hover,
+.btn-action.edit:hover { background: var(--nv-warning) !important; color: #fff !important; border-color: var(--nv-warning) !important; }
+
+.action-delete,
+.action-cancel,
+.action-btn.delete,
+.action-icon.delete,
+.btn-action.delete { background: var(--nv-danger-soft) !important; color: #dc2626 !important; border-color: #fecdd3 !important; }
+.action-delete:hover,
+.action-cancel:hover,
+.action-btn.delete:hover,
+.action-icon.delete:hover,
+.btn-action.delete:hover { background: var(--nv-danger) !important; color: #fff !important; border-color: var(--nv-danger) !important; }
+
+.action-confirm,
+.action-success,
+.action-toggle,
+.action-btn.confirm,
+.action-icon.toggle,
+.btn-action.confirm { background: var(--nv-success-soft) !important; color: #059669 !important; border-color: #bbf7d0 !important; }
+.action-confirm:hover,
+.action-success:hover,
+.action-toggle:hover,
+.action-btn.confirm:hover,
+.action-icon.toggle:hover,
+.btn-action.confirm:hover { background: var(--nv-success) !important; color: #fff !important; border-color: var(--nv-success) !important; }
+
+.btn.is-loading,
+.btn-sm.is-loading,
+.action-btn.is-loading,
+.btn-action.is-loading {
+  pointer-events: none;
+  opacity: .75;
+}
+
+.nv-spinner,
+.nv-loading-dot {
+  width: 13px;
+  height: 13px;
+  border-radius: 999px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  display: inline-block;
+  animation: nvSpin .7s linear infinite;
+}
+@keyframes nvSpin { to { transform: rotate(360deg); } }
+
+.card,
+.card-modern,
+.stat-card,
+.quick-action-card {
+  border-radius: var(--nv-radius-lg) !important;
+  border-color: var(--nv-border) !important;
+}
+
+.card-header,
+.card-header-modern {
+  border-radius: var(--nv-radius-lg) var(--nv-radius-lg) 0 0 !important;
+}
+
+.data-table,
+.doctors-table,
+.data-table-modern {
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+}
+.data-table th,
+.data-table td,
+.doctors-table th,
+.doctors-table td,
+.data-table-modern th,
+.data-table-modern td {
+  vertical-align: middle !important;
+}
+.data-table tbody tr,
+.doctors-table tbody tr,
+.data-table-modern tbody tr { transition: background var(--nv-transition); }
+.data-table tbody tr:hover,
+.doctors-table tbody tr:hover,
+.data-table-modern tbody tr:hover { background: #f8fbff !important; }
+
+.empty-state,
+.table-empty-state,
+.loading {
+  color: var(--nv-muted) !important;
+  text-align: center !important;
+  padding: 36px 16px !important;
+}
+
+.modal-overlay {
+  backdrop-filter: blur(4px);
+}
+.modal-container,
+.modal-content {
+  border-radius: 22px !important;
+  box-shadow: var(--nv-shadow-md) !important;
+  border: 1px solid rgba(219,229,239,.8);
+}
+.modal-header {
+  background: linear-gradient(135deg, #ffffff, #f8fbff) !important;
+}
+.modal-footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  background: #f8fbff !important;
+}
+.form-control,
+input,
+select,
+textarea {
+  max-width: 100%;
+}
+
+/* Schedule specific: professional header and row actions */
+body[data-nv-page="schedule"] .card-header .btn,
+body[data-nv-page="schedule"] .card-header a.btn,
+body[data-nv-page="schedule"] .card-header button.btn {
+  min-width: 120px;
+}
+body[data-nv-page="schedule"] .card-header {
+  gap: 12px !important;
+}
+body[data-nv-page="schedule"] .card-header > div,
+body[data-nv-page="schedule"] .card-header .schedule-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* FAQ table action buttons should never become squared after re-render */
+body[data-nv-page="faqs"] .data-table .actions button,
+body[data-nv-page="faqs"] .data-table .table-actions button,
+body[data-nv-page="faqs"] .data-table .btn-sm {
+  border-radius: 999px !important;
+  min-width: 76px;
+}
+
+@media (max-width: 768px) {
+  .btn,
+  .btn-action { padding: 8px 12px !important; font-size: 12px !important; }
+  .btn-sm,
+  .action-btn,
+  .action-icon { padding: 7px 10px !important; font-size: 11px !important; }
+  .table-actions,
+  .action-buttons,
+  .actions { justify-content: flex-start !important; }
+  .modal-container,
+  .modal-content { width: calc(100vw - 22px) !important; max-height: calc(100vh - 22px) !important; }
+}
+
+
+/* FAQ sidebar icon: avoid font fallback rendering as a plain '?' character */
+.sidebar .nav-link[href$="faqs.html"] > i,
+.sidebar .nav-link[href*="/faqs.html"] > i,
+.sidebar .nav-link .nv-faq-icon {
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 0 !important;
+  line-height: 1 !important;
+  color: currentColor !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+.sidebar .nav-link[href$="faqs.html"] > i::before,
+.sidebar .nav-link[href*="/faqs.html"] > i::before,
+.sidebar .nav-link .nv-faq-icon::before {
+  content: "" !important;
+  width: 19px !important;
+  height: 19px !important;
+  display: block !important;
+  background: currentColor !important;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9.4l-4.7 3.5A1 1 0 0 1 3 19.7V17H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm4.9 5.1c.45-.95 1.43-1.6 2.76-1.6 1.95 0 3.25 1.12 3.25 2.78 0 1.22-.67 1.9-1.72 2.55-.7.43-1.02.78-1.02 1.42v.18h-1.78v-.24c0-1.22.58-1.88 1.5-2.46.76-.48 1.13-.84 1.13-1.43 0-.68-.52-1.1-1.36-1.1-.78 0-1.34.4-1.63 1.08L8.9 9.1Zm2.42 7.15a1.1 1.1 0 1 0 0-2.2 1.1 1.1 0 0 0 0 2.2Z'/%3E%3C/svg%3E") center / contain no-repeat !important;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9.4l-4.7 3.5A1 1 0 0 1 3 19.7V17H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm4.9 5.1c.45-.95 1.43-1.6 2.76-1.6 1.95 0 3.25 1.12 3.25 2.78 0 1.22-.67 1.9-1.72 2.55-.7.43-1.02.78-1.02 1.42v.18h-1.78v-.24c0-1.22.58-1.88 1.5-2.46.76-.48 1.13-.84 1.13-1.43 0-.68-.52-1.1-1.36-1.1-.78 0-1.34.4-1.63 1.08L8.9 9.1Zm2.42 7.15a1.1 1.1 0 1 0 0-2.2 1.1 1.1 0 0 0 0 2.2Z'/%3E%3C/svg%3E") center / contain no-repeat !important;
+}

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa">
+<head>
+<link href="/css/local-fonts.css" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>پشتیبان‌گیری | NOORVISTA</title>
+<link href="/css/open-iconic-bootstrap.min.css" rel="stylesheet"/>
+<link href="/css/ionicons.min.css" rel="stylesheet"/>
+<link href="/css/icomoon.css" rel="stylesheet"/>
+<link href="/css/panel-common.css" rel="stylesheet"/>
+<style>
+        .backup-card {
+            background: linear-gradient(135deg, #f0f7ff, #e8f0fe);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .backup-info h4 {
+            margin: 0 0 8px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e293b;
+        }
+        .backup-info p {
+            margin: 0;
+            font-size: 13px;
+            color: #64748b;
+        }
+        .backup-actions {
+            display: flex;
+            gap: 12px;
+        }
+        .btn-backup {
+            background: linear-gradient(135deg, #2f89fc, #1a6fdb);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-backup:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(47,137,252,0.3);
+        }
+        .btn-restore {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-restore:hover {
+            background: #059669;
+            transform: translateY(-2px);
+        }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .data-table th, .data-table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .data-table th {
+            background: #f8fafc;
+            font-weight: 600;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+        .btn-sm {
+            padding: 5px 10px;
+            font-size: 11px;
+            border-radius: 6px;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-outline { background: transparent; border: 1px solid #e2e8f0; }
+        .btn-danger { background: #ef4444; color: white; }
+        .card {
+            background: white;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        .card-header {
+            padding: 18px 25px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .card-header h4 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .card-header h4 i {
+            color: #2f89fc;
+        }
+        .card-body {
+            padding: 20px 25px;
+        }
+    </style>
+<link href="/css/admin-enhancements.css" rel="stylesheet"/>
+<link href="/css/noorvista-panel-polish.css" rel="stylesheet"/>
+<link href="/css/noorvista-admin-header.css" rel="stylesheet"/>
+<link href="/css/noorvista-manager-ui.css" rel="stylesheet"/>
+<link href="/assets/css/panel-sidebar-unified-final.css" rel="stylesheet"/>
+<link href="/assets/css/panel-ui-final-fixes.css" rel="stylesheet"/>
+<link href="/assets/css/panel-pretty-selects-global.css" rel="stylesheet"/></head>
+<body>
+<div class="sidebar">
+<div class="sidebar-header"><div class="sidebar-logo">NOOR<span>VISTA</span></div></div>
+<ul class="sidebar-nav"><li class="nav-item"><a class="nav-link" data-sidebar-match="index.html," href="index.html"><i class="icon-dashboard"></i><span>داشبورد</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="users.html" href="users.html"><i class="icon-users"></i><span>مدیریت کاربران</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="doctors.html" href="doctors.html"><i class="icon-user-md"></i><span>مدیریت پزشکان</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="schedule.html" href="schedule.html"><i class="icon-clock"></i><span>زمان‌بندی پزشکان</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="patients.html" href="patients.html"><i class="icon-users"></i><span>مدیریت بیماران</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="appointments.html" href="appointments.html"><i class="icon-calendar"></i><span>مدیریت نوبت‌ها</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="staff.html" href="staff.html"><i class="icon-briefcase"></i><span>مدیریت کارکنان</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="payments.html" href="payments.html"><i class="icon-credit-card"></i><span>مدیریت مالی</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="faqs.html" href="faqs.html"><i class="icon-comments nv-faq-icon"></i><span>سوالات پرتکرار</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="notifications.html" href="notifications.html"><i class="icon-bell"></i><span>اعلانات</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="settings.html" href="settings.html"><i class="icon-cog"></i><span>تنظیمات سیستم</span></a></li><li class="nav-item"><a class="nav-link active" data-sidebar-match="backup.html" href="backup.html"><i class="icon-database"></i><span>پشتیبان‌گیری</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="reports.html,logs.html" href="reports.html"><i class="icon-bar-chart"></i><span>گزارشات و لاگ‌ها</span></a></li></ul>
+</div>
+<div class="main-content">
+<div class="top-header nv-standard-top-header">
+<div class="page-heading">
+<h1>پشتیبان‌گیری از دیتابیس</h1>
+<p>ایجاد و بازیابی پشتیبان از اطلاعات سیستم</p>
+</div>
+<div class="header-actions">
+<button aria-label="اعلان‌ها" class="notification-button" title="اعلان‌ها" type="button"><i class="icon-bell"></i><span aria-hidden="true" class="notification-dot"></span></button>
+<div class="user-menu nv-user-menu">
+<button aria-expanded="false" aria-haspopup="true" class="user-menu-trigger" type="button">
+<span class="user-avatar nv-header-avatar">نو</span>
+<span class="user-menu-text"><strong class="user-name nv-header-user-name">کاربر NOORVISTA</strong><small class="user-role nv-header-user-role">کاربر سیستم</small></span>
+<i aria-hidden="true" class="icon-chevron-down nv-user-menu-chevron"></i>
+</button>
+<div class="user-dropdown nv-user-dropdown" role="menu">
+<button class="user-dropdown-item" data-nv-profile="" role="menuitem" type="button"><i class="icon-user"></i><span>مشاهده پروفایل</span></button>
+<button class="user-dropdown-item" data-nv-edit-account="" role="menuitem" type="button"><i class="icon-pencil"></i><span>ویرایش اطلاعات حساب</span></button>
+<button class="user-dropdown-item" data-nv-change-password="" role="menuitem" type="button"><i class="icon-lock"></i><span>تغییر رمز عبور</span></button>
+<button class="user-dropdown-item" data-nv-account-settings="" role="menuitem" type="button"><i class="icon-cog"></i><span>تنظیمات حساب</span></button>
+<div aria-hidden="true" class="user-dropdown-divider"></div>
+<button class="user-dropdown-item danger" data-nv-logout="" role="menuitem" type="button"><i class="icon-sign-out"></i><span>خروج از حساب</span></button>
+</div>
+</div>
+</div>
+</div>
+<div class="backup-card">
+<div class="backup-info">
+<h4><i class="icon-database"></i> پشتیبان‌گیری از دیتابیس</h4>
+<p>با استفاده از این بخش می‌توانید از کل اطلاعات دیتابیس پشتیبان تهیه کنید</p>
+</div>
+<div class="backup-actions">
+<button class="btn-backup" onclick="createBackup()"><i class="icon-database"></i> ایجاد پشتیبان جدید</button>
+</div>
+</div>
+<div class="card">
+<div class="card-header">
+<h4><i class="icon-archive"></i> پشتیبان‌های قبلی</h4>
+</div>
+<div class="card-body">
+<table class="data-table" id="backupsTable">
+<thead>
+<tr>
+<th>نام فایل</th>
+<th>تاریخ ایجاد</th>
+<th>سایز</th>
+<th>عملیات</th>
+</tr>
+</thead>
+<tbody>
+<tr><td class="text-center" colspan="4">در حال بارگذاری...</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jalali.js"></script>
+<script src="/js/panel-common.js"></script>
+<script>
+    async function loadBackups() {
+        try {
+            const data = await apiRequest('/admin/backups');
+            const backups = data.backups || [];
+            const tbody = document.querySelector('#backupsTable tbody');
+            
+            if (backups.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="4" class="text-center">هیچ پشتیانی یافت نشد</td></tr>';
+                return;
+            }
+            
+            tbody.innerHTML = backups.map(backup => `
+                <tr>
+                    <td>${backup.filename}<\/td>
+                    <td>${toJalali(backup.date)}<\/td>
+                    <td>${backup.size}<\/td>
+                    <td class="action-buttons">
+                        <button class="btn-sm btn-outline" onclick="downloadBackup('${backup.filename}')"><i class="icon-download"></i> دانلود</button>
+                        <button class="btn-sm btn-outline" onclick="restoreBackup('${backup.filename}')"><i class="icon-refresh"></i> بازیابی</button>
+                        <button class="btn-sm btn-danger" onclick="deleteBackup('${backup.filename}')"><i class="icon-trash"></i> حذف</button>
+                    <\/td>
+                </tr>
+            `).join('');
+        } catch (error) {
+            console.error('Error loading backups:', error);
+            showToast('خطا در بارگذاری پشتیبان‌ها', 'error');
+        }
+    }
+
+    async function createBackup() {
+        try {
+            showToast('در حال ایجاد پشتیبان...', 'info');
+            await apiRequest('/admin/backup', 'POST');
+            showToast('پشتیبان با موفقیت ایجاد شد', 'success');
+            loadBackups();
+        } catch (error) {
+            showToast(error.message || 'خطا در ایجاد پشتیبان', 'error');
+        }
+    }
+
+    function downloadBackup(filename) {
+        window.location.href = `/api/admin/backup/download/${filename}`;
+    }
+
+    async function restoreBackup(filename) {
+        if (!confirm(`آیا از بازیابی پشتیبان "${filename}" اطمینان دارید؟\nتوجه: این عملیات غیرقابل بازگشت است!`)) return;
+        
+        try {
+            showToast('در حال بازیابی پشتیبان...', 'info');
+            await apiRequest(`/admin/backup/restore/${filename}`, 'POST');
+            showToast('پشتیبان با موفقیت بازیابی شد', 'success');
+            setTimeout(() => {
+                location.reload();
+            }, 2000);
+        } catch (error) {
+            showToast(error.message || 'خطا در بازیابی پشتیبان', 'error');
+        }
+    }
+
+    async function deleteBackup(filename) {
+        if (!confirm(`آیا از حذف پشتیبان "${filename}" اطمینان دارید؟`)) return;
+        
+        try {
+            await apiRequest(`/admin/backup/${filename}`, 'DELETE');
+            showToast('پشتیبان با موفقیت حذف شد', 'success');
+            loadBackups();
+        } catch (error) {
+            showToast(error.message || 'خطا در حذف پشتیبان', 'error');
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        if (!checkAuth()) return;
+        loadBackups();
+    });
+</script>
+<script src="/js/admin-enhancements.js"></script>
+<script src="/js/noorvista-panel-polish.js"></script>
+<script src="/js/noorvista-admin-header.js"></script>
+<script src="/js/noorvista-manager-ui.js"></script>
+<script src="/assets/js/admin-sidebar-active-fix.js"></script>
+<script src="/assets/js/panel-final-fixes.js"></script>
+<script src="/assets/js/panel-pretty-selects-global.js"></script></body>
+</html>

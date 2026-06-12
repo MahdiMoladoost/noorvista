@@ -1,0 +1,451 @@
+/* NOORVISTA Slot Actions Row + Layer Fix
+   رفع دو مشکل:
+   1) سلول عملیات از ردیف جدا/بالا دیده می‌شد.
+   2) منوی عملیات پشت دکمه یا ردیف پایینی می‌رفت.
+*/
+
+body[data-appointment-page="slots"] .appt-table {
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+}
+
+/* همه سلول‌های یک ردیف هم‌ارتفاع و هم‌سطح باشند */
+body[data-appointment-page="slots"] .appt-table tbody tr {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+body[data-appointment-page="slots"] .appt-table tbody tr:hover,
+body[data-appointment-page="slots"] .appt-table tbody tr:focus-within {
+  z-index: 5000 !important;
+}
+
+body[data-appointment-page="slots"] .appt-table tbody td {
+  height: 74px !important;
+  min-height: 74px !important;
+  vertical-align: middle !important;
+  position: relative !important;
+  z-index: 1 !important;
+  box-sizing: border-box !important;
+}
+
+/* رنگ ستون عملیات دقیقاً مثل بقیه سلول‌های همان ردیف باشد */
+body[data-appointment-page="slots"] .appt-table tbody tr:nth-child(odd) td:last-child {
+  background: rgba(255, 255, 255, .78) !important;
+}
+
+body[data-appointment-page="slots"] .appt-table tbody tr:nth-child(even) td:last-child {
+  background: rgba(248, 250, 252, .90) !important;
+}
+
+body[data-appointment-page="slots"] .appt-table tbody tr:hover td:last-child,
+body[data-appointment-page="slots"] .appt-table tbody tr:focus-within td:last-child {
+  background: #f0f9ff !important;
+}
+
+/* ستون عملیات ثابت، ولی بدون container جدا یا دو تکه */
+body[data-appointment-page="slots"] .appt-table th:last-child,
+body[data-appointment-page="slots"] .appt-table td:last-child {
+  width: 128px !important;
+  min-width: 128px !important;
+  max-width: 128px !important;
+  padding: 10px 8px !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  border-inline-start: 0 !important;
+  border-inline-end: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+/* جلوگیری از ظاهر ستون جداگانه */
+body[data-appointment-page="slots"] .appt-table td:last-child::before,
+body[data-appointment-page="slots"] .appt-table td:last-child::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* دکمه عملیات دقیقاً وسط سلول */
+body[data-appointment-page="slots"] .slot-status-actions {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 54px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  position: relative !important;
+  z-index: 2 !important;
+  overflow: visible !important;
+}
+
+body[data-appointment-page="slots"] .slot-actions-menu {
+  position: relative !important;
+  z-index: 6000 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 104px !important;
+  height: 36px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+body[data-appointment-page="slots"] .nv-row-action-btn {
+  width: 104px !important;
+  height: 36px !important;
+  min-height: 36px !important;
+  padding: 0 10px !important;
+  border-radius: 10px !important;
+  border: 1px solid #dbe5f0 !important;
+  background: #ffffff !important;
+  color: #0f2747 !important;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, .045) !important;
+  display: inline-flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  font-size: 12px !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  margin: 0 !important;
+  position: relative !important;
+  z-index: 2 !important;
+  transform: none !important;
+  float: none !important;
+}
+
+/* منو بالاتر از ردیف‌ها و دکمه‌های بعدی */
+body[data-appointment-page="slots"] .nv-row-action-menu {
+  position: absolute !important;
+  top: calc(100% + 8px) !important;
+  left: 50% !important;
+  transform: translateX(-50%) translateY(-4px) !important;
+  width: 150px !important;
+  padding: 7px !important;
+  border-radius: 14px !important;
+  border: 1px solid #dbe5f0 !important;
+  background: rgba(255,255,255,.99) !important;
+  box-shadow: 0 24px 54px rgba(15, 23, 42, .22) !important;
+  display: none !important;
+  grid-template-columns: 1fr !important;
+  gap: 6px !important;
+  z-index: 999999 !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+body[data-appointment-page="slots"] .slot-actions-menu:hover,
+body[data-appointment-page="slots"] .slot-actions-menu:focus-within {
+  z-index: 999998 !important;
+}
+
+body[data-appointment-page="slots"] .slot-actions-menu:hover .nv-row-action-menu,
+body[data-appointment-page="slots"] .slot-actions-menu:focus-within .nv-row-action-menu {
+  display: grid !important;
+  transform: translateX(-50%) translateY(0) !important;
+}
+
+/* ردیفی که منو دارد از همه بالاتر بیاید */
+body[data-appointment-page="slots"] .appt-table tbody tr:has(.slot-actions-menu:hover),
+body[data-appointment-page="slots"] .appt-table tbody tr:has(.slot-actions-menu:focus-within) {
+  z-index: 999990 !important;
+}
+
+body[data-appointment-page="slots"] .appt-table tbody tr:has(.slot-actions-menu:hover) td,
+body[data-appointment-page="slots"] .appt-table tbody tr:has(.slot-actions-menu:focus-within) td {
+  z-index: 999990 !important;
+}
+
+body[data-appointment-page="slots"] .nv-row-action-menu button {
+  width: 100% !important;
+  height: 32px !important;
+  min-height: 32px !important;
+  border-radius: 10px !important;
+  border: 1px solid transparent !important;
+  padding: 0 8px !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 11.5px !important;
+  font-weight: 950 !important;
+  line-height: 1 !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+}
+
+/* منو توسط containerهای جدول بریده نشود */
+body[data-appointment-page="slots"] .nv-table-surface,
+body[data-appointment-page="slots"] .table-container,
+body[data-appointment-page="slots"] .appt-table-wrap,
+body[data-appointment-page="slots"] .data-table-container,
+body[data-appointment-page="slots"] .card,
+body[data-appointment-page="slots"] .appt-card {
+  overflow: visible !important;
+}
+
+/* باقی دکمه‌های قدیمی هیچ اثری روی ستون عملیات نگذارند */
+body[data-appointment-page="slots"] .slot-action-group,
+body[data-appointment-page="slots"] .slot-action-clean,
+body[data-appointment-page="slots"] .slot-more-actions {
+  display: contents !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* NOORVISTA Slot Actions Hover Bridge Fix
+   رفع مشکل بسته‌شدن منوی عملیات هنگام حرکت موس از روی دکمه به سمت لیست.
+   دلیل مشکل، فاصله‌ی 8px بین دکمه و منو بود؛ این ناحیه حالا بخشی از hover parent است.
+*/
+body[data-appointment-page="slots"] .slot-actions-menu::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 100% !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 154px !important;
+  height: 14px !important;
+  background: transparent !important;
+  z-index: 999998 !important;
+  pointer-events: auto !important;
+}
+
+body[data-appointment-page="slots"] .nv-row-action-menu {
+  top: calc(100% + 4px) !important;
+}
+
+body[data-appointment-page="slots"] .slot-actions-menu:hover .nv-row-action-menu,
+body[data-appointment-page="slots"] .slot-actions-menu:focus-within .nv-row-action-menu,
+body[data-appointment-page="slots"] .nv-row-action-menu:hover {
+  display: grid !important;
+  transform: translateX(-50%) translateY(0) !important;
+}
+
+/* NOORVISTA Slot Actions Final Fix
+   هم‌سطح‌سازی ستون عملیات + منوی دو گزینه‌ای فعال/غیرفعال و حذف
+*/
+body[data-appointment-page="slots"] .appt-table thead th:last-child {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 10 !important;
+  height: 50px !important;
+  min-height: 50px !important;
+  padding: 0 8px !important;
+  background: linear-gradient(180deg, #eefaff 0%, #eaf7ff 100%) !important;
+  color: #075985 !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  line-height: 50px !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+body[data-appointment-page="slots"] .appt-table tbody td:last-child {
+  height: 74px !important;
+  min-height: 74px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  vertical-align: middle !important;
+  transform: none !important;
+  top: auto !important;
+}
+
+body[data-appointment-page="slots"] .slot-status-actions,
+body[data-appointment-page="slots"] .slot-actions-menu,
+body[data-appointment-page="slots"] .nv-row-action-btn {
+  transform: none !important;
+  top: auto !important;
+  bottom: auto !important;
+  float: none !important;
+}
+
+body[data-appointment-page="slots"] .slot-status-actions {
+  min-width: 0 !important;
+  height: 74px !important;
+  min-height: 74px !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+body[data-appointment-page="slots"] .slot-actions-menu {
+  width: 104px !important;
+  min-width: 104px !important;
+  height: 36px !important;
+  min-height: 36px !important;
+}
+
+body[data-appointment-page="slots"] .nv-row-action-menu {
+  top: calc(100% + 4px) !important;
+  width: 136px !important;
+  z-index: 1000000 !important;
+}
+
+body[data-appointment-page="slots"] .slot-actions-menu::after {
+  top: 100% !important;
+  width: 136px !important;
+  height: 12px !important;
+  pointer-events: auto !important;
+}
+
+body[data-appointment-page="slots"] .nv-row-action-menu button.neutral,
+body[data-appointment-page="slots"] .nv-row-action-menu button[data-next-status="cancelled"],
+body[data-appointment-page="slots"] .nv-row-action-menu button[data-next-status="canceled"] {
+  display: none !important;
+}
+
+body[data-appointment-page="slots"] .nv-row-action-menu button.success {
+  background: #dcfce7 !important;
+  color: #166534 !important;
+}
+
+body[data-appointment-page="slots"] .nv-row-action-menu button.warning {
+  background: #fff7ed !important;
+  color: #c2410c !important;
+}
+
+body[data-appointment-page="slots"] .nv-row-action-menu button.danger {
+  background: #fef2f2 !important;
+  color: #dc2626 !important;
+}
+
+/* NOORVISTA Slot Actions Precision Alignment Fix - 1405/03/21
+   تشخیص دقیق مشکل: ستون عملیات با height ثابت 74px و padding متفاوت از بقیه سلول‌ها
+   کنترل می‌شد. وقتی محتوای ستون‌های دیگر چندخطی می‌شد، ارتفاع واقعی ردیف بیشتر از
+   74px می‌شد اما محتوای ستون عملیات همچنان داخل بلوک 74px قرار می‌گرفت و کمی بالاتر
+   دیده می‌شد. این بخش ستون عملیات را به رفتار طبیعی table-cell برمی‌گرداند. */
+
+body[data-appointment-page="slots"] .appt-table > thead > tr > th:nth-child(9),
+body[data-appointment-page="slots"] .appt-table > thead > tr > th:last-child {
+  display: table-cell !important;
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 14px 12px !important;
+  line-height: 1.45 !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  background: linear-gradient(180deg, #eefaff 0%, #eaf7ff 100%) !important;
+  border-bottom: 1px solid rgba(14, 165, 233, .22) !important;
+  top: 0 !important;
+  transform: none !important;
+}
+
+body[data-appointment-page="slots"] .appt-table > tbody > tr,
+body[data-appointment-page="slots"] .appt-table > tbody > tr.slot-position-free,
+body[data-appointment-page="slots"] .appt-table > tbody > tr.slot-position-booked {
+  height: auto !important;
+  min-height: 0 !important;
+  transform: none !important;
+}
+
+body[data-appointment-page="slots"] .appt-table > tbody > tr > td {
+  height: auto !important;
+  min-height: 0 !important;
+  vertical-align: middle !important;
+}
+
+body[data-appointment-page="slots"] .appt-table > tbody > tr > td:nth-child(9),
+body[data-appointment-page="slots"] .appt-table > tbody > tr > td:last-child {
+  display: table-cell !important;
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 13px 12px !important;
+  line-height: normal !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  position: relative !important;
+  top: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  overflow: visible !important;
+}
+
+body[data-appointment-page="slots"] .appt-table > tbody > tr:nth-child(odd) > td:nth-child(9),
+body[data-appointment-page="slots"] .appt-table > tbody > tr:nth-child(odd) > td:last-child {
+  background: rgba(255, 255, 255, .78) !important;
+}
+
+body[data-appointment-page="slots"] .appt-table > tbody > tr:nth-child(even) > td:nth-child(9),
+body[data-appointment-page="slots"] .appt-table > tbody > tr:nth-child(even) > td:last-child {
+  background: rgba(248, 250, 252, .90) !important;
+}
+
+body[data-appointment-page="slots"] .appt-table > tbody > tr:hover > td:nth-child(9),
+body[data-appointment-page="slots"] .appt-table > tbody > tr:hover > td:last-child,
+body[data-appointment-page="slots"] .appt-table > tbody > tr:focus-within > td:nth-child(9),
+body[data-appointment-page="slots"] .appt-table > tbody > tr:focus-within > td:last-child {
+  background: #f0f9ff !important;
+}
+
+body[data-appointment-page="slots"] .appt-table > tbody > tr > td:nth-child(9) > .slot-status-actions,
+body[data-appointment-page="slots"] .appt-table > tbody > tr > td:last-child > .slot-status-actions {
+  display: inline-flex !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  vertical-align: middle !important;
+  line-height: 1 !important;
+  position: relative !important;
+  top: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  overflow: visible !important;
+}
+
+body[data-appointment-page="slots"] .appt-table > tbody > tr > td:nth-child(9) .slot-actions-menu,
+body[data-appointment-page="slots"] .appt-table > tbody > tr > td:last-child .slot-actions-menu {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 36px !important;
+  min-height: 36px !important;
+  margin: 0 auto !important;
+  vertical-align: middle !important;
+  position: relative !important;
+  top: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  overflow: visible !important;
+}
+
+body[data-appointment-page="slots"] .appt-table > tbody > tr > td:nth-child(9) .nv-row-action-btn,
+body[data-appointment-page="slots"] .appt-table > tbody > tr > td:last-child .nv-row-action-btn {
+  height: 36px !important;
+  min-height: 36px !important;
+  margin: 0 !important;
+  position: relative !important;
+  top: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  vertical-align: middle !important;
+}
+
+body[data-appointment-page="slots"] .appt-table > tbody > tr > td:nth-child(9) .nv-row-action-menu,
+body[data-appointment-page="slots"] .appt-table > tbody > tr > td:last-child .nv-row-action-menu {
+  top: calc(100% + 4px) !important;
+  transform: translateX(-50%) translateY(-4px) !important;
+}
+
+body[data-appointment-page="slots"] .appt-table > tbody > tr > td:nth-child(9) .slot-actions-menu:hover .nv-row-action-menu,
+body[data-appointment-page="slots"] .appt-table > tbody > tr > td:last-child .slot-actions-menu:hover .nv-row-action-menu,
+body[data-appointment-page="slots"] .appt-table > tbody > tr > td:nth-child(9) .slot-actions-menu:focus-within .nv-row-action-menu,
+body[data-appointment-page="slots"] .appt-table > tbody > tr > td:last-child .slot-actions-menu:focus-within .nv-row-action-menu {
+  transform: translateX(-50%) translateY(0) !important;
+}

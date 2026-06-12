@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa">
+<head>
+<link href="/css/local-fonts.css" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>گزارشات و لاگ‌ها | NOORVISTA</title>
+<link href="/css/open-iconic-bootstrap.min.css" rel="stylesheet"/>
+<link href="/css/ionicons.min.css" rel="stylesheet"/>
+<link href="/css/icomoon.css" rel="stylesheet"/>
+<link href="/css/panel-common.css" rel="stylesheet"/>
+<style>
+        .filter-bar {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: flex-end;
+        }
+        .filter-group {
+            flex: 1;
+            min-width: 150px;
+        }
+        .filter-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 5px;
+        }
+        .filter-group input, .filter-group select {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 13px;
+        }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .data-table th, .data-table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .data-table th {
+            background: #f8fafc;
+            font-weight: 600;
+        }
+        .badge-login { background: #dbeafe; color: #2563eb; padding: 4px 12px; border-radius: 20px; font-size: 11px; }
+        .badge-create { background: #dcfce7; color: #059669; padding: 4px 12px; border-radius: 20px; font-size: 11px; }
+        .badge-update { background: #fef3c7; color: #d97706; padding: 4px 12px; border-radius: 20px; font-size: 11px; }
+        .badge-delete { background: #fee2e2; color: #dc2626; padding: 4px 12px; border-radius: 20px; font-size: 11px; }
+        .badge-error { background: #fef2f2; color: #b91c1c; padding: 4px 12px; border-radius: 20px; font-size: 11px; }
+        .btn-sm {
+            padding: 5px 10px;
+            font-size: 11px;
+            border-radius: 6px;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary { background: #2f89fc; color: white; }
+        .btn-outline { background: transparent; border: 1px solid #e2e8f0; }
+        .btn-danger { background: #ef4444; color: white; }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-top: 20px;
+        }
+        .page-btn {
+            padding: 6px 12px;
+            border: 1px solid #e2e8f0;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .page-btn.active {
+            background: #2f89fc;
+            color: white;
+            border-color: #2f89fc;
+        }
+        .card {
+            background: white;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        .card-header {
+            padding: 18px 25px;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .card-header h4 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .card-header h4 i {
+            color: #2f89fc;
+        }
+        .card-body {
+            padding: 20px 25px;
+        }
+        .log-details {
+            max-width: 300px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+<link href="/css/admin-enhancements.css" rel="stylesheet"/>
+<link href="/css/noorvista-panel-polish.css" rel="stylesheet"/>
+<link href="/css/noorvista-admin-header.css" rel="stylesheet"/>
+<link href="/css/noorvista-manager-ui.css" rel="stylesheet"/>
+<link href="/assets/css/panel-sidebar-unified-final.css" rel="stylesheet"/>
+<link href="/assets/css/panel-ui-final-fixes.css" rel="stylesheet"/>
+<link href="/assets/css/panel-pretty-selects-global.css" rel="stylesheet"/></head>
+<body>
+<div class="sidebar">
+<div class="sidebar-header"><div class="sidebar-logo">NOOR<span>VISTA</span></div></div>
+<ul class="sidebar-nav"><li class="nav-item"><a class="nav-link" data-sidebar-match="index.html," href="index.html"><i class="icon-dashboard"></i><span>داشبورد</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="users.html" href="users.html"><i class="icon-users"></i><span>مدیریت کاربران</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="doctors.html" href="doctors.html"><i class="icon-user-md"></i><span>مدیریت پزشکان</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="schedule.html" href="schedule.html"><i class="icon-clock"></i><span>زمان‌بندی پزشکان</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="patients.html" href="patients.html"><i class="icon-users"></i><span>مدیریت بیماران</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="appointments.html" href="appointments.html"><i class="icon-calendar"></i><span>مدیریت نوبت‌ها</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="staff.html" href="staff.html"><i class="icon-briefcase"></i><span>مدیریت کارکنان</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="payments.html" href="payments.html"><i class="icon-credit-card"></i><span>مدیریت مالی</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="faqs.html" href="faqs.html"><i class="icon-comments nv-faq-icon"></i><span>سوالات پرتکرار</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="notifications.html" href="notifications.html"><i class="icon-bell"></i><span>اعلانات</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="settings.html" href="settings.html"><i class="icon-cog"></i><span>تنظیمات سیستم</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="backup.html" href="backup.html"><i class="icon-database"></i><span>پشتیبان‌گیری</span></a></li><li class="nav-item"><a class="nav-link active" data-sidebar-match="reports.html,logs.html" href="reports.html"><i class="icon-bar-chart"></i><span>گزارشات و لاگ‌ها</span></a></li></ul>
+</div>
+<div class="main-content">
+<div class="top-header nv-standard-top-header">
+<div class="page-heading">
+<h1>گزارشات و لاگ‌های سیستم</h1>
+<p>مشاهده تاریخچه فعالیت‌های کاربران و رویدادهای سیستم</p>
+</div>
+<div class="header-actions">
+<button aria-label="اعلان‌ها" class="notification-button" title="اعلان‌ها" type="button"><i class="icon-bell"></i><span aria-hidden="true" class="notification-dot"></span></button>
+<div class="user-menu nv-user-menu">
+<button aria-expanded="false" aria-haspopup="true" class="user-menu-trigger" type="button">
+<span class="user-avatar nv-header-avatar">نو</span>
+<span class="user-menu-text"><strong class="user-name nv-header-user-name">کاربر NOORVISTA</strong><small class="user-role nv-header-user-role">کاربر سیستم</small></span>
+<i aria-hidden="true" class="icon-chevron-down nv-user-menu-chevron"></i>
+</button>
+<div class="user-dropdown nv-user-dropdown" role="menu">
+<button class="user-dropdown-item" data-nv-profile="" role="menuitem" type="button"><i class="icon-user"></i><span>مشاهده پروفایل</span></button>
+<button class="user-dropdown-item" data-nv-edit-account="" role="menuitem" type="button"><i class="icon-pencil"></i><span>ویرایش اطلاعات حساب</span></button>
+<button class="user-dropdown-item" data-nv-change-password="" role="menuitem" type="button"><i class="icon-lock"></i><span>تغییر رمز عبور</span></button>
+<button class="user-dropdown-item" data-nv-account-settings="" role="menuitem" type="button"><i class="icon-cog"></i><span>تنظیمات حساب</span></button>
+<div aria-hidden="true" class="user-dropdown-divider"></div>
+<button class="user-dropdown-item danger" data-nv-logout="" role="menuitem" type="button"><i class="icon-sign-out"></i><span>خروج از حساب</span></button>
+</div>
+</div>
+</div>
+</div>
+<div class="filter-bar">
+<div class="filter-group">
+<label>نوع رویداد</label>
+<select id="typeFilter">
+<option value="all">همه</option>
+<option value="login">ورود به سیستم</option>
+<option value="create">ایجاد</option>
+<option value="update">ویرایش</option>
+<option value="delete">حذف</option>
+<option value="error">خطا</option>
+</select>
+</div>
+<div class="filter-group">
+<label>از تاریخ</label>
+<input class="jalali-date-input" id="startDate" placeholder="۱۴۰۳/۰۱/۰۱" type="text"/>
+</div>
+<div class="filter-group">
+<label>تا تاریخ</label>
+<input class="jalali-date-input" id="endDate" placeholder="۱۴۰۳/۱۲/۲۹" type="text"/>
+</div>
+<div class="filter-group">
+<label> </label>
+<button class="btn-sm btn-primary" onclick="loadLogs()">جستجو</button>
+</div>
+<div class="filter-group">
+<label> </label>
+<button class="btn-sm btn-outline" onclick="resetFilters()">پاک کردن</button>
+</div>
+<div class="filter-group">
+<label> </label>
+<button class="btn-sm btn-danger" onclick="clearOldLogs()">پاک کردن لاگ‌های قدیمی</button>
+</div>
+</div>
+<div class="card">
+<div class="card-header">
+<h4><i class="icon-list-alt"></i> لاگ‌های سیستم</h4>
+<span>تعداد کل: <span id="totalCount">0</span></span>
+</div>
+<div class="card-body">
+<table class="data-table" id="logsTable">
+<thead>
+<tr>
+<th>شناسه</th>
+<th>کاربر</th>
+<th>نوع</th>
+<th>عملیات</th>
+<th>جزئیات</th>
+<th>آی پی</th>
+<th>تاریخ</th>
+</tr>
+</thead>
+<tbody>
+<tr><td class="text-center" colspan="7">در حال بارگذاری...</td></tr>
+</tbody>
+</table>
+<div class="pagination" id="pagination"></div>
+</div>
+</div>
+</div>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jalali.js"></script>
+<script src="/js/persian-datepicker.js"></script>
+<script src="/js/panel-common.js"></script>
+<script>
+    let allLogs = [];
+    let currentPage = 1;
+    let itemsPerPage = 20;
+    let totalPages = 1;
+
+    async function loadLogs() {
+        const type = document.getElementById('typeFilter').value;
+        const startDate = document.getElementById('startDate').value;
+        const endDate = document.getElementById('endDate').value;
+        
+        let url = `/admin/logs?page=${currentPage}&limit=${itemsPerPage}`;
+        if (type && type !== 'all') url += `&type=${type}`;
+        if (startDate && isValidJalaliDate(startDate)) url += `&start_date=${toGregorian(startDate)}`;
+        if (endDate && isValidJalaliDate(endDate)) url += `&end_date=${toGregorian(endDate)}`;
+        
+        try {
+            const data = await apiRequest(url);
+            allLogs = data.logs || [];
+            totalPages = data.totalPages || 1;
+            document.getElementById('totalCount').innerHTML = toPersianNumber(data.total || 0);
+            renderLogsTable();
+            renderPagination();
+        } catch (error) {
+            console.error('Error loading logs:', error);
+            showToast('خطا در بارگذاری لاگ‌ها', 'error');
+        }
+    }
+
+    function renderLogsTable() {
+        const tbody = document.querySelector('#logsTable tbody');
+        if (!allLogs.length) {
+            tbody.innerHTML = '<tr><td colspan="7" class="text-center">هیچ لاگی یافت نشد</td></tr>';
+            return;
+        }
+        
+        tbody.innerHTML = allLogs.map(log => `
+            <tr>
+                <td>${toPersianNumber(log.id)}<\/td>
+                <td>${escapeHtml(log.user_name || log.username || '-')}<\/td>
+                <td><span class="badge-${getTypeClass(log.type)}">${getTypeText(log.type)}<\/span><\/td>
+                <td>${escapeHtml(log.action || '-')}<\/td>
+                <td><div class="log-details" title="${escapeHtml(log.details || '-')}">${escapeHtml(log.details || '-')}<\/div><\/td>
+                <td>${log.ip_address || '-'}<\/td>
+                <td>${toJalali(log.created_at)}<\/td>
+            </tr>
+        `).join('');
+    }
+
+    function getTypeClass(type) {
+        const classes = { login: 'login', create: 'create', update: 'update', delete: 'delete', error: 'error' };
+        return classes[type] || 'login';
+    }
+
+    function getTypeText(type) {
+        const texts = { login: 'ورود', create: 'ایجاد', update: 'ویرایش', delete: 'حذف', error: 'خطا' };
+        return texts[type] || type;
+    }
+
+    function renderPagination() {
+        const paginationDiv = document.getElementById('pagination');
+        if (totalPages <= 1) {
+            paginationDiv.innerHTML = '';
+            return;
+        }
+        
+        let html = '';
+        for (let i = 1; i <= totalPages; i++) {
+            html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="goToPage(${i})">${toPersianNumber(i)}</button>`;
+        }
+        paginationDiv.innerHTML = html;
+    }
+
+    function goToPage(page) {
+        currentPage = page;
+        loadLogs();
+    }
+
+    function escapeHtml(str) {
+        if (!str) return '';
+        return String(str).replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        });
+    }
+
+    function resetFilters() {
+        document.getElementById('typeFilter').value = 'all';
+        document.getElementById('startDate').value = '';
+        document.getElementById('endDate').value = '';
+        currentPage = 1;
+        loadLogs();
+    }
+
+    async function clearOldLogs() {
+        if (!confirm('آیا از پاک کردن لاگ‌های قدیمی (بیش از 30 روز) اطمینان دارید؟')) return;
+        
+        try {
+            await apiRequest('/admin/logs/clear', 'DELETE');
+            showToast('لاگ‌های قدیمی با موفقیت پاک شدند', 'success');
+            loadLogs();
+        } catch (error) {
+            showToast(error.message || 'خطا در پاک کردن لاگ‌ها', 'error');
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        if (!checkAuth()) return;
+        loadLogs();
+    });
+</script>
+<script src="/js/admin-enhancements.js"></script>
+<script src="/js/noorvista-panel-polish.js"></script>
+<script src="/js/noorvista-admin-header.js"></script>
+<script src="/js/noorvista-manager-ui.js"></script>
+<script src="/assets/js/admin-sidebar-active-fix.js"></script>
+<script src="/assets/js/panel-final-fixes.js"></script>
+<script src="/assets/js/panel-pretty-selects-global.js"></script></body>
+</html>

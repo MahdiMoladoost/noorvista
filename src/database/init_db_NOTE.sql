@@ -1,0 +1,5 @@
+-- src/database/init_db_NOTE.sql
+-- این پروژه برای seed کاربران از bcrypt استفاده می‌کند؛ بنابراین فایل اصلی init_db به صورت Node.js است:
+-- node src/database/init_db.js
+--
+-- این SQL فقط یادداشت است و برای اجرای مستقیم seed کاربران کافی نیست.

@@ -1,0 +1,55 @@
+/* NOORVISTA Login Remove Extra Sections
+   حذف بخش‌های کم‌اهمیت برای کوتاه شدن صفحه لاگین
+*/
+
+.login-features,
+.auth-features,
+.features-list,
+.login-highlights,
+.auth-highlights,
+.system-status,
+.server-status,
+.db-status,
+.connection-status,
+.login-status,
+.status-card {
+  display: none !important;
+}
+
+/* اگر متن‌ها داخل کلاس‌های عمومی مانده باشند */
+[data-login-extra],
+.nv-login-extra,
+.nv-auth-extra {
+  display: none !important;
+}
+
+/* کوتاه‌تر شدن کارت */
+.login-card,
+.auth-card,
+.login-box {
+  max-width: 420px !important;
+  padding-top: 18px !important;
+  padding-bottom: 18px !important;
+}
+
+.login-card h1,
+.auth-card h1,
+.login-box h1,
+.login-card .title,
+.auth-card .title,
+.login-box .title {
+  display: none !important;
+}
+
+.default-credentials {
+  margin-top: 10px !important;
+}
+
+@media (min-width: 768px) {
+  .login-container,
+  .auth-container,
+  .login-page-container {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }
+}

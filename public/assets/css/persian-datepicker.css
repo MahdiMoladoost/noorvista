@@ -1,0 +1,158 @@
+/* persian-datepicker - v1.2.0 - 2024-01-01 */
+.persian-datepicker {
+    position: absolute;
+    z-index: 10000;
+    display: none;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+    border: 1px solid #e2e8f0;
+    font-family: 'Vazir', Tahoma, Arial, sans-serif;
+    direction: rtl;
+    width: 300px;
+    padding: 15px;
+}
+
+@media (max-width: 480px) {
+    .persian-datepicker {
+        width: calc(100vw - 20px);
+        max-width: 300px;
+    }
+}
+
+.persian-datepicker .picker-header {
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 12px;
+}
+
+.persian-datepicker .picker-header .picker-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+    text-align: center;
+}
+
+.persian-datepicker .picker-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding: 0 4px;
+}
+
+.persian-datepicker .picker-nav .nav-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    font-size: 18px;
+    color: #64748b;
+}
+
+.persian-datepicker .picker-nav .nav-btn:hover {
+    background: #f1f5f9;
+    color: #2f89fc;
+}
+
+.persian-datepicker .picker-nav .picker-month-year {
+    font-weight: 600;
+    color: #1e293b;
+    font-size: 14px;
+}
+
+.persian-datepicker .picker-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    margin-bottom: 8px;
+}
+
+.persian-datepicker .picker-weekdays .weekday {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    color: #94a3b8;
+    padding: 6px 0;
+}
+
+.persian-datepicker .picker-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+
+.persian-datepicker .picker-days .day {
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s;
+    color: #334155;
+}
+
+.persian-datepicker .picker-days .day:hover {
+    background: #f1f5f9;
+}
+
+.persian-datepicker .picker-days .day.today {
+    background: #dbeafe;
+    color: #2f89fc;
+    font-weight: 600;
+}
+
+.persian-datepicker .picker-days .day.selected {
+    background: linear-gradient(135deg, #2f89fc, #1a6fdb);
+    color: white;
+}
+
+.persian-datepicker .picker-days .day.disabled {
+    color: #cbd5e1;
+    cursor: not-allowed;
+}
+
+.persian-datepicker .picker-days .day.other-month {
+    color: #cbd5e1;
+}
+
+.persian-datepicker .picker-footer {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.persian-datepicker .picker-footer .footer-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.persian-datepicker .picker-footer .footer-btn.today {
+    background: #f1f5f9;
+    color: #2f89fc;
+}
+
+.persian-datepicker .picker-footer .footer-btn.clear {
+    background: #fef2f2;
+    color: #ef4444;
+}
+
+.persian-datepicker .picker-footer .footer-btn:hover {
+    transform: translateY(-1px);
+}

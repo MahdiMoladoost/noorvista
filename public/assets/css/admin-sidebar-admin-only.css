@@ -1,0 +1,172 @@
+/* =========================================================
+   NOORVISTA Admin Sidebar Admin-Only Visual Fix
+   هدف: فقط ظاهر Sidebar پنل ادمین در همه صفحات یکی شود.
+   این فایل عمداً main-content، top-header، table، card، form و modal را تغییر نمی‌دهد.
+========================================================= */
+
+/* فقط وقتی مسیر/صفحه ادمین است و داخل Sidebar */
+.sidebar {
+  background:
+    radial-gradient(circle at 18% 0%, rgba(20, 184, 166, .18), transparent 34%),
+    linear-gradient(180deg, #083344 0%, #075985 52%, #0f172a 100%) !important;
+  border-left: 1px solid rgba(255, 255, 255, .12) !important;
+  box-shadow: -10px 0 28px rgba(15, 23, 42, .13) !important;
+}
+
+/* لوگو دقیقاً وسط، مثل مدیر کلینیک */
+.sidebar .sidebar-header {
+  width: 100% !important;
+  min-height: 74px !important;
+  padding: 18px 10px !important;
+  margin: 0 auto 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  border-bottom: 1px solid rgba(255, 255, 255, .08) !important;
+}
+
+.sidebar .sidebar-logo {
+  width: 100% !important;
+  display: block !important;
+  margin: 0 auto !important;
+  text-align: center !important;
+  color: #ffffff !important;
+  font-size: 27px !important;
+  font-weight: 950 !important;
+  line-height: 1.2 !important;
+  letter-spacing: .2px !important;
+}
+
+.sidebar .sidebar-logo span {
+  color: #38bdf8 !important;
+}
+
+/* لیست آیتم‌ها */
+.sidebar .sidebar-nav {
+  width: 100% !important;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: grid !important;
+  gap: 7px !important;
+}
+
+.sidebar .nav-item {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* لینک‌های منو */
+.sidebar .nav-link {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 46px !important;
+  padding: 10px 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+  border-radius: 15px !important;
+  border: 1px solid transparent !important;
+  background: transparent !important;
+  color: rgba(226, 232, 240, .92) !important;
+  text-decoration: none !important;
+  font-size: 13.5px !important;
+  font-weight: 850 !important;
+  line-height: 1.4 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  transition: background .18s ease, border-color .18s ease, color .18s ease !important;
+}
+
+.sidebar .nav-link i {
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  border-radius: 11px !important;
+  display: grid !important;
+  place-items: center !important;
+  background: rgba(255, 255, 255, .10) !important;
+  color: #bae6fd !important;
+  font-style: normal !important;
+  font-size: 14px !important;
+}
+
+.sidebar .nav-link span {
+  display: inline-block !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+/* hover */
+.sidebar .nav-link:hover {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, .12) !important;
+  border-color: rgba(255, 255, 255, .16) !important;
+}
+
+/* active در همه صفحات یکسان */
+.sidebar .nav-link.active {
+  color: #075985 !important;
+  background: #ffffff !important;
+  border-color: rgba(255, 255, 255, .75) !important;
+  box-shadow: 0 10px 22px rgba(2, 132, 199, .18) !important;
+}
+
+.sidebar .nav-link.active i {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #0891b2, #075985) !important;
+}
+
+/* اگر از patchهای قبلی پروفایل مانده باشد، در ادمین دیده نشود */
+.sidebar .nv-sidebar-profile {
+  display: none !important;
+}
+
+/* fallback icon فقط داخل Sidebar */
+.sidebar .icon-dashboard::before { content: "⌂"; }
+.sidebar .icon-users::before { content: "👥"; }
+.sidebar .icon-user-md::before,
+.sidebar .icon-doctor::before { content: "⚕"; }
+.sidebar .icon-clock::before { content: "⏱"; }
+.sidebar .icon-calendar::before { content: "▦"; }
+.sidebar .icon-briefcase::before { content: "▣"; }
+.sidebar .icon-credit-card::before { content: "▤"; }
+.sidebar .icon-comments::before { content: "?"; }
+.sidebar .icon-bell::before { content: "●"; }
+.sidebar .icon-cog::before { content: "⚙"; }
+.sidebar .icon-database::before { content: "↻"; }
+.sidebar .icon-chart::before,
+.sidebar .icon-bar-chart::before { content: "▥"; }
+
+/* حالت collapsed اگر JS اصلی پروژه فعال باشد؛ فقط خود Sidebar، نه layout صفحه */
+body.sidebar-collapsed .sidebar .sidebar-logo,
+body.nv-sidebar-collapsed .sidebar .sidebar-logo {
+  font-size: 0 !important;
+}
+
+body.sidebar-collapsed .sidebar .sidebar-logo::before,
+body.nv-sidebar-collapsed .sidebar .sidebar-logo::before {
+  content: "NV";
+  display: block;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 950;
+  text-align: center;
+}
+
+body.sidebar-collapsed .sidebar .nav-link,
+body.nv-sidebar-collapsed .sidebar .nav-link {
+  justify-content: center !important;
+  gap: 0 !important;
+  padding: 9px !important;
+}
+
+body.sidebar-collapsed .sidebar .nav-link span,
+body.nv-sidebar-collapsed .sidebar .nav-link span {
+  display: none !important;
+}

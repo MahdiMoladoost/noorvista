@@ -1,0 +1,76 @@
+/* =========================================================
+   NOORVISTA Admin FAQ Modal Scroll Fix
+   فقط مودال سوالات پرتکرار را قابل اسکرول می‌کند.
+========================================================= */
+
+#faqModal.modal.show,
+#faqViewModal.modal.show,
+#faqModal.show,
+#faqViewModal.show {
+  align-items: flex-start !important;
+  overflow-y: auto !important;
+  padding: 18px !important;
+}
+
+#faqModal .modal-content,
+#faqViewModal .modal-content,
+#faqModal .modal-container,
+#faqViewModal .modal-container {
+  width: min(760px, 100%) !important;
+  max-height: calc(100vh - 36px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  margin: auto !important;
+}
+
+#faqModal form {
+  min-height: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+#faqModal .modal-header,
+#faqViewModal .modal-header,
+#faqModal .modal-footer,
+#faqViewModal .modal-footer {
+  flex: 0 0 auto !important;
+  background: #ffffff !important;
+  z-index: 2 !important;
+}
+
+#faqModal .modal-body,
+#faqViewModal .modal-body {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  overflow-y: auto !important;
+  max-height: calc(100vh - 190px) !important;
+  padding-bottom: 18px !important;
+}
+
+#faqModal .modal-footer {
+  border-top: 1px solid #e2e8f0 !important;
+  box-shadow: 0 -10px 24px rgba(15,23,42,.04) !important;
+}
+
+@media (max-width: 640px) {
+  #faqModal.modal.show,
+  #faqViewModal.modal.show,
+  #faqModal.show,
+  #faqViewModal.show {
+    padding: 10px !important;
+  }
+
+  #faqModal .modal-content,
+  #faqViewModal .modal-content,
+  #faqModal .modal-container,
+  #faqViewModal .modal-container {
+    max-height: calc(100vh - 20px) !important;
+    border-radius: 16px !important;
+  }
+
+  #faqModal .modal-body,
+  #faqViewModal .modal-body {
+    max-height: calc(100vh - 170px) !important;
+  }
+}

@@ -1,0 +1,58 @@
+/* NOORVISTA schedule submit loading state */
+
+.appt-form-submitting {
+  position: relative !important;
+}
+
+.appt-form-submitting::after {
+  content: "در حال ذخیره و تولید نوبت‌ها..." !important;
+  position: fixed !important;
+  inset: auto 50% 28px auto !important;
+  transform: translateX(50%) !important;
+  z-index: 2147482000 !important;
+  min-width: 260px !important;
+  max-width: calc(100vw - 32px) !important;
+  padding: 12px 18px !important;
+  border-radius: 18px !important;
+  background: rgba(7, 89, 133, .96) !important;
+  color: #ffffff !important;
+  font-size: 13px !important;
+  font-weight: 950 !important;
+  text-align: center !important;
+  box-shadow: 0 22px 55px rgba(15, 23, 42, .28) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.appt-btn-loading,
+.appt-btn-loading:disabled {
+  cursor: wait !important;
+  opacity: .88 !important;
+  pointer-events: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 9px !important;
+}
+
+.appt-btn-spinner {
+  width: 17px !important;
+  height: 17px !important;
+  min-width: 17px !important;
+  border-radius: 50% !important;
+  border: 2px solid rgba(255, 255, 255, .42) !important;
+  border-top-color: #ffffff !important;
+  display: inline-block !important;
+  animation: nv-appt-spin .75s linear infinite !important;
+}
+
+@keyframes nv-appt-spin {
+  to { transform: rotate(360deg); }
+}
+
+
+/* NOORVISTA hard lock while schedule is generating */
+#scheduleForm.appt-form-submitting button[type="submit"],
+#scheduleForm.appt-form-submitting .appt-btn-loading {
+  pointer-events: none !important;
+  cursor: wait !important;
+}

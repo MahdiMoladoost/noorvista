@@ -1,0 +1,255 @@
+/* =========================================================
+   NOORVISTA Panel UI Final Polish
+   اعلانات، زمان‌بندی، ارتباط پزشک با مرکز، مودال‌ها
+========================================================= */
+
+/* Notification view modal: labels and values must not stick */
+.notification-view-grid,
+.notification-detail-grid,
+#notificationViewModal .detail-grid,
+#viewNotificationModal .detail-grid,
+#notificationModal.view-mode .detail-grid {
+  display: grid !important;
+  grid-template-columns: 140px minmax(0, 1fr) !important;
+  gap: 12px 16px !important;
+  align-items: start !important;
+  line-height: 2 !important;
+}
+
+.notification-view-grid .label,
+.notification-detail-grid .label,
+#notificationViewModal .detail-label,
+#viewNotificationModal .detail-label,
+#notificationModal .detail-label {
+  color: #64748b !important;
+  font-size: 13px !important;
+  font-weight: 900 !important;
+  text-align: right !important;
+}
+
+.notification-view-grid .value,
+.notification-detail-grid .value,
+#notificationViewModal .detail-value,
+#viewNotificationModal .detail-value,
+#notificationModal .detail-value {
+  color: #0f172a !important;
+  font-size: 14.5px !important;
+  font-weight: 850 !important;
+  background: #f8fbff !important;
+  border: 1px solid #e0f2fe !important;
+  border-radius: 14px !important;
+  padding: 9px 12px !important;
+  min-height: 42px !important;
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+}
+
+/* If modal content is simple paragraphs/spans, create comfortable spacing */
+#notificationViewModal .modal-body p,
+#viewNotificationModal .modal-body p,
+#notificationModal .modal-body p {
+  margin: 0 0 12px !important;
+  line-height: 2 !important;
+}
+
+#notificationViewModal .modal-body strong,
+#viewNotificationModal .modal-body strong,
+#notificationModal .modal-body strong {
+  margin-left: 8px !important;
+  color: #64748b !important;
+}
+
+/* Doctor-center relation UI */
+.doctor-centers-list,
+.center-checkbox-list,
+.medical-centers-checkbox-list,
+#doctorCentersList,
+#centersList {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+  gap: 12px !important;
+}
+
+.doctor-center-card,
+.center-checkbox-item,
+.medical-center-option,
+.doctor-centers-list label,
+.center-checkbox-list label,
+.medical-centers-checkbox-list label {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+  padding: 14px 16px !important;
+  border-radius: 18px !important;
+  border: 1px solid #dbeafe !important;
+  background: #ffffff !important;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, .05) !important;
+  cursor: pointer !important;
+  transition: .18s ease !important;
+  line-height: 1.9 !important;
+  font-size: 14px !important;
+  color: #334155 !important;
+}
+
+.doctor-center-card:hover,
+.center-checkbox-item:hover,
+.medical-center-option:hover,
+.doctor-centers-list label:hover,
+.center-checkbox-list label:hover,
+.medical-centers-checkbox-list label:hover {
+  border-color: #7dd3fc !important;
+  background: #f8fbff !important;
+}
+
+.doctor-center-card input[type="checkbox"],
+.center-checkbox-item input[type="checkbox"],
+.medical-center-option input[type="checkbox"],
+.doctor-centers-list input[type="checkbox"],
+.center-checkbox-list input[type="checkbox"],
+.medical-centers-checkbox-list input[type="checkbox"] {
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  margin-top: 7px !important;
+  accent-color: #0891b2 !important;
+}
+
+.doctor-center-card strong,
+.center-checkbox-item strong,
+.medical-center-option strong {
+  display: block !important;
+  color: #0f172a !important;
+  font-size: 14.5px !important;
+  font-weight: 950 !important;
+}
+
+.doctor-center-card small,
+.center-checkbox-item small,
+.medical-center-option small {
+  display: block !important;
+  color: #64748b !important;
+  font-size: 12.5px !important;
+  margin-top: 2px !important;
+}
+
+/* Schedule professional UI */
+.schedule-form-grid,
+#scheduleForm .form-grid,
+.appointment-schedule-form .form-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+}
+
+.schedule-form-grid .form-group,
+#scheduleForm .form-group,
+.appointment-schedule-form .form-group {
+  margin: 0 !important;
+}
+
+.schedule-form-grid label,
+#scheduleForm label,
+.appointment-schedule-form label {
+  display: block !important;
+  margin-bottom: 7px !important;
+  color: #334155 !important;
+  font-size: 13px !important;
+  font-weight: 950 !important;
+}
+
+.schedule-form-grid input,
+.schedule-form-grid select,
+#scheduleForm input,
+#scheduleForm select,
+.appointment-schedule-form input,
+.appointment-schedule-form select {
+  width: 100% !important;
+  min-height: 46px !important;
+  border-radius: 15px !important;
+  border: 1px solid #cbd5e1 !important;
+  background: #f8fafc !important;
+  padding: 9px 12px !important;
+  font-family: inherit !important;
+  color: #0f172a !important;
+  outline: none !important;
+}
+
+.schedule-form-grid input:focus,
+.schedule-form-grid select:focus,
+#scheduleForm input:focus,
+#scheduleForm select:focus {
+  background: #ffffff !important;
+  border-color: #38bdf8 !important;
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, .14) !important;
+}
+
+.schedule-toolbar,
+.appointment-toolbar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  flex-wrap: wrap !important;
+  margin-bottom: 18px !important;
+}
+
+.schedule-capacity-badge,
+.capacity-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 28px !important;
+  padding: 4px 10px !important;
+  border-radius: 999px !important;
+  background: #e0f2fe !important;
+  color: #075985 !important;
+  font-size: 12px !important;
+  font-weight: 950 !important;
+}
+
+/* Buttons for schedule slots */
+.btn-delete-slot,
+.btn-delete-schedule,
+.delete-slot-btn,
+.delete-schedule-btn {
+  color: #b91c1c !important;
+  background: #fff1f2 !important;
+  border: 1px solid #fecdd3 !important;
+}
+
+.btn-delete-slot:hover,
+.btn-delete-schedule:hover,
+.delete-slot-btn:hover,
+.delete-schedule-btn:hover {
+  background: #fee2e2 !important;
+}
+
+/* Persian digits helper */
+.persian-digits,
+.persian-time,
+[data-persian-time="true"] {
+  font-variant-numeric: normal !important;
+  direction: ltr !important;
+  unicode-bidi: plaintext !important;
+  font-feature-settings: normal !important;
+}
+
+/* Generic modal polish */
+.modal-body {
+  line-height: 2 !important;
+}
+
+@media (max-width: 760px) {
+  .notification-view-grid,
+  .notification-detail-grid,
+  #notificationViewModal .detail-grid,
+  #viewNotificationModal .detail-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .schedule-form-grid,
+  #scheduleForm .form-grid,
+  .appointment-schedule-form .form-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

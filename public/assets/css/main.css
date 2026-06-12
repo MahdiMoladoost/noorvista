@@ -1,0 +1,6 @@
+/* NOORVISTA main stylesheet entry
+   Old-compatible aliases are still served: /css/* -> /public/assets/css/*
+*/
+@import url('./local-fonts.css');
+@import url('./style.css');
+@import url('./noorvista-pro.css');

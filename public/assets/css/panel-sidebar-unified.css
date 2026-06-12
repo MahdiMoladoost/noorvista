@@ -1,0 +1,5 @@
+/* NOORVISTA panel-sidebar-unified.css
+   This file intentionally does NOT control layout.
+   The panel layout is handled by existing files: panel-common.css and noorvista-panel-polish.css.
+   It only neutralizes old profile blocks from previous patches. */
+.nv-sidebar-profile, .noorvista-sidebar-user, .noorvista-sidebar-tools { display: none !important; }

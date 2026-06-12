@@ -1,0 +1,455 @@
+/* Compact public floating actions, similar to high-traffic websites */
+.global-page-actions {
+  display: none !important;
+}
+
+.floating-actions {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 160;
+  display: grid;
+  gap: 9px;
+  width: auto;
+  direction: rtl;
+  pointer-events: none;
+}
+
+.floating-action-btn,
+.chatbot-fab {
+  pointer-events: auto;
+  position: relative;
+  min-width: 124px !important;
+  width: auto !important;
+  min-height: 44px !important;
+  height: 44px !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  padding: 0 13px 0 15px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  font-family: inherit;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, .14) !important;
+  isolation: isolate;
+}
+
+.floating-action-btn::before,
+.chatbot-fab::before,
+.floating-action-btn::after,
+.chatbot-fab::after {
+  display: none !important;
+}
+
+.floating-action-icon {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,.24);
+  font-size: 14px;
+  line-height: 1;
+}
+
+.floating-action-text,
+.chatbot-fab-label {
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 950;
+  line-height: 1;
+}
+
+.floating-booking {
+  color: #fff !important;
+  background: linear-gradient(135deg, #0891b2, #0e7490) !important;
+  animation: softBookingPulse 2.8s ease-in-out infinite;
+}
+
+.floating-consult,
+.chatbot-fab {
+  color: #111827 !important;
+  background: linear-gradient(135deg, #facc15, #f97316) !important;
+  animation: softConsultPulse 2.8s ease-in-out infinite;
+  animation-delay: 1.4s;
+}
+
+.floating-action-btn:hover,
+.chatbot-fab:hover {
+  transform: translateY(-2px);
+  filter: saturate(1.06);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, .18) !important;
+}
+
+.floating-action-btn:active,
+.chatbot-fab:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, .14) !important;
+}
+
+.chatbot-icon,
+.chatbot-fab img {
+  display: none !important;
+}
+
+@keyframes softBookingPulse {
+  0%, 100% { box-shadow: 0 8px 22px rgba(15,23,42,.14), 0 0 0 0 rgba(8,145,178,.22); }
+  50% { box-shadow: 0 10px 24px rgba(15,23,42,.16), 0 0 0 8px rgba(8,145,178,0); }
+}
+
+@keyframes softConsultPulse {
+  0%, 100% { box-shadow: 0 8px 22px rgba(15,23,42,.14), 0 0 0 0 rgba(250,204,21,.26); }
+  50% { box-shadow: 0 10px 24px rgba(15,23,42,.16), 0 0 0 8px rgba(250,204,21,0); }
+}
+
+/* Shared online consultation panel */
+.chatbot-panel {
+  position: fixed;
+  right: 166px;
+  bottom: 22px;
+  width: min(390px, calc(100vw - 32px));
+  height: min(560px, calc(100vh - 76px));
+  background: #fff;
+  border: 1px solid #bae6fd;
+  border-radius: 24px;
+  box-shadow: 0 24px 64px rgba(15,23,42,.20);
+  z-index: 180;
+  display: none;
+  overflow: hidden;
+  direction: rtl;
+}
+
+.chatbot-panel.open {
+  display: flex;
+  flex-direction: column;
+}
+
+.chatbot-header {
+  padding: 15px;
+  background: linear-gradient(135deg, #075985, #0891b2);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chatbot-header-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chatbot-header-avatar {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: #fff;
+  color: #075985;
+}
+
+.chatbot-header small {
+  display: block;
+  opacity: .85;
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+#closeChatbot {
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 11px;
+  background: rgba(255,255,255,.16);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.chatbot-messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background: #f8fbff;
+}
+
+.bot-message,
+.user-message {
+  max-width: 88%;
+  padding: 11px 13px;
+  border-radius: 17px;
+  margin-bottom: 10px;
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.bot-message {
+  background: #fff;
+  color: #334155;
+  border: 1px solid #dbeafe;
+}
+
+.user-message {
+  margin-right: auto;
+  background: #0891b2;
+  color: #fff;
+}
+
+.chatbot-form {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid #e0f2fe;
+}
+
+.chatbot-form input {
+  flex: 1;
+  min-height: 42px;
+  border: 1px solid #cbd5e1;
+  border-radius: 15px;
+  padding: 0 12px;
+  font-family: inherit;
+}
+
+.chatbot-form button {
+  width: 44px;
+  border: 0;
+  border-radius: 15px;
+  background: #0891b2;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Booking modal */
+.booking-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15,23,42,.54);
+  z-index: 210;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  direction: rtl;
+}
+
+.booking-modal.open {
+  display: flex !important;
+}
+
+.modal-content {
+  width: min(520px, 100%);
+  background: #fff;
+  border-radius: 28px;
+  padding: 24px;
+  position: relative;
+  box-shadow: 0 24px 64px rgba(0,0,0,.22);
+}
+
+.modal-close {
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 11px;
+  background: #f1f5f9;
+  cursor: pointer;
+}
+
+.chat-question {
+  color: #0f172a;
+  font-weight: 900;
+  font-size: 18px;
+  text-align: center;
+}
+
+.day-buttons,
+.time-buttons {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.day-buttons button,
+.time-buttons button {
+  min-height: 44px;
+  border-radius: 15px;
+  border: 1px solid #bae6fd;
+  background: #f8fbff;
+  color: #075985;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.modal-step input,
+.modal-step select {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid #cbd5e1;
+  border-radius: 15px;
+  padding: 0 12px;
+  margin-bottom: 10px;
+  font-family: inherit;
+}
+
+.modal-submit-btn {
+  width: 100%;
+  min-height: 46px;
+  border: 0;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #06b6d4, #0891b2);
+  color: #fff;
+  font-family: inherit;
+  font-weight: 950;
+  cursor: pointer;
+}
+
+/* Header consistency patch for public pages */
+.navbar,
+.contact-nav {
+  min-height: 82px;
+  background: rgba(255,255,255,.96) !important;
+  border-bottom: 1px solid #dbeafe !important;
+  backdrop-filter: blur(14px);
+}
+
+.nav-inner,
+.contact-nav .container {
+  min-height: 82px;
+}
+
+.brand strong,
+.contact-nav .brand strong {
+  color: #0f172a;
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.brand small,
+.contact-nav .brand small {
+  color: #64748b;
+  font-weight: 800;
+}
+
+.menu a,
+.contact-nav .menu a {
+  font-weight: 900;
+}
+
+@media (max-width: 720px) {
+  .floating-actions {
+    right: 14px;
+    bottom: 14px;
+    gap: 8px;
+  }
+
+  .floating-action-btn,
+  .chatbot-fab {
+    min-width: 112px !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    padding: 0 10px !important;
+  }
+
+  .floating-action-icon {
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+  }
+
+  .floating-action-text,
+  .chatbot-fab-label {
+    font-size: 12px;
+  }
+
+  .chatbot-panel {
+    right: 12px;
+    bottom: 114px;
+    width: calc(100vw - 24px);
+    height: min(520px, calc(100vh - 136px));
+  }
+}
+
+
+/* =========================================================
+   FIX: Mobile floating buttons alignment
+   در موبایل دکمه‌های رزرو نوبت و مشاوره آنلاین کنار هم، وسط صفحه و با اندازه طبیعی نمایش داده شوند.
+========================================================= */
+
+@media (max-width: 720px) {
+  .floating-actions {
+    right: auto !important;
+    left: 50% !important;
+    bottom: 14px !important;
+    transform: translateX(-50%) !important;
+    width: auto !important;
+    max-width: calc(100vw - 24px) !important;
+    display: flex !important;
+    flex-direction: row-reverse !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    pointer-events: none !important;
+  }
+
+  .floating-action-btn,
+  .chatbot-fab {
+    width: auto !important;
+    min-width: 118px !important;
+    max-width: 150px !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    padding: 0 12px !important;
+    border-radius: 999px !important;
+    flex: 0 0 auto !important;
+    gap: 6px !important;
+    pointer-events: auto !important;
+  }
+
+  .floating-action-icon {
+    width: 22px !important;
+    height: 22px !important;
+    min-width: 22px !important;
+    font-size: 12px !important;
+  }
+
+  .floating-action-text,
+  .chatbot-fab-label {
+    font-size: 12px !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+  }
+
+  .chatbot-panel {
+    right: 12px !important;
+    left: 12px !important;
+    bottom: 70px !important;
+    width: auto !important;
+    height: min(520px, calc(100vh - 92px)) !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .floating-actions {
+    gap: 8px !important;
+  }
+
+  .floating-action-btn,
+  .chatbot-fab {
+    min-width: 108px !important;
+    padding: 0 10px !important;
+  }
+
+  .floating-action-text,
+  .chatbot-fab-label {
+    font-size: 11.5px !important;
+  }
+}
+

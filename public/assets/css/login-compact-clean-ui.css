@@ -1,0 +1,222 @@
+/* NOORVISTA Login Compact Clean UI
+   هدف: حفظ زیبایی وسط صفحه، حذف شلوغی و جلوگیری از اسکرول در لپتاپ
+*/
+
+body.auth-page,
+body.login-page,
+body:has(.login-container) {
+  overflow-y: auto !important;
+}
+
+.login-container,
+.auth-container,
+.login-page-container {
+  min-height: 100vh !important;
+  padding: 18px 14px !important;
+  box-sizing: border-box !important;
+}
+
+.login-card,
+.auth-card,
+.login-box {
+  max-width: 440px !important;
+  width: min(440px, calc(100vw - 28px)) !important;
+  margin: 0 auto !important;
+  border-radius: 24px !important;
+}
+
+/* حذف/کم‌کردن بخش‌های تزئینی و توضیحی کم‌اهمیت */
+.login-card .subtitle,
+.login-card .login-subtitle,
+.login-card .auth-subtitle,
+.login-card .welcome-subtitle,
+.login-card .description,
+.login-card .auth-description,
+.auth-card .subtitle,
+.auth-card .description,
+.login-box .subtitle,
+.login-box .description {
+  display: none !important;
+}
+
+.login-card h1,
+.login-card .title,
+.auth-card h1,
+.auth-card .title,
+.login-box h1,
+.login-box .title {
+  margin-bottom: 10px !important;
+  font-size: 24px !important;
+  line-height: 1.35 !important;
+}
+
+.login-card .logo,
+.auth-card .logo,
+.login-box .logo,
+.login-card .brand-logo,
+.auth-card .brand-logo {
+  margin-bottom: 8px !important;
+  transform: scale(.92) !important;
+  transform-origin: center !important;
+}
+
+.login-card form,
+.auth-card form,
+.login-box form {
+  gap: 10px !important;
+}
+
+.login-card .form-group,
+.auth-card .form-group,
+.login-box .form-group,
+.login-card .input-group,
+.auth-card .input-group,
+.login-box .input-group {
+  margin-bottom: 10px !important;
+}
+
+.login-card input,
+.auth-card input,
+.login-box input {
+  min-height: 44px !important;
+  border-radius: 14px !important;
+}
+
+.login-card .btn,
+.login-card button[type="submit"],
+.auth-card .btn,
+.auth-card button[type="submit"],
+.login-box .btn,
+.login-box button[type="submit"] {
+  min-height: 44px !important;
+  border-radius: 14px !important;
+  margin-top: 2px !important;
+}
+
+/* کارت ورود سریع تست: فشرده و قابل استفاده */
+.default-credentials.nv-login-demo-compact,
+.default-credentials {
+  margin-top: 12px !important;
+  padding: 12px !important;
+  border-radius: 18px !important;
+  background: rgba(255, 255, 255, .72) !important;
+  border: 1px solid rgba(14, 165, 233, .18) !important;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, .06) !important;
+}
+
+.default-credentials .demo-note {
+  display: none !important;
+}
+
+.default-credentials .demo-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 10px !important;
+  margin-bottom: 8px !important;
+}
+
+.default-credentials h3 {
+  margin: 0 !important;
+  font-size: 13.5px !important;
+  font-weight: 950 !important;
+  color: #0f172a !important;
+  line-height: 1.5 !important;
+}
+
+.default-credentials .demo-header span {
+  font-size: 10.5px !important;
+  font-weight: 800 !important;
+  color: #64748b !important;
+  white-space: nowrap !important;
+}
+
+.default-credentials .credentials-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 7px !important;
+}
+
+.default-credentials .credential-item {
+  min-height: 42px !important;
+  padding: 7px 9px !important;
+  border-radius: 13px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  gap: 2px !important;
+  text-align: right !important;
+}
+
+.default-credentials .credential-item strong {
+  font-size: 11.5px !important;
+  line-height: 1.4 !important;
+  font-weight: 950 !important;
+}
+
+.default-credentials .credential-item code {
+  font-size: 10.5px !important;
+  line-height: 1.3 !important;
+  direction: ltr !important;
+  unicode-bidi: plaintext !important;
+  background: transparent !important;
+  padding: 0 !important;
+  color: #075985 !important;
+}
+
+/* حذف لینک‌ها/متن‌های اضافی پایین فرم اگر باعث اسکرول شوند */
+.login-card .extra-links,
+.login-card .auth-links,
+.login-card .footer-note,
+.login-card .terms,
+.auth-card .extra-links,
+.auth-card .auth-links,
+.auth-card .footer-note,
+.auth-card .terms {
+  margin-top: 8px !important;
+  font-size: 11px !important;
+}
+
+/* ارتفاع بهینه برای لپتاپ */
+@media (min-width: 768px) and (max-height: 780px) {
+  .login-container,
+  .auth-container,
+  .login-page-container {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+
+  .login-card,
+  .auth-card,
+  .login-box {
+    padding: 18px !important;
+    max-width: 420px !important;
+  }
+
+  .default-credentials {
+    margin-top: 10px !important;
+    padding: 10px !important;
+  }
+
+  .default-credentials .credential-item {
+    min-height: 38px !important;
+    padding: 6px 8px !important;
+  }
+
+  .default-credentials h3 {
+    font-size: 13px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .default-credentials .credentials-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .default-credentials .demo-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 2px !important;
+  }
+}

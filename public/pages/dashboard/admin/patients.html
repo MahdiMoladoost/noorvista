@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa">
+<head>
+<link href="/css/local-fonts.css" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>مدیریت بیماران | NOORVISTA</title>
+<link href="/css/open-iconic-bootstrap.min.css" rel="stylesheet"/>
+<link href="/css/ionicons.min.css" rel="stylesheet"/>
+<link href="/css/icomoon.css" rel="stylesheet"/>
+<link href="/css/panel-common.css" rel="stylesheet"/>
+<link href="/css/clinic-admin-fixes.css" rel="stylesheet"/>
+<link href="/css/noorvista-panel-polish.css" rel="stylesheet"/>
+<style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #f5f7fa; font-family: 'Vazir', Tahoma, Arial; }
+        .sidebar { position: fixed; right: 0; top: 0; bottom: 0; width: 280px; background: #1a2c3e; z-index: 1000; }
+        .sidebar-header { padding: 25px 20px; text-align: center; border-bottom: 1px solid #2c4053; }
+        .sidebar-logo { font-size: 24px; font-weight: 700; color: #ffffff; }
+        .sidebar-logo span { color: #4fc3f7; }
+        .sidebar-nav { padding: 20px 0; list-style: none; }
+        .nav-item { margin-bottom: 2px; }
+        .nav-link { display: flex; align-items: center; padding: 12px 24px; color: #cdd9ed; text-decoration: none; gap: 12px; font-size: 14px; }
+        .nav-link:hover { background: #2c4053; color: white; }
+        .nav-link.active { background: #2c4053; color: white; border-right: 3px solid #4fc3f7; }
+        .main-content { margin-right: 280px; min-height: 100vh; padding: 20px; }
+        .top-header { background: white; border-radius: 18px; padding: 15px 20px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #e5e7eb; box-shadow: 0 10px 24px rgba(15,35,55,.05); }
+        .page-title h1 { font-size: 20px; font-weight: 800; color: #1f2937; }
+        .page-title p { font-size: 12px; color: #6b7280; margin-top: 4px; }
+        .header-actions { display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+        .search-box { position: relative; }
+        .search-box input { padding: 10px 38px 10px 12px; border: 1px solid #d1d5db; border-radius: 14px; width: 280px; max-width: 100%; font-size: 13px; background:#fff; }
+        .search-box input:focus { outline: none; border-color: #1897e8; box-shadow: 0 0 0 4px rgba(24,151,232,.10); }
+        .search-box i { position: absolute; right: 13px; top: 50%; transform: translateY(-50%); color: #9ca3af; }
+        .user-avatar { width: 36px; height: 36px; background: #1897e8; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
+        .card { background: white; border-radius: 20px; border: 1px solid #e5e7eb; box-shadow: 0 16px 36px rgba(15,35,55,.08); overflow:hidden; }
+        .card-header { padding: 17px 20px; border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center; background: #f9fafb; gap:12px; flex-wrap:wrap; }
+        .card-header h4 { font-size: 16px; font-weight: 800; display: flex; align-items: center; gap: 8px; margin:0; }
+        .card-body { padding: 0; overflow-x: auto; }
+        .data-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 860px; }
+        .data-table th, .data-table td { padding: 13px 12px; border: 1px solid #e5e7eb; text-align: center; vertical-align: middle; }
+        .data-table th { background: #f9fafb; font-weight: 800; color:#334155; }
+        .data-table tbody tr:hover { background:#f8fbff; }
+        .btn { border:0; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:7px; font-weight:800; transition:all .18s ease; white-space:nowrap; }
+        .btn-primary { background: linear-gradient(135deg,#1897e8,#36c2f3); color:#fff; box-shadow:0 8px 18px rgba(24,151,232,.20); }
+        .btn-primary:hover { transform:translateY(-1px); box-shadow:0 12px 24px rgba(24,151,232,.28); }
+        .btn-outline { background:#fff; border:1px solid #dbe5ef; color:#334155; }
+        .btn-outline:hover { border-color:#1897e8; color:#0f75bd; background:#e8f6ff; }
+        .btn-danger { background:#ef4444; color:#fff; }
+        .btn-sm { padding: 7px 12px; border-radius: 999px; font-size: 12px; }
+        .action-buttons { display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap; }
+        .action-btn { min-height:32px; border-radius:999px; padding:7px 12px; border:0; font-size:12px; font-weight:800; cursor:pointer; display:inline-flex; align-items:center; gap:6px; transition:all .18s ease; }
+        .action-btn.view { color:#2563eb; background:#eaf2ff; }
+        .action-btn.edit { color:#b45309; background:#fff7d6; }
+        .action-btn.delete { color:#dc2626; background:#fff1f1; }
+        .action-btn:hover { transform:translateY(-1px); filter:saturate(1.05); }
+        .action-btn.view:hover { background:#2563eb; color:white; }
+        .action-btn.edit:hover { background:#f59e0b; color:white; }
+        .action-btn.delete:hover { background:#ef4444; color:white; }
+        .action-btn:disabled, .btn:disabled { opacity:.55; cursor:not-allowed; transform:none; }
+        .modal-overlay { position: fixed; inset:0; background: rgba(15,23,42,.54); z-index: 2000; display: none; align-items: center; justify-content: center; padding:20px; }
+        .modal-overlay.show { display:flex; }
+        .modal-container { background: white; border-radius: 20px; width: min(760px, 96vw); max-height: 90vh; overflow: hidden; display:flex; flex-direction:column; box-shadow:0 24px 70px rgba(0,0,0,.22); }
+        .modal-header { padding: 16px 20px; border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center; background:#fff; }
+        .modal-header h3 { margin: 0; font-size: 16px; font-weight: 900; }
+        .modal-close { background: #f1f5f9; border: none; width:34px; height:34px; border-radius:50%; font-size: 22px; cursor: pointer; color: #64748b; display:inline-flex; align-items:center; justify-content:center; }
+        .modal-close:hover { color: #ef4444; background:#fee2e2; }
+        .modal-body { padding: 20px; overflow:auto; }
+        .modal-footer { padding: 12px 20px; border-top: 1px solid #e5e7eb; display: flex; justify-content: flex-end; gap: 10px; background: #f9fafb; flex-wrap:wrap; }
+        .form-row { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:14px; }
+        .form-group { margin-bottom: 14px; }
+        .form-group label { font-size: 12px; font-weight: 800; color: #374151; margin-bottom: 6px; display: block; }
+        .form-control { width: 100%; padding: 9px 12px; border: 1px solid #d1d5db; border-radius: 12px; font-size: 13px; background:#fff; }
+        .form-control:focus { outline: none; border-color: #1897e8; box-shadow:0 0 0 4px rgba(24,151,232,.10); }
+        textarea.form-control { resize:vertical; min-height:72px; }
+        .detail-grid { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:12px; }
+        .detail-item { background:#f8fafc; border:1px solid #e2e8f0; border-radius:14px; padding:12px; line-height:1.9; }
+        .detail-item.full { grid-column:1 / -1; }
+        .detail-label { display:block; color:#64748b; font-size:11px; font-weight:800; margin-bottom:3px; }
+        .detail-value { color:#172033; font-size:13px; font-weight:700; white-space:pre-wrap; word-break:break-word; }
+        .empty-state { text-align:center; padding:34px !important; color:#64748b; }
+        @media (max-width: 992px) { .sidebar { right: -280px; } .main-content { margin-right: 0; } }
+        @media (max-width: 768px) { .top-header { align-items:stretch; flex-direction:column; } .header-actions { width:100%; } .search-box, .search-box input { width:100%; } .form-row, .detail-grid { grid-template-columns:1fr; } .card-header { align-items:stretch; } .card-header .btn { width:100%; } }
+    </style>
+<link href="/css/noorvista-admin-header.css" rel="stylesheet"/>
+<link href="/css/noorvista-manager-ui.css" rel="stylesheet"/>
+<link href="/assets/css/panel-sidebar-unified-final.css" rel="stylesheet"/>
+<link href="/assets/css/panel-ui-final-fixes.css" rel="stylesheet"/>
+<link href="/assets/css/panel-pretty-selects-global.css" rel="stylesheet"/></head>
+<body>
+<div class="sidebar">
+<div class="sidebar-header"><div class="sidebar-logo">NOOR<span>VISTA</span></div></div>
+<ul class="sidebar-nav"><li class="nav-item"><a class="nav-link" data-sidebar-match="index.html," href="index.html"><i class="icon-dashboard"></i><span>داشبورد</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="users.html" href="users.html"><i class="icon-users"></i><span>مدیریت کاربران</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="doctors.html" href="doctors.html"><i class="icon-user-md"></i><span>مدیریت پزشکان</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="schedule.html" href="schedule.html"><i class="icon-clock"></i><span>زمان‌بندی پزشکان</span></a></li><li class="nav-item"><a class="nav-link active" data-sidebar-match="patients.html" href="patients.html"><i class="icon-users"></i><span>مدیریت بیماران</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="appointments.html" href="appointments.html"><i class="icon-calendar"></i><span>مدیریت نوبت‌ها</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="staff.html" href="staff.html"><i class="icon-briefcase"></i><span>مدیریت کارکنان</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="payments.html" href="payments.html"><i class="icon-credit-card"></i><span>مدیریت مالی</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="faqs.html" href="faqs.html"><i class="icon-comments nv-faq-icon"></i><span>سوالات پرتکرار</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="notifications.html" href="notifications.html"><i class="icon-bell"></i><span>اعلانات</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="settings.html" href="settings.html"><i class="icon-cog"></i><span>تنظیمات سیستم</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="backup.html" href="backup.html"><i class="icon-database"></i><span>پشتیبان‌گیری</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="reports.html,logs.html" href="reports.html"><i class="icon-bar-chart"></i><span>گزارشات و لاگ‌ها</span></a></li></ul>
+</div>
+<div class="main-content">
+<div class="top-header nv-standard-top-header">
+<div class="page-heading">
+<h1>مدیریت بیماران</h1>
+<p>مشاهده، ثبت و مدیریت اطلاعات بیماران</p>
+</div>
+<div class="header-actions">
+<button aria-label="اعلان‌ها" class="notification-button" title="اعلان‌ها" type="button"><i class="icon-bell"></i><span aria-hidden="true" class="notification-dot"></span></button>
+<div class="user-menu nv-user-menu">
+<button aria-expanded="false" aria-haspopup="true" class="user-menu-trigger" type="button">
+<span class="user-avatar nv-header-avatar">نو</span>
+<span class="user-menu-text"><strong class="user-name nv-header-user-name">کاربر NOORVISTA</strong><small class="user-role nv-header-user-role">کاربر سیستم</small></span>
+<i aria-hidden="true" class="icon-chevron-down nv-user-menu-chevron"></i>
+</button>
+<div class="user-dropdown nv-user-dropdown" role="menu">
+<button class="user-dropdown-item" data-nv-profile="" role="menuitem" type="button"><i class="icon-user"></i><span>مشاهده پروفایل</span></button>
+<button class="user-dropdown-item" data-nv-edit-account="" role="menuitem" type="button"><i class="icon-pencil"></i><span>ویرایش اطلاعات حساب</span></button>
+<button class="user-dropdown-item" data-nv-change-password="" role="menuitem" type="button"><i class="icon-lock"></i><span>تغییر رمز عبور</span></button>
+<button class="user-dropdown-item" data-nv-account-settings="" role="menuitem" type="button"><i class="icon-cog"></i><span>تنظیمات حساب</span></button>
+<div aria-hidden="true" class="user-dropdown-divider"></div>
+<button class="user-dropdown-item danger" data-nv-logout="" role="menuitem" type="button"><i class="icon-sign-out"></i><span>خروج از حساب</span></button>
+</div>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header">
+<h4><i class="icon-users"></i> لیست بیماران</h4>
+<button class="btn btn-primary btn-sm" id="addPatientBtn" type="button"><i class="icon-plus"></i> بیمار جدید</button>
+</div>
+<div class="card-body">
+<div class="filter-section" style="padding:16px 20px;display:flex;gap:12px;align-items:end;flex-wrap:wrap;border-bottom:1px solid #e5e7eb;background:#fff;">
+<div class="filter-group" style="min-width:260px;flex:1;">
+<label style="display:block;font-size:12px;font-weight:900;color:#374151;margin-bottom:6px;">جستجو</label>
+<input class="form-control" id="searchInput" placeholder="جستجو بر اساس نام، تلفن، ایمیل یا کد ملی..." type="text"/>
+</div>
+</div>
+<table class="data-table" id="patientsTable">
+<thead><tr><th>شناسه</th><th>نام بیمار</th><th>تلفن</th><th>ایمیل</th><th>کد ملی</th><th>تعداد نوبت</th><th>تاریخ ثبت</th><th>عملیات</th></tr></thead>
+<tbody id="patientsTableBody"><tr><td class="empty-state" colspan="8">در حال بارگذاری...</td></tr></tbody>
+</table>
+</div>
+</div>
+</div>
+<div aria-modal="true" class="modal-overlay" id="patientModal">
+<div class="modal-container">
+<div class="modal-header"><h3 id="patientModalTitle">ثبت بیمار جدید</h3><button class="modal-close" data-close-modal="patientModal" type="button">×</button></div>
+<div class="modal-body">
+<input id="editPatientId" type="hidden"/>
+<div class="form-row"><div class="form-group"><label>نام کامل</label><input class="form-control" id="fullName" required="" type="text"/></div><div class="form-group"><label>نام کاربری</label><input class="form-control" id="username" required="" type="text"/></div></div>
+<div class="form-row"><div class="form-group"><label>شماره تلفن</label><input class="form-control" id="phone" required="" type="tel"/></div><div class="form-group"><label>ایمیل</label><input class="form-control" id="email" type="email"/></div></div>
+<div class="form-row"><div class="form-group"><label>کد ملی</label><input class="form-control" id="nationalCode" inputmode="numeric" maxlength="10" type="text"/></div><div class="form-group"><label>تاریخ تولد شمسی</label><input class="form-control" id="birthDateJalali" placeholder="۱۳۷۰/۰۵/۲۰" type="text"/></div></div>
+<div class="form-row"><div class="form-group"><label>جنسیت</label><select class="form-control" id="gender"><option value="">انتخاب نشده</option><option value="male">مرد</option><option value="female">زن</option><option value="other">سایر</option></select></div><div class="form-group"><label>بیمه پایه</label><input class="form-control" id="insuranceProvider" type="text"/></div></div>
+<div class="form-row"><div class="form-group"><label>شماره بیمه</label><input class="form-control" id="insuranceNumber" type="text"/></div><div class="form-group"><label>تلفن همراه اضطراری</label><input class="form-control" id="emergencyContactPhone" type="tel"/></div></div>
+<div class="form-group"><label>نام همراه اضطراری</label><input class="form-control" id="emergencyContactName" type="text"/></div>
+<div class="form-group"><label>آدرس</label><textarea class="form-control" id="address" rows="2"></textarea></div>
+<div class="form-group"><label>حساسیت دارویی/غذایی</label><textarea class="form-control" id="allergies" rows="2"></textarea></div>
+<div class="form-group"><label>داروهای مصرفی</label><textarea class="form-control" id="medications" rows="2"></textarea></div>
+<div class="form-group"><label>بیماری‌های زمینه‌ای</label><textarea class="form-control" id="chronicDiseases" rows="2"></textarea></div>
+<div class="form-group"><label>سابقه پزشکی / توضیحات چشم‌پزشکی</label><textarea class="form-control" id="medicalHistory" rows="3"></textarea></div>
+<div class="form-group"><label>یادداشت داخلی</label><textarea class="form-control" id="patientNotes" rows="2"></textarea></div>
+<div class="form-group"><label id="passwordLabel">رمز عبور</label><input autocomplete="new-password" class="form-control" id="password" type="password"/></div>
+</div>
+<div class="modal-footer"><button class="btn btn-outline btn-sm" data-close-modal="patientModal" type="button">انصراف</button><button class="btn btn-primary btn-sm" id="savePatientBtn" type="button"><i class="icon-check"></i><span id="patientSubmitText">ثبت بیمار</span></button></div>
+</div>
+</div>
+<div aria-modal="true" class="modal-overlay" id="viewPatientModal">
+<div class="modal-container">
+<div class="modal-header"><h3><i class="icon-eye"></i> جزئیات بیمار</h3><button class="modal-close" data-close-modal="viewPatientModal" type="button">×</button></div>
+<div class="modal-body"><div class="detail-grid" id="viewPatientContent"></div></div>
+<div class="modal-footer"><button class="btn btn-outline btn-sm" data-close-modal="viewPatientModal" type="button">بستن</button><button class="btn btn-primary btn-sm" id="viewPatientEditBtn" type="button"><i class="icon-pencil"></i> ویرایش</button></div>
+</div>
+</div>
+<div aria-modal="true" class="modal-overlay" id="confirmPatientDeleteModal">
+<div class="modal-container" style="max-width:430px;">
+<div class="modal-header"><h3><i class="icon-trash"></i> حذف بیمار</h3><button class="modal-close" data-close-modal="confirmPatientDeleteModal" type="button">×</button></div>
+<div class="modal-body"><p id="deletePatientMessage" style="line-height:2;color:#334155;font-weight:700;">آیا از حذف این بیمار اطمینان دارید؟</p><p style="font-size:12px;color:#64748b;margin-top:8px;line-height:1.8;">در صورت وجود سوابق مرتبط، سرور ممکن است به‌جای حذف فیزیکی، بیمار را غیرفعال کند.</p></div>
+<div class="modal-footer"><button class="btn btn-outline btn-sm" data-close-modal="confirmPatientDeleteModal" type="button">انصراف</button><button class="btn btn-danger btn-sm" id="confirmDeletePatientBtn" type="button"><i class="icon-trash"></i> حذف بیمار</button></div>
+</div>
+</div>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/panel-common.js"></script>
+<script src="/js/clinic-admin-fixes.js"></script>
+<script src="/js/jalali.js"></script>
+<script src="/js/noorvista-panel-polish.js"></script>
+<script>
+(function () {
+    'use strict';
+
+    const state = { all: [], filtered: [], deleteId: null, loading: false };
+    const tbody = () => document.getElementById('patientsTableBody');
+    const token = () => localStorage.getItem('token') || localStorage.getItem('authToken') || '';
+
+    function faNum(value) { return typeof window.toPersianNumber === 'function' ? window.toPersianNumber(value) : String(value ?? '').replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[Number(d)]); }
+    function esc(value) { return String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch])); }
+    function toast(message, type='info') { if (window.showToast) return window.showToast(message, type); alert(message); }
+    function gDateToJalali(value) { if (!value) return ''; try { return window.toJalali ? window.toJalali(String(value).slice(0,10)) : String(value).slice(0,10); } catch { return String(value).slice(0,10); } }
+    function jDateToGregorian(value) { if (!value) return ''; try { return window.toGregorianDateString ? window.toGregorianDateString(value) : (window.toGregorian ? window.toGregorian(value) : value); } catch { return value; } }
+
+    function normalizePatient(p = {}) {
+        const fullName = p.full_name || p.fullname || p.name || p.display_name || '-';
+        return {
+            ...p,
+            id: p.id ?? p.patient_id ?? p.user_id,
+            user_id: p.user_id,
+            full_name: fullName,
+            username: p.username || '',
+            phone: p.phone || p.mobile || '',
+            email: p.email || '',
+            national_code: p.national_code || p.nationalCode || '',
+            birth_date: p.birth_date || p.birthDate || '',
+            gender: p.gender || '',
+            address: p.address || '',
+            emergency_contact_name: p.emergency_contact_name || '',
+            emergency_contact_phone: p.emergency_contact_phone || '',
+            insurance_provider: p.insurance_provider || '',
+            insurance_number: p.insurance_number || '',
+            allergies: p.allergies || '',
+            medications: p.medications || '',
+            chronic_diseases: p.chronic_diseases || '',
+            medical_history: p.medical_history || '',
+            notes: p.notes || p.patient_notes || '',
+            appointment_count: p.appointment_count || p.appointments_count || 0,
+            created_at: p.created_at || p.created_date || '',
+            is_active: p.is_active === undefined ? true : !!Number(p.is_active)
+        };
+    }
+
+    function extractPatients(result) {
+        const raw = Array.isArray(result) ? result : (result?.patients || result?.data?.patients || result?.data || result?.items || []);
+        return Array.isArray(raw) ? raw.map(normalizePatient).filter(p => p.id !== undefined && p.id !== null && String(p.id) !== '') : [];
+    }
+
+    function extractPatient(result) {
+        const raw = result?.patient || result?.data?.patient || result?.data || result?.item || result;
+        return raw && typeof raw === 'object' ? normalizePatient(raw) : null;
+    }
+
+    async function request(url, method='GET', data=null) {
+        const res = await fetch(url, { method, headers: { 'Content-Type': 'application/json', ...(token() ? { Authorization: 'Bearer ' + token() } : {}) }, body: data && ['POST','PUT','PATCH','DELETE'].includes(method) ? JSON.stringify(data) : undefined, cache:'no-store' });
+        const body = await res.json().catch(() => ({}));
+        if (!res.ok || body.success === false) { const err = new Error(body.message || body.error || 'خطای سرور: ' + res.status); err.status = res.status; throw err; }
+        return body;
+    }
+
+    async function tryEndpoints(paths, method='GET', data=null) {
+        let lastError;
+        for (const path of paths) {
+            try { return await request(path, method, data); }
+            catch (err) { lastError = err; if (![401,403,404,405,500].includes(err.status)) break; }
+        }
+        throw lastError || new Error('API معتبر پیدا نشد');
+    }
+
+    const api = {
+        list: () => tryEndpoints(['/api/admin/patients', '/api/clinic/patients']),
+        get: (id) => tryEndpoints([`/api/admin/patients/${encodeURIComponent(id)}`, `/api/clinic/patients/${encodeURIComponent(id)}`]),
+        create: (data) => tryEndpoints(['/api/admin/patients', '/api/clinic/patients'], 'POST', data),
+        update: (id, data) => tryEndpoints([`/api/admin/patients/${encodeURIComponent(id)}`, `/api/clinic/patients/${encodeURIComponent(id)}`], 'PUT', data),
+        remove: (id) => tryEndpoints([`/api/admin/patients/${encodeURIComponent(id)}`, `/api/clinic/patients/${encodeURIComponent(id)}`], 'DELETE')
+    };
+
+    function render(list = state.filtered) {
+        const body = tbody();
+        if (!body) return;
+        if (!Array.isArray(list) || !list.length) { body.innerHTML = '<tr><td colspan="8" class="empty-state">هیچ بیماری یافت نشد</td></tr>'; return; }
+        body.innerHTML = list.map(p => `
+            <tr data-patient-row="${esc(p.id)}">
+                <td>${faNum(p.id)}</td>
+                <td><strong>${esc(p.full_name)}</strong>${p.is_active ? '' : '<br><small style="color:#dc2626;">غیرفعال</small>'}</td>
+                <td>${faNum(p.phone || '-')}</td>
+                <td>${esc(p.email || '-')}</td>
+                <td>${faNum(p.national_code || '-')}</td>
+                <td>${faNum(p.appointment_count || 0)}</td>
+                <td>${p.created_at ? gDateToJalali(p.created_at) : '-'}</td>
+                <td class="action-buttons">
+                    <button type="button" class="action-btn view patient-action" data-action="view" data-id="${esc(p.id)}"><i class="icon-eye"></i> مشاهده</button>
+                    <button type="button" class="action-btn edit patient-action" data-action="edit" data-id="${esc(p.id)}"><i class="icon-pencil"></i> ویرایش</button>
+                    <button type="button" class="action-btn delete patient-action" data-action="delete" data-id="${esc(p.id)}"><i class="icon-trash"></i> حذف</button>
+                </td>
+            </tr>`).join('');
+        window.NOORVISTA?.refreshUI?.();
+    }
+
+    function applySearch() {
+        const q = (document.getElementById('searchInput')?.value || '').trim().toLowerCase();
+        state.filtered = !q ? [...state.all] : state.all.filter(p => `${p.full_name} ${p.username} ${p.phone} ${p.email} ${p.national_code}`.toLowerCase().includes(q));
+        render();
+    }
+
+    async function loadPatients() {
+        if (state.loading) return;
+        state.loading = true;
+        const body = tbody();
+        if (body && !state.all.length) body.innerHTML = '<tr><td colspan="8" class="empty-state">در حال بارگذاری...</td></tr>';
+        try {
+            const result = await api.list();
+            state.all = extractPatients(result);
+            applySearch();
+        } catch (err) {
+            if (!state.all.length && body) body.innerHTML = `<tr><td colspan="8" class="empty-state">${esc(err.message || 'خطا در دریافت بیماران')}</td></tr>`;
+            toast(err.message || 'خطا در دریافت بیماران', 'error');
+        } finally { state.loading = false; }
+    }
+
+    function findLocal(id) { return state.all.find(p => String(p.id) === String(id)); }
+    function openModal(id) { const el = document.getElementById(id); if (el) { el.classList.add('show'); el.style.display = 'flex'; } }
+    function closeModal(id) { const el = document.getElementById(id); if (el) { el.classList.remove('show'); el.style.display = 'none'; } }
+
+    function fillForm(patient=null) {
+        const p = patient ? normalizePatient(patient) : null;
+        const set = (id, val='') => { const el = document.getElementById(id); if (el) el.value = val ?? ''; };
+        set('editPatientId', p?.id || ''); set('fullName', p?.full_name || ''); set('username', p?.username || ''); set('phone', p?.phone || ''); set('email', p?.email || '');
+        set('nationalCode', p?.national_code || ''); set('birthDateJalali', p?.birth_date ? gDateToJalali(p.birth_date) : ''); set('gender', p?.gender || '');
+        set('insuranceProvider', p?.insurance_provider || ''); set('insuranceNumber', p?.insurance_number || ''); set('emergencyContactPhone', p?.emergency_contact_phone || ''); set('emergencyContactName', p?.emergency_contact_name || '');
+        set('address', p?.address || ''); set('allergies', p?.allergies || ''); set('medications', p?.medications || ''); set('chronicDiseases', p?.chronic_diseases || ''); set('medicalHistory', p?.medical_history || ''); set('patientNotes', p?.notes || ''); set('password', '');
+        document.getElementById('patientModalTitle').textContent = p ? 'ویرایش بیمار' : 'ثبت بیمار جدید';
+        document.getElementById('patientSubmitText').textContent = p ? 'ذخیره تغییرات' : 'ثبت بیمار';
+        document.getElementById('passwordLabel').textContent = p ? 'رمز عبور جدید (اختیاری)' : 'رمز عبور';
+    }
+
+    function renderDetails(patient) {
+        const p = normalizePatient(patient);
+        const item = (label, value, full=false) => `<div class="detail-item ${full ? 'full' : ''}"><span class="detail-label">${label}</span><span class="detail-value">${value || '-'}</span></div>`;
+        document.getElementById('viewPatientContent').innerHTML = [
+            item('نام', esc(p.full_name)), item('نام کاربری', esc(p.username)), item('تلفن', faNum(p.phone || '-')), item('ایمیل', esc(p.email || '-')),
+            item('کد ملی', faNum(p.national_code || '-')), item('تاریخ تولد', p.birth_date ? gDateToJalali(p.birth_date) : '-'), item('جنسیت', p.gender === 'male' ? 'مرد' : p.gender === 'female' ? 'زن' : esc(p.gender || '-')), item('بیمه', esc([p.insurance_provider, p.insurance_number].filter(Boolean).join(' / ') || '-')),
+            item('همراه اضطراری', esc([p.emergency_contact_name, p.emergency_contact_phone].filter(Boolean).join(' / ') || '-')), item('تعداد نوبت', faNum(p.appointment_count || 0)), item('آدرس', esc(p.address || '-'), true), item('حساسیت‌ها', esc(p.allergies || '-'), true), item('داروها', esc(p.medications || '-'), true), item('بیماری‌های زمینه‌ای', esc(p.chronic_diseases || '-'), true), item('سابقه پزشکی', esc(p.medical_history || '-'), true), item('یادداشت', esc(p.notes || '-'), true)
+        ].join('');
+        document.getElementById('viewPatientEditBtn').onclick = () => { closeModal('viewPatientModal'); openEdit(p.id); };
+    }
+
+    async function openView(id) {
+        let p = findLocal(id); if (!p) return toast('بیمار مورد نظر در جدول پیدا نشد', 'error');
+        renderDetails(p); openModal('viewPatientModal');
+        try { const fresh = extractPatient(await api.get(id)); if (fresh) { state.all = state.all.map(x => String(x.id) === String(id) ? { ...x, ...fresh } : x); renderDetails({ ...p, ...fresh }); } } catch (_) {}
+    }
+
+    function openEdit(id) { const p = findLocal(id); if (!p) return toast('بیمار مورد نظر در جدول پیدا نشد', 'error'); fillForm(p); openModal('patientModal'); }
+    function openAdd() { fillForm(null); openModal('patientModal'); }
+    function openDelete(id) { const p = findLocal(id); if (!p) return toast('بیمار مورد نظر در جدول پیدا نشد', 'error'); state.deleteId = id; document.getElementById('deletePatientMessage').textContent = `آیا از حذف یا غیرفعال‌سازی «${p.full_name}» اطمینان دارید؟`; openModal('confirmPatientDeleteModal'); }
+
+    function collectPayload() {
+        const get = id => (document.getElementById(id)?.value || '').trim();
+        const birthJ = get('birthDateJalali');
+        const fullName = get('fullName');
+        return {
+            full_name: fullName, fullname: fullName, username: get('username'), phone: get('phone'), email: get('email'), national_code: get('nationalCode'), birth_date: birthJ ? jDateToGregorian(birthJ) : '', gender: get('gender'), insurance_provider: get('insuranceProvider'), insurance_number: get('insuranceNumber'), emergency_contact_name: get('emergencyContactName'), emergency_contact_phone: get('emergencyContactPhone'), address: get('address'), allergies: get('allergies'), medications: get('medications'), chronic_diseases: get('chronicDiseases'), medical_history: get('medicalHistory'), notes: get('patientNotes'), ...(get('password') ? { password: get('password') } : {})
+        };
+    }
+
+    async function savePatient() {
+        const id = document.getElementById('editPatientId').value;
+        const payload = collectPayload();
+        if (!payload.full_name || !payload.username || !payload.phone || (!id && !payload.password)) return toast('نام، نام کاربری، تلفن و رمز عبور برای بیمار جدید الزامی است', 'warning');
+        const btn = document.getElementById('savePatientBtn'); btn.disabled = true; btn.classList.add('loading');
+        try {
+            if (id) {
+                await api.update(id, payload);
+                state.all = state.all.map(p => String(p.id) === String(id) ? normalizePatient({ ...p, ...payload, id }) : p);
+                toast('اطلاعات بیمار ویرایش شد', 'success');
+            } else {
+                const created = extractPatient(await api.create(payload));
+                if (created) state.all.unshift(created);
+                toast('بیمار با موفقیت ثبت شد', 'success');
+            }
+            closeModal('patientModal'); applySearch();
+        } catch (err) { toast(err.message || 'خطا در ذخیره بیمار', 'error'); }
+        finally { btn.disabled = false; btn.classList.remove('loading'); }
+    }
+
+    async function confirmDelete() {
+        const id = state.deleteId; if (!id) return;
+        const btn = document.getElementById('confirmDeletePatientBtn'); btn.disabled = true; btn.classList.add('loading');
+        try { await api.remove(id); state.all = state.all.filter(p => String(p.id) !== String(id)); closeModal('confirmPatientDeleteModal'); applySearch(); toast('بیمار حذف/غیرفعال شد', 'success'); }
+        catch (err) { toast(err.message || 'خطا در حذف بیمار', 'error'); }
+        finally { state.deleteId = null; btn.disabled = false; btn.classList.remove('loading'); }
+    }
+
+    function bindEvents() {
+        document.getElementById('addPatientBtn').addEventListener('click', openAdd);
+        document.getElementById('savePatientBtn').addEventListener('click', savePatient);
+        document.getElementById('confirmDeletePatientBtn').addEventListener('click', confirmDelete);
+        document.querySelectorAll('[data-close-modal]').forEach(btn => btn.addEventListener('click', () => closeModal(btn.dataset.closeModal)));
+        document.querySelectorAll('.modal-overlay').forEach(modal => modal.addEventListener('click', e => { if (e.target === modal) closeModal(modal.id); }));
+        document.getElementById('patientsTableBody').addEventListener('click', e => {
+            const btn = e.target.closest('.patient-action'); if (!btn) return;
+            e.preventDefault(); e.stopPropagation();
+            const id = btn.dataset.id; const action = btn.dataset.action;
+            if (action === 'view') return openView(id);
+            if (action === 'edit') return openEdit(id);
+            if (action === 'delete') return openDelete(id);
+        });
+        document.getElementById('searchInput')?.addEventListener('input', applySearch);
+    }
+
+    async function init() {
+        if (typeof window.initPage === 'function') { const ok = await window.initPage(); if (!ok) return; }
+        bindEvents();
+        await loadPatients();
+    }
+
+    window.loadPatients = loadPatients;
+    window.openAddPatientModal = openAdd;
+    window.savePatient = savePatient;
+    window.viewPatient = openView;
+    window.deletePatient = openDelete;
+    window.closeModal = closeModal;
+    window.openModal = openModal;
+
+    document.addEventListener('DOMContentLoaded', init);
+})();
+    </script>
+<script src="/js/noorvista-admin-header.js"></script>
+<script src="/js/noorvista-manager-ui.js"></script>
+<script src="/assets/js/admin-sidebar-active-fix.js"></script>
+<script src="/assets/js/panel-final-fixes.js"></script>
+<script src="/assets/js/panel-pretty-selects-global.js"></script></body>
+</html>

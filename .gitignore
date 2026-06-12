@@ -1,0 +1,8 @@
+node_modules/
+.env
+*.log
+public/uploads/patient-documents/*
+public/uploads/medical-records/*
+public/uploads/consents/*
+public/uploads/temp/*
+!public/uploads/**/.gitkeep

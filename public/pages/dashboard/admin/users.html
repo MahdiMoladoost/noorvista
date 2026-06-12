@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa">
+<head>
+<link href="/css/local-fonts.css" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>مدیریت کاربران | NOORVISTA</title>
+<link href="/css/open-iconic-bootstrap.min.css" rel="stylesheet"/>
+<link href="/css/ionicons.min.css" rel="stylesheet"/>
+<link href="/css/icomoon.css" rel="stylesheet"/>
+<link href="/css/panel-common.css" rel="stylesheet"/>
+<style>
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        .stat-card {
+            background: white;
+            border-radius: 16px;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .stat-card .value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2f89fc;
+        }
+        .stat-card .label {
+            font-size: 12px;
+            color: #64748b;
+        }
+        .filter-bar {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: flex-end;
+        }
+        .filter-group {
+            flex: 1;
+            min-width: 150px;
+        }
+        .filter-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 5px;
+        }
+        .filter-group input, .filter-group select {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 13px;
+        }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .data-table th, .data-table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .data-table th {
+            background: #f8fafc;
+            font-weight: 600;
+        }
+        .role-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        .role-admin { background: #fee2e2; color: #b91c1c; }
+        .role-clinic_admin { background: #ffedd5; color: #c2410c; }
+        .role-doctor { background: #dcfce7; color: #047857; }
+        .role-receptionist { background: #dbeafe; color: #1d4ed8; }
+        .role-patient { background: #f1f5f9; color: #475569; }
+        .status-active { background: #dcfce7; color: #047857; }
+        .status-inactive { background: #fee2e2; color: #b91c1c; }
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+        .btn-sm {
+            padding: 5px 10px;
+            font-size: 11px;
+            border-radius: 6px;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary { background: #2f89fc; color: white; }
+        .btn-outline { background: transparent; border: 1px solid #e2e8f0; }
+        .btn-danger { background: #ef4444; color: white; }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-top: 20px;
+        }
+        .page-btn {
+            padding: 6px 12px;
+            border: 1px solid #e2e8f0;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .page-btn.active {
+            background: #2f89fc;
+            color: white;
+            border-color: #2f89fc;
+        }
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-overlay.show {
+            display: flex;
+        }
+        .modal-container {
+            background: white;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .modal-header {
+            padding: 15px 20px;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-body {
+            padding: 20px;
+        }
+        .modal-footer {
+            padding: 15px 20px;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        .form-control {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 13px;
+        }
+    </style>
+<link href="/css/admin-enhancements.css" rel="stylesheet"/>
+<link href="/css/noorvista-panel-polish.css" rel="stylesheet"/>
+<link href="/css/noorvista-admin-header.css" rel="stylesheet"/>
+<link href="/css/noorvista-manager-ui.css" rel="stylesheet"/>
+<link href="/assets/css/panel-sidebar-unified-final.css" rel="stylesheet"/>
+<link href="/assets/css/panel-ui-final-fixes.css" rel="stylesheet"/>
+<link href="/assets/css/panel-pretty-selects-global.css" rel="stylesheet"/></head>
+<body>
+<!-- سایدبار -->
+<div class="sidebar">
+<div class="sidebar-header"><div class="sidebar-logo">NOOR<span>VISTA</span></div></div>
+<ul class="sidebar-nav"><li class="nav-item"><a class="nav-link active" data-sidebar-match="index.html," href="index.html"><i class="icon-dashboard"></i><span>داشبورد</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="users.html" href="users.html"><i class="icon-users"></i><span>مدیریت کاربران</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="doctors.html" href="doctors.html"><i class="icon-user-md"></i><span>مدیریت پزشکان</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="schedule.html" href="schedule.html"><i class="icon-clock"></i><span>زمان‌بندی پزشکان</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="patients.html" href="patients.html"><i class="icon-users"></i><span>مدیریت بیماران</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="appointments.html" href="appointments.html"><i class="icon-calendar"></i><span>مدیریت نوبت‌ها</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="staff.html" href="staff.html"><i class="icon-briefcase"></i><span>مدیریت کارکنان</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="payments.html" href="payments.html"><i class="icon-credit-card"></i><span>مدیریت مالی</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="faqs.html" href="faqs.html"><i class="icon-comments nv-faq-icon"></i><span>سوالات پرتکرار</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="notifications.html" href="notifications.html"><i class="icon-bell"></i><span>اعلانات</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="settings.html" href="settings.html"><i class="icon-cog"></i><span>تنظیمات سیستم</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="backup.html" href="backup.html"><i class="icon-database"></i><span>پشتیبان‌گیری</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="reports.html,logs.html" href="reports.html"><i class="icon-bar-chart"></i><span>گزارشات و لاگ‌ها</span></a></li></ul>
+</div>
+<!-- محتوای اصلی -->
+<div class="main-content">
+<div class="top-header nv-standard-top-header">
+<div class="page-heading">
+<h1>مدیریت کاربران</h1>
+<p>افزودن، ویرایش و حذف کاربران سیستم</p>
+</div>
+<div class="header-actions">
+<button aria-label="اعلان‌ها" class="notification-button" title="اعلان‌ها" type="button"><i class="icon-bell"></i><span aria-hidden="true" class="notification-dot"></span></button>
+<div class="user-menu nv-user-menu">
+<button aria-expanded="false" aria-haspopup="true" class="user-menu-trigger" type="button">
+<span class="user-avatar nv-header-avatar">نو</span>
+<span class="user-menu-text"><strong class="user-name nv-header-user-name">کاربر NOORVISTA</strong><small class="user-role nv-header-user-role">کاربر سیستم</small></span>
+<i aria-hidden="true" class="icon-chevron-down nv-user-menu-chevron"></i>
+</button>
+<div class="user-dropdown nv-user-dropdown" role="menu">
+<button class="user-dropdown-item" data-nv-profile="" role="menuitem" type="button"><i class="icon-user"></i><span>مشاهده پروفایل</span></button>
+<button class="user-dropdown-item" data-nv-edit-account="" role="menuitem" type="button"><i class="icon-pencil"></i><span>ویرایش اطلاعات حساب</span></button>
+<button class="user-dropdown-item" data-nv-change-password="" role="menuitem" type="button"><i class="icon-lock"></i><span>تغییر رمز عبور</span></button>
+<button class="user-dropdown-item" data-nv-account-settings="" role="menuitem" type="button"><i class="icon-cog"></i><span>تنظیمات حساب</span></button>
+<div aria-hidden="true" class="user-dropdown-divider"></div>
+<button class="user-dropdown-item danger" data-nv-logout="" role="menuitem" type="button"><i class="icon-sign-out"></i><span>خروج از حساب</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- آمار سریع -->
+<div class="stats-grid">
+<div class="stat-card">
+<div><i class="icon-users" style="font-size:28px; color:#2f89fc;"></i></div>
+<div><div class="value" id="totalUsers">0</div><div class="label">کل کاربران</div></div>
+</div>
+<div class="stat-card">
+<div><i class="icon-user-md" style="font-size:28px; color:#10b981;"></i></div>
+<div><div class="value" id="totalDoctors">0</div><div class="label">پزشکان</div></div>
+</div>
+<div class="stat-card">
+<div><i class="icon-user" style="font-size:28px; color:#f59e0b;"></i></div>
+<div><div class="value" id="totalPatients">0</div><div class="label">بیماران</div></div>
+</div>
+<div class="stat-card">
+<div><i class="icon-user-plus" style="font-size:28px; color:#8b5cf6;"></i></div>
+<div><div class="value" id="newUsers">0</div><div class="label">کاربران جدید</div></div>
+</div>
+</div>
+<!-- فیلترها -->
+<div class="filter-bar">
+<div class="filter-group">
+<label>جستجو</label>
+<input id="searchInput" placeholder="نام، نام کاربری یا تلفن..." type="text"/>
+</div>
+<div class="filter-group">
+<label>نقش</label>
+<select id="roleFilter">
+<option value="all">همه نقش‌ها</option>
+<option value="admin">مدیر سیستم</option>
+<option value="clinic_admin">مدیر کلینیک</option>
+<option value="doctor">پزشک</option>
+<option value="receptionist">منشی</option>
+<option value="patient">بیمار</option>
+</select>
+</div>
+<div class="filter-group">
+<label> </label>
+<button class="btn-sm btn-primary" onclick="loadUsers()">جستجو</button>
+</div>
+<div class="filter-group">
+<label> </label>
+<button class="btn-sm btn-outline" onclick="showAddUserModal()">+ افزودن کاربر</button>
+</div>
+</div>
+<!-- جدول کاربران -->
+<div class="card">
+<div class="card-header">
+<h4><i class="icon-users"></i> لیست کاربران</h4>
+</div>
+<div class="card-body">
+<table class="data-table" id="usersTable">
+<thead>
+<tr>
+<th>شناسه</th>
+<th>نام و نام خانوادگی</th>
+<th>نام کاربری</th>
+<th>تلفن</th>
+<th>ایمیل</th>
+<th>نقش</th>
+<th>وضعیت</th>
+<th>عملیات</th>
+</tr>
+</thead>
+<tbody>
+<tr><td class="text-center" colspan="8">در حال بارگذاری...</td></tr>
+</tbody>
+</table>
+<div class="pagination" id="pagination"></div>
+</div>
+</div>
+</div>
+<!-- مودال افزودن کاربر -->
+<div class="modal-overlay" id="addUserModal">
+<div class="modal-container">
+<div class="modal-header">
+<h3>افزودن کاربر جدید</h3>
+<button class="modal-close" onclick="hideModal('addUserModal')">×</button>
+</div>
+<div class="modal-body">
+<form id="addUserForm">
+<div class="form-group">
+<label>نام کامل</label>
+<input class="form-control" id="fullName" required="" type="text"/>
+</div>
+<div class="form-group">
+<label>نام کاربری</label>
+<input class="form-control" id="username" required="" type="text"/>
+</div>
+<div class="form-group">
+<label>شماره تلفن</label>
+<input class="form-control" id="phone" required="" type="tel"/>
+</div>
+<div class="form-group">
+<label>ایمیل</label>
+<input class="form-control" id="email" type="email"/>
+</div>
+<div class="form-group">
+<label>نقش کاربری</label>
+<select class="form-control" id="role">
+<option value="patient">بیمار</option>
+<option value="doctor">پزشک</option>
+<option value="receptionist">منشی</option>
+<option value="clinic_admin">مدیر کلینیک</option>
+<option value="admin">مدیر سیستم</option>
+</select>
+</div>
+<div class="form-group">
+<label>رمز عبور</label>
+<input class="form-control" id="password" required="" type="password"/>
+</div>
+</form>
+</div>
+<div class="modal-footer">
+<button class="btn-sm btn-outline" onclick="hideModal('addUserModal')">انصراف</button>
+<button class="btn-sm btn-primary" onclick="submitAddUser()">افزودن</button>
+</div>
+</div>
+</div>
+<!-- مودال ویرایش کاربر -->
+<div class="modal-overlay" id="editUserModal">
+<div class="modal-container">
+<div class="modal-header">
+<h3>ویرایش کاربر</h3>
+<button class="modal-close" onclick="hideModal('editUserModal')">×</button>
+</div>
+<div class="modal-body">
+<input id="editUserId" type="hidden"/>
+<div class="form-group">
+<label>نام کامل</label>
+<input class="form-control" id="editFullName" required="" type="text"/>
+</div>
+<div class="form-group">
+<label>نام کاربری</label>
+<input class="form-control" id="editUsername" required="" type="text"/>
+</div>
+<div class="form-group">
+<label>شماره تلفن</label>
+<input class="form-control" id="editPhone" required="" type="tel"/>
+</div>
+<div class="form-group">
+<label>ایمیل</label>
+<input class="form-control" id="editEmail" type="email"/>
+</div>
+<div class="form-group">
+<label>نقش کاربری</label>
+<select class="form-control" id="editRole">
+<option value="patient">بیمار</option>
+<option value="doctor">پزشک</option>
+<option value="receptionist">منشی</option>
+<option value="clinic_admin">مدیر کلینیک</option>
+<option value="admin">مدیر سیستم</option>
+</select>
+</div>
+<div class="form-group">
+<label>رمز عبور جدید (اختیاری)</label>
+<input class="form-control" id="editPassword" placeholder="در صورت تمایل وارد کنید" type="password"/>
+</div>
+</div>
+<div class="modal-footer">
+<button class="btn-sm btn-outline" onclick="hideModal('editUserModal')">انصراف</button>
+<button class="btn-sm btn-primary" onclick="updateUser()">ذخیره تغییرات</button>
+</div>
+</div>
+</div>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jalali.js"></script>
+<script src="/js/panel-common.js"></script>
+<script>
+    let allUsers = [];
+    let currentPage = 1;
+    let itemsPerPage = 10;
+    let totalPages = 1;
+
+    // بارگذاری لیست کاربران
+    async function loadUsers() {
+        const search = document.getElementById('searchInput').value;
+        const role = document.getElementById('roleFilter').value;
+        
+        try {
+            const data = await apiRequest(`/admin/users?page=${currentPage}&limit=${itemsPerPage}&search=${encodeURIComponent(search)}&role=${role}`);
+            allUsers = data.users || [];
+            totalPages = data.totalPages || 1;
+            renderUsersTable();
+            renderPagination();
+            updateStats();
+        } catch (error) {
+            console.error('Error loading users:', error);
+            showToast('خطا در بارگذاری کاربران', 'error');
+        }
+    }
+
+    function renderUsersTable() {
+        const tbody = document.querySelector('#usersTable tbody');
+        if (!allUsers.length) {
+            tbody.innerHTML = '<tr><td colspan="8" class="text-center">هیچ کاربری یافت نشد</td></tr>';
+            return;
+        }
+        
+        tbody.innerHTML = allUsers.map(user => `
+            <tr>
+                <td>${toPersianNumber(user.id)}</td>
+                <td><strong>${escapeHtml(user.full_name)}</strong></td>
+                <td>${escapeHtml(user.username)}</td>
+                <td>${toPersianNumber(user.phone)}</td>
+                <td>${escapeHtml(user.email) || '-'}</td>
+                <td><span class="role-badge role-${user.role}">${getRoleText(user.role)}</span></td>
+                <td><span class="role-badge ${user.is_active ? 'status-active' : 'status-inactive'}">${user.is_active ? 'فعال' : 'غیرفعال'}</span></td>
+                <td class="action-buttons">
+                    <button class="btn-sm btn-outline" onclick="openEditUser(${user.id})"><i class="icon-pencil"></i> ویرایش</button>
+                    <button class="btn-sm btn-outline" onclick="toggleUserStatus(${user.id}, ${!user.is_active})">${user.is_active ? 'غیرفعال' : 'فعال'}</button>
+                    <button class="btn-sm btn-danger" onclick="deleteUser(${user.id})"><i class="icon-trash"></i> حذف</button>
+                </td>
+            </tr>
+        `).join('');
+    }
+
+    function renderPagination() {
+        const paginationDiv = document.getElementById('pagination');
+        if (totalPages <= 1) {
+            paginationDiv.innerHTML = '';
+            return;
+        }
+        
+        let html = '';
+        for (let i = 1; i <= totalPages; i++) {
+            html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="goToPage(${i})">${toPersianNumber(i)}</button>`;
+        }
+        paginationDiv.innerHTML = html;
+    }
+
+    function goToPage(page) {
+        currentPage = page;
+        loadUsers();
+    }
+
+    function getRoleText(role) {
+        const roles = {
+            'admin': 'مدیر سیستم',
+            'clinic_admin': 'مدیر کلینیک',
+            'doctor': 'پزشک',
+            'receptionist': 'منشی',
+            'patient': 'بیمار'
+        };
+        return roles[role] || role;
+    }
+
+    function escapeHtml(str) {
+        if (!str) return '';
+        return String(str).replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        });
+    }
+
+    async function updateStats() {
+        try {
+            const data = await apiRequest('/admin/stats');
+            document.getElementById('totalUsers').innerHTML = toPersianNumber(data.totalUsers || 0);
+            document.getElementById('totalDoctors').innerHTML = toPersianNumber(data.totalDoctors || 0);
+            document.getElementById('totalPatients').innerHTML = toPersianNumber(data.totalPatients || 0);
+            document.getElementById('newUsers').innerHTML = toPersianNumber(data.newUsers || 0);
+        } catch (error) {
+            console.error('Error loading stats:', error);
+        }
+    }
+
+    function showAddUserModal() {
+        document.getElementById('addUserForm').reset();
+        showModal('addUserModal');
+    }
+
+    async function submitAddUser() {
+        const data = {
+            full_name: document.getElementById('fullName').value.trim(),
+            username: document.getElementById('username').value.trim(),
+            phone: document.getElementById('phone').value.trim(),
+            email: document.getElementById('email').value.trim(),
+            role: document.getElementById('role').value,
+            password: document.getElementById('password').value
+        };
+        
+        if (!data.full_name || !data.username || !data.phone || !data.password) {
+            showToast('لطفاً تمام فیلدهای الزامی را پر کنید', 'error');
+            return;
+        }
+        
+        try {
+            await apiRequest('/admin/users', 'POST', data);
+            showToast('کاربر با موفقیت افزوده شد', 'success');
+            hideModal('addUserModal');
+            loadUsers();
+        } catch (error) {
+            showToast(error.message || 'خطا در افزودن کاربر', 'error');
+        }
+    }
+
+    async function openEditUser(id) {
+        const user = allUsers.find(u => u.id === id);
+        if (!user) return;
+        
+        document.getElementById('editUserId').value = user.id;
+        document.getElementById('editFullName').value = user.full_name;
+        document.getElementById('editUsername').value = user.username;
+        document.getElementById('editPhone').value = user.phone;
+        document.getElementById('editEmail').value = user.email || '';
+        document.getElementById('editRole').value = user.role;
+        document.getElementById('editPassword').value = '';
+        
+        showModal('editUserModal');
+    }
+
+    async function updateUser() {
+        const id = document.getElementById('editUserId').value;
+        const data = {
+            full_name: document.getElementById('editFullName').value.trim(),
+            username: document.getElementById('editUsername').value.trim(),
+            phone: document.getElementById('editPhone').value.trim(),
+            email: document.getElementById('editEmail').value.trim(),
+            role: document.getElementById('editRole').value,
+            password: document.getElementById('editPassword').value
+        };
+        
+        if (!data.full_name || !data.username || !data.phone) {
+            showToast('لطفاً تمام فیلدهای الزامی را پر کنید', 'error');
+            return;
+        }
+        
+        try {
+            await apiRequest(`/admin/users/${id}`, 'PUT', data);
+            showToast('کاربر با موفقیت ویرایش شد', 'success');
+            hideModal('editUserModal');
+            loadUsers();
+        } catch (error) {
+            showToast(error.message || 'خطا در ویرایش کاربر', 'error');
+        }
+    }
+
+    async function toggleUserStatus(id, newStatus) {
+        try {
+            await apiRequest(`/admin/users/${id}/status`, 'PUT', { is_active: newStatus });
+            showToast(newStatus ? 'کاربر فعال شد' : 'کاربر غیرفعال شد', 'success');
+            loadUsers();
+        } catch (error) {
+            showToast(error.message || 'خطا در تغییر وضعیت کاربر', 'error');
+        }
+    }
+
+    async function deleteUser(id) {
+        if (!confirm('آیا از حذف این کاربر اطمینان دارید؟')) return;
+        
+        try {
+            await apiRequest(`/admin/users/${id}`, 'DELETE');
+            showToast('کاربر با موفقیت حذف شد', 'success');
+            loadUsers();
+        } catch (error) {
+            showToast(error.message || 'خطا در حذف کاربر', 'error');
+        }
+    }
+
+    // رویدادها
+    document.getElementById('searchInput')?.addEventListener('keyup', (e) => {
+        if (e.key === 'Enter') loadUsers();
+    });
+    document.getElementById('roleFilter')?.addEventListener('change', () => loadUsers());
+
+    // مقداردهی اولیه
+    document.addEventListener('DOMContentLoaded', () => {
+        if (!checkAuth()) return;
+        loadUsers();
+    });
+</script>
+<script src="/js/admin-enhancements.js"></script>
+<script src="/js/noorvista-panel-polish.js"></script>
+<script src="/js/noorvista-admin-header.js"></script>
+<script src="/js/noorvista-manager-ui.js"></script>
+<script src="/assets/js/admin-sidebar-active-fix.js"></script>
+<script src="/assets/js/panel-final-fixes.js"></script>
+<script src="/assets/js/panel-pretty-selects-global.js"></script></body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>پرونده پزشکی | NoorVista</title>
+<style>
+        .medical-record-card {
+            background: var(--light);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-right: 4px solid var(--primary);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .medical-record-card:hover { transform: translateX(-5px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .record-header { display: flex; justify-content: space-between; margin-bottom: 10px; }
+        .record-doctor { color: var(--primary); font-weight: 600; }
+    </style>
+<link href="/css/local-fonts.css" rel="stylesheet"/><link href="/css/open-iconic-bootstrap.min.css" rel="stylesheet"/><link href="/css/ionicons.min.css" rel="stylesheet"/><link href="/css/icomoon.css" rel="stylesheet"/><link href="/css/panel-common.css" rel="stylesheet"/><link href="/css/admin-enhancements.css" rel="stylesheet"/><link href="/css/noorvista-panel-polish.css" rel="stylesheet"/><link href="/css/noorvista-admin-header.css" rel="stylesheet"/><link href="/css/noorvista-manager-ui.css" rel="stylesheet"/><link href="/assets/css/panel-sidebar-unified-final.css" rel="stylesheet"/><link href="/assets/css/panel-header-avatar-unified.css" rel="stylesheet"/><link href="/assets/css/panel-role-layout-final.css" rel="stylesheet"/><link href="/assets/css/panel-role-exact-admin-users-parity.css" rel="stylesheet"/><link href="/assets/css/panel-pretty-selects-global.css" rel="stylesheet"/></head>
+<body class="nv-role-panel nv-patient-panel" data-panel-role="patient">
+<div class="sidebar">
+<div class="sidebar-header"><div class="sidebar-logo">Noor<span>Vista</span></div><div class="sidebar-subtitle">پنل بیمار</div></div>
+<ul class="sidebar-nav">
+<li class="nav-item"><a class="nav-link" href="index.html"><i class="icon-dashboard"></i><span>داشبورد</span></a></li>
+<li class="nav-item"><a class="nav-link" href="appointments.html"><i class="icon-calendar"></i><span>نوبت‌های من</span></a></li>
+<li class="nav-item"><a class="nav-link active" href="medical-records.html"><i class="icon-file-text"></i><span>پرونده پزشکی</span></a></li>
+<li class="nav-item"><a class="nav-link" href="prescriptions.html"><i class="icon-medkit"></i><span>نسخه‌ها</span></a></li>
+<li class="nav-item"><a class="nav-link" href="payments.html"><i class="icon-credit-card"></i><span>پرداخت‌ها</span></a></li>
+<li class="nav-item"><a class="nav-link" href="profile.html"><i class="icon-user"></i><span>پروفایل</span></a></li>
+</ul>
+<div class="nav-divider"></div>
+<ul class="sidebar-nav"><li class="nav-item"><a class="nav-link logout-btn" href="#"><i class="icon-sign-out"></i><span>خروج</span></a></li></ul>
+</div>
+<div class="main-content">
+<div class="top-header">
+<div class="page-title"><h1>پرونده پزشکی</h1><p>مشاهده سوابق درمانی و ویزیت‌های گذشته</p></div>
+<div class="header-actions">
+<div class="search-box"><input placeholder="جستجو..." type="text"/><i class="icon-search"></i></div>
+<div class="user-menu"><button class="notification-btn"><i class="icon-bell"></i><span class="notification-badge" style="display:none">0</span></button><div class="user-info"><div class="user-avatar">PT</div><span class="user-name"></span><i class="icon-chevron-down"></i></div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-header"><h4><i class="icon-file-text"></i> سوابق پزشکی</h4></div>
+<div class="card-body"><div id="medicalRecordsList"></div></div>
+</div>
+</div>
+<div class="modal-overlay" id="medicalRecordDetailModal"><div class="modal-container" style="max-width:700px;"><div class="modal-header"><h3>جزئیات پرونده پزشکی</h3><button class="modal-close">×</button></div><div class="modal-body" id="medicalRecordDetail"></div><div class="modal-footer"><button class="btn btn-primary" onclick="window.print()"><i class="icon-print"></i> چاپ پرونده</button></div></div></div>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/panel-common.js"></script>
+<script>
+        async function loadMedicalRecords() {
+            try {
+                const records = await apiRequest('/api/patient/medical-records');
+                const container = document.getElementById('medicalRecordsList');
+                if (records.records?.length) {
+                    container.innerHTML = records.records.map(r => `
+                        <div class="medical-record-card" onclick="viewMedicalRecord(${r.id})">
+                            <div class="record-header">
+                                <span class="record-doctor">دکتر ${r.doctor_name}</span>
+                                <span>${r.record_date_jalali}</span>
+                            </div>
+                            <div><strong>تشخیص:</strong> ${r.diagnosis || '-'}</div>
+                            <div><strong>نسخه:</strong> ${r.prescription ? r.prescription.substring(0, 100) + (r.prescription.length > 100 ? '...' : '') : '-'}</div>
+                        </div>
+                    `).join('');
+                } else { container.innerHTML = '<p class="text-center text-muted">هیچ پرونده پزشکی ثبت نشده است</p>'; }
+            } catch(e) { console.error(e); }
+        }
+        
+        async function viewMedicalRecord(id) {
+            try {
+                const record = await apiRequest(`/api/patient/medical-records/${id}`);
+                const modalBody = document.getElementById('medicalRecordDetail');
+                modalBody.innerHTML = `
+                    <div style="padding:10px;">
+                        <p><strong>تاریخ:</strong> ${record.record_date_jalali}</p>
+                        <p><strong>پزشک معالج:</strong> دکتر ${record.doctor_name} (${record.specialty})</p>
+                        <p><strong>تشخیص:</strong></p>
+                        <div style="background:#f8fafc;padding:12px;border-radius:8px;margin-bottom:15px;">${record.diagnosis || '-'}</div>
+                        <p><strong>نسخه:</strong></p>
+                        <div style="background:#f8fafc;padding:12px;border-radius:8px;margin-bottom:15px;">${record.prescription || '-'}</div>
+                        <p><strong>نکات و توضیحات:</strong></p>
+                        <div style="background:#f8fafc;padding:12px;border-radius:8px;">${record.notes || '-'}</div>
+                    </div>
+                `;
+                showModal('medicalRecordDetailModal');
+            } catch(e) { console.error(e); }
+        }
+        
+        loadMedicalRecords();
+    </script>
+<script src="/assets/js/role-admin-users-exact-parity.js"></script><script src="/assets/js/role-user-menu-exact-admin-fix.js"></script><script src="/assets/js/panel-pretty-selects-global.js"></script></body>
+</html>

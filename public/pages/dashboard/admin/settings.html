@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa">
+<head>
+<link href="/css/local-fonts.css" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>تنظیمات سیستم | NOORVISTA</title>
+<link href="/css/open-iconic-bootstrap.min.css" rel="stylesheet"/>
+<link href="/css/ionicons.min.css" rel="stylesheet"/>
+<link href="/css/icomoon.css" rel="stylesheet"/>
+<link href="/css/panel-common.css" rel="stylesheet"/>
+<style>
+        .settings-grid { display:grid; grid-template-columns:1fr; gap:20px; }
+        .form-grid { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:16px; }
+        .form-group { margin-bottom:14px; }
+        .form-group label { display:block; font-size:13px; font-weight:700; color:#334155; margin-bottom:6px; }
+        .form-control { width:100%; border:1px solid #cbd5e1; border-radius:10px; padding:10px 12px; font-size:14px; }
+        .help-text { color:#64748b; font-size:12px; line-height:1.8; margin-top:5px; }
+        .secret-note { background:#fff7ed; color:#9a3412; border:1px solid #fed7aa; border-radius:12px; padding:12px 14px; line-height:1.8; margin-bottom:16px; }
+        .card-actions { display:flex; justify-content:flex-end; gap:10px; margin-top:16px; flex-wrap:wrap; }
+        .test-box { background:#f8fafc; border:1px solid #e2e8f0; border-radius:14px; padding:14px; margin-top:18px; }
+        .test-result { margin-top:10px; font-size:13px; line-height:1.8; color:#334155; white-space:pre-line; }
+        @media (max-width: 768px) { .form-grid { grid-template-columns:1fr; } }
+    </style>
+<link href="/css/admin-enhancements.css" rel="stylesheet"/>
+<link href="/css/noorvista-panel-polish.css" rel="stylesheet"/>
+<link href="/css/noorvista-admin-header.css" rel="stylesheet"/>
+<link href="/css/noorvista-manager-ui.css" rel="stylesheet"/>
+<link href="/assets/css/panel-sidebar-unified-final.css" rel="stylesheet"/>
+<link href="/assets/css/panel-ui-final-fixes.css" rel="stylesheet"/>
+<link href="/assets/css/panel-pretty-selects-global.css" rel="stylesheet"/></head>
+<body>
+<div class="sidebar">
+<div class="sidebar-header"><div class="sidebar-logo">NOOR<span>VISTA</span></div></div>
+<ul class="sidebar-nav"><li class="nav-item"><a class="nav-link" data-sidebar-match="index.html," href="index.html"><i class="icon-dashboard"></i><span>داشبورد</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="users.html" href="users.html"><i class="icon-users"></i><span>مدیریت کاربران</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="doctors.html" href="doctors.html"><i class="icon-user-md"></i><span>مدیریت پزشکان</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="schedule.html" href="schedule.html"><i class="icon-clock"></i><span>زمان‌بندی پزشکان</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="patients.html" href="patients.html"><i class="icon-users"></i><span>مدیریت بیماران</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="appointments.html" href="appointments.html"><i class="icon-calendar"></i><span>مدیریت نوبت‌ها</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="staff.html" href="staff.html"><i class="icon-briefcase"></i><span>مدیریت کارکنان</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="payments.html" href="payments.html"><i class="icon-credit-card"></i><span>مدیریت مالی</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="faqs.html" href="faqs.html"><i class="icon-comments nv-faq-icon"></i><span>سوالات پرتکرار</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="notifications.html" href="notifications.html"><i class="icon-bell"></i><span>اعلانات</span></a></li><li class="nav-item"><a class="nav-link active" data-sidebar-match="settings.html" href="settings.html"><i class="icon-cog"></i><span>تنظیمات سیستم</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="backup.html" href="backup.html"><i class="icon-database"></i><span>پشتیبان‌گیری</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="reports.html,logs.html" href="reports.html"><i class="icon-bar-chart"></i><span>گزارشات و لاگ‌ها</span></a></li></ul>
+</div>
+<div class="main-content">
+<div class="top-header nv-standard-top-header">
+<div class="page-heading">
+<h1>تنظیمات سیستم</h1>
+<p>پیکربندی عمومی، هوش مصنوعی و پیامک</p>
+</div>
+<div class="header-actions">
+<button aria-label="اعلان‌ها" class="notification-button" title="اعلان‌ها" type="button"><i class="icon-bell"></i><span aria-hidden="true" class="notification-dot"></span></button>
+<div class="user-menu nv-user-menu">
+<button aria-expanded="false" aria-haspopup="true" class="user-menu-trigger" type="button">
+<span class="user-avatar nv-header-avatar">نو</span>
+<span class="user-menu-text"><strong class="user-name nv-header-user-name">کاربر NOORVISTA</strong><small class="user-role nv-header-user-role">کاربر سیستم</small></span>
+<i aria-hidden="true" class="icon-chevron-down nv-user-menu-chevron"></i>
+</button>
+<div class="user-dropdown nv-user-dropdown" role="menu">
+<button class="user-dropdown-item" data-nv-profile="" role="menuitem" type="button"><i class="icon-user"></i><span>مشاهده پروفایل</span></button>
+<button class="user-dropdown-item" data-nv-edit-account="" role="menuitem" type="button"><i class="icon-pencil"></i><span>ویرایش اطلاعات حساب</span></button>
+<button class="user-dropdown-item" data-nv-change-password="" role="menuitem" type="button"><i class="icon-lock"></i><span>تغییر رمز عبور</span></button>
+<button class="user-dropdown-item" data-nv-account-settings="" role="menuitem" type="button"><i class="icon-cog"></i><span>تنظیمات حساب</span></button>
+<div aria-hidden="true" class="user-dropdown-divider"></div>
+<button class="user-dropdown-item danger" data-nv-logout="" role="menuitem" type="button"><i class="icon-sign-out"></i><span>خروج از حساب</span></button>
+</div>
+</div>
+</div>
+</div>
+<div class="settings-grid">
+<div class="card">
+<div class="card-header"><h4><i class="icon-cog"></i> تنظیمات عمومی کلینیک</h4></div>
+<div class="card-body">
+<form id="generalSettingsForm">
+<div class="form-grid">
+<div class="form-group"><label>نام کلینیک</label><input class="form-control" id="clinic_name" type="text"/></div>
+<div class="form-group"><label>تلفن کلینیک</label><input class="form-control" id="clinic_phone" type="text"/></div>
+<div class="form-group"><label>هزینه ویزیت پیش‌فرض</label><input class="form-control" id="consultation_fee_default" type="number"/></div>
+<div class="form-group"><label>ساعت یادآوری نوبت</label><input class="form-control" id="appointment_reminder_hours" type="number"/></div>
+</div>
+<div class="form-group"><label>آدرس کلینیک</label><textarea class="form-control" id="clinic_address" rows="2"></textarea></div>
+<div class="form-group"><label>ساعات کاری</label><input class="form-control" id="working_hours" type="text"/></div>
+<div class="card-actions"><button class="btn btn-primary" type="submit">ذخیره تنظیمات عمومی</button></div>
+</form>
+</div>
+</div>
+<div class="card">
+<div class="card-header"><h4><i class="icon-comments"></i> تنظیمات سرویس هوش مصنوعی</h4></div>
+<div class="card-body">
+<div class="secret-note">API Key کامل نمایش داده نمی‌شود. اگر مقدار جدید وارد نکنید، کلید قبلی حفظ می‌شود.</div>
+<form id="aiSettingsForm">
+<div class="form-grid">
+<div class="form-group"><label>فعال بودن AI</label><select class="form-control" id="ai_enabled"><option value="true">فعال</option><option value="false">غیرفعال</option></select></div>
+<div class="form-group"><label>اولویت پاسخ از FAQ</label><select class="form-control" id="ai_use_faq_first"><option value="true">فعال</option><option value="false">غیرفعال</option></select></div>
+<div class="form-group"><label>Base URL</label><input class="form-control" id="ai_base_url" placeholder="https://api.gapgpt.app/v1" type="text"/></div>
+<div class="form-group"><label>Model</label><input class="form-control" id="ai_model" placeholder="gapgpt-qwen-3.5" type="text"/></div>
+<div class="form-group"><label>API Key</label><input autocomplete="new-password" class="form-control" id="ai_api_key" type="password"/><div class="help-text">در فرانت سایت نمایش داده نمی‌شود و فقط بک‌اند از آن استفاده می‌کند.</div></div>
+<div class="form-group"><label>Temperature</label><input class="form-control" id="ai_temperature" max="2" min="0" step="0.1" type="number"/></div>
+<div class="form-group"><label>Max Tokens</label><input class="form-control" id="ai_max_tokens" max="2000" min="50" type="number"/></div>
+</div>
+<div class="form-group"><label>System Prompt</label><textarea class="form-control" id="ai_system_prompt" rows="5"></textarea></div>
+<div class="card-actions"><button class="btn btn-primary" type="submit">ذخیره تنظیمات AI</button></div>
+</form>
+<div class="test-box">
+<div class="form-group"><label>تست سرویس AI</label><input class="form-control" id="ai_test_message" type="text" value="چشم هام درد می‌کنه، چه کار کنم؟"/></div>
+<div class="card-actions"><button class="btn btn-outline-primary" id="testAiBtn" type="button">تست AI</button></div>
+<div class="test-result" id="aiTestResult"></div>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header"><h4><i class="icon-envelope"></i> تنظیمات سرویس پیامک</h4></div>
+<div class="card-body">
+<div class="secret-note">API Key پیامک نیز به صورت کامل نمایش داده نمی‌شود. مقدار masked ذخیره مجدد نمی‌شود.</div>
+<form id="smsSettingsForm">
+<div class="form-grid">
+<div class="form-group"><label>فعال بودن پیامک</label><select class="form-control" id="sms_enabled"><option value="true">فعال</option><option value="false">غیرفعال</option></select></div>
+<div class="form-group"><label>Provider</label><input class="form-control" id="sms_provider" placeholder="kavenegar" type="text"/></div>
+<div class="form-group"><label>Base URL</label><input class="form-control" id="sms_base_url" type="text"/></div>
+<div class="form-group"><label>Sender</label><input class="form-control" id="sms_sender" type="text"/></div>
+<div class="form-group"><label>API Key</label><input autocomplete="new-password" class="form-control" id="sms_api_key" type="password"/></div>
+</div>
+<div class="form-grid">
+<div class="form-group"><label>فعال بودن یادآوری نوبت</label><select class="form-control" id="sms_appointment_reminder_enabled"><option value="true">فعال</option><option value="false">غیرفعال</option></select></div>
+<div class="form-group"><label>پیش‌فرض ارسال یادآوری قبل از نوبت</label><select class="form-control" id="sms_appointment_reminder_default_minutes"><option value="60">۱ ساعت قبل</option><option value="120">۲ ساعت قبل</option><option value="360">۶ ساعت قبل</option><option value="720">۱۲ ساعت قبل</option><option value="1440">۱ روز قبل</option><option value="2880">۲ روز قبل</option></select></div>
+</div>
+<div class="form-group"><label>قالب OTP</label><textarea class="form-control" id="sms_otp_template" placeholder="کد تایید شما: {{code}}" rows="2"></textarea></div>
+<div class="form-group"><label>قالب یادآوری نوبت</label><textarea class="form-control" id="sms_appointment_template" placeholder="{{patient_name}} عزیز، نوبت شما در تاریخ {{appointment_date}} ساعت {{appointment_time}} است." rows="2"></textarea></div>
+<div class="card-actions"><button class="btn btn-primary" type="submit">ذخیره تنظیمات پیامک</button></div>
+</form>
+<div class="test-box">
+<div class="form-grid">
+<div class="form-group"><label>شماره گیرنده تست</label><input class="form-control" id="sms_test_receptor" placeholder="09xxxxxxxxx" type="text"/></div>
+<div class="form-group"><label>متن پیام تست</label><input class="form-control" id="sms_test_message" type="text" value="پیامک تست نورویستا با موفقیت ارسال شد."/></div>
+</div>
+<div class="card-actions">
+<button class="btn btn-outline-primary" id="checkSmsBtn" type="button">بررسی وضعیت SMS</button>
+<button class="btn btn-primary" id="sendTestSmsBtn" type="button">ارسال پیامک تست</button>
+</div>
+<div class="test-result" id="smsTestResult"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/panel-common.js"></script>
+<script>
+    function val(id) { return document.getElementById(id).value; }
+    function setVal(id, value) { const el = document.getElementById(id); if (el) el.value = value ?? ''; }
+
+    async function loadSettings() {
+        try {
+            const general = await apiRequest('/admin/settings');
+            setVal('clinic_name', general.clinic_name || '');
+            setVal('clinic_phone', general.clinic_phone || '');
+            setVal('clinic_address', general.clinic_address || '');
+            setVal('working_hours', general.working_hours || '');
+            setVal('consultation_fee_default', general.consultation_fee_default || general.default_consultation_fee || '');
+            setVal('appointment_reminder_hours', general.appointment_reminder_hours || '24');
+
+            const ai = await apiRequest('/admin/settings/ai');
+            const aiSettings = ai.settings || ai;
+            setVal('ai_enabled', String(aiSettings.ai_enabled ?? 'false'));
+            setVal('ai_use_faq_first', String(aiSettings.ai_use_faq_first ?? 'true'));
+            setVal('ai_base_url', aiSettings.ai_base_url || '');
+            setVal('ai_model', aiSettings.ai_model || '');
+            setVal('ai_api_key', aiSettings.ai_api_key || '');
+            setVal('ai_temperature', aiSettings.ai_temperature || '0.7');
+            setVal('ai_max_tokens', aiSettings.ai_max_tokens || '500');
+            setVal('ai_system_prompt', aiSettings.ai_system_prompt || '');
+
+            const sms = await apiRequest('/admin/settings/sms');
+            const smsSettings = sms.settings || sms;
+            setVal('sms_enabled', String(smsSettings.sms_enabled ?? 'false'));
+            setVal('sms_provider', smsSettings.sms_provider || '');
+            setVal('sms_base_url', smsSettings.sms_base_url || '');
+            setVal('sms_api_key', smsSettings.sms_api_key || '');
+            setVal('sms_sender', smsSettings.sms_sender || '');
+            setVal('sms_otp_template', smsSettings.sms_otp_template || '');
+            setVal('sms_appointment_reminder_enabled', String(smsSettings.sms_appointment_reminder_enabled ?? 'true'));
+            setVal('sms_appointment_reminder_default_minutes', smsSettings.sms_appointment_reminder_default_minutes || '1440');
+            setVal('sms_appointment_template', smsSettings.sms_appointment_template || '');
+        } catch (error) {
+            console.error(error);
+            showToast(error.message || 'خطا در دریافت تنظیمات', 'error');
+        }
+    }
+
+    document.getElementById('generalSettingsForm').addEventListener('submit', async function (event) {
+        event.preventDefault();
+        try {
+            await apiRequest('/admin/settings', 'PUT', {
+                clinic_name: val('clinic_name'),
+                clinic_phone: val('clinic_phone'),
+                clinic_address: val('clinic_address'),
+                working_hours: val('working_hours'),
+                consultation_fee_default: val('consultation_fee_default'),
+                appointment_reminder_hours: val('appointment_reminder_hours')
+            });
+            showToast('تنظیمات عمومی ذخیره شد', 'success');
+        } catch (error) { showToast(error.message || 'خطا در ذخیره تنظیمات', 'error'); }
+    });
+
+    document.getElementById('aiSettingsForm').addEventListener('submit', async function (event) {
+        event.preventDefault();
+        try {
+            await apiRequest('/admin/settings/ai', 'PUT', {
+                ai_enabled: val('ai_enabled'),
+                ai_use_faq_first: val('ai_use_faq_first'),
+                ai_base_url: val('ai_base_url'),
+                ai_model: val('ai_model'),
+                ai_api_key: val('ai_api_key'),
+                ai_temperature: val('ai_temperature'),
+                ai_max_tokens: val('ai_max_tokens'),
+                ai_system_prompt: val('ai_system_prompt')
+            });
+            showToast('تنظیمات هوش مصنوعی ذخیره شد', 'success');
+            await loadSettings();
+        } catch (error) { showToast(error.message || 'خطا در ذخیره تنظیمات AI', 'error'); }
+    });
+
+    document.getElementById('smsSettingsForm').addEventListener('submit', async function (event) {
+        event.preventDefault();
+        try {
+            await apiRequest('/admin/settings/sms', 'PUT', {
+                sms_enabled: val('sms_enabled'),
+                sms_provider: val('sms_provider'),
+                sms_base_url: val('sms_base_url'),
+                sms_api_key: val('sms_api_key'),
+                sms_sender: val('sms_sender'),
+                sms_otp_template: val('sms_otp_template'),
+                sms_appointment_reminder_enabled: val('sms_appointment_reminder_enabled'),
+                sms_appointment_reminder_default_minutes: val('sms_appointment_reminder_default_minutes'),
+                sms_appointment_template: val('sms_appointment_template')
+            });
+            showToast('تنظیمات پیامک ذخیره شد', 'success');
+            await loadSettings();
+        } catch (error) { showToast(error.message || 'خطا در ذخیره تنظیمات پیامک', 'error'); }
+    });
+
+
+    function setResult(id, text) {
+        const el = document.getElementById(id);
+        if (el) el.textContent = text || '';
+    }
+
+    document.getElementById('testAiBtn').addEventListener('click', async function () {
+        try {
+            setResult('aiTestResult', 'در حال تست...');
+            const response = await apiRequest('/admin/ai/test', 'POST', { message: val('ai_test_message') });
+            setResult('aiTestResult', `منبع پاسخ: ${response.source || '-'}
+${response.reply || 'پاسخی دریافت نشد'}`);
+            showToast('تست AI انجام شد', 'success');
+        } catch (error) {
+            setResult('aiTestResult', error.message || 'خطا در تست AI');
+            showToast(error.message || 'خطا در تست AI', 'error');
+        }
+    });
+
+    document.getElementById('checkSmsBtn').addEventListener('click', async function () {
+        try {
+            const response = await apiRequest('/admin/sms/status');
+            setResult('smsTestResult', `Provider: ${response.provider || '-'}
+فعال: ${response.enabled ? 'بله' : 'خیر'}
+API Key: ${response.has_api_key ? 'ثبت شده' : 'ثبت نشده'}
+Sender: ${response.has_sender ? 'ثبت شده' : 'ثبت نشده'}
+SDK: ${response.sdk_installed ? 'نصب است' : 'نصب نیست'}`);
+        } catch (error) {
+            setResult('smsTestResult', error.message || 'خطا در بررسی SMS');
+        }
+    });
+
+    document.getElementById('sendTestSmsBtn').addEventListener('click', async function () {
+        try {
+            setResult('smsTestResult', 'در حال ارسال پیامک تست...');
+            const response = await apiRequest('/admin/sms/test', 'POST', {
+                receptor: val('sms_test_receptor'),
+                message: val('sms_test_message')
+            });
+            setResult('smsTestResult', response.message || 'پیامک تست ارسال شد');
+            showToast(response.message || 'پیامک تست ارسال شد', 'success');
+        } catch (error) {
+            setResult('smsTestResult', error.message || 'خطا در ارسال پیامک تست');
+            showToast(error.message || 'خطا در ارسال پیامک تست', 'error');
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', async function () {
+        if (typeof initPage === 'function') await initPage();
+        loadSettings();
+    });
+</script>
+<script src="/js/admin-enhancements.js"></script>
+<script src="/js/noorvista-panel-polish.js"></script>
+<script src="/js/noorvista-admin-header.js"></script>
+<script src="/js/noorvista-manager-ui.js"></script>
+<script src="/assets/js/admin-sidebar-active-fix.js"></script>
+<script src="/assets/js/panel-final-fixes.js"></script>
+<script src="/assets/js/panel-pretty-selects-global.js"></script></body>
+</html>

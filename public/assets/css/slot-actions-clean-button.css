@@ -1,0 +1,202 @@
+/* NOORVISTA Clean Row Action Button
+   ستون عملیات شبیه نمونه: یک دکمه ساده، بدون دو تکه شدن سلول.
+*/
+
+body[data-appointment-page="slots"] .appt-table,
+body[data-appointment-page="slots"] .appt-table thead,
+body[data-appointment-page="slots"] .appt-table tbody,
+body[data-appointment-page="slots"] .appt-table tr,
+body[data-appointment-page="slots"] .appt-table th,
+body[data-appointment-page="slots"] .appt-table td {
+  overflow: visible !important;
+}
+
+/* سلول عملیات دیگر container جدا یا دو رنگ ندارد */
+body[data-appointment-page="slots"] .appt-table th:last-child,
+body[data-appointment-page="slots"] .appt-table td:last-child {
+  width: 128px !important;
+  min-width: 128px !important;
+  max-width: 128px !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  padding: 12px 10px !important;
+  background: inherit !important;
+}
+
+body[data-appointment-page="slots"] .slot-status-actions {
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+body[data-appointment-page="slots"] .slot-actions-menu {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  height: 36px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  z-index: 30 !important;
+}
+
+/* دکمه اصلی عملیات مثل نمونه */
+body[data-appointment-page="slots"] .nv-row-action-btn {
+  height: 36px !important;
+  min-height: 36px !important;
+  min-width: 104px !important;
+  padding: 0 12px !important;
+  border-radius: 10px !important;
+  border: 1px solid #dbe5f0 !important;
+  background: #ffffff !important;
+  color: #0f2747 !important;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, .05) !important;
+  display: inline-flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  font-size: 12px !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  margin: 0 !important;
+  position: static !important;
+  transform: none !important;
+  float: none !important;
+}
+
+body[data-appointment-page="slots"] .nv-row-action-btn:hover,
+body[data-appointment-page="slots"] .slot-actions-menu:focus-within .nv-row-action-btn {
+  border-color: #bfdbfe !important;
+  background: #f8fbff !important;
+  color: #0b4f8a !important;
+}
+
+body[data-appointment-page="slots"] .nv-row-action-view {
+  color: #1e40af !important;
+  border-color: #c7d2fe !important;
+  background: #f8faff !important;
+}
+
+body[data-appointment-page="slots"] .nv-row-action-dots {
+  width: 18px !important;
+  height: 18px !important;
+  border-radius: 999px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #64748b !important;
+  font-size: 18px !important;
+  font-weight: 950 !important;
+  line-height: .75 !important;
+  margin: 0 !important;
+}
+
+/* منوی مخفی زیر همان دکمه، بدون تأثیر روی ارتفاع ردیف */
+body[data-appointment-page="slots"] .nv-row-action-menu {
+  position: absolute !important;
+  top: calc(100% + 8px) !important;
+  left: 50% !important;
+  transform: translateX(-50%) translateY(-4px) !important;
+  width: 148px !important;
+  padding: 7px !important;
+  border-radius: 14px !important;
+  border: 1px solid #dbe5f0 !important;
+  background: rgba(255,255,255,.98) !important;
+  box-shadow: 0 20px 46px rgba(15, 23, 42, .18) !important;
+  display: none !important;
+  grid-template-columns: 1fr !important;
+  gap: 6px !important;
+  z-index: 99999 !important;
+}
+
+body[data-appointment-page="slots"] .slot-actions-menu:hover .nv-row-action-menu,
+body[data-appointment-page="slots"] .slot-actions-menu:focus-within .nv-row-action-menu {
+  display: grid !important;
+  transform: translateX(-50%) translateY(0) !important;
+}
+
+body[data-appointment-page="slots"] .nv-row-action-menu button {
+  width: 100% !important;
+  height: 32px !important;
+  min-height: 32px !important;
+  border-radius: 10px !important;
+  border: 1px solid transparent !important;
+  padding: 0 8px !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 11.5px !important;
+  font-weight: 950 !important;
+  line-height: 1 !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+}
+
+body[data-appointment-page="slots"] .nv-row-action-menu button.success {
+  background: #dcfce7 !important;
+  color: #166534 !important;
+}
+
+body[data-appointment-page="slots"] .nv-row-action-menu button.warning {
+  background: #fffbeb !important;
+  color: #92400e !important;
+}
+
+body[data-appointment-page="slots"] .nv-row-action-menu button.neutral {
+  background: #f1f5f9 !important;
+  color: #334155 !important;
+}
+
+body[data-appointment-page="slots"] .nv-row-action-menu button.danger {
+  background: #fef2f2 !important;
+  color: #dc2626 !important;
+}
+
+/* نابود کردن ظاهر دکمه‌های قبلی که سلول را دو تکه می‌کرد */
+body[data-appointment-page="slots"] .slot-action-group,
+body[data-appointment-page="slots"] .slot-action-clean,
+body[data-appointment-page="slots"] .slot-more-actions {
+  width: auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+body[data-appointment-page="slots"] .slot-status-actions .appt-btn,
+body[data-appointment-page="slots"] .slot-status-actions .appt-btn-mini,
+body[data-appointment-page="slots"] .slot-action-group .appt-btn,
+body[data-appointment-page="slots"] .slot-action-group .appt-btn-mini {
+  all: unset;
+}
+
+/* منو از container جدول بیرون نزند */
+body[data-appointment-page="slots"] .nv-table-surface,
+body[data-appointment-page="slots"] .table-container,
+body[data-appointment-page="slots"] .appt-table-wrap,
+body[data-appointment-page="slots"] .data-table-container {
+  overflow: visible !important;
+}

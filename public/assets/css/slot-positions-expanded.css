@@ -1,0 +1,54 @@
+/* NOORVISTA slot positions expanded table */
+
+body[data-appointment-page="slots"] .slot-time-stack {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3px !important;
+  align-items: flex-start !important;
+}
+
+body[data-appointment-page="slots"] .slot-time-stack small {
+  color: #075985 !important;
+  font-weight: 900 !important;
+  font-size: 11px !important;
+}
+
+body[data-appointment-page="slots"] .slot-patient {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+  line-height: 1.5 !important;
+}
+
+body[data-appointment-page="slots"] .slot-patient strong {
+  font-size: 12px !important;
+  color: #0f172a !important;
+}
+
+body[data-appointment-page="slots"] .slot-patient small {
+  font-size: 11px !important;
+  color: #64748b !important;
+  direction: ltr !important;
+  unicode-bidi: plaintext !important;
+}
+
+body[data-appointment-page="slots"] .slot-free {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 25px !important;
+  padding: 3px 10px !important;
+  border-radius: 999px !important;
+  background: #ecfeff !important;
+  color: #0e7490 !important;
+  font-size: 11px !important;
+  font-weight: 950 !important;
+}
+
+body[data-appointment-page="slots"] tr.slot-position-booked {
+  background: rgba(248, 250, 252, .78) !important;
+}
+
+body[data-appointment-page="slots"] tr.slot-position-free {
+  background: rgba(240, 253, 250, .35) !important;
+}

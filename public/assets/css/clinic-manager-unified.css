@@ -1,0 +1,593 @@
+/* =========================================================
+   NOORVISTA Clinic Manager Unified Theme
+   یکسان‌سازی صفحات مدیریت کلینیک با ظاهر داشبورد اصلی مدیریت کلینیک
+   Scope: فقط صفحاتی که این فایل را لود کنند.
+========================================================= */
+
+:root {
+  --cm-primary: #0891b2;
+  --cm-primary-dark: #075985;
+  --cm-primary-soft: #e0f2fe;
+  --cm-accent: #14b8a6;
+  --cm-bg: #f4f8fb;
+  --cm-surface: #ffffff;
+  --cm-surface-soft: #f8fbff;
+  --cm-border: #dbeafe;
+  --cm-border-soft: #e5eef8;
+  --cm-text: #0f172a;
+  --cm-muted: #64748b;
+  --cm-success: #059669;
+  --cm-warning: #d97706;
+  --cm-danger: #dc2626;
+  --cm-radius-xl: 26px;
+  --cm-radius-lg: 20px;
+  --cm-radius-md: 16px;
+  --cm-shadow-card: 0 18px 44px rgba(15, 23, 42, 0.08);
+  --cm-shadow-header: 0 10px 30px rgba(15, 23, 42, 0.07);
+  --cm-sidebar-width: 282px;
+}
+
+/* Base */
+body.clinic-manager-page,
+.clinic-manager-page {
+  min-height: 100vh;
+  margin: 0;
+  direction: rtl;
+  font-family: Vazir, Shabnam, Tahoma, Arial, sans-serif !important;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(14, 165, 233, 0.10), transparent 28%),
+    linear-gradient(180deg, #f8fbff 0%, var(--cm-bg) 100%) !important;
+  color: var(--cm-text);
+  overflow-x: hidden;
+}
+
+.clinic-manager-page * {
+  box-sizing: border-box;
+}
+
+.clinic-manager-page a {
+  text-decoration: none;
+}
+
+/* Sidebar: same visual language across all clinic manager pages */
+.clinic-manager-page .sidebar {
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  width: var(--cm-sidebar-width) !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  padding: 18px 16px !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  z-index: 1200 !important;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(20,184,166,.24), transparent 34%),
+    linear-gradient(180deg, #083344 0%, #075985 48%, #0f172a 100%) !important;
+  border-left: 1px solid rgba(255,255,255,.10) !important;
+  box-shadow: -18px 0 46px rgba(15, 23, 42, 0.16) !important;
+}
+
+.clinic-manager-page .sidebar::-webkit-scrollbar {
+  width: 7px;
+}
+
+.clinic-manager-page .sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,.24);
+  border-radius: 999px;
+}
+
+.clinic-manager-page .sidebar-header {
+  min-height: 112px !important;
+  padding: 18px 14px !important;
+  margin-bottom: 16px !important;
+  border-radius: 24px !important;
+  background: rgba(255,255,255,.10) !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  display: grid !important;
+  place-items: center !important;
+  text-align: center !important;
+}
+
+.clinic-manager-page .sidebar-logo {
+  margin: 0 !important;
+  color: #ffffff !important;
+  font-size: 24px !important;
+  font-weight: 950 !important;
+  letter-spacing: 0 !important;
+  line-height: 1.25 !important;
+}
+
+.clinic-manager-page .sidebar-logo span {
+  color: #67e8f9 !important;
+}
+
+.clinic-manager-page .sidebar-subtitle {
+  margin-top: 8px !important;
+  color: rgba(224,242,254,.92) !important;
+  font-size: 12.5px !important;
+  font-weight: 850 !important;
+}
+
+.clinic-manager-page .sidebar-nav {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: grid !important;
+  gap: 8px !important;
+}
+
+.clinic-manager-page .nav-item {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.clinic-manager-page .sidebar .nav-link {
+  min-height: 48px !important;
+  padding: 11px 13px !important;
+  border-radius: 17px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 11px !important;
+  color: rgba(226, 232, 240, 0.90) !important;
+  font-size: 14px !important;
+  font-weight: 850 !important;
+  border: 1px solid transparent !important;
+  background: transparent !important;
+  transition: 0.2s ease !important;
+}
+
+.clinic-manager-page .sidebar .nav-link i {
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  border-radius: 12px !important;
+  display: grid !important;
+  place-items: center !important;
+  background: rgba(255,255,255,.10) !important;
+  color: #bae6fd !important;
+  font-size: 15px !important;
+}
+
+.clinic-manager-page .sidebar .nav-link:hover {
+  color: #ffffff !important;
+  background: rgba(255,255,255,.12) !important;
+  border-color: rgba(255,255,255,.16) !important;
+  transform: translateX(-3px);
+}
+
+.clinic-manager-page .sidebar .nav-link.active {
+  color: #075985 !important;
+  background: #ffffff !important;
+  border-color: rgba(255,255,255,.75) !important;
+  box-shadow: 0 14px 28px rgba(2, 132, 199, 0.24) !important;
+}
+
+.clinic-manager-page .sidebar .nav-link.active i {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, var(--cm-primary), var(--cm-primary-dark)) !important;
+}
+
+/* Main layout */
+.clinic-manager-page .main-content {
+  margin-right: var(--cm-sidebar-width) !important;
+  min-height: 100vh !important;
+  padding: 22px 24px 34px !important;
+  background: transparent !important;
+}
+
+/* Header */
+.clinic-manager-page .top-header,
+.clinic-manager-page .nv-standard-top-header {
+  position: sticky !important;
+  top: 16px !important;
+  z-index: 850 !important;
+  min-height: 88px !important;
+  margin: 0 0 24px !important;
+  padding: 18px 22px !important;
+  border-radius: 26px !important;
+  background: rgba(255,255,255,.94) !important;
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(219,234,254,.96) !important;
+  box-shadow: var(--cm-shadow-header) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 18px !important;
+}
+
+.clinic-manager-page .page-heading h1,
+.clinic-manager-page .top-header h1 {
+  margin: 0 0 6px !important;
+  color: var(--cm-text) !important;
+  font-size: clamp(21px, 2.2vw, 30px) !important;
+  line-height: 1.45 !important;
+  font-weight: 950 !important;
+}
+
+.clinic-manager-page .page-heading p,
+.clinic-manager-page .top-header p {
+  margin: 0 !important;
+  color: var(--cm-muted) !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+}
+
+.clinic-manager-page .header-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  flex-wrap: wrap !important;
+}
+
+.clinic-manager-page .notification-button,
+.clinic-manager-page .user-menu-trigger {
+  border: 1px solid var(--cm-border) !important;
+  background: #ffffff !important;
+  box-shadow: 0 10px 24px rgba(15,23,42,.06) !important;
+}
+
+.clinic-manager-page .notification-button {
+  position: relative;
+  width: 46px !important;
+  height: 46px !important;
+  border-radius: 16px !important;
+  display: grid !important;
+  place-items: center !important;
+  color: var(--cm-primary-dark) !important;
+  cursor: pointer !important;
+}
+
+.clinic-manager-page .notification-dot {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #ef4444;
+  border: 2px solid #fff;
+}
+
+.clinic-manager-page .user-menu {
+  position: relative !important;
+}
+
+.clinic-manager-page .user-menu-trigger {
+  min-height: 50px !important;
+  padding: 6px 8px 6px 14px !important;
+  border-radius: 18px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  color: var(--cm-text) !important;
+  cursor: pointer !important;
+}
+
+.clinic-manager-page .user-avatar,
+.clinic-manager-page .nv-header-avatar {
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 14px !important;
+  display: grid !important;
+  place-items: center !important;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, var(--cm-primary), var(--cm-accent)) !important;
+  font-size: 13px !important;
+  font-weight: 950 !important;
+}
+
+.clinic-manager-page .user-menu-text {
+  display: grid !important;
+  gap: 1px !important;
+  text-align: right !important;
+}
+
+.clinic-manager-page .user-menu-text strong,
+.clinic-manager-page .user-name {
+  color: var(--cm-text) !important;
+  font-size: 13.5px !important;
+  font-weight: 950 !important;
+}
+
+.clinic-manager-page .user-menu-text small,
+.clinic-manager-page .user-role {
+  color: var(--cm-muted) !important;
+  font-size: 11.5px !important;
+  font-weight: 800 !important;
+}
+
+.clinic-manager-page .user-dropdown,
+.clinic-manager-page .nv-user-dropdown {
+  position: absolute !important;
+  top: calc(100% + 10px) !important;
+  left: 0 !important;
+  min-width: 230px !important;
+  padding: 10px !important;
+  border-radius: 18px !important;
+  background: #ffffff !important;
+  border: 1px solid var(--cm-border) !important;
+  box-shadow: 0 24px 56px rgba(15, 23, 42, 0.14) !important;
+  z-index: 1300 !important;
+}
+
+/* Cards / widgets */
+.clinic-manager-page .card,
+.clinic-manager-page .content-card,
+.clinic-manager-page .panel-card,
+.clinic-manager-page .stat-card,
+.clinic-manager-page .quick-action,
+.clinic-manager-page .appointment-card,
+.clinic-manager-page .doctor-card,
+.clinic-manager-page .report-card,
+.clinic-manager-page .payment-card,
+.clinic-manager-page .notification-card,
+.clinic-manager-page .table-card,
+.clinic-manager-page .filter-card {
+  border-radius: var(--cm-radius-xl) !important;
+  background: var(--cm-surface) !important;
+  border: 1px solid rgba(219,234,254,.98) !important;
+  box-shadow: var(--cm-shadow-card) !important;
+}
+
+.clinic-manager-page .stat-card,
+.clinic-manager-page .quick-action {
+  transition: transform .2s ease, box-shadow .2s ease !important;
+}
+
+.clinic-manager-page .stat-card:hover,
+.clinic-manager-page .quick-action:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 54px rgba(15,23,42,.12) !important;
+}
+
+.clinic-manager-page .stats-grid,
+.clinic-manager-page .quick-actions,
+.clinic-manager-page .cards-grid,
+.clinic-manager-page .dashboard-grid {
+  gap: 18px !important;
+}
+
+/* Tables */
+.clinic-manager-page table,
+.clinic-manager-page .data-table {
+  width: 100% !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  overflow: hidden !important;
+  background: #ffffff !important;
+}
+
+.clinic-manager-page thead th,
+.clinic-manager-page .data-table th {
+  background: #f1f8ff !important;
+  color: #334155 !important;
+  font-size: 12.5px !important;
+  font-weight: 950 !important;
+  border-bottom: 1px solid var(--cm-border) !important;
+  padding: 14px 12px !important;
+}
+
+.clinic-manager-page tbody td,
+.clinic-manager-page .data-table td {
+  color: #334155 !important;
+  font-size: 13.5px !important;
+  border-bottom: 1px solid #eef4fb !important;
+  padding: 13px 12px !important;
+}
+
+.clinic-manager-page tbody tr:hover td {
+  background: #f8fbff !important;
+}
+
+/* Buttons */
+.clinic-manager-page .btn,
+.clinic-manager-page button.btn,
+.clinic-manager-page .action-btn,
+.clinic-manager-page .add-btn,
+.clinic-manager-page .primary-btn,
+.clinic-manager-page .submit-btn {
+  min-height: 42px !important;
+  border-radius: 14px !important;
+  padding: 9px 16px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  font-family: inherit !important;
+  font-size: 13px !important;
+  font-weight: 900 !important;
+  border: 1px solid transparent !important;
+  cursor: pointer !important;
+  transition: .2s ease !important;
+}
+
+.clinic-manager-page .btn-primary,
+.clinic-manager-page .primary-btn,
+.clinic-manager-page .add-btn,
+.clinic-manager-page .submit-btn {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, var(--cm-primary), var(--cm-primary-dark)) !important;
+  box-shadow: 0 12px 26px rgba(8,145,178,.22) !important;
+}
+
+.clinic-manager-page .btn-primary:hover,
+.clinic-manager-page .primary-btn:hover,
+.clinic-manager-page .add-btn:hover,
+.clinic-manager-page .submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(8,145,178,.27) !important;
+}
+
+.clinic-manager-page .btn-outline,
+.clinic-manager-page .secondary-btn {
+  color: var(--cm-primary-dark) !important;
+  background: #ffffff !important;
+  border-color: #bae6fd !important;
+}
+
+/* Forms */
+.clinic-manager-page input,
+.clinic-manager-page select,
+.clinic-manager-page textarea,
+.clinic-manager-page .form-control {
+  min-height: 44px !important;
+  border-radius: 14px !important;
+  border: 1px solid #cbd5e1 !important;
+  background: #f8fafc !important;
+  color: var(--cm-text) !important;
+  font-family: inherit !important;
+  font-size: 13.5px !important;
+  padding: 9px 12px !important;
+  outline: none !important;
+  transition: .18s ease !important;
+}
+
+.clinic-manager-page textarea,
+.clinic-manager-page textarea.form-control {
+  min-height: 110px !important;
+  resize: vertical !important;
+}
+
+.clinic-manager-page input:focus,
+.clinic-manager-page select:focus,
+.clinic-manager-page textarea:focus,
+.clinic-manager-page .form-control:focus {
+  background: #ffffff !important;
+  border-color: #38bdf8 !important;
+  box-shadow: 0 0 0 4px rgba(56,189,248,.16) !important;
+}
+
+.clinic-manager-page label {
+  color: #374151 !important;
+  font-weight: 900 !important;
+}
+
+/* Badges */
+.clinic-manager-page .badge {
+  min-height: 24px !important;
+  padding: 4px 10px !important;
+  border-radius: 999px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 11.5px !important;
+  font-weight: 950 !important;
+}
+
+.clinic-manager-page .badge-success,
+.clinic-manager-page .status-success,
+.clinic-manager-page .status-active {
+  background: #dcfce7 !important;
+  color: #047857 !important;
+}
+
+.clinic-manager-page .badge-warning,
+.clinic-manager-page .status-warning,
+.clinic-manager-page .status-pending {
+  background: #fef3c7 !important;
+  color: #b45309 !important;
+}
+
+.clinic-manager-page .badge-danger,
+.clinic-manager-page .status-danger,
+.clinic-manager-page .status-cancelled {
+  background: #fee2e2 !important;
+  color: #b91c1c !important;
+}
+
+.clinic-manager-page .badge-info,
+.clinic-manager-page .status-info {
+  background: #e0f2fe !important;
+  color: #0369a1 !important;
+}
+
+/* Modals */
+.clinic-manager-page .modal-overlay {
+  background: rgba(15,23,42,.58) !important;
+  backdrop-filter: blur(8px) !important;
+  z-index: 2500 !important;
+}
+
+.clinic-manager-page .modal-container,
+.clinic-manager-page .modal-content {
+  border-radius: 26px !important;
+  border: 1px solid var(--cm-border) !important;
+  box-shadow: 0 28px 82px rgba(15,23,42,.22) !important;
+  overflow: hidden !important;
+}
+
+.clinic-manager-page .modal-header {
+  background: #f8fbff !important;
+  border-bottom: 1px solid var(--cm-border) !important;
+}
+
+/* Welcome banner should remain close to clinic-manager/index */
+.clinic-manager-page .welcome-banner {
+  border-radius: 30px !important;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(34,211,238,.22), transparent 28%),
+    linear-gradient(135deg, #0f172a 0%, #075985 55%, #0891b2 100%) !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+  box-shadow: 0 22px 58px rgba(15,23,42,.18) !important;
+}
+
+/* Mobile and tablet */
+@media (max-width: 992px) {
+  :root {
+    --cm-sidebar-width: 282px;
+  }
+
+  .clinic-manager-page .sidebar {
+    transform: translateX(100%);
+    transition: transform .25s ease !important;
+  }
+
+  .clinic-manager-page.sidebar-open .sidebar,
+  .clinic-manager-page .sidebar.open,
+  body.sidebar-open .sidebar {
+    transform: translateX(0) !important;
+  }
+
+  .clinic-manager-page .main-content {
+    margin-right: 0 !important;
+    padding: 16px 14px 28px !important;
+  }
+
+  .clinic-manager-page .top-header,
+  .clinic-manager-page .nv-standard-top-header {
+    position: relative !important;
+    top: auto !important;
+    border-radius: 22px !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .clinic-manager-page .header-actions {
+    justify-content: space-between !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .clinic-manager-page .top-header,
+  .clinic-manager-page .nv-standard-top-header {
+    padding: 16px !important;
+  }
+
+  .clinic-manager-page .user-menu-trigger {
+    width: 100% !important;
+    justify-content: space-between !important;
+  }
+
+  .clinic-manager-page .stats-grid,
+  .clinic-manager-page .quick-actions,
+  .clinic-manager-page .cards-grid,
+  .clinic-manager-page .dashboard-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .clinic-manager-page .table-responsive {
+    border-radius: 18px !important;
+    border: 1px solid var(--cm-border) !important;
+  }
+}

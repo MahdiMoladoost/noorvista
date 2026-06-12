@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>پروفایل | NoorVista</title>
+<link href="/css/local-fonts.css" rel="stylesheet"/><link href="/css/open-iconic-bootstrap.min.css" rel="stylesheet"/><link href="/css/ionicons.min.css" rel="stylesheet"/><link href="/css/icomoon.css" rel="stylesheet"/><link href="/css/panel-common.css" rel="stylesheet"/><link href="/css/admin-enhancements.css" rel="stylesheet"/><link href="/css/noorvista-panel-polish.css" rel="stylesheet"/><link href="/css/noorvista-admin-header.css" rel="stylesheet"/><link href="/css/noorvista-manager-ui.css" rel="stylesheet"/><link href="/assets/css/panel-sidebar-unified-final.css" rel="stylesheet"/><link href="/assets/css/panel-header-avatar-unified.css" rel="stylesheet"/><link href="/assets/css/panel-role-layout-final.css" rel="stylesheet"/><link href="/assets/css/panel-role-exact-admin-users-parity.css" rel="stylesheet"/><link href="/assets/css/panel-pretty-selects-global.css" rel="stylesheet"/></head>
+<body class="nv-role-panel nv-patient-panel" data-panel-role="patient">
+<div class="sidebar">
+<div class="sidebar-header"><div class="sidebar-logo">Noor<span>Vista</span></div><div class="sidebar-subtitle">پنل بیمار</div></div>
+<ul class="sidebar-nav">
+<li class="nav-item"><a class="nav-link" href="index.html"><i class="icon-dashboard"></i><span>داشبورد</span></a></li>
+<li class="nav-item"><a class="nav-link" href="appointments.html"><i class="icon-calendar"></i><span>نوبت‌های من</span></a></li>
+<li class="nav-item"><a class="nav-link" href="medical-records.html"><i class="icon-file-text"></i><span>پرونده پزشکی</span></a></li>
+<li class="nav-item"><a class="nav-link" href="prescriptions.html"><i class="icon-medkit"></i><span>نسخه‌ها</span></a></li>
+<li class="nav-item"><a class="nav-link" href="payments.html"><i class="icon-credit-card"></i><span>پرداخت‌ها</span></a></li>
+<li class="nav-item"><a class="nav-link active" href="profile.html"><i class="icon-user"></i><span>پروفایل</span></a></li>
+</ul>
+<div class="nav-divider"></div>
+<ul class="sidebar-nav"><li class="nav-item"><a class="nav-link logout-btn" href="#"><i class="icon-sign-out"></i><span>خروج</span></a></li></ul>
+</div>
+<div class="main-content">
+<div class="top-header">
+<div class="page-title"><h1>پروفایل بیمار</h1><p>مشاهده و ویرایش اطلاعات شخصی</p></div>
+<div class="header-actions">
+<div class="search-box"><input placeholder="جستجو..." type="text"/><i class="icon-search"></i></div>
+<div class="user-menu"><button class="notification-btn"><i class="icon-bell"></i><span class="notification-badge" style="display:none">0</span></button><div class="user-info"><div class="user-avatar">PT</div><span class="user-name"></span><i class="icon-chevron-down"></i></div></div>
+</div>
+</div>
+<div class="card"><div class="card-header"><h4><i class="icon-user"></i> اطلاعات شخصی</h4></div><div class="card-body"><form id="profileForm"><div class="form-row"><div class="form-group"><label>نام کامل</label><input class="form-control" id="full_name" name="full_name" type="text"/></div><div class="form-group"><label>تاریخ تولد</label><input class="form-control" id="birth_date" name="birth_date" type="date"/></div></div><div class="form-row"><div class="form-group"><label>شماره تلفن</label><input class="form-control" id="phone" name="phone" type="tel"/></div><div class="form-group"><label>ایمیل</label><input class="form-control" id="email" name="email" type="email"/></div></div><div class="form-group"><label>آدرس</label><textarea class="form-control" id="address" name="address" rows="2"></textarea></div><div class="form-group"><label>آلرژی‌ها</label><textarea class="form-control" id="allergies" name="allergies" placeholder="در صورت وجود آلرژی، ذکر کنید..." rows="2"></textarea></div><div class="form-group"><label>بیماری‌های زمینه‌ای</label><textarea class="form-control" id="chronic_diseases" name="chronic_diseases" placeholder="بیماری‌های مزمن خود را ذکر کنید..." rows="2"></textarea></div><div class="form-group"><label>نام فرد برای تماس اضطراری</label><input class="form-control" id="emergency_contact_name" name="emergency_contact_name" type="text"/></div><div class="form-group"><label>تلفن تماس اضطراری</label><input class="form-control" id="emergency_contact_phone" name="emergency_contact_phone" type="tel"/></div><button class="btn btn-primary" type="submit">ذخیره تغییرات</button></form></div></div>
+<div class="card"><div class="card-header"><h4><i class="icon-lock"></i> تغییر رمز عبور</h4></div><div class="card-body"><form id="changePasswordForm"><div class="form-group"><label>رمز عبور فعلی</label><input class="form-control" name="old_password" required="" type="password"/></div><div class="form-group"><label>رمز عبور جدید</label><input class="form-control" name="new_password" required="" type="password"/></div><div class="form-group"><label>تکرار رمز عبور جدید</label><input class="form-control" name="confirm_password" required="" type="password"/></div><button class="btn btn-primary" type="submit">تغییر رمز عبور</button></form></div></div>
+</div>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/panel-common.js"></script>
+<script>
+        async function loadProfile() {
+            try {
+                const profile = await apiRequest('/api/patient/profile');
+                document.getElementById('full_name').value = profile.full_name || '';
+                document.getElementById('birth_date').value = profile.birth_date || '';
+                document.getElementById('phone').value = profile.phone || '';
+                document.getElementById('email').value = profile.email || '';
+                document.getElementById('address').value = profile.address || '';
+                document.getElementById('allergies').value = profile.allergies || '';
+                document.getElementById('chronic_diseases').value = profile.chronic_diseases || '';
+                document.getElementById('emergency_contact_name').value = profile.emergency_contact_name || '';
+                document.getElementById('emergency_contact_phone').value = profile.emergency_contact_phone || '';
+            } catch(e) { console.error(e); }
+        }
+        
+        document.getElementById('profileForm')?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const data = { full_name: document.getElementById('full_name').value, birth_date: document.getElementById('birth_date').value, phone: document.getElementById('phone').value, email: document.getElementById('email').value, address: document.getElementById('address').value, allergies: document.getElementById('allergies').value, chronic_diseases: document.getElementById('chronic_diseases').value, emergency_contact_name: document.getElementById('emergency_contact_name').value, emergency_contact_phone: document.getElementById('emergency_contact_phone').value };
+            try { await apiRequest('/api/patient/profile', 'PUT', data); showToast('پروفایل با موفقیت به‌روزرسانی شد', 'success'); } catch(e) { console.error(e); }
+        });
+        
+        document.getElementById('changePasswordForm')?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const newPass = document.querySelector('[name="new_password"]').value, confirmPass = document.querySelector('[name="confirm_password"]').value;
+            if (newPass !== confirmPass) { showToast('رمز عبور جدید و تکرار آن مطابقت ندارند', 'error'); return; }
+            try { await apiRequest('/api/auth/change-password', 'POST', { old_password: document.querySelector('[name="old_password"]').value, new_password: newPass }); showToast('رمز عبور با موفقیت تغییر کرد', 'success'); e.target.reset(); } catch(e) { console.error(e); }
+        });
+        
+        loadProfile();
+    </script>
+<script src="/assets/js/role-admin-users-exact-parity.js"></script><script src="/assets/js/role-user-menu-exact-admin-fix.js"></script><script src="/assets/js/panel-pretty-selects-global.js"></script></body>
+</html>

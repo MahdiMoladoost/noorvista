@@ -1,0 +1,75 @@
+
+/* NoorVista admin pages: keep shared clinic-admin pages visually identical, only add system-admin nav/account shell. */
+body.system-admin-panel .sidebar {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(79,195,247,.55) transparent;
+}
+body.system-admin-panel .sidebar::-webkit-scrollbar { width: 7px; }
+body.system-admin-panel .sidebar::-webkit-scrollbar-thumb { background: rgba(79,195,247,.55); border-radius: 999px; }
+body.system-admin-panel .admin-nav-section-label {
+    color: #8fa3b8;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 12px 24px 6px;
+    margin-top: 6px;
+}
+body.system-admin-panel .admin-account-nav {
+    border-top: 1px solid #2c4053;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+body.system-admin-panel .admin-top-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+body.system-admin-panel .admin-account-btn {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    background: #fff;
+    color: #374151;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: inherit;
+}
+body.system-admin-panel .admin-account-btn:hover { border-color: #3b82f6; color: #3b82f6; background: #eff6ff; }
+body.system-admin-panel .admin-account-btn.danger { color: #dc2626; border-color: #fecaca; }
+body.system-admin-panel .admin-account-btn.danger:hover { background: #fee2e2; }
+body.system-admin-panel .admin-password-help { margin-top: 5px; font-size: 11px; color: #6b7280; line-height: 1.8; }
+body.system-admin-panel #adminChangePasswordModal .modal-container { max-width: 520px; }
+body.system-admin-panel .admin-mobile-toggle {
+    display: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    background: #fff;
+    color: #374151;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+@media (max-width: 992px) {
+    body.system-admin-panel .admin-mobile-toggle { display: inline-flex; }
+    body.system-admin-panel.sidebar-open .sidebar { right: 0 !important; }
+    body.system-admin-panel.sidebar-open::after {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,.35);
+        z-index: 999;
+    }
+    body.system-admin-panel.sidebar-open .sidebar { z-index: 1001; }
+}
+@media (max-width: 576px) {
+    body.system-admin-panel .admin-top-actions { width: 100%; }
+    body.system-admin-panel .admin-account-btn { flex: 1 1 auto; justify-content: center; }
+}

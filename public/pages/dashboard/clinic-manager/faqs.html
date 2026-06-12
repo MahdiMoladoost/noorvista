@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa">
+<head>
+<link href="/css/local-fonts.css" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>سوالات پرتکرار | NOORVISTA</title>
+<link href="/css/open-iconic-bootstrap.min.css" rel="stylesheet"/>
+<link href="/css/ionicons.min.css" rel="stylesheet"/>
+<link href="/css/icomoon.css" rel="stylesheet"/>
+<link href="/css/panel-common.css" rel="stylesheet"/>
+<link href="/css/clinic-admin-fixes.css" rel="stylesheet"/>
+<style>
+        .toolbar { display:flex; gap:12px; align-items:center; justify-content:space-between; margin-bottom:18px; flex-wrap:wrap; }
+        .toolbar .search { min-width:260px; max-width:420px; flex:1; }
+        .data-table { width:100%; border-collapse:collapse; }
+        .data-table th, .data-table td { padding:12px; border-bottom:1px solid #e2e8f0; text-align:right; vertical-align:top; }
+        .data-table th { background:#f8fafc; font-weight:700; color:#334155; }
+        .data-table .actions { white-space:nowrap; display:flex; gap:8px; justify-content:center; }
+        .btn-sm { padding:6px 10px; border-radius:8px; border:0; cursor:pointer; font-size:12px; }
+        .btn-primary { background:#2f89fc; color:#fff; }
+        .btn-outline { background:#fff; color:#334155; border:1px solid #cbd5e1; }
+        .btn-danger { background:#ef4444; color:#fff; }
+        .badge { display:inline-block; padding:4px 10px; border-radius:999px; font-size:11px; font-weight:700; }
+        .badge-success { background:#dcfce7; color:#047857; }
+        .badge-muted { background:#f1f5f9; color:#64748b; }
+        .modal { display:none; position:fixed; inset:0; background:rgba(15,23,42,.45); z-index:10000; align-items:center; justify-content:center; padding:24px; }
+        .modal.show { display:flex; }
+        .modal-content { background:#fff; border-radius:18px; width:min(760px, 100%); max-height:90vh; overflow:auto; box-shadow:0 20px 60px rgba(0,0,0,.18); }
+        .modal-header, .modal-footer { padding:18px 22px; border-bottom:1px solid #e2e8f0; display:flex; justify-content:space-between; align-items:center; gap:12px; }
+        .modal-footer { border-top:1px solid #e2e8f0; border-bottom:0; justify-content:flex-end; }
+        .modal-body { padding:22px; }
+        .form-grid { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:16px; }
+        .form-group { margin-bottom:14px; }
+        .form-group label { display:block; font-size:13px; font-weight:700; margin-bottom:6px; color:#334155; }
+        .form-control { width:100%; border:1px solid #cbd5e1; border-radius:10px; padding:10px 12px; font-size:14px; }
+        .checkbox-row { display:flex; gap:18px; flex-wrap:wrap; margin-top:8px; }
+        .checkbox-row label { display:flex; gap:6px; align-items:center; font-size:13px; color:#334155; }
+        @media (max-width: 768px) { .form-grid { grid-template-columns:1fr; } .data-table { font-size:12px; } }
+    </style>
+<link href="/css/clinic-admin-theme.css" rel="stylesheet"/>
+<link href="/css/clinic-admin-hardening.css" rel="stylesheet"/>
+<link href="/css/noorvista-panel-polish.css" rel="stylesheet"/>
+<link href="/css/noorvista-admin-header.css" rel="stylesheet"/>
+<link href="/css/noorvista-manager-ui.css" rel="stylesheet"/>
+<link href="/assets/css/panel-sidebar-unified-final.css" rel="stylesheet"/>
+<link href="/assets/css/panel-ui-final-fixes.css" rel="stylesheet"/>
+<link href="/assets/css/panel-pretty-selects-global.css" rel="stylesheet"/><link href="/assets/css/clinic-manager-single-role-guard.css" rel="stylesheet"/></head>
+<body><script src="/assets/js/clinic-manager-single-role-guard.js"></script>
+<div class="sidebar">
+<div class="sidebar-header"><div class="sidebar-logo">NOOR<span>VISTA</span></div></div>
+<ul class="sidebar-nav"><li class="nav-item"><a class="nav-link" data-sidebar-match="index.html," href="index.html"><i class="icon-dashboard"></i><span>داشبورد</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="doctors.html" href="doctors.html"><i class="icon-user-md"></i><span>مدیریت پزشکان</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="schedule.html" href="schedule.html"><i class="icon-clock"></i><span>زمان‌بندی پزشکان</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="patients.html" href="patients.html"><i class="icon-users"></i><span>مدیریت بیماران</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="appointments.html" href="appointments.html"><i class="icon-calendar"></i><span>مدیریت نوبت‌ها</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="staff.html" href="staff.html"><i class="icon-briefcase"></i><span>مدیریت کارکنان</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="payments.html" href="payments.html"><i class="icon-credit-card"></i><span>مدیریت مالی</span></a></li><li class="nav-item"><a class="nav-link active" data-sidebar-match="faqs.html,notifications.html" href="faqs.html"><i class="icon-comments nv-faq-icon"></i><span>سوالات و اعلانات</span></a></li><li class="nav-item"><a class="nav-link" data-sidebar-match="reports.html" href="reports.html"><i class="icon-bar-chart"></i><span>گزارشات</span></a></li></ul>
+</div>
+<div class="main-content">
+<div class="top-header nv-standard-top-header">
+<div class="page-heading">
+<h1>سوالات پرتکرار</h1>
+<p>مدیریت پاسخ‌های تاییدشده پزشک برای سایت عمومی و چت‌بات</p>
+</div>
+<div class="header-actions">
+<button aria-label="اعلان‌ها" class="notification-button" title="اعلان‌ها" type="button"><i class="icon-bell"></i><span aria-hidden="true" class="notification-dot"></span></button>
+<div class="user-menu nv-user-menu">
+<button aria-expanded="false" aria-haspopup="true" class="user-menu-trigger" type="button">
+<span class="user-avatar nv-header-avatar">نو</span>
+<span class="user-menu-text"><strong class="user-name nv-header-user-name">کاربر NOORVISTA</strong><small class="user-role nv-header-user-role">کاربر سیستم</small></span>
+<i aria-hidden="true" class="icon-chevron-down nv-user-menu-chevron"></i>
+</button>
+<div class="user-dropdown nv-user-dropdown" role="menu">
+<button class="user-dropdown-item" data-nv-profile="" role="menuitem" type="button"><i class="icon-user"></i><span>مشاهده پروفایل</span></button>
+<button class="user-dropdown-item" data-nv-edit-account="" role="menuitem" type="button"><i class="icon-pencil"></i><span>ویرایش اطلاعات حساب</span></button>
+<button class="user-dropdown-item" data-nv-change-password="" role="menuitem" type="button"><i class="icon-lock"></i><span>تغییر رمز عبور</span></button>
+<button class="user-dropdown-item" data-nv-account-settings="" role="menuitem" type="button"><i class="icon-cog"></i><span>تنظیمات حساب</span></button>
+<div aria-hidden="true" class="user-dropdown-divider"></div>
+<button class="user-dropdown-item danger" data-nv-logout="" role="menuitem" type="button"><i class="icon-sign-out"></i><span>خروج از حساب</span></button>
+</div>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header"><h4><i class="icon-comments nv-faq-icon"></i> لیست سوالات</h4></div>
+<div class="card-body">
+<div class="toolbar">
+<input class="form-control search" id="faqSearch" placeholder="جستجو در سوال، پاسخ، دسته‌بندی یا کلیدواژه..." type="text"/>
+<button class="btn btn-primary" onclick="openFaqModal()" type="button"><i class="icon-plus"></i> افزودن سوال</button>
+</div>
+<div style="overflow:auto;">
+<table class="data-table">
+<thead>
+<tr>
+<th style="width:70px;">ردیف</th>
+<th>سوال</th>
+<th style="width:130px;">دسته‌بندی</th>
+<th style="width:110px;">عمومی</th>
+<th style="width:110px;">چت‌بات</th>
+<th style="width:210px; text-align:center;">عملیات</th>
+</tr>
+</thead>
+<tbody id="faqsTableBody"><tr><td colspan="6">در حال بارگذاری...</td></tr></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="modal" id="faqModal">
+<div class="modal-content">
+<div class="modal-header">
+<h3 id="faqModalTitle">افزودن سوال پرتکرار</h3>
+<button class="btn-sm btn-outline" onclick="closeFaqModal()" type="button">بستن</button>
+</div>
+<form id="faqForm">
+<div class="modal-body">
+<input id="faqId" type="hidden"/>
+<div class="form-group"><label>سوال</label><input class="form-control" id="faqQuestion" maxlength="500" required=""/></div>
+<div class="form-group"><label>پاسخ</label><textarea class="form-control" id="faqAnswer" required="" rows="7"></textarea></div>
+<div class="form-grid">
+<div class="form-group"><label>دسته‌بندی</label><input class="form-control" id="faqCategory" placeholder="مثلاً لیزیک، خشکی چشم، نوبت‌دهی"/></div>
+<div class="form-group"><label>کلیدواژه‌ها</label><input class="form-control" id="faqKeywords" placeholder="با کاما جدا کنید"/></div>
+<div class="form-group"><label>ترتیب نمایش</label><input class="form-control" id="faqSortOrder" type="number" value="0"/></div>
+<div class="form-group"><label>وضعیت‌ها</label><div class="checkbox-row"><label><input checked="" id="faqActive" type="checkbox"/> فعال</label><label><input checked="" id="faqPublic" type="checkbox"/> نمایش عمومی</label><label><input checked="" id="faqChatbot" type="checkbox"/> استفاده در چت‌بات</label></div></div>
+</div>
+</div>
+<div class="modal-footer">
+<button class="btn-sm btn-outline" onclick="closeFaqModal()" type="button">انصراف</button>
+<button class="btn-sm btn-primary" type="submit">ذخیره</button>
+</div>
+</form>
+</div>
+</div>
+<div class="modal" id="faqViewModal">
+<div class="modal-content">
+<div class="modal-header"><h3>مشاهده سوال پرتکرار</h3><button class="btn-sm btn-outline" onclick="closeViewModal()" type="button">بستن</button></div>
+<div class="modal-body" id="faqViewBody"></div>
+<div class="modal-footer"><button class="btn-sm btn-outline" onclick="closeViewModal()" type="button">بستن</button></div>
+</div>
+</div>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/panel-common.js"></script>
+<script src="/js/clinic-admin-fixes.js"></script>
+<script>
+    let faqs = [];
+
+    function escapeHtml(value) {
+        return String(value || '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' })[ch]);
+    }
+
+    function badge(value) {
+        return value ? '<span class="badge badge-success">بله</span>' : '<span class="badge badge-muted">خیر</span>';
+    }
+
+    async function loadFaqs() {
+        const search = document.getElementById('faqSearch').value.trim();
+        const url = '/clinic/faqs' + (search ? '?search=' + encodeURIComponent(search) : '');
+        try {
+            const response = await apiRequest(url);
+            faqs = response.faqs || [];
+            renderFaqs();
+        } catch (error) {
+            document.getElementById('faqsTableBody').innerHTML = '<tr><td colspan="6">خطا در دریافت اطلاعات</td></tr>';
+            showToast(error.message || 'خطا در دریافت سوالات', 'error');
+        }
+    }
+
+    function renderFaqs() {
+        const tbody = document.getElementById('faqsTableBody');
+        if (!faqs.length) {
+            tbody.innerHTML = '<tr><td colspan="6">سوالی ثبت نشده است</td></tr>';
+            return;
+        }
+        tbody.innerHTML = faqs.map((faq, index) => `
+            <tr>
+                <td>${index + 1}</td>
+                <td><strong>${escapeHtml(faq.question)}</strong><br><small>${escapeHtml(String(faq.answer || '').slice(0, 120))}${String(faq.answer || '').length > 120 ? '...' : ''}</small></td>
+                <td>${escapeHtml(faq.category || '-')}</td>
+                <td>${badge(faq.show_on_public)}</td>
+                <td>${badge(faq.use_for_chatbot)}</td>
+                <td class="actions">
+                    <button type="button" class="btn-sm action-btn view" onclick="viewFaq(${faq.id})"><i class="icon-eye"></i> مشاهده</button>
+                    <button type="button" class="btn-sm action-btn edit" onclick="editFaq(${faq.id})"><i class="icon-pencil"></i> ویرایش</button>
+                    <button type="button" class="btn-sm action-btn delete" onclick="deleteFaq(${faq.id})"><i class="icon-trash"></i> حذف</button>
+                </td>
+            </tr>
+        `).join('');
+    }
+
+    function openFaqModal(faq = null) {
+        document.getElementById('faqModalTitle').textContent = faq ? 'ویرایش سوال پرتکرار' : 'افزودن سوال پرتکرار';
+        document.getElementById('faqId').value = faq?.id || '';
+        document.getElementById('faqQuestion').value = faq?.question || '';
+        document.getElementById('faqAnswer').value = faq?.answer || '';
+        document.getElementById('faqCategory').value = faq?.category || '';
+        document.getElementById('faqKeywords').value = faq?.keywords || '';
+        document.getElementById('faqSortOrder').value = faq?.sort_order || 0;
+        document.getElementById('faqActive').checked = faq ? !!faq.is_active : true;
+        document.getElementById('faqPublic').checked = faq ? !!faq.show_on_public : true;
+        document.getElementById('faqChatbot').checked = faq ? !!faq.use_for_chatbot : true;
+        (window.openModal ? openModal('faqModal') : document.getElementById('faqModal').classList.add('show'));
+    }
+
+    function closeFaqModal() { window.closeModal ? closeModal('faqModal') : document.getElementById('faqModal').classList.remove('show'); }
+    function closeViewModal() { window.closeModal ? closeModal('faqViewModal') : document.getElementById('faqViewModal').classList.remove('show'); }
+    function findFaq(id) { return faqs.find(item => Number(item.id) === Number(id)); }
+
+    function viewFaq(id) {
+        const faq = findFaq(id);
+        if (!faq) return;
+        document.getElementById('faqViewBody').innerHTML = `
+            <p><strong>سوال:</strong><br>${escapeHtml(faq.question)}</p>
+            <p><strong>پاسخ:</strong><br><span style="white-space:pre-line; line-height:2;">${escapeHtml(faq.answer)}</span></p>
+            <p><strong>دسته‌بندی:</strong> ${escapeHtml(faq.category || '-')}</p>
+            <p><strong>کلیدواژه‌ها:</strong> ${escapeHtml(faq.keywords || '-')}</p>
+        `;
+        (window.openModal ? openModal('faqViewModal') : document.getElementById('faqViewModal').classList.add('show'));
+    }
+
+    function editFaq(id) {
+        const faq = findFaq(id);
+        if (faq) openFaqModal(faq);
+    }
+
+    async function deleteFaq(id) {
+        if (!confirm('آیا از حذف/غیرفعال‌سازی این سوال مطمئن هستید؟')) return;
+        try {
+            await apiRequest('/clinic/faqs/' + id, 'DELETE');
+            showToast('سوال پرتکرار غیرفعال شد', 'success');
+            await loadFaqs();
+        } catch (error) {
+            showToast(error.message || 'خطا در حذف سوال', 'error');
+        }
+    }
+
+    document.getElementById('faqForm').addEventListener('submit', async function (event) {
+        event.preventDefault();
+        const id = document.getElementById('faqId').value;
+        const payload = {
+            question: document.getElementById('faqQuestion').value,
+            answer: document.getElementById('faqAnswer').value,
+            category: document.getElementById('faqCategory').value,
+            keywords: document.getElementById('faqKeywords').value,
+            sort_order: document.getElementById('faqSortOrder').value,
+            is_active: document.getElementById('faqActive').checked,
+            show_on_public: document.getElementById('faqPublic').checked,
+            use_for_chatbot: document.getElementById('faqChatbot').checked
+        };
+        try {
+            await apiRequest(id ? '/clinic/faqs/' + id : '/clinic/faqs', id ? 'PUT' : 'POST', payload);
+            showToast('سوال پرتکرار ذخیره شد', 'success');
+            closeFaqModal();
+            await loadFaqs();
+        } catch (error) {
+            showToast(error.message || 'خطا در ذخیره سوال', 'error');
+        }
+    });
+
+    let searchTimer;
+    document.getElementById('faqSearch').addEventListener('input', function () {
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(loadFaqs, 350);
+    });
+
+    document.addEventListener('DOMContentLoaded', async function () {
+        if (typeof initPage === 'function') await initPage();
+        loadFaqs();
+    });
+</script>
+<script src="/js/noorvista-panel-polish.js"></script>
+<script src="/js/noorvista-admin-header.js"></script>
+<script src="/js/noorvista-manager-ui.js"></script>
+<script src="/assets/js/panel-final-fixes.js"></script>
+<script src="/assets/js/panel-pretty-selects-global.js"></script></body>
+</html>

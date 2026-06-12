@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>داشبورد بیمار | NoorVista</title>
+<style>
+        .next-appointment-card {
+            background: linear-gradient(135deg, #2f89fc, #1a6fdb);
+            border-radius: 24px;
+            padding: 25px;
+            color: white;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 25px rgba(47,137,252,0.2);
+        }
+        .next-appointment-card h3 { color: white; margin-bottom: 15px; font-size: 18px; }
+        .appointment-datetime { font-size: 28px; font-weight: 700; margin: 15px 0; }
+        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 25px; }
+        .stat-card { background: white; border-radius: 20px; padding: 20px; display: flex; align-items: center; gap: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .stat-icon { width: 55px; height: 55px; background: linear-gradient(135deg, #2f89fc, #1a6fdb); border-radius: 15px; display: flex; align-items: center; justify-content: center; }
+        .stat-icon i { font-size: 28px; color: white; }
+        .stat-info h3 { font-size: 28px; font-weight: 700; margin: 0; color: #1e293b; }
+        .stat-info p { font-size: 13px; color: #64748b; margin: 5px 0 0; }
+        .card { background: white; border-radius: 20px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); overflow: hidden; }
+        .card-header { padding: 18px 25px; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; }
+        .card-header h4 { margin: 0; font-size: 16px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+        .card-header h4 i { color: #2f89fc; }
+        .card-body { padding: 20px 25px; }
+        .data-table { width: 100%; border-collapse: collapse; }
+        .data-table th, .data-table td { padding: 12px; text-align: center; border-bottom: 1px solid #e2e8f0; }
+        .data-table th { background: #f8fafc; font-weight: 600; }
+        .badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+        .badge-pending { background: #fef3c7; color: #d97706; }
+        .badge-confirmed { background: #dbeafe; color: #2563eb; }
+        .badge-completed { background: #dcfce7; color: #059669; }
+        .badge-cancelled { background: #fee2e2; color: #dc2626; }
+        .btn-sm { padding: 5px 12px; font-size: 12px; border-radius: 8px; cursor: pointer; border: none; }
+        .btn-primary { background: #2f89fc; color: white; }
+        .btn-outline { background: transparent; border: 1px solid #e2e8f0; }
+    </style>
+<link href="/css/local-fonts.css" rel="stylesheet"/><link href="/css/open-iconic-bootstrap.min.css" rel="stylesheet"/><link href="/css/ionicons.min.css" rel="stylesheet"/><link href="/css/icomoon.css" rel="stylesheet"/><link href="/css/panel-common.css" rel="stylesheet"/><link href="/css/admin-enhancements.css" rel="stylesheet"/><link href="/css/noorvista-panel-polish.css" rel="stylesheet"/><link href="/css/noorvista-admin-header.css" rel="stylesheet"/><link href="/css/noorvista-manager-ui.css" rel="stylesheet"/><link href="/assets/css/panel-sidebar-unified-final.css" rel="stylesheet"/><link href="/assets/css/panel-header-avatar-unified.css" rel="stylesheet"/><link href="/assets/css/panel-role-layout-final.css" rel="stylesheet"/><link href="/assets/css/panel-role-exact-admin-users-parity.css" rel="stylesheet"/><link href="/assets/css/panel-pretty-selects-global.css" rel="stylesheet"/></head>
+<body class="nv-role-panel nv-patient-panel" data-panel-role="patient">
+<div class="sidebar">
+<div class="sidebar-header">
+<div class="sidebar-logo">Noor<span>Vista</span></div>
+<div class="sidebar-subtitle">پنل بیمار</div>
+</div>
+<ul class="sidebar-nav">
+<li class="nav-item"><a class="nav-link active" href="/dashboard/panel/patient/index.html"><i class="icon-dashboard"></i><span>داشبورد</span></a></li>
+<li class="nav-item"><a class="nav-link" href="/dashboard/panel/patient/appointments.html"><i class="icon-calendar"></i><span>نوبت‌های من</span></a></li>
+<li class="nav-item"><a class="nav-link" href="/dashboard/panel/patient/medical-records.html"><i class="icon-file-text"></i><span>پرونده پزشکی</span></a></li>
+<li class="nav-item"><a class="nav-link" href="/dashboard/panel/patient/prescriptions.html"><i class="icon-medkit"></i><span>نسخه‌ها</span></a></li>
+<li class="nav-item"><a class="nav-link" href="/dashboard/panel/patient/payments.html"><i class="icon-credit-card"></i><span>پرداخت‌ها</span></a></li>
+<li class="nav-item"><a class="nav-link" href="/dashboard/panel/patient/profile.html"><i class="icon-user"></i><span>پروفایل</span></a></li>
+</ul>
+<div class="nav-divider"></div>
+<ul class="sidebar-nav">
+<li class="nav-item"><a class="nav-link logout-btn" href="#"><i class="icon-sign-out"></i><span>خروج</span></a></li>
+</ul>
+</div>
+<div class="main-content">
+<div class="top-header">
+<div class="page-title">
+<h1>داشبورد بیمار</h1>
+<p>مشاهده نوبت‌ها و پرونده پزشکی</p>
+</div>
+<div class="header-actions">
+<div class="user-info">
+<div class="user-avatar">PT</div>
+<span class="user-name">بیمار</span>
+<i class="icon-chevron-down"></i>
+</div>
+</div>
+</div>
+<div class="next-appointment-card" id="nextAppointmentCard" style="display: none;">
+<h3><i class="icon-calendar"></i> نوبت بعدی شما</h3>
+<div class="appointment-datetime" id="nextAppointmentDateTime"></div>
+<div id="nextAppointmentDoctor"></div>
+<div id="nextAppointmentStatus"></div>
+</div>
+<div class="stats-grid">
+<div class="stat-card"><div class="stat-icon"><i class="icon-calendar"></i></div><div class="stat-info"><h3 id="totalAppointments">0</h3><p>کل نوبت‌ها</p></div></div>
+<div class="stat-card"><div class="stat-icon"><i class="icon-check"></i></div><div class="stat-info"><h3 id="completedAppointments">0</h3><p>نوبت‌های انجام شده</p></div></div>
+<div class="stat-card"><div class="stat-icon"><i class="icon-file-text"></i></div><div class="stat-info"><h3 id="totalRecords">0</h3><p>پرونده‌های پزشکی</p></div></div>
+</div>
+<div class="card">
+<div class="card-header">
+<h4><i class="icon-calendar"></i> نوبت‌های اخیر</h4>
+<button class="btn-sm btn-primary" onclick="window.location.href='/dashboard/panel/patient/appointments.html'">درخواست نوبت جدید</button>
+</div>
+<div class="card-body">
+<table class="data-table" id="recentAppointmentsTable">
+<thead><tr><th>تاریخ</th><th>ساعت</th><th>پزشک</th><th>وضعیت</th><th>عملیات</th></tr></thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+</div>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jalali.js"></script>
+<script src="/js/panel-common.js"></script>
+<script>
+    async function loadPatientDashboard() {
+        try {
+            const stats = await apiRequest('/patient/stats');
+            document.getElementById('totalAppointments').innerHTML = toPersianNumber(stats.totalAppointments || 0);
+            document.getElementById('completedAppointments').innerHTML = toPersianNumber(stats.completedAppointments || 0);
+            document.getElementById('totalRecords').innerHTML = toPersianNumber(stats.totalRecords || 0);
+            
+            if (stats.nextAppointment) {
+                const nextCard = document.getElementById('nextAppointmentCard');
+                nextCard.style.display = 'block';
+                document.getElementById('nextAppointmentDateTime').innerHTML = `${toJalali(stats.nextAppointment.appointment_date)} - ${stats.nextAppointment.appointment_time}`;
+                document.getElementById('nextAppointmentDoctor').innerHTML = `<i class="icon-user-md"></i> دکتر ${stats.nextAppointment.doctor_name}`;
+                document.getElementById('nextAppointmentStatus').innerHTML = `<span class="badge badge-${stats.nextAppointment.status}">${stats.nextAppointment.status === 'confirmed' ? 'تأیید شده' : 'در انتظار'}</span>`;
+            }
+            
+            const recentApps = await apiRequest('/patient/appointments/recent');
+            renderRecentAppointments(recentApps.appointments || []);
+        } catch(e) { console.error(e); }
+    }
+
+    function renderRecentAppointments(appointments) {
+        const tbody = document.querySelector('#recentAppointmentsTable tbody');
+        if (!appointments.length) { tbody.innerHTML = '<tr><td colspan="5" class="text-center">هیچ نوبتی یافت نشد</td></tr>'; return; }
+        tbody.innerHTML = appointments.map(app => `
+            <tr>
+                <td>${toJalali(app.appointment_date)}</td>
+                <td>${app.appointment_time || '-'}</td>
+                <td>${app.doctor_name || '-'}</td>
+                <td><span class="badge badge-${app.status}">${getStatusText(app.status)}</span></td>
+                <td><button class="btn-sm btn-outline" onclick="viewAppointment(${app.id})">جزئیات</button></td>
+            </tr>
+        `).join('');
+    }
+
+    function getStatusText(status) {
+        const statuses = { pending: 'در انتظار', confirmed: 'تأیید شده', completed: 'انجام شده', cancelled: 'لغو شده' };
+        return statuses[status] || status;
+    }
+
+    function viewAppointment(id) { window.location.href = `/dashboard/panel/patient/appointments.html?view=${id}`; }
+
+    document.addEventListener('DOMContentLoaded', () => { if (!checkAuth()) return; loadPatientDashboard(); });
+</script>
+<script src="/assets/js/role-admin-users-exact-parity.js"></script><script src="/assets/js/role-user-menu-exact-admin-fix.js"></script><script src="/assets/js/panel-pretty-selects-global.js"></script></body>
+</html>

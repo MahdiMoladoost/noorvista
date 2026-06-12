@@ -1,0 +1,342 @@
+/* =========================================================
+   NOORVISTA Appointments V2
+   مدیریت نوبت‌ها بر اساس بیمار + خدمت + پزشک + مرکز + ظرفیت
+========================================================= */
+
+.nv-appointment-v2 {
+  display: grid;
+  gap: 18px;
+}
+
+.nv-booking-wizard {
+  display: grid;
+  gap: 14px;
+}
+
+.nv-booking-step {
+  border: 1px solid #dbeafe;
+  border-radius: 22px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  box-shadow: 0 14px 36px rgba(15, 23, 42, .06);
+  overflow: hidden;
+}
+
+.nv-booking-step-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  border-bottom: 1px solid #e0f2fe;
+  background:
+    radial-gradient(circle at 0 0, rgba(14,165,233,.10), transparent 34%),
+    #ffffff;
+}
+
+.nv-booking-step-number {
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #0891b2, #075985);
+  color: #ffffff;
+  font-weight: 950;
+}
+
+.nv-booking-step-title strong {
+  display: block;
+  color: #0f172a;
+  font-size: 15px;
+  font-weight: 950;
+  line-height: 1.7;
+}
+
+.nv-booking-step-title span {
+  display: block;
+  color: #64748b;
+  font-size: 12.5px;
+  line-height: 1.8;
+}
+
+.nv-booking-step-body {
+  padding: 16px 18px 18px;
+}
+
+.nv-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.nv-form-field {
+  display: grid;
+  gap: 7px;
+}
+
+.nv-form-field label {
+  color: #334155;
+  font-size: 12.5px;
+  font-weight: 950;
+}
+
+.nv-form-field input,
+.nv-form-field select,
+.nv-form-field textarea {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid #cbd5e1;
+  border-radius: 15px;
+  background: #ffffff;
+  color: #0f172a;
+  padding: 9px 12px;
+  font-family: inherit;
+  font-weight: 850;
+  outline: none;
+}
+
+.nv-form-field textarea {
+  resize: vertical;
+  min-height: 84px;
+}
+
+.nv-form-field input:focus,
+.nv-form-field select:focus,
+.nv-form-field textarea:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 4px rgba(56,189,248,.14);
+}
+
+.nv-booking-tabs {
+  display: inline-flex;
+  gap: 8px;
+  padding: 5px;
+  border-radius: 16px;
+  background: #f1f5f9;
+  margin-bottom: 14px;
+}
+
+.nv-booking-tabs button {
+  border: 0;
+  border-radius: 12px;
+  min-height: 38px;
+  padding: 8px 14px;
+  background: transparent;
+  color: #475569;
+  font-family: inherit;
+  font-weight: 950;
+  cursor: pointer;
+}
+
+.nv-booking-tabs button.active {
+  background: #ffffff;
+  color: #075985;
+  box-shadow: 0 8px 18px rgba(15,23,42,.08);
+}
+
+.nv-option-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 12px;
+}
+
+.nv-option-card {
+  border: 1px solid #dbeafe;
+  border-radius: 19px;
+  background: #ffffff;
+  padding: 14px;
+  cursor: pointer;
+  transition: .18s ease;
+  min-height: 92px;
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  text-align: right;
+}
+
+.nv-option-card:hover {
+  border-color: #7dd3fc;
+  background: #f8fbff;
+  transform: translateY(-1px);
+}
+
+.nv-option-card.active {
+  border-color: #0891b2;
+  background:
+    radial-gradient(circle at 0 0, rgba(14,165,233,.12), transparent 34%),
+    #ecfeff;
+  box-shadow: 0 14px 30px rgba(8,145,178,.12);
+}
+
+.nv-option-card strong {
+  color: #0f172a;
+  font-size: 14px;
+  font-weight: 950;
+  line-height: 1.8;
+}
+
+.nv-option-card small {
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.nv-option-card .badge-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.nv-mini-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #e0f2fe;
+  color: #075985;
+  font-size: 11.5px;
+  font-weight: 950;
+}
+
+.nv-slot-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.nv-slot-toolbar .nv-form-grid {
+  flex: 1;
+  min-width: 280px;
+}
+
+.nv-slot-list {
+  display: grid;
+  gap: 12px;
+  max-height: 380px;
+  overflow: auto;
+  padding-left: 4px;
+}
+
+.nv-slot-day {
+  border: 1px solid #e0f2fe;
+  border-radius: 20px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.nv-slot-day-title {
+  padding: 12px 14px;
+  background: #f8fbff;
+  border-bottom: 1px solid #e0f2fe;
+  color: #075985;
+  font-weight: 950;
+}
+
+.nv-slot-buttons {
+  padding: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.nv-slot-btn {
+  border: 1px solid #bae6fd;
+  border-radius: 14px;
+  background: #ffffff;
+  color: #075985;
+  padding: 8px 10px;
+  font-family: inherit;
+  font-weight: 950;
+  cursor: pointer;
+  transition: .18s ease;
+  min-width: 128px;
+  text-align: center;
+}
+
+.nv-slot-btn:hover {
+  background: #e0f2fe;
+}
+
+.nv-slot-btn.active {
+  color: #ffffff;
+  background: linear-gradient(135deg, #0891b2, #075985);
+  border-color: #075985;
+  box-shadow: 0 12px 24px rgba(8,145,178,.18);
+}
+
+.nv-slot-btn span {
+  display: block;
+  font-size: 13px;
+}
+
+.nv-slot-btn small {
+  display: block;
+  font-size: 11px;
+  margin-top: 3px;
+  opacity: .88;
+}
+
+.nv-selected-summary {
+  border: 1px solid #a7f3d0;
+  border-radius: 20px;
+  background: linear-gradient(180deg, #ecfdf5, #ffffff);
+  color: #065f46;
+  padding: 14px;
+  line-height: 2;
+  font-weight: 900;
+}
+
+.nv-selected-summary.empty {
+  border-color: #dbeafe;
+  background: #f8fbff;
+  color: #64748b;
+}
+
+.nv-empty-state,
+.nv-loading-state {
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px dashed #bae6fd;
+  background: #f8fbff;
+  color: #64748b;
+  text-align: center;
+  line-height: 2;
+  font-weight: 850;
+}
+
+.nv-final-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 14px;
+}
+
+.nv-field-full {
+  grid-column: 1 / -1;
+}
+
+.nv-btn-soft {
+  border: 1px solid #bae6fd;
+  background: #f8fbff;
+  color: #075985;
+}
+
+.nv-btn-soft:hover {
+  background: #e0f2fe;
+}
+
+@media (max-width: 760px) {
+  .nv-form-grid,
+  .nv-final-row {
+    grid-template-columns: 1fr;
+  }
+
+  .nv-slot-btn {
+    flex: 1 1 100%;
+  }
+}

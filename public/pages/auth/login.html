@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ورود به پنل | کلینیک چشم‌پزشکی دکتر محمدصادق حق‌پرست</title>
+<meta content="ورود امن به پنل کاربران کلینیک چشم‌پزشکی دکتر محمدصادق حق‌پرست برای مدیر سیستم، مدیر کلینیک، پزشک، منشی و بیمار." name="description"/>
+<meta content="noindex, follow" name="robots"/>
+<meta content="#0891b2" name="theme-color"/>
+<link href="https://noorvista.ir/login" rel="canonical"/>
+<link href="data:," rel="icon"/>
+<link href="/css/local-fonts.css" rel="stylesheet"/>
+<link href="/css/auth-login-pro.css" rel="stylesheet"/>
+<link href="/assets/css/login-standard-compact.css" rel="stylesheet"/></head>
+<body class="login-page login-exact-layout">
+<main aria-label="ورود به پنل کلینیک" class="login-shell">
+<aside aria-label="اطلاعات ورود پیش‌فرض" class="login-demo-side">
+<details class="default-credentials nv-login-demo-standard">
+<summary>
+<span>🔐 ورود سریع تست</span>
+<small>نام کاربری و رمز = شماره موبایل</small>
+</summary>
+<div class="credentials-grid">
+<button class="credential-item" data-password="09106661386" data-username="09106661386" type="button"><strong>مدیر سیستم</strong><code>09106661386</code></button>
+<button class="credential-item" data-password="09197974194" data-username="09197974194" type="button"><strong>مدیر کلینیک</strong><code>09197974194</code></button>
+<button class="credential-item" data-password="09930713811" data-username="09930713811" type="button"><strong>پزشک</strong><code>09930713811</code></button>
+<button class="credential-item" data-password="09107611392" data-username="09107611392" type="button"><strong>منشی</strong><code>09107611392</code></button>
+<button class="credential-item" data-password="09109805772" data-username="09109805772" type="button"><strong>بیمار ۱</strong><code>09109805772</code></button>
+<button class="credential-item" data-password="09126196078" data-username="09126196078" type="button"><strong>بیمار ۲</strong><code>09126196078</code></button>
+</div>
+</details>
+</aside>
+<section aria-label="فرم ورود" class="login-card">
+<header class="login-header">
+<div class="login-brand-text">
+<span>کلینیک چشم‌پزشکی</span>
+<strong>دکتر محمدصادق حق‌پرست</strong>
+</div>
+
+<p>لطفاً اطلاعات حساب خود را وارد کنید.</p>
+</header>
+<div class="server-status checking" id="serverStatus" role="status">در حال بررسی اتصال سرور...</div>
+<nav aria-label="روش ورود" class="login-tabs">
+<button aria-controls="password-tab" class="tab-btn active" data-tab="password-tab" type="button">
+<span class="tab-icon">🔒</span> ورود با رمز عبور
+        </button>
+<button aria-controls="sms-tab" class="tab-btn" data-tab="sms-tab" type="button">
+<span class="tab-icon">📱</span> ورود با پیامک
+        </button>
+</nav>
+<section class="tab-content active" id="password-tab">
+<form id="passwordLoginForm" novalidate="">
+<div class="form-group">
+<label for="username">نام کاربری</label>
+<div class="input-field">
+<span aria-hidden="true" class="field-icon">👤</span>
+<input autocomplete="username" id="username" name="username" placeholder="نام کاربری را وارد کنید" type="text"/>
+</div>
+</div>
+<div class="form-group">
+<label for="password">رمز عبور</label>
+<div class="input-field">
+<span aria-hidden="true" class="field-icon">🔐</span>
+<input autocomplete="current-password" id="password" name="password" placeholder="رمز عبور" type="password"/>
+<button aria-label="نمایش یا مخفی کردن رمز عبور" class="toggle-password" id="togglePasswordBtn" type="button">👁</button>
+</div>
+</div>
+<div class="form-options">
+<label class="remember-me"><input id="rememberMe" type="checkbox"/> مرا به خاطر بسپار</label>
+<button class="forgot-password" id="forgotPasswordBtn" type="button">فراموشی رمز عبور؟</button>
+</div>
+<button class="btn-login" id="passwordLoginBtn" type="submit">ورود به پنل</button>
+<div class="error-message" id="passwordError" role="alert"></div>
+</form>
+</section>
+<section class="tab-content" id="sms-tab">
+<form id="smsLoginForm" novalidate="">
+<div class="step active" id="stepPhone">
+<div class="form-group">
+<label for="phoneNumber">شماره تلفن همراه</label>
+<div class="input-field">
+<span aria-hidden="true" class="field-icon">📞</span>
+<input id="phoneNumber" inputmode="numeric" maxlength="11" placeholder="09123456789" type="tel"/>
+</div>
+<small class="hint">کد تأیید به این شماره ارسال می‌شود.</small>
+</div>
+<button class="btn-login" id="sendCodeBtn" type="button">ارسال کد تأیید</button>
+<div class="error-message" id="smsError" role="alert"></div>
+</div>
+<div class="step" id="stepCode">
+<div class="form-group">
+<label for="verificationCode">کد تأیید</label>
+<div class="input-field">
+<span aria-hidden="true" class="field-icon">🔢</span>
+<input id="verificationCode" inputmode="numeric" maxlength="6" placeholder="کد ۶ رقمی" type="text"/>
+</div>
+<small class="hint">کد ارسال‌شده به شماره <strong id="displayPhone"></strong></small>
+<span class="timer-text" id="timerText"></span>
+</div>
+<button class="btn-resend" disabled="" id="resendCodeBtn" type="button">ارسال مجدد کد</button>
+<button class="btn-login" id="verifyCodeBtn" type="submit">ورود با کد تأیید</button>
+<div class="error-message" id="verifyError" role="alert"></div>
+</div>
+</form>
+</section>
+<footer aria-label="لینک‌های کمکی ورود" class="login-footer-links">
+<a href="/">بازگشت به سایت</a>
+<a href="/contact">تماس با کلینیک</a>
+<a href="/services">مشاهده خدمات</a>
+</footer>
+</section>
+</main>
+<div aria-hidden="true" class="forgot-modal" id="forgotPasswordModal">
+<div class="forgot-backdrop" data-close-forgot=""></div>
+<section aria-labelledby="forgotTitle" aria-modal="true" class="forgot-dialog" role="dialog">
+<button aria-label="بستن" class="modal-close" data-close-forgot="" type="button">×</button>
+<div class="modal-icon">🔑</div>
+<h2 id="forgotTitle">بازیابی رمز عبور</h2>
+<p>نام کاربری حساب خود را وارد کنید. اگر امکان بازیابی برای حساب شما فعال باشد، راهنمای ادامه فرایند ارسال یا نمایش داده می‌شود.</p>
+<div class="form-group">
+<label for="forgotEmail">نام کاربری</label>
+<div class="input-field">
+<span aria-hidden="true" class="field-icon">✉️</span>
+<input id="forgotEmail" placeholder="مثلاً admin یا email@example.com" type="text"/>
+</div>
+</div>
+<div class="error-message" id="forgotError" role="alert"></div>
+<div class="forgot-actions">
+<button class="btn-secondary" data-close-forgot="" type="button">انصراف</button>
+<button class="btn-login" id="submitForgotBtn" type="button">ارسال درخواست بازیابی</button>
+</div>
+</section>
+</div>
+<div aria-live="polite" class="toast-container" id="toastContainer"></div>
+<script src="/js/auth-login-pro.js"></script>
+<script>
+// NOORVISTA_LOGIN_CREDENTIALS_FILL_FIX
+(function () {
+  if (window.__NOORVISTA_LOGIN_CREDENTIALS_FILL_FIX__) return;
+  window.__NOORVISTA_LOGIN_CREDENTIALS_FILL_FIX__ = true;
+
+  function findInput(names) {
+    for (const name of names) {
+      const el = document.querySelector(name);
+      if (el) return el;
+    }
+    return null;
+  }
+
+  document.addEventListener('click', function (event) {
+    const item = event.target.closest('.credential-item');
+    if (!item) return;
+
+    const username = item.getAttribute('data-username') || '';
+    const password = item.getAttribute('data-password') || '';
+
+    const usernameInput = findInput([
+      '#username',
+      '#loginUsername',
+      'input[name="username"]',
+      'input[name="phone"]',
+      'input[name="mobile"]',
+      'input[type="text"]'
+    ]);
+
+    const passwordInput = findInput([
+      '#password',
+      '#loginPassword',
+      'input[name="password"]',
+      'input[type="password"]'
+    ]);
+
+    if (usernameInput) {
+      usernameInput.value = username;
+      usernameInput.dispatchEvent(new Event('input', { bubbles: true }));
+      usernameInput.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+
+    if (passwordInput) {
+      passwordInput.value = password;
+      passwordInput.dispatchEvent(new Event('input', { bubbles: true }));
+      passwordInput.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+  });
+})();
+</script><script src="/assets/js/login-standard-compact.js"></script></body>
+</html>
