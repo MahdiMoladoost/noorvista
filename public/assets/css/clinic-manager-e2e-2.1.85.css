@@ -1,0 +1,299 @@
+
+/* NoorVista 2.1.85 — clinic-manager E2E polish and parity with admin panel */
+.nv3-role-clinic-manager {
+  --nv-cm-border: #cfe3ee;
+  --nv-cm-border-strong: #b8d6e6;
+  --nv-cm-text: #0b3954;
+  --nv-cm-muted: #647f91;
+  --nv-cm-primary: #158fc2;
+  --nv-cm-success: #0ca678;
+}
+
+.nv3-role-clinic-manager .nv3-page {
+  display: grid;
+  gap: 20px;
+}
+
+.nv3-role-clinic-manager .stats-grid,
+.nv3-role-clinic-manager .nv3-responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.nv3-role-clinic-manager .stat-card {
+  min-height: 108px;
+  padding: 18px 20px;
+  border: 1px solid var(--nv-cm-border);
+  border-radius: 22px;
+  background: linear-gradient(145deg, #fff, #f7fcff);
+  box-shadow: 0 14px 34px rgba(11, 57, 84, .07);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  overflow: hidden;
+}
+
+.nv3-role-clinic-manager .stat-icon,
+.nv3-role-clinic-manager .nv-sms-stat__icon,
+.nv3-role-clinic-manager .nv-admin-stat-icon {
+  width: 52px !important;
+  height: 52px !important;
+  min-width: 52px !important;
+  flex: 0 0 52px !important;
+  border-radius: 17px !important;
+  display: inline-grid !important;
+  place-items: center !important;
+  background: linear-gradient(135deg, #1d9bd0, #0b78a5) !important;
+  color: #fff !important;
+  box-shadow: 0 12px 28px rgba(21, 143, 194, .22) !important;
+}
+
+.nv3-role-clinic-manager .stat-icon i,
+.nv3-role-clinic-manager .nv-sms-stat__icon i,
+.nv3-role-clinic-manager .nv-admin-stat-icon i {
+  font-size: 23px !important;
+  line-height: 1 !important;
+}
+
+.nv3-role-clinic-manager .stat-info,
+.nv3-role-clinic-manager .stat-info * {
+  min-width: 0;
+}
+
+.nv3-role-clinic-manager .stat-info h3,
+.nv3-role-clinic-manager .stat-number,
+.nv3-role-clinic-manager .stat-info strong {
+  margin: 0;
+  color: var(--nv-cm-text);
+  font-size: clamp(1.35rem, 2.1vw, 1.85rem);
+  font-weight: 900;
+  line-height: 1.3;
+}
+
+.nv3-role-clinic-manager .stat-info p,
+.nv3-role-clinic-manager .stat-label {
+  margin: 5px 0 0;
+  color: var(--nv-cm-muted);
+  font-size: .86rem;
+  font-weight: 800;
+  line-height: 1.65;
+}
+
+.nv3-role-clinic-manager .nv3-action-panel,
+.nv3-role-clinic-manager .filter-section,
+.nv3-role-clinic-manager .filter-bar,
+.nv3-role-clinic-manager .admin-filters,
+.nv3-role-clinic-manager .search-filters,
+.nv3-role-clinic-manager .nv-sms-filter {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: end !important;
+  gap: 16px !important;
+  padding: 20px !important;
+  border: 1px solid var(--nv-cm-border) !important;
+  border-radius: 22px !important;
+  background: rgba(255, 255, 255, .84) !important;
+  box-shadow: 0 12px 30px rgba(11, 57, 84, .045) !important;
+}
+
+.nv3-role-clinic-manager .filter-group,
+.nv3-role-clinic-manager .nv-sms-field {
+  flex: 1 1 220px !important;
+  min-width: 180px !important;
+  max-width: 360px;
+}
+
+.nv3-role-clinic-manager .filter-group:has(button),
+.nv3-role-clinic-manager .filter-group[style*="flex: 0"],
+.nv3-role-clinic-manager .nv-sms-actions {
+  flex: 0 0 auto !important;
+  min-width: auto !important;
+  max-width: none !important;
+}
+
+.nv3-role-clinic-manager label,
+.nv3-role-clinic-manager .filter-group label,
+.nv3-role-clinic-manager .form-group label,
+.nv3-role-clinic-manager .nv-sms-field label {
+  display: block;
+  margin: 0 0 8px;
+  color: #345a70;
+  font-size: .82rem;
+  font-weight: 850;
+  line-height: 1.5;
+}
+
+.nv3-role-clinic-manager input:not([type="checkbox"]):not([type="radio"]),
+.nv3-role-clinic-manager select,
+.nv3-role-clinic-manager textarea,
+.nv3-role-clinic-manager .form-control,
+.nv3-role-clinic-manager .date-input,
+.nv3-role-clinic-manager .jalali-date-input {
+  width: 100%;
+  min-height: 46px !important;
+  box-sizing: border-box;
+  border: 1px solid var(--nv-cm-border-strong) !important;
+  border-radius: 14px !important;
+  background-color: #fff !important;
+  color: var(--nv-cm-text) !important;
+  font-size: .9rem !important;
+  font-weight: 700 !important;
+  line-height: 1.45 !important;
+  padding: 10px 14px !important;
+  box-shadow: none !important;
+  transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+
+.nv3-role-clinic-manager textarea.form-control,
+.nv3-role-clinic-manager textarea {
+  min-height: 96px !important;
+  resize: vertical;
+}
+
+.nv3-role-clinic-manager input:focus,
+.nv3-role-clinic-manager select:focus,
+.nv3-role-clinic-manager textarea:focus {
+  outline: none;
+  border-color: #1d9bd0 !important;
+  box-shadow: 0 0 0 4px rgba(29, 155, 208, .13) !important;
+}
+
+.nv3-role-clinic-manager .btn,
+.nv3-role-clinic-manager button:not(.nv3-user-menu-trigger):not(.nv3-sidebar-collapse):not(.nv3-mobile-menu):not(.modal-close):not(.nv3-icon-button),
+.nv3-role-clinic-manager a.btn {
+  min-height: 44px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  font-size: .88rem;
+  font-weight: 850;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+.nv3-role-clinic-manager .action-buttons,
+.nv3-role-clinic-manager td.action-buttons,
+.nv3-role-clinic-manager .table-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.nv3-role-clinic-manager .action-icon,
+.nv3-role-clinic-manager .btn-sm,
+.nv3-role-clinic-manager .nv-sms-retry {
+  min-height: 36px !important;
+  padding: 7px 11px !important;
+  border-radius: 11px !important;
+  font-size: .78rem !important;
+}
+
+.nv3-role-clinic-manager .action-icon i,
+.nv3-role-clinic-manager .btn i,
+.nv3-role-clinic-manager button i {
+  font-size: 1rem !important;
+  line-height: 1 !important;
+}
+
+.nv3-role-clinic-manager .card,
+.nv3-role-clinic-manager .nv3-surface {
+  border: 1px solid var(--nv-cm-border) !important;
+  border-radius: 22px !important;
+  overflow: hidden;
+  background: rgba(255,255,255,.92) !important;
+  box-shadow: 0 12px 32px rgba(11, 57, 84, .055) !important;
+}
+
+.nv3-role-clinic-manager .card-header {
+  min-height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 20px !important;
+  border-bottom: 1px solid #e2edf4 !important;
+  background: linear-gradient(90deg, rgba(240,250,255,.92), rgba(255,255,255,.92));
+}
+
+.nv3-role-clinic-manager .data-table th,
+.nv3-role-clinic-manager .data-table td,
+.nv3-role-clinic-manager .nv-sms-table th,
+.nv3-role-clinic-manager .nv-sms-table td {
+  padding: 13px 14px !important;
+  vertical-align: middle !important;
+  font-size: .84rem !important;
+  line-height: 1.75 !important;
+}
+
+.nv3-role-clinic-manager .data-table th,
+.nv3-role-clinic-manager .nv-sms-table th {
+  background: #f3f9fd !important;
+  color: #36566b !important;
+  font-weight: 900 !important;
+  white-space: nowrap;
+}
+
+.nv3-role-clinic-manager .modal-container {
+  max-width: min(760px, calc(100vw - 32px));
+  border-radius: 22px;
+}
+
+.nv3-role-clinic-manager .modal-body {
+  display: grid;
+  gap: 16px;
+}
+
+.nv3-role-clinic-manager .modal-body .form-row,
+.nv3-role-clinic-manager .modal-body .grid,
+.nv3-role-clinic-manager .modal-body .nv-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.nv3-role-clinic-manager .nv-sms-stats {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(150px, 1fr));
+  gap: 14px;
+}
+
+.nv3-role-clinic-manager .nv-sms-stat {
+  min-height: 106px;
+  padding: 16px;
+}
+
+.nv3-role-clinic-manager .persian-datepicker,
+.nv3-role-clinic-manager .pdp-default {
+  font-family: Shabnam, Vazirmatn, Tahoma, Arial, sans-serif !important;
+  z-index: 100050 !important;
+}
+
+@media (max-width: 1200px) {
+  .nv3-role-clinic-manager .stats-grid,
+  .nv3-role-clinic-manager .nv3-responsive-grid,
+  .nv3-role-clinic-manager .nv-sms-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 780px) {
+  .nv3-role-clinic-manager .stats-grid,
+  .nv3-role-clinic-manager .nv3-responsive-grid,
+  .nv3-role-clinic-manager .nv-sms-stats { grid-template-columns: 1fr; }
+  .nv3-role-clinic-manager .nv3-action-panel,
+  .nv3-role-clinic-manager .filter-section,
+  .nv3-role-clinic-manager .filter-bar,
+  .nv3-role-clinic-manager .nv-sms-filter { align-items: stretch !important; }
+  .nv3-role-clinic-manager .filter-group,
+  .nv3-role-clinic-manager .nv-sms-field,
+  .nv3-role-clinic-manager .filter-group:has(button),
+  .nv3-role-clinic-manager .nv-sms-actions { flex: 1 1 100% !important; max-width: none !important; }
+  .nv3-role-clinic-manager .filter-group button,
+  .nv3-role-clinic-manager .nv-sms-actions button { width: 100%; }
+  .nv3-role-clinic-manager .modal-body .form-row,
+  .nv3-role-clinic-manager .modal-body .grid,
+  .nv3-role-clinic-manager .modal-body .nv-form-grid { grid-template-columns: 1fr; }
+}

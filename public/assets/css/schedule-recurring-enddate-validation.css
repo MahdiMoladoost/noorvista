@@ -1,0 +1,26 @@
+/* NOORVISTA schedule duplicate select + recurring end-date validation fix */
+
+body[data-appointment-page="schedules"] .appt-filter-field > select.nvps-native {
+  display: none !important;
+}
+
+body[data-appointment-page="schedules"] .appt-filter-field > .nvps-select {
+  width: 100% !important;
+}
+
+body[data-appointment-page="schedules"] .nvps-select:not(:has(select)) {
+  display: none !important;
+}
+
+body[data-appointment-page="schedules"] .appt-filter-card .appt-card-body:first-of-type {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 12px 14px !important;
+  align-items: end !important;
+}
+
+@media (max-width: 850px) {
+  body[data-appointment-page="schedules"] .appt-filter-card .appt-card-body:first-of-type {
+    grid-template-columns: 1fr !important;
+  }
+}

@@ -1,0 +1,378 @@
+/* NoorVista 2.1.8 — integrated schedule and appointment workflow */
+
+/* Keep the appointment modal visually consistent and usable on desktop. */
+#appointmentFormModal .modal-container {
+  width: min(96vw, 1120px) !important;
+  max-width: min(96vw, 1120px) !important;
+  max-height: calc(100dvh - 32px) !important;
+  border: 1px solid rgba(14, 116, 144, .2) !important;
+  border-radius: 26px !important;
+  overflow: hidden !important;
+  background: #f8fbfd !important;
+  box-shadow: 0 30px 80px rgba(8, 47, 73, .24) !important;
+}
+
+#appointmentFormModal .modal-header {
+  min-height: 76px !important;
+  padding: 16px 20px !important;
+  background:
+    radial-gradient(circle at 10% 0, rgba(34, 211, 238, .2), transparent 36%),
+    linear-gradient(135deg, #ffffff, #effaff) !important;
+  border-bottom: 1px solid #d9edf5 !important;
+}
+
+#appointmentFormModal .modal-header h3 {
+  font-size: 19px !important;
+  font-weight: 950 !important;
+  color: #103b54 !important;
+}
+
+#appointmentFormModal .modal-body {
+  padding: 18px 20px 22px !important;
+  background: linear-gradient(180deg, #f8fcfe, #f3f8fb) !important;
+}
+
+#appointmentFormModal .modal-footer {
+  position: sticky !important;
+  bottom: 0 !important;
+  z-index: 5 !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+  padding: 14px 20px !important;
+  border-top: 1px solid #d9e8ef !important;
+  background: rgba(255, 255, 255, .96) !important;
+  backdrop-filter: blur(14px) !important;
+}
+
+#appointmentFormModal .modal-footer .btn {
+  min-width: 132px !important;
+  min-height: 44px !important;
+  border-radius: 14px !important;
+  justify-content: center !important;
+}
+
+#appointmentFormModal .nv-selected-summary {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  margin-bottom: 2px;
+  box-shadow: 0 12px 30px rgba(15, 118, 110, .09);
+}
+
+#appointmentFormModal .nv-booking-wizard {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 16px;
+}
+
+#appointmentFormModal .nv-step-wide {
+  grid-column: 1 / -1;
+}
+
+#appointmentFormModal .nv-booking-step {
+  height: 100%;
+  border-color: #d6e9f2;
+  box-shadow: 0 16px 38px rgba(15, 55, 78, .07);
+}
+
+#appointmentFormModal .nv-booking-step-header {
+  min-height: 76px;
+}
+
+#appointmentFormModal .nv-booking-step-number {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  border-radius: 14px;
+  box-shadow: 0 8px 18px rgba(8, 145, 178, .24);
+}
+
+#appointmentFormModal .nv-form-grid,
+#appointmentFormModal .nv-final-row {
+  justify-content: start;
+}
+
+#appointmentFormModal .nv-step-patient .nv-form-grid {
+  grid-template-columns: minmax(260px, 440px);
+}
+
+#appointmentFormModal .nv-step-patient #nvNewPatientBox {
+  grid-template-columns: repeat(2, minmax(220px, 300px));
+}
+
+#appointmentFormModal .nv-field-compact {
+  width: min(100%, 440px);
+}
+
+#appointmentFormModal .nv-slot-toolbar {
+  align-items: end;
+  justify-content: flex-start;
+}
+
+#appointmentFormModal .nv-slot-toolbar .nv-form-grid {
+  flex: 0 1 620px;
+  min-width: 0;
+  grid-template-columns: repeat(2, minmax(220px, 280px));
+}
+
+#appointmentFormModal .nv-final-row {
+  grid-template-columns: repeat(2, minmax(220px, 280px));
+}
+
+#appointmentFormModal .nv-final-row .nv-field-full {
+  width: min(100%, 680px);
+}
+
+#appointmentFormModal .nv-form-field input,
+#appointmentFormModal .nv-form-field select,
+#appointmentFormModal .nv-form-field textarea {
+  min-height: 48px;
+  border-radius: 14px;
+  border-color: #bfd5e1;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.7);
+}
+
+#appointmentFormModal .nv-option-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+#appointmentFormModal .nv-option-card {
+  min-height: 104px;
+  border-radius: 18px;
+}
+
+#appointmentFormModal .nv-date-input-shell {
+  position: relative;
+  width: 100%;
+}
+
+#appointmentFormModal .nv-date-input-shell input {
+  padding-left: 46px !important;
+  cursor: pointer;
+}
+
+#appointmentFormModal .nv-date-input-icon {
+  position: absolute;
+  inset: 50% auto auto 9px;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  color: #0878aa;
+  background: #e7f7fd;
+  pointer-events: none;
+}
+
+/* The equal start/end case intentionally creates exactly one slot. */
+.nv-schedule-time-note {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: -2px;
+  padding: 10px 12px;
+  border: 1px solid #bae6fd;
+  border-radius: 13px;
+  color: #075985;
+  background: #f0f9ff;
+  font-size: 12px;
+  line-height: 1.9;
+  font-weight: 750;
+}
+
+.nv-schedule-time-note i {
+  flex: 0 0 auto;
+  margin-top: 4px;
+}
+
+/* Date and short-value controls should not stretch across a desktop card. */
+@media (min-width: 901px) {
+  body[data-appointment-page="schedules"] #scheduleForm .appt-form-row,
+  body[data-appointment-page="schedules"] #scheduleForm > .appt-field {
+    max-width: 900px;
+  }
+
+  body[data-appointment-page="schedules"] #scheduleForm input[type="time"],
+  body[data-appointment-page="schedules"] #scheduleForm input[type="number"],
+  body[data-appointment-page="schedules"] #scheduleForm .nv-date-field,
+  body[data-appointment-page="schedules"] #scheduleForm .nv3-date-control {
+    max-width: 360px;
+  }
+}
+
+@media (max-width: 900px) {
+  #appointmentFormModal .modal-container {
+    width: calc(100vw - 20px) !important;
+    max-width: calc(100vw - 20px) !important;
+    max-height: calc(100dvh - 20px) !important;
+    border-radius: 20px !important;
+  }
+
+  #appointmentFormModal .nv-booking-wizard,
+  #appointmentFormModal .nv-step-patient #nvNewPatientBox,
+  #appointmentFormModal .nv-slot-toolbar .nv-form-grid,
+  #appointmentFormModal .nv-final-row {
+    grid-template-columns: 1fr;
+  }
+
+  #appointmentFormModal .nv-step-wide {
+    grid-column: auto;
+  }
+
+  #appointmentFormModal .nv-field-compact,
+  #appointmentFormModal .nv-final-row .nv-field-full,
+  #appointmentFormModal .nv-slot-toolbar .nv-form-grid {
+    width: 100%;
+    max-width: none;
+  }
+
+  #appointmentFormModal .modal-footer {
+    position: static !important;
+    flex-direction: column-reverse !important;
+  }
+
+  #appointmentFormModal .modal-footer .btn {
+    width: 100% !important;
+  }
+}
+
+
+
+/* NoorVista 2.1.140 — compact public/staff booking UX */
+
+/* Public booking: less vertical space, progress in one line */
+.nv-public-booking__panel {
+  width: min(1000px, calc(100vw - 36px)) !important;
+  max-height: min(92vh, 760px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+.nv-public-booking__header {
+  padding: 18px 24px 14px !important;
+  min-height: auto !important;
+}
+.nv-public-booking__header h2 {
+  font-size: clamp(22px, 2.4vw, 32px) !important;
+  line-height: 1.45 !important;
+  margin: 0 !important;
+}
+.nv-public-booking__header p,
+.nv-booking-header-note {
+  display: none !important;
+}
+.nv-public-booking__progress {
+  display: grid !important;
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+  padding: 10px 22px !important;
+  align-items: stretch !important;
+}
+.nv-public-booking__progress-item {
+  min-height: 42px !important;
+  padding: 7px 8px !important;
+  border-radius: 12px !important;
+  gap: 6px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+}
+.nv-public-booking__progress-item > span:first-child {
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  border-radius: 10px !important;
+  font-size: 13px !important;
+}
+.nv-public-booking__progress-item > span:last-child {
+  font-size: 12px !important;
+  font-weight: 950 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+.nv-booking-selection-summary {
+  padding: 9px 22px !important;
+  gap: 8px !important;
+}
+.nv-booking-summary-chip {
+  min-height: 30px !important;
+  padding: 5px 10px !important;
+}
+.nv-booking-summary-chip em,
+.nv-booking-summary-chip strong {
+  font-size: 12px !important;
+}
+.nv-public-booking__body {
+  padding: 18px 22px 22px !important;
+  overflow: auto !important;
+}
+.nv-booking-step__head {
+  margin-bottom: 14px !important;
+}
+.nv-booking-step__head h3 {
+  font-size: 21px !important;
+  margin-bottom: 5px !important;
+}
+.nv-booking-step__head p {
+  font-size: 13px !important;
+  margin: 0 !important;
+}
+.nv-booking-card-grid,
+.nv-booking-days,
+.nv-booking-times {
+  gap: 12px !important;
+}
+.nv-booking-day,
+.nv-booking-time,
+.nv-booking-choice {
+  min-height: 76px !important;
+  padding: 14px 16px !important;
+}
+.nv-booking-months {
+  margin-bottom: 12px !important;
+}
+
+/* Staff/admin/secretary appointment wizard: compact and easier */
+#appointmentFormModal .modal-dialog,
+#appointmentFormModal .modal-content {
+  max-height: 92vh !important;
+}
+#appointmentFormModal .modal-body {
+  max-height: calc(92vh - 120px) !important;
+  overflow: auto !important;
+}
+#appointmentFormModal .nv-booking-progress,
+#appointmentFormModal .nv-wizard-progress {
+  gap: 8px !important;
+}
+#appointmentFormModal .nv-booking-step {
+  padding-block: 12px !important;
+}
+#appointmentFormModal .nv-booking-step-header {
+  margin-bottom: 12px !important;
+}
+#appointmentFormModal .nv-booking-step-title strong {
+  font-size: 16px !important;
+}
+#appointmentFormModal .nv-booking-step-title span {
+  font-size: 12px !important;
+}
+#appointmentFormModal .nv-staff-insurance-box[hidden],
+#appointmentFormModal [data-appointment-insurance-details][hidden] {
+  display: none !important;
+}
+
+@media (max-width: 720px) {
+  .nv-public-booking__panel {
+    width: 100vw !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    border-radius: 0 !important;
+  }
+  .nv-public-booking__progress {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+  .nv-public-booking__progress-item {
+    min-height: 38px !important;
+  }
+}

@@ -1,0 +1,287 @@
+/* NoorVista 2.1.165 — public Tailwind-inspired remaster layer
+   Safe layer: does not touch dashboard pages. */
+:root {
+  --nv-public-ink: #123047;
+  --nv-public-muted: #64748b;
+  --nv-public-primary: #0891b2;
+  --nv-public-primary-dark: #075985;
+  --nv-public-soft: #eefbff;
+  --nv-public-line: rgba(125, 211, 252, .55);
+  --nv-public-radius: 28px;
+}
+body:not([data-panel-role]) .navbar,
+body:not([data-panel-role]) .hero,
+body:not([data-panel-role]) .section,
+body:not([data-panel-role]) .footer {
+  font-family: Vazir, Shabnam, Tahoma, Arial, sans-serif !important;
+}
+body:not([data-panel-role]) .navbar {
+  backdrop-filter: blur(18px) saturate(1.05);
+}
+body:not([data-panel-role]) .hero,
+body:not([data-panel-role]) .hero-section,
+body:not([data-panel-role]) .noorvista-hero {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(45, 212, 191, .16), transparent 34%),
+    radial-gradient(circle at 85% 10%, rgba(56, 189, 248, .18), transparent 34%),
+    linear-gradient(180deg, #effbff 0%, #ffffff 88%) !important;
+}
+body:not([data-panel-role]) .hero h1,
+body:not([data-panel-role]) .hero-title,
+body:not([data-panel-role]) .hero-content h1 {
+  letter-spacing: -1.2px !important;
+}
+body:not([data-panel-role]) .btn,
+body:not([data-panel-role]) .nav-actions a,
+body:not([data-panel-role]) .hero-actions a,
+body:not([data-panel-role]) .hero-actions button {
+  border-radius: 999px !important;
+}
+body:not([data-panel-role]) .service-card,
+body:not([data-panel-role]) .feature-card,
+body:not([data-panel-role]) .doctor-card,
+body:not([data-panel-role]) .home-location-copy,
+body:not([data-panel-role]) .home-location-map-card,
+body:not([data-panel-role]) .contact-quick-card {
+  border-radius: var(--nv-public-radius) !important;
+  border: 1px solid var(--nv-public-line) !important;
+  background: rgba(255,255,255,.92) !important;
+  box-shadow: 0 22px 64px rgba(15, 23, 42, .08) !important;
+}
+
+/* Stable mobile header — three zones: right address, center socials, left call icon */
+.nv-mobile-doctor-glass { display: none; }
+
+@media (max-width: 720px) {
+  body:not([data-panel-role]) {
+    padding-bottom: calc(92px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  .topbar.nv-mobile-topbar-v2 {
+    display: block !important;
+    min-height: 40px !important;
+    height: 40px !important;
+    background: linear-gradient(135deg, #06364a, #082f49) !important;
+    border: 0 !important;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, .16) !important;
+    overflow: hidden !important;
+  }
+
+  .topbar .nv-mobile-topbar-v2-inner,
+  .topbar .container.nv-mobile-topbar-v2-inner {
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 40px !important;
+    height: 40px !important;
+    padding: 0 10px !important;
+    display: grid !important;
+    grid-template-columns: minmax(92px, 1fr) auto minmax(92px, 1fr) !important;
+    grid-template-areas: "call socials location" !important;
+    align-items: center !important;
+    gap: 8px !important;
+    direction: ltr !important;
+  }
+
+  .topbar .topbar-info {
+    grid-area: location !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    min-width: 0 !important;
+    width: auto !important;
+    overflow: hidden !important;
+    direction: rtl !important;
+  }
+
+  .topbar .topbar-info > *:not(.nv-mobile-location-item),
+  .topbar .topbar-info .topbar-phone,
+  .topbar .topbar-info [data-topbar-item="phone"],
+  .topbar .topbar-info [data-topbar-item="clock"],
+  .topbar .nv-mobile-topbar-actions {
+    display: none !important;
+  }
+
+  .topbar .nv-mobile-location-item {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 6px !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: 28px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    color: #e0f7ff !important;
+    font-size: 11px !important;
+    font-weight: 850 !important;
+    overflow: hidden !important;
+  }
+
+  .topbar .nv-mobile-location-item::before,
+  .topbar .topbar-info > span::before,
+  .topbar .topbar-info > a::before {
+    display: none !important;
+    content: none !important;
+  }
+
+  .topbar .nv-mobile-location-item .nv-topbar-icon-wrap,
+  .topbar .nv-mobile-location-item .nv-topbar-svg {
+    display: inline-grid !important;
+    width: 15px !important;
+    height: 15px !important;
+    min-width: 15px !important;
+    color: #bae6fd !important;
+    fill: currentColor !important;
+  }
+
+  .topbar .nv-mobile-location-item .nv-topbar-text {
+    display: inline-block !important;
+    min-width: 0 !important;
+    max-width: 88px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  .topbar .nv-mobile-social-center {
+    grid-area: socials !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    width: auto !important;
+    min-width: 0 !important;
+    min-height: 28px !important;
+    height: 28px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: 0 !important;
+    direction: rtl !important;
+  }
+
+  .topbar .nv-mobile-social-center a.social-link:not([hidden]) {
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    display: inline-grid !important;
+    place-items: center !important;
+    border-radius: 9px !important;
+    background: rgba(255,255,255,.10) !important;
+    border: 1px solid rgba(186,230,253,.16) !important;
+    box-shadow: none !important;
+  }
+  .topbar .nv-mobile-social-center img {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .topbar .nv-mobile-call-action {
+    grid-area: call !important;
+    justify-self: start !important;
+    width: 30px !important;
+    height: 30px !important;
+    min-width: 30px !important;
+    display: inline-grid !important;
+    place-items: center !important;
+    border: 0 !important;
+    background: transparent !important;
+    color: #e0f7ff !important;
+    text-decoration: none !important;
+  }
+  .topbar .nv-mobile-call-action::before {
+    display: none !important;
+    content: none !important;
+  }
+  .topbar .nv-mobile-call-svg {
+    width: 17px !important;
+    height: 17px !important;
+    display: block !important;
+    fill: currentColor !important;
+  }
+
+  .topbar .topbar-phone:not(.nv-mobile-call-action),
+  .topbar [data-topbar-item="phone"]:not(.nv-mobile-call-action) {
+    display: none !important;
+  }
+
+  .navbar {
+    min-height: 52px !important;
+  }
+  .navbar .container,
+  .navbar .nav-inner {
+    min-height: 52px !important;
+    height: 52px !important;
+    padding-block: 4px !important;
+  }
+
+  .navbar .brand > div:not(.brand-logo),
+  .navbar .brand .nv-mobile-brand-text-hidden,
+  .navbar .brand strong,
+  .navbar .brand small {
+    display: none !important;
+  }
+
+  .nv-mobile-doctor-glass {
+    width: min(100%, 286px) !important;
+    margin: 12px auto 10px !important;
+    padding: 8px 10px !important;
+    border-radius: 24px !important;
+    background: linear-gradient(135deg, rgba(255,255,255,.78), rgba(240,249,255,.48)) !important;
+    border: 1px solid rgba(186,230,253,.85) !important;
+    box-shadow: 0 20px 55px rgba(8, 145, 178, .16) !important;
+    backdrop-filter: blur(16px) saturate(1.1) !important;
+    display: grid !important;
+    grid-template-columns: 78px minmax(0, 1fr) !important;
+    gap: 10px !important;
+    align-items: center !important;
+    direction: rtl !important;
+  }
+
+  .nv-mobile-doctor-glass img {
+    width: 78px !important;
+    height: 78px !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+    border-radius: 21px !important;
+    box-shadow: 0 12px 32px rgba(15,23,42,.16) !important;
+  }
+
+  .nv-mobile-doctor-glass__text {
+    min-width: 0 !important;
+    display: grid !important;
+    gap: 3px !important;
+    text-align: right !important;
+  }
+
+  .nv-mobile-doctor-glass__text strong {
+    color: #075985 !important;
+    font-size: 13px !important;
+    font-weight: 950 !important;
+    line-height: 1.7 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .nv-mobile-doctor-glass__text span {
+    color: #0f7490 !important;
+    font-size: 11px !important;
+    font-weight: 900 !important;
+    line-height: 1.8 !important;
+  }
+
+  .hero h1,
+  .hero-title,
+  .hero-content h1 {
+    font-size: clamp(28px, 8vw, 38px) !important;
+    line-height: 1.35 !important;
+  }
+}
+
+/* Desktop: the mobile doctor glass card must not appear at all */
+@media (min-width: 721px) {
+  .nv-mobile-doctor-glass {
+    display: none !important;
+  }
+}

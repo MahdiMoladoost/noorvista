@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa">
+<head>
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>مدیریت بیماران | NOORVISTA</title>
+<meta content="#0b3954" name="theme-color"/><link href="/css/local-fonts.css" rel="stylesheet"/><link href="/css/open-iconic-bootstrap.min.css" rel="stylesheet"/><link href="/css/ionicons.min.css" rel="stylesheet"/><link href="/css/icomoon.css" rel="stylesheet"/><link href="/assets/css/noorvista-dashboard-tailwind.css?v=2.1.70" rel="stylesheet"/><link href="/assets/css/calendar-select-tailwind-2.1.32.css?v=2.1.70" rel="stylesheet"/><link href="/css/persian-datepicker.css?v=2.1.70" rel="stylesheet"/>  <script src="/assets/js/auth-cookie-client.js"></script><script src="/assets/js/clinic-manager-e2e-2.1.87.js?v=2.1.87"></script>
+<link href="/assets/css/patient-detail-modal-2.1.29.css?v=2.1.29" rel="stylesheet"/>
+<link href="/assets/css/panel-sidebar-patient-parity-2.1.65.css?v=2.1.65" rel="stylesheet"/>
+
+<link href="/assets/css/panel-pretty-selects-global.css?v=2.1.67" rel="stylesheet"/>
+<link href="/assets/css/panel-form-controls-pro-2.1.67.css?v=2.1.67" rel="stylesheet"/>
+<link href="/assets/css/clinic-manager-e2e-2.1.87.css?v=2.1.87" rel="stylesheet"/><link href="/assets/css/nv-uiux-stability-2.1.129.css?v=2.1.157" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/css/persian-digits-global-2.1.130.css?v=2.1.130">
+<link href="/assets/css/nv-uiux-stability-2.1.131.css?v=2.1.131" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/css/nv-comprehensive-audit-2.1.146.css?v=2.1.146"/>
+<link rel="stylesheet" href="/assets/css/topbar-footer-hardfix-2.1.154.css?v=2.1.154"/>
+<link rel="stylesheet" href="/assets/css/footer-visit-info-refine-2.1.156.css?v=2.1.156"/>
+<link rel="stylesheet" href="/assets/css/chatbot-booking-labels-2.1.159.css?v=2.1.160"/>
+<link rel="stylesheet" href="/assets/css/public-mobile-ux-cleanup-2.1.160.css?v=2.1.161"/>
+<link rel="stylesheet" href="/assets/css/public-mobile-topbar-doctor-2.1.162.css?v=2.1.162"/>
+<link rel="stylesheet" href="/assets/css/noorvista-international-uiux.css?v=3.0.0"/>
+</head>
+<body class="nv3-dashboard nv3-role-clinic-manager nv3-sidebar-patient-parity" data-panel-role="clinic-manager" data-nv-page="patients">
+<a class="nv3-skip-link" href="#main-content">رفتن به محتوای اصلی</a>
+<div class="nv3-shell">
+<div class="nv3-sidebar-overlay" data-nv3-sidebar-overlay=""></div>
+<aside aria-label="منوی مدیر کلینیک" class="sidebar nv3-sidebar" data-nv3-sidebar="">
+<div class="nv3-sidebar-header">
+<a aria-label="داشبورد سامانه کلینیک" class="nv3-brand" href="index.html">
+<span class="nv3-brand-mark nv3-brand-logo-image" aria-hidden="true"><img src="/assets/brand/sadra-clinic-mark.svg" alt=""/></span>
+<span class="nv3-brand-copy"><strong>سامانه کلینیک</strong><small>در حال بارگذاری...</small></span>
+</a>
+<button aria-label="جمع کردن منوی کناری" class="nv3-sidebar-collapse" data-nv3-sidebar-collapse="" title="جمع کردن منوی کناری" type="button"><i class="icon-chevron-right" aria-hidden="true"></i></button>
+<button aria-label="بستن منو" class="nv3-sidebar-mobile-close" data-nv3-sidebar-close="" type="button"><i class="icon-close" aria-hidden="true"></i></button>
+</div>
+<nav aria-label="دسترسی‌های پنل" class="nv3-nav"><ul><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="index.html"><span class="nv3-nav-icon"><i class="icon-dashboard" aria-hidden="true"></i></span><span class="nv3-nav-label">داشبورد</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="doctors.html"><span class="nv3-nav-icon"><i class="icon-user-md" aria-hidden="true"></i></span><span class="nv3-nav-label">پزشکان</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="schedule.html"><span class="nv3-nav-icon"><i class="icon-clock-o" aria-hidden="true"></i></span><span class="nv3-nav-label">برنامه کاری پزشکان</span></a></li><li class="nv3-nav-item"><a aria-current="page" class="nav-link nv3-nav-link is-active" href="patients.html"><span class="nv3-nav-icon"><i class="icon-people" aria-hidden="true"></i></span><span class="nv3-nav-label">بیماران</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="appointments.html"><span class="nv3-nav-icon"><i class="icon-calendar" aria-hidden="true"></i></span><span class="nv3-nav-label">نوبت‌ها</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="staff.html"><span class="nv3-nav-icon"><i class="icon-briefcase" aria-hidden="true"></i></span><span class="nv3-nav-label">کارکنان</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="payments.html"><span class="nv3-nav-icon"><i class="icon-credit-card" aria-hidden="true"></i></span><span class="nv3-nav-label">امور مالی</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="medical-centers.html"><span class="nv3-nav-icon"><i class="icon-medkit" aria-hidden="true"></i></span><span class="nv3-nav-label">مراکز درمانی</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="services-management.html"><span class="nv3-nav-icon"><i class="icon-list" aria-hidden="true"></i></span><span class="nv3-nav-label">خدمات کلینیک</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="faqs.html"><span class="nv3-nav-icon"><i class="icon-comments" aria-hidden="true"></i></span><span class="nv3-nav-label">پرسش‌های پرتکرار</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="notifications.html"><span class="nv3-nav-icon"><i class="icon-bell" aria-hidden="true"></i></span><span class="nv3-nav-label">اعلان‌ها</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="reports.html"><span class="nv3-nav-icon"><i class="icon-bar-chart" aria-hidden="true"></i></span><span class="nv3-nav-label">گزارش‌ها</span></a></li></ul></nav>
+<div class="nv3-sidebar-footer"><button class="nv3-sidebar-logout" data-nv3-logout="" type="button"><i class="icon-sign-out" aria-hidden="true"></i><span class="nv3-nav-label">خروج امن</span></button></div>
+</aside>
+<div class="main-content nv3-main">
+<header class="top-header nv3-topbar">
+<div class="nv3-topbar-inner">
+<div class="nv3-heading-wrap"><button aria-label="باز کردن منو" class="nv3-mobile-menu" data-nv3-sidebar-open="" type="button"><i class="icon-menu" aria-hidden="true"></i></button><div class="nv3-page-heading"><h1>مدیریت بیماران</h1><p>مشاهده، ثبت و مدیریت اطلاعات بیماران</p></div></div>
+<div class="nv3-topbar-actions"><a aria-label="صفحه اصلی" class="nv3-icon-button nv3-home-button" href="/" title="صفحه اصلی"><i class="icon-home" aria-hidden="true"></i></a><div class="nv3-date-box"><small>امروز</small><strong data-nv3-today="">—</strong></div><a aria-label="اعلان‌ها" class="nv3-icon-button" href="notifications.html" title="اعلان‌ها"><i class="icon-bell" aria-hidden="true"></i><span aria-hidden="true" class="nv3-notification-dot"></span></a><div class="nv3-user-menu"><button aria-expanded="false" aria-haspopup="true" class="user-menu-trigger nv3-user-menu-trigger" data-nv3-user-menu-toggle="" type="button"><span class="user-avatar nv3-user-avatar" data-fallback="مک" data-nv3-user-avatar="">مک</span><span class="nv3-user-copy"><strong class="user-name" data-nv3-user-name="">مدیر کلینیک</strong><small data-nv3-user-role="">مدیر کلینیک</small></span><i class="icon-chevron-down" aria-hidden="true"></i></button><div class="user-dropdown nv3-user-dropdown" data-nv3-user-menu="" role="menu"><button class="nv3-user-menu-item is-danger" data-nv3-logout="" type="button"><i class="icon-sign-out" aria-hidden="true"></i><span>خروج از حساب</span></button></div></div></div>
+</div>
+</header>
+<main class="nv3-page" id="main-content"><div class="card nv3-surface nv3-page-block">
+<div class="card-header">
+<h4><i class="icon-users" aria-hidden="true"></i> لیست بیماران</h4>
+<button class="btn btn-primary btn-sm" onclick="openAddPatientModal()" type="button"><i class="icon-plus" aria-hidden="true"></i> بیمار جدید</button>
+</div>
+<div class="card-body">
+<div class="filter-section nv3-action-panel" style="padding:16px 20px;display:flex;gap:12px;align-items:end;flex-wrap:wrap;border-bottom:1px solid #e5e7eb;background:#fff;">
+<div class="filter-group" style="min-width:260px;flex:1;">
+<label style="display:block;font-size:12px;font-weight:900;color:#374151;margin-bottom:6px;">جستجو</label>
+<input class="form-control" id="searchInput" placeholder="جستجو بر اساس نام، تلفن، ایمیل یا کد ملی..." type="text"/>
+</div>
+</div>
+<div class="nv3-table-scroll"><table class="data-table" id="patientsTable">
+<thead>
+<tr>
+<th>شناسه</th>
+<th>نام بیمار</th>
+<th>تلفن</th>
+<th>ایمیل</th>
+<th>تعداد نوبت</th>
+<th>تاریخ ثبت</th>
+<th>عملیات</th>
+</tr>
+</thead>
+<tbody id="patientsTableBody">
+<tr><td colspan="7" style="text-align:center">در حال بارگذاری...</td></tr>
+</tbody>
+</table></div>
+</div>
+</div></main>
+</div>
+</div>
+<div class="modal-overlay" id="patientModal">
+<div class="modal-container">
+<div class="modal-header">
+<h3 id="patientModalTitle">ثبت بیمار جدید</h3>
+<button class="modal-close" onclick="closeModal('patientModal')" type="button"><i class="icon-close" aria-hidden="true"></i><span class="nv3-sr-only">بستن</span></button>
+</div>
+<div class="modal-body">
+<input id="editPatientId" type="hidden"/>
+<div class="form-group">
+<label>نام کامل</label>
+<input class="form-control" id="fullName" placeholder="مثال: احمد احمدی" required="" type="text"/>
+</div>
+<div class="form-group">
+<label>شماره تلفن</label>
+<input class="form-control" id="phone" placeholder="۰۹۱۲۳۴۵۶۷۸۹" required="" type="tel"/>
+</div>
+<div class="form-group">
+<label>ایمیل</label>
+<input class="form-control" id="email" placeholder="example@mail.com" type="email"/>
+</div>
+<section id="patientAccountCreateFields" class="tw-mt-4 tw-rounded-2xl tw-border tw-border-slate-200 tw-bg-sky-50 tw-p-4">
+<div class="tw-flex tw-items-start tw-gap-3"><span class="tw-flex tw-h-10 tw-w-10 tw-flex-none tw-items-center tw-justify-center tw-rounded-xl tw-bg-white tw-text-noor-700 tw-shadow-sm"><i class="icon-lock" aria-hidden="true"></i></span><div><strong class="tw-block tw-text-sm tw-font-black tw-text-noor-900">اطلاعات ورود بیمار جدید</strong><p class="tw-mt-1 tw-text-xs tw-leading-6 tw-text-slate-600">این بخش فقط هنگام ثبت بیمار جدید است. تغییر نام کاربری و رمز عبور بعداً از صفحه کاربران انجام می‌شود.</p></div></div>
+<div class="form-row patient-extra-row tw-mt-4"><div class="form-group"><label>نام کاربری</label><input class="form-control" id="username" name="nv_patient_username" autocomplete="off" data-lpignore="true" data-form-type="other" placeholder="خالی بماند؛ از شماره موبایل ساخته می‌شود" type="text"/></div><div class="form-group"><label>رمز عبور اولیه</label><input class="form-control" id="password" autocomplete="new-password" placeholder="********" type="password"/></div></div>
+</section>
+<section id="patientAccountEditHint" class="tw-mt-4 tw-rounded-2xl tw-border tw-border-slate-200 tw-bg-slate-50 tw-p-4" hidden>
+<div class="tw-flex tw-items-start tw-gap-3"><span class="tw-flex tw-h-10 tw-w-10 tw-flex-none tw-items-center tw-justify-center tw-rounded-xl tw-bg-white tw-text-noor-700 tw-shadow-sm"><i class="icon-users" aria-hidden="true"></i></span><div><strong class="tw-block tw-text-sm tw-font-black tw-text-noor-900">مدیریت اطلاعات ورود</strong><p class="tw-mt-1 tw-text-xs tw-leading-6 tw-text-slate-600">نام کاربری و رمز عبور بیمار فقط از <a class="tw-font-bold tw-text-noor-700 hover:tw-underline" href="users.html">صفحه کاربران</a> تغییر می‌کند.</p></div></div>
+</section>
+<div class="form-row patient-extra-row">
+<div class="form-group">
+<label>کد ملی</label>
+<input class="form-control" id="nationalCode" inputmode="numeric" maxlength="10" placeholder="مثال: ۰۰۱۲۳۴۵۶۷۸" type="text"/>
+</div>
+<div class="form-group">
+<label>تاریخ تولد</label>
+<input autocomplete="off" class="form-control date-input jalali-date-input" data-date-mode="birth" id="birthDateJalali" inputmode="numeric" placeholder="مثال: ۱۳۷۰/۰۵/۲۰" readonly="" type="text"/>
+</div>
+</div>
+<div class="form-row patient-extra-row">
+<div class="form-group">
+<label>جنسیت</label>
+<select class="form-control" id="gender" aria-label="جنسیت">
+<option value="">انتخاب نشده</option>
+<option value="male">مرد</option>
+<option value="female">زن</option>
+<option value="other">سایر</option>
+</select>
+</div>
+<div class="form-group">
+<label>بیمه پایه</label>
+<select class="form-control" id="insuranceProvider" aria-label="بیمه پایه">
+<option value="">انتخاب بیمه‌گر</option>
+<option value="بدون بیمه">بدون بیمه</option>
+<option value="بیمه سلامت ایرانیان">بیمه سلامت ایرانیان</option>
+<option value="سازمان تأمین اجتماعی">سازمان تأمین اجتماعی</option>
+<option value="خدمات درمانی نیروهای مسلح">خدمات درمانی نیروهای مسلح</option>
+<option value="بیمه ایران">بیمه ایران</option>
+<option value="بیمه آسیا">بیمه آسیا</option>
+<option value="بیمه البرز">بیمه البرز</option>
+<option value="بیمه دانا">بیمه دانا</option>
+<option value="بیمه دی">بیمه دی</option>
+<option value="بیمه سامان">بیمه سامان</option>
+<option value="بیمه پاسارگاد">بیمه پاسارگاد</option>
+<option value="بیمه پارسیان">بیمه پارسیان</option>
+<option value="بیمه کارآفرین">بیمه کارآفرین</option>
+<option value="بیمه رازی">بیمه رازی</option>
+<option value="بیمه معلم">بیمه معلم</option>
+<option value="بیمه ملت">بیمه ملت</option>
+<option value="بیمه نوین">بیمه نوین</option>
+<option value="بیمه تعاون">بیمه تعاون</option>
+<option value="بیمه سینا">بیمه سینا</option>
+<option value="بیمه سرمد">بیمه سرمد</option>
+<option value="بیمه کوثر">بیمه کوثر</option>
+<option value="بیمه ما">بیمه ما</option>
+<option value="بیمه حکمت صبا">بیمه حکمت صبا</option>
+<option value="بیمه تجارت نو">بیمه تجارت نو</option>
+<option value="بیمه آرمان">بیمه آرمان</option>
+<option value="بیمه حافظ">بیمه حافظ</option>
+<option value="بیمه امید">بیمه امید</option>
+<option value="بیمه زندگی خاورمیانه">بیمه زندگی خاورمیانه</option>
+<option value="سایر">سایر</option>
+</select>
+</div>
+</div>
+<div class="form-row patient-extra-row">
+<div class="form-group">
+<label>شماره بیمه</label>
+<input class="form-control" id="insuranceNumber" placeholder="شماره بیمه/پرونده بیمه" type="text"/>
+</div>
+<div class="form-group">
+<label>تلفن همراه اضطراری</label>
+<input class="form-control" id="emergencyContactPhone" placeholder="شماره همراه خانواده/همراه" type="tel"/>
+</div>
+</div>
+<div class="form-group">
+<label>نام همراه اضطراری</label>
+<input class="form-control" id="emergencyContactName" placeholder="مثال: علی احمدی" type="text"/>
+</div>
+<div class="form-group">
+<label>آدرس</label>
+<textarea class="form-control" id="address" placeholder="آدرس محل سکونت" rows="2"></textarea>
+</div>
+<div class="form-group">
+<label>حساسیت دارویی/غذایی</label>
+<textarea class="form-control" id="allergies" placeholder="مثلاً حساسیت به پنی‌سیلین" rows="2"></textarea>
+</div>
+<div class="form-group">
+<label>داروهای مصرفی</label>
+<textarea class="form-control" id="medications" placeholder="داروهای فعلی بیمار" rows="2"></textarea>
+</div>
+<div class="form-group">
+<label>بیماری‌های زمینه‌ای</label>
+<textarea class="form-control" id="chronicDiseases" placeholder="دیابت، فشار خون، بیماری قلبی و..." rows="2"></textarea>
+</div>
+<div class="form-group">
+<label>سابقه پزشکی / توضیحات چشم‌پزشکی</label>
+<textarea class="form-control" id="medicalHistory" placeholder="سابقه جراحی چشم، عینک، لیزیک، آب مروارید و..." rows="3"></textarea>
+</div>
+<div class="form-group">
+<label>یادداشت داخلی</label>
+<textarea class="form-control" id="patientNotes" placeholder="یادداشت مخصوص کلینیک" rows="2"></textarea>
+</div>
+</div>
+<div class="modal-footer">
+<button class="btn btn-outline" onclick="closeModal('patientModal')" type="button">انصراف</button>
+<button class="btn btn-primary" onclick="savePatient()" type="button"><span id="patientSubmitText">ثبت بیمار</span></button>
+</div>
+</div>
+</div><div aria-labelledby="viewPatientModalTitle" aria-modal="true" class="modal-overlay" id="viewPatientModal" role="dialog">
+<div class="modal-container nv-patient-detail-modal">
+<div class="modal-header">
+<h3 id="viewPatientModalTitle"><i class="icon-user" aria-hidden="true"></i> جزئیات بیمار</h3>
+<button class="modal-close" onclick="closeModal('viewPatientModal')" type="button"><i class="icon-close" aria-hidden="true"></i><span class="nv3-sr-only">بستن</span></button>
+</div>
+<div class="modal-body nv-patient-detail-body"><div id="viewPatientContent"></div></div>
+<div class="modal-footer nv-patient-detail-footer">
+<button class="btn btn-outline" onclick="closeModal('viewPatientModal')" type="button">بستن</button>
+<button class="btn btn-primary" id="viewPatientEditBtn" type="button"><i class="icon-pencil" aria-hidden="true"></i> ویرایش اطلاعات</button>
+</div>
+</div>
+</div><script src="/assets/js/noorvista-dashboard-v3.js?v=2.1.93"></script><script src="/assets/js/clinic-manager-single-role-guard-2.1.86.js?v=2.1.86"></script><script src="/js/jquery.min.js"></script><script src="/js/panel-common.js?v=2.1.63"></script><script src="/js/jalali.js"></script><script src="/assets/js/jalali-date-bridge.js?v=2.1.63"></script><script src="/js/persian-datepicker.js?v=2.1.70"></script><script>
+let allPatients = [];
+const PATIENT_API_BASE = '/api/clinic/patients';
+async function getPatients() { return window.apiRequest(PATIENT_API_BASE); }
+async function getPatient(id) { return window.apiRequest(`${PATIENT_API_BASE}/${encodeURIComponent(id)}`); }
+async function createPatient(data) { return window.apiRequest(PATIENT_API_BASE, 'POST', data); }
+async function updatePatient(id, data) { return window.apiRequest(`${PATIENT_API_BASE}/${encodeURIComponent(id)}`, 'PUT', data); }
+async function deletePatientApi(id) { return window.apiRequest(`${PATIENT_API_BASE}/${encodeURIComponent(id)}`, 'DELETE'); }
+
+function setInsuranceProvider(value = '') {
+    const select = document.getElementById('insuranceProvider');
+    if (!select) return;
+    const normalized = String(value || '').trim();
+    if (normalized && !Array.from(select.options).some(option => option.value === normalized)) {
+        select.add(new Option(normalized, normalized));
+    }
+    select.value = normalized;
+}
+
+function normalizePatient(p = {}) {
+    const fullName = p.full_name || p.fullname || p.name || p.display_name || '-';
+    return {
+        ...p,
+        id: p.id,
+        full_name: fullName,
+        username: p.username || '',
+        phone: p.phone || p.mobile || '',
+        email: p.email || '',
+        national_code: p.national_code || '',
+        birth_date: p.birth_date || '',
+        gender: p.gender || '',
+        address: p.address || '',
+        emergency_contact_name: p.emergency_contact_name || '',
+        emergency_contact_phone: p.emergency_contact_phone || '',
+        insurance_provider: p.insurance_provider || '',
+        insurance_number: p.insurance_number || '',
+        allergies: p.allergies || '',
+        medications: p.medications || '',
+        chronic_diseases: p.chronic_diseases || '',
+        medical_history: p.medical_history || '',
+        notes: p.notes || '',
+        appointment_count: p.appointment_count || 0,
+        created_at: p.created_at || p.created_date || '',
+        is_active: p.is_active === undefined ? true : !!p.is_active
+    };
+}
+
+async function loadPatients() {
+    try {
+        const result = await getPatients();
+        allPatients = Array.isArray(result?.patients) ? result.patients.map(normalizePatient) : [];
+        renderPatientsTable(allPatients);
+    } catch(e) {
+        showToast(e.message || 'خطا در بارگذاری بیماران', 'error');
+    }
+}
+
+function renderPatientsTable(patients) {
+    const tbody = document.getElementById('patientsTableBody');
+    if (!tbody) return;
+    const list = Array.isArray(patients) ? patients : [];
+    if (!list.length) {
+        tbody.innerHTML = '<tr><td colspan="7" style="text-align:center">هیچ بیماری یافت نشد</td></tr>';
+        return;
+    }
+    tbody.innerHTML = list.map(raw => {
+        const p = normalizePatient(raw);
+        return `
+        <tr>
+            <td>${toPersianNumber(p.id)}</td>
+            <td>${escapeHtml(p.full_name)}</td>
+            <td>${toPersianNumber(p.phone || '-')}</td>
+            <td>${escapeHtml(p.email || '-')}</td>
+            <td>${toPersianNumber(p.appointment_count || 0)}</td>
+            <td>${p.created_at ? toJalali(p.created_at) : '-'}</td>
+            <td class="action-buttons">
+                <button type="button" class="btn btn-sm action-btn view patient-action" data-action="view" data-id="${Number(p.id)}"><i class="icon-eye" aria-hidden="true"></i> مشاهده</button>
+                <button type="button" class="btn btn-sm action-btn edit patient-action" data-action="edit" data-id="${Number(p.id)}"><i class="icon-pencil" aria-hidden="true"></i> ویرایش</button>
+                <button type="button" class="btn btn-sm action-btn delete patient-action" data-action="delete" data-id="${Number(p.id)}"><i class="icon-trash" aria-hidden="true"></i> حذف</button>
+            </td>
+        </tr>`;
+    }).join('');
+}
+
+function setPatientModalMode(mode, patient = null) {
+    const p = patient ? normalizePatient(patient) : null;
+    const isEdit = mode === 'edit';
+    document.getElementById('editPatientId').value = p?.id || '';
+    document.getElementById('fullName').value = p?.full_name || '';
+    document.getElementById('username').value = p?.username || '';
+    document.getElementById('phone').value = p?.phone || '';
+    document.getElementById('email').value = p?.email || '';
+    document.getElementById('nationalCode').value = p?.national_code || '';
+    document.getElementById('birthDateJalali').value = p?.birth_date ? (window.toJalaliDateString ? window.toJalaliDateString(p.birth_date) : toJalali(p.birth_date)) : '';
+    document.getElementById('gender').value = p?.gender || '';
+    document.getElementById('address').value = p?.address || '';
+    document.getElementById('emergencyContactName').value = p?.emergency_contact_name || '';
+    document.getElementById('emergencyContactPhone').value = p?.emergency_contact_phone || '';
+    setInsuranceProvider(p?.insurance_provider || '');
+    document.getElementById('insuranceNumber').value = p?.insurance_number || '';
+    document.getElementById('allergies').value = p?.allergies || '';
+    document.getElementById('medications').value = p?.medications || '';
+    document.getElementById('chronicDiseases').value = p?.chronic_diseases || '';
+    document.getElementById('medicalHistory').value = p?.medical_history || '';
+    document.getElementById('patientNotes').value = p?.notes || '';
+    document.getElementById('password').value = '';
+    const accountCreate = document.getElementById('patientAccountCreateFields');
+    const accountHint = document.getElementById('patientAccountEditHint');
+    if (accountCreate) accountCreate.hidden = isEdit;
+    if (accountHint) accountHint.hidden = !isEdit;
+    document.getElementById('username').required = false;
+    document.getElementById('password').required = false;
+    document.getElementById('patientModalTitle').textContent = isEdit ? 'ویرایش بیمار' : 'ثبت بیمار جدید';
+    document.getElementById('patientSubmitText').textContent = isEdit ? 'ذخیره تغییرات' : 'ثبت بیمار';
+}
+
+
+
+function clearBadPatientAccountDefaults() {
+    ['username','password'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el && /^0+$/.test(String(el.value || '').trim())) el.value = '';
+    });
+}
+
+function syncPatientAccountFromPhone(force = false) {
+    const phone = String(document.getElementById('phone')?.value || '').replace(/[^\d۰-۹٠-٩]/g, '').replace(/[۰-۹]/g, d => String('۰۱۲۳۴۵۶۷۸۹'.indexOf(d))).replace(/[٠-٩]/g, d => String('٠١٢٣٤٥٦٧٨٩'.indexOf(d)));
+    const username = document.getElementById('username');
+    const password = document.getElementById('password');
+    if (username && (force || !username.value.trim() || /^0+$/.test(username.value.trim()))) username.value = phone;
+    if (password && (force || !password.value.trim() || /^0+$/.test(password.value.trim()))) password.value = phone;
+}
+
+function openAddPatientModal() {
+    setPatientModalMode('add');
+    openModal('patientModal');
+}
+
+function openEditPatientModal(id) {
+    const p = allPatients.find(x => String(x.id) === String(id));
+    if (!p) return showToast('بیمار مورد نظر یافت نشد', 'error');
+    setPatientModalMode('edit', p);
+    openModal('patientModal');
+}
+
+function renderPatientDetails(raw) {
+    const p = normalizePatient(raw);
+    const item = (label, value, full=false) => `<div class="nv-patient-detail-item ${full ? 'is-full' : ''}"><span class="nv-patient-detail-label">${escapeHtml(label)}</span><strong class="nv-patient-detail-value">${value || '-'}</strong></div>`;
+    const section = (title, items) => `<section class="nv-patient-detail-section"><h4 class="nv-patient-detail-section-title">${escapeHtml(title)}</h4><div class="nv-patient-detail-grid">${items.join('')}</div></section>`;
+    const phone = toPersianNumber(p.phone || '-');
+    const nationalCode = toPersianNumber(p.national_code || '-');
+    const avatar = escapeHtml(String(p.full_name || 'ب').trim().slice(0, 1) || 'ب');
+    const insurance = [p.insurance_provider ? escapeHtml(p.insurance_provider) : '', p.insurance_number ? toPersianNumber(p.insurance_number) : ''].filter(Boolean).join(' / ') || '-';
+    const emergency = [p.emergency_contact_name ? escapeHtml(p.emergency_contact_name) : '', p.emergency_contact_phone ? toPersianNumber(p.emergency_contact_phone) : ''].filter(Boolean).join(' / ') || '-';
+
+    document.getElementById('viewPatientContent').innerHTML = `
+      <section class="nv-patient-detail-hero">
+        <div class="nv-patient-detail-avatar" aria-hidden="true">${avatar}</div>
+        <div class="nv-patient-detail-copy">
+          <small>پرونده بیمار</small>
+          <strong>${escapeHtml(p.full_name)}</strong>
+          <span>${phone}${p.national_code ? ` · کد ملی ${nationalCode}` : ''}</span>
+        </div>
+        <div class="nv-patient-detail-badges">
+          <span class="nv-patient-detail-badge ${p.is_active ? 'is-active' : 'is-inactive'}">${p.is_active ? 'فعال' : 'غیرفعال'}</span>
+          <span class="nv-patient-detail-badge is-count">${toPersianNumber(p.appointment_count || 0)} نوبت</span>
+        </div>
+      </section>
+      ${section('اطلاعات هویتی و تماس', [
+        item('نام کاربری', escapeHtml(p.username || '-')),
+        item('شماره تلفن', phone),
+        item('ایمیل', escapeHtml(p.email || '-')),
+        item('کد ملی', nationalCode),
+        item('تاریخ تولد', p.birth_date ? toJalali(p.birth_date) : '-'),
+        item('جنسیت', p.gender === 'male' ? 'مرد' : p.gender === 'female' ? 'زن' : escapeHtml(p.gender || '-')),
+        item('تاریخ ثبت پرونده', p.created_at ? toJalali(p.created_at) : '-'),
+        item('تعداد نوبت‌ها', toPersianNumber(p.appointment_count || 0))
+      ])}
+      ${section('بیمه، همراه و نشانی', [
+        item('اطلاعات بیمه', insurance),
+        item('همراه اضطراری', emergency),
+        item('آدرس', escapeHtml(p.address || '-'), true)
+      ])}
+      ${section('اطلاعات پزشکی', [
+        item('حساسیت‌های دارویی یا غذایی', escapeHtml(p.allergies || '-'), true),
+        item('داروهای مصرفی', escapeHtml(p.medications || '-'), true),
+        item('بیماری‌های زمینه‌ای', escapeHtml(p.chronic_diseases || '-'), true),
+        item('سابقه پزشکی و چشم‌پزشکی', escapeHtml(p.medical_history || '-'), true),
+        item('یادداشت داخلی', escapeHtml(p.notes || '-'), true)
+      ])}
+    `;
+}
+
+async function viewPatient(id) {
+    let p = allPatients.find(x => String(x.id) === String(id));
+    if (!p) return showToast('بیمار مورد نظر یافت نشد', 'error');
+    renderPatientDetails(p);
+    document.getElementById('viewPatientEditBtn').onclick = () => { closeModal('viewPatientModal'); openEditPatientModal(id); };
+    openModal('viewPatientModal');
+    try {
+        const result = await getPatient(id);
+        if (result?.patient) {
+            p = normalizePatient({ ...p, ...result.patient });
+            allPatients = allPatients.map(item => String(item.id) === String(id) ? p : item);
+            renderPatientDetails(p);
+        }
+    } catch (_) {}
+}
+
+function bindPatientSearch() {
+    const input = document.getElementById('searchInput');
+    if (!input) return;
+    input.addEventListener('input', () => {
+        const q = input.value.trim().toLowerCase();
+        const list = allPatients.filter(p => `${p.full_name || ''} ${p.username || ''} ${p.phone || ''} ${p.email || ''}`.toLowerCase().includes(q));
+        renderPatientsTable(list);
+    });
+}
+
+async function savePatient() {
+    const id = document.getElementById('editPatientId').value;
+    const fullName = document.getElementById('fullName').value.trim();
+    const username = document.getElementById('username').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    const isEdit = Boolean(id);
+    if (!fullName || !phone) {
+        showToast('نام کامل و شماره تلفن بیمار الزامی است', 'error');
+        return;
+    }
+    if (!isEdit && (!username || !password)) {
+        showToast('برای بیمار جدید، نام کاربری و رمز عبور اولیه را وارد کنید', 'error');
+        return;
+    }
+    const birthDateJalali = document.getElementById('birthDateJalali').value.trim();
+    if (birthDateJalali && window.isValidJalaliDate && !window.isValidJalaliDate(birthDateJalali)) {
+        showToast('تاریخ تولد را به‌صورت شمسی و معتبر وارد کنید؛ مثال: ۱۳۷۰/۰۵/۲۰', 'error');
+        return;
+    }
+    const payload = {
+        full_name: fullName,
+        fullname: fullName,
+        phone,
+        email,
+        national_code: document.getElementById('nationalCode').value.trim(),
+        birth_date: birthDateJalali ? (window.toGregorianDateString ? window.toGregorianDateString(birthDateJalali) : birthDateJalali) : '',
+        gender: document.getElementById('gender').value,
+        address: document.getElementById('address').value.trim(),
+        emergency_contact_name: document.getElementById('emergencyContactName').value.trim(),
+        emergency_contact_phone: document.getElementById('emergencyContactPhone').value.trim(),
+        insurance_provider: document.getElementById('insuranceProvider').value.trim(),
+        insurance_number: document.getElementById('insuranceNumber').value.trim(),
+        allergies: document.getElementById('allergies').value.trim(),
+        medications: document.getElementById('medications').value.trim(),
+        chronic_diseases: document.getElementById('chronicDiseases').value.trim(),
+        medical_history: document.getElementById('medicalHistory').value.trim(),
+        notes: document.getElementById('patientNotes').value.trim()
+    };
+    if (!isEdit) {
+        payload.username = username || phone;
+        payload.password = password || phone;
+    }
+    try {
+        if (id) {
+            await updatePatient(id, payload);
+            showToast('اطلاعات بیمار ویرایش شد', 'success');
+        } else {
+            await createPatient(payload);
+            showToast('بیمار با موفقیت ثبت شد', 'success');
+        }
+        closeModal('patientModal');
+        await loadPatients();
+    } catch(e) {
+        showToast(e.message || 'خطا در ذخیره بیمار', 'error');
+    }
+}
+
+async function deletePatient(id) {
+    const p = allPatients.find(x => String(x.id) === String(id));
+    const ok = window.NOORVISTA?.confirm
+        ? await window.NOORVISTA.confirm({
+            title: 'حذف / غیرفعال‌سازی بیمار',
+            message: `آیا از حذف یا غیرفعال‌سازی ${p ? p.full_name : 'این بیمار'} اطمینان دارید؟`,
+            okText: 'حذف بیمار',
+            danger: true
+        })
+        : confirm('آیا از حذف/غیرفعال‌سازی این بیمار اطمینان دارید؟');
+    if (!ok) return;
+    try {
+        await deletePatientApi(id);
+        showToast('بیمار حذف/غیرفعال شد', 'success');
+        await loadPatients();
+    } catch(e) {
+        showToast(e.message || 'خطا در حذف بیمار', 'error');
+    }
+}
+
+
+function bindPatientActions() {
+    const tbody = document.getElementById('patientsTableBody');
+    if (!tbody || tbody.dataset.actionsBound === '1') return;
+    tbody.dataset.actionsBound = '1';
+    tbody.addEventListener('click', function(event) {
+        const btn = event.target.closest('.patient-action');
+        if (!btn) return;
+        event.preventDefault();
+        event.stopPropagation();
+        const id = btn.dataset.id;
+        const action = btn.dataset.action;
+        if (action === 'view') return viewPatient(id);
+        if (action === 'edit') return openEditPatientModal(id);
+        if (action === 'delete') return deletePatient(id);
+    });
+}
+
+window.loadPatients = loadPatients;
+window.openAddPatientModal = openAddPatientModal;
+window.openEditPatientModal = openEditPatientModal;
+window.viewPatient = viewPatient;
+window.deletePatient = deletePatient;
+window.savePatient = savePatient;
+
+document.getElementById('phone')?.addEventListener('input', () => syncPatientAccountFromPhone(false));
+document.addEventListener('DOMContentLoaded', async () => {
+    if (!await initPage()) return;
+    bindPatientSearch();
+    bindPatientActions();
+    loadPatients();
+});
+    </script><script src="/assets/js/panel-pretty-selects-global.js?v=2.1.67"></script><script src="/assets/js/nv-uiux-stability-2.1.129.js?v=2.1.158"></script>
+<script defer src="/assets/js/persian-digits-global-2.1.130.js?v=2.1.130"></script>
+<script defer src="/assets/js/nv-public-text-uiux-2.1.131.js?v=3.0.4"></script>
+<script defer src="/assets/js/nv-comprehensive-audit-2.1.146.js?v=2.1.146"></script>
+<script defer src="/assets/js/topbar-footer-hardfix-2.1.154.js?v=2.1.154"></script>
+<script defer src="/assets/js/chatbot-booking-labels-2.1.159.js?v=2.1.160"></script>
+<script defer src="/assets/js/public-mobile-ux-cleanup-2.1.160.js?v=2.1.161"></script>
+<script defer src="/assets/js/public-mobile-topbar-doctor-2.1.162.js?v=2.1.162"></script>
+<script defer src="/assets/js/noorvista-international-uiux.js?v=3.0.0"></script>
+</body>
+</html>

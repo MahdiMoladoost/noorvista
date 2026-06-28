@@ -1,0 +1,12 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .noor-tw-btn-primary {
+    @apply tw-inline-flex tw-min-h-12 tw-items-center tw-justify-center tw-gap-2 tw-rounded-2xl tw-border-0 tw-bg-gradient-to-l tw-from-noor-700 tw-to-sky-500 tw-px-5 tw-py-3 tw-text-sm tw-font-black tw-text-white tw-shadow-lg tw-transition-all hover:tw-from-noor-800 hover:tw-to-noor-600 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-sky-300 focus:tw-ring-offset-2 disabled:tw-cursor-not-allowed disabled:tw-opacity-50;
+  }
+
+  .noor-tw-btn-secondary {
+    @apply tw-inline-flex tw-min-h-12 tw-items-center tw-justify-center tw-gap-2 tw-rounded-2xl tw-border tw-border-slate-300 tw-bg-white tw-px-5 tw-py-3 tw-text-sm tw-font-black tw-text-slate-700 tw-shadow-sm tw-transition-all hover:tw-border-sky-300 hover:tw-bg-sky-50 hover:tw-text-sky-800 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-sky-200 focus:tw-ring-offset-2 disabled:tw-cursor-not-allowed disabled:tw-opacity-50;
+  }
+}

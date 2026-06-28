@@ -1,0 +1,216 @@
+@tailwind components;
+
+@layer components {
+  body.nv3-dashboard[data-nv-page="appointments"] .nv-appointments-commandbar {
+    @apply tw-rounded-[22px] tw-border tw-border-slate-200 tw-shadow-noor-soft;
+    display: block !important;
+    padding: 10px !important;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(255,255,255,.98), rgba(246,251,254,.98));
+  }
+
+  body.nv3-dashboard[data-nv-page="appointments"] .nv-appointments-commandbar-layout {
+    display: grid !important;
+    grid-template-areas: "ranges day actions";
+    grid-template-columns: minmax(330px, 1fr) minmax(360px, auto) auto;
+    align-items: center;
+    gap: 10px;
+    direction: rtl;
+  }
+
+  body.nv3-dashboard[data-nv-page="appointments"] .nv-appointments-range-shortcuts,
+  body.nv3-dashboard[data-nv-page="appointments"] .nv-appointments-day-nav {
+    min-width: 0;
+    min-height: 56px;
+    box-sizing: border-box;
+    border: 1px solid #dce8ee;
+    border-radius: 15px;
+    background: rgba(248, 250, 252, .92);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.85);
+  }
+
+  body.nv3-dashboard[data-nv-page="appointments"] .nv-appointments-range-shortcuts {
+    grid-area: ranges;
+    display: flex !important;
+    align-items: center;
+    flex-wrap: nowrap !important;
+    gap: 4px;
+    justify-self: stretch !important;
+    padding: 5px !important;
+  }
+
+  body.nv3-dashboard[data-nv-page="appointments"] .nv-range-shortcuts-title {
+    @apply tw-inline-flex tw-h-[42px] tw-items-center tw-gap-1.5 tw-whitespace-nowrap tw-rounded-[11px] tw-px-2.5 tw-text-[11px] tw-font-extrabold tw-text-slate-500;
+    flex: 0 0 auto;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  body.nv3-dashboard[data-nv-page="appointments"] .nv-range-shortcuts-title i {
+    @apply tw-text-noor-600;
+  }
+
+  body.nv3-dashboard[data-nv-page="appointments"] .nv-appointments-range-shortcuts button {
+    @apply tw-h-[42px] tw-min-w-[52px] tw-flex-1 tw-rounded-[11px] tw-border tw-border-transparent tw-bg-transparent tw-px-2 tw-text-[11px] tw-font-extrabold tw-text-slate-600 tw-transition hover:tw-border-noor-200 hover:tw-bg-white hover:tw-text-noor-700 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-noor-200;
+    white-space: nowrap;
+  }
+
+  body.nv3-dashboard[data-nv-page="appointments"] .nv-appointments-range-shortcuts button.is-active,
+  body.nv3-dashboard[data-nv-page="appointments"] .nv-appointments-range-shortcuts button[aria-pressed="true"] {
+    @apply tw-border-noor-600 tw-bg-noor-600 tw-text-white tw-shadow-sm;
+  }
+
+  body.nv3-dashboard[data-nv-page="appointments"] .nv-appointments-day-nav {
+    grid-area: day;
+    display: grid !important;
+    grid-template-columns: 92px minmax(178px, 1fr) 92px;
+    align-items: center;
+    gap: 4px;
+    justify-self: center !important;
+    width: 100%;
+    max-width: 420px;
+    padding: 5px !important;
+  }
+
+  body.nv3-dashboard[data-nv-page="appointments"] .nv-appointments-day-nav .nv-day-nav-btn {
+    @apply tw-inline-flex tw-h-[42px] tw-min-w-0 tw-items-center tw-justify-center tw-gap-1.5 tw-rounded-[11px] tw-border tw-border-slate-200 tw-bg-white tw-px-2 tw-text-[11px] tw-font-extrabold tw-text-slate-700 tw-shadow-sm tw-transition hover:tw-border-noor-300 hover:tw-bg-noor-50 hover:tw-text-noor-700 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-noor-200;
+    width: 100%;
+    transform: none !important;
+  }
+
+  body.nv3-dashboard[data-nv-page="appointments"] .nv-appointments-day-nav .nv-day-current-btn {
+    @apply tw-h-[42px] tw-min-w-0 tw-rounded-[11px] tw-border tw-border-noor-200 tw-bg-noor-50 tw-px-3 tw-text-noor-800 tw-shadow-sm tw-transition hover:tw-border-noor-400 hover:tw-bg-noor-100 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-noor-200;
+    display: grid !important;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    column-gap: 8px;
+    width: 100%;
+    text-align: right;
+    transform: none !important;
+  }
+
+  body.nv3-dashboard[data-nv-page="appointments"] .nv-appointments-day-nav .nv-day-current-btn > i {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0;
+    color: #1689c4;
+    font-size: 16px;
+  }
+
+  body.nv3-dashboard[data-nv-page="appointments"] .nv-day-current-copy {
+    grid-column: 2;
+    display: flex !important;
+    min-width: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1px;
+    line-height: 1.2;
+  }
+
+  body.nv3-dashboard[data-nv-page="appointments"] .nv-day-current-copy > strong {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    color: #155d83;
+    font-size: 11px;
+    font-weight: 900;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  body.nv3-dashboard[data-nv-page="appointments"] .nv-day-current-copy > small {
+    display: block;
+    color: #1689c4;
+    font-size: 9px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  body.nv3-dashboard[data-nv-page="appointments"] .nv-appointments-primary-actions {
+    grid-area: actions;
+    display: flex !important;
+    min-height: 56px;
+    align-items: center;
+    justify-content: flex-end;
+    justify-self: end !important;
+    gap: 8px;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+  }
+
+  body.nv3-dashboard[data-nv-page="appointments"] .nv-appointments-primary-actions .btn {
+    @apply tw-inline-flex tw-h-[46px] tw-min-w-[108px] tw-items-center tw-justify-center tw-gap-2 tw-rounded-xl tw-px-4 tw-text-[11px] tw-font-extrabold tw-shadow-sm;
+    white-space: nowrap;
+  }
+
+  body.nv3-dashboard[data-nv-page="appointments"] .nv-created-at-cell {
+    @apply tw-inline-block tw-min-w-[118px] tw-whitespace-normal tw-text-xs tw-font-bold tw-leading-6 tw-text-slate-600;
+  }
+
+  @media (max-width: 1320px) {
+    body.nv3-dashboard[data-nv-page="appointments"] .nv-appointments-commandbar-layout {
+      grid-template-areas:
+        "day day"
+        "ranges actions";
+      grid-template-columns: minmax(0, 1fr) auto;
+    }
+
+    body.nv3-dashboard[data-nv-page="appointments"] .nv-appointments-day-nav {
+      max-width: 540px;
+    }
+  }
+
+  @media (max-width: 820px) {
+    body.nv3-dashboard[data-nv-page="appointments"] .nv-appointments-commandbar-layout {
+      grid-template-areas:
+        "day"
+        "ranges"
+        "actions";
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    body.nv3-dashboard[data-nv-page="appointments"] .nv-appointments-day-nav,
+    body.nv3-dashboard[data-nv-page="appointments"] .nv-appointments-range-shortcuts,
+    body.nv3-dashboard[data-nv-page="appointments"] .nv-appointments-primary-actions {
+      width: 100%;
+      max-width: none;
+      justify-self: stretch !important;
+    }
+
+    body.nv3-dashboard[data-nv-page="appointments"] .nv-appointments-primary-actions .btn {
+      flex: 1 1 0%;
+      min-width: 0;
+    }
+  }
+
+  @media (max-width: 560px) {
+    body.nv3-dashboard[data-nv-page="appointments"] .nv-appointments-commandbar {
+      padding: 8px !important;
+    }
+
+    body.nv3-dashboard[data-nv-page="appointments"] .nv-appointments-day-nav {
+      grid-template-columns: minmax(70px, 1fr) minmax(132px, 1.5fr) minmax(70px, 1fr);
+    }
+
+    body.nv3-dashboard[data-nv-page="appointments"] .nv-appointments-day-nav .nv-day-nav-btn {
+      padding-inline: 5px;
+    }
+
+    body.nv3-dashboard[data-nv-page="appointments"] .nv-appointments-range-shortcuts {
+      display: grid !important;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    body.nv3-dashboard[data-nv-page="appointments"] .nv-range-shortcuts-title {
+      grid-column: 1 / -1;
+      justify-content: center;
+    }
+
+    body.nv3-dashboard[data-nv-page="appointments"] .nv-appointments-range-shortcuts button {
+      min-width: 0;
+      padding-inline: 4px;
+    }
+  }
+}

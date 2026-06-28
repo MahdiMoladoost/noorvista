@@ -1,0 +1,71 @@
+body.modal-open { overflow: hidden !important; }
+
+/* NoorVista 2.1.9 — appointment modal scroll reliability */
+
+/*
+ * The modal must be a fixed-height flex column. Without this, the long booking
+ * wizard expands the dialog and the middle section cannot become a scroll area.
+ */
+#appointmentFormModal.modal-overlay {
+  overflow: hidden !important;
+  overscroll-behavior: contain;
+}
+
+#appointmentFormModal.modal-overlay.show {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 16px !important;
+}
+
+#appointmentFormModal .modal-container {
+  display: flex !important;
+  flex-direction: column !important;
+  height: min(900px, calc(100vh - 32px)) !important;
+  height: min(900px, calc(100dvh - 32px)) !important;
+  max-height: calc(100vh - 32px) !important;
+  max-height: calc(100dvh - 32px) !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+
+#appointmentFormModal .modal-header,
+#appointmentFormModal .modal-footer {
+  flex: 0 0 auto !important;
+}
+
+#appointmentFormModal .modal-body {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+}
+
+#appointmentFormModal .modal-body:focus-visible {
+  outline: 3px solid rgba(14, 165, 233, .25);
+  outline-offset: -3px;
+}
+
+@media (max-width: 900px), (max-height: 720px) {
+  #appointmentFormModal.modal-overlay.show {
+    align-items: flex-start !important;
+    overflow-y: auto !important;
+    padding: 6px !important;
+  }
+
+  #appointmentFormModal .modal-container {
+    width: calc(100vw - 12px) !important;
+    max-width: calc(100vw - 12px) !important;
+    height: calc(100vh - 12px) !important;
+    height: calc(100dvh - 12px) !important;
+    max-height: calc(100vh - 12px) !important;
+    max-height: calc(100dvh - 12px) !important;
+    margin: 0 auto !important;
+    border-radius: 18px !important;
+  }
+}

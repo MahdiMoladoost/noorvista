@@ -1,0 +1,116 @@
+
+
+/* Home/contact online consultation CTA */
+.chatbot-fab {
+  min-width: 154px !important;
+  width: auto !important;
+  height: 58px !important;
+  border-radius: 999px !important;
+  padding: 7px 10px 7px 18px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 9px !important;
+  background: linear-gradient(135deg, #7c3aed, #2563eb) !important;
+  color: #fff !important;
+  border: 0 !important;
+  box-shadow: 0 18px 42px rgba(79, 70, 229, 0.32) !important;
+}
+
+.chatbot-fab-label {
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 950;
+}
+
+.chatbot-icon {
+  width: 42px !important;
+  height: 42px !important;
+  object-fit: contain;
+  border-radius: 16px;
+  background: rgba(255,255,255,.96);
+  padding: 4px;
+}
+
+.btn-online {
+  background: linear-gradient(135deg, #7c3aed, #2563eb) !important;
+  color: #fff !important;
+  border: 0 !important;
+}
+
+@media (max-width: 560px) {
+  .chatbot-fab {
+    min-width: 132px !important;
+    height: 54px !important;
+  }
+  .chatbot-fab-label {
+    font-size: 13px;
+  }
+}
+
+
+/* =========================================================
+   Online consultation floating button: text only + pulse
+========================================================= */
+
+.chatbot-fab {
+  min-width: 142px !important;
+  width: auto !important;
+  height: 54px !important;
+  border-radius: 999px !important;
+  padding: 0 22px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0 !important;
+  background: linear-gradient(135deg, #fbbf24, #f97316) !important;
+  color: #111827 !important;
+  border: 0 !important;
+  box-shadow: 0 18px 42px rgba(249, 115, 22, 0.34) !important;
+  animation: onlineConsultPulse 1.9s ease-in-out infinite;
+}
+
+.chatbot-fab::before {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border-radius: inherit;
+  border: 2px solid rgba(251, 191, 36, 0.55);
+  animation: onlineConsultRing 1.9s ease-out infinite;
+}
+
+.chatbot-icon,
+.chatbot-fab img {
+  display: none !important;
+}
+
+.chatbot-fab-label {
+  white-space: nowrap;
+  font-size: 15px;
+  font-weight: 950;
+  color: #111827;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes onlineConsultPulse {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes onlineConsultRing {
+  0% { opacity: .75; transform: scale(.92); }
+  100% { opacity: 0; transform: scale(1.22); }
+}
+
+@media (max-width: 560px) {
+  .chatbot-fab {
+    min-width: 126px !important;
+    height: 50px !important;
+    padding: 0 18px !important;
+  }
+
+  .chatbot-fab-label {
+    font-size: 13.5px;
+  }
+}
+

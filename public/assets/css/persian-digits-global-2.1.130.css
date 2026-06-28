@@ -1,0 +1,17 @@
+/* NoorVista 3.0.7 — Persian digit rendering baseline */
+html[lang="fa"],
+html[dir="rtl"],
+body {
+  font-variant-numeric: normal;
+}
+
+body:not([data-panel-role]) {
+  font-family: Vazirmatn, Vazir, IRANSans, Tahoma, Arial, sans-serif;
+}
+
+.keep-en-digits,
+.nv-en-digits,
+[data-keep-en-digits] {
+  direction: ltr;
+  unicode-bidi: isolate;
+}

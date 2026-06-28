@@ -1,0 +1,963 @@
+/* NOORVISTA Appointment Architecture UI */
+.appt-admin-grid{display:grid;grid-template-columns:360px minmax(0,1fr);gap:20px;align-items:start}
+.appt-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;box-shadow:0 12px 32px rgba(15,23,42,.06);overflow:hidden;margin-bottom:20px}
+.appt-card-header{padding:18px 20px;border-bottom:1px solid #edf2f7;display:flex;align-items:center;justify-content:space-between;gap:12px;background:#f8fbff}
+.appt-card-header h3{margin:0;color:#0f172a;font-size:17px;font-weight:900}
+.appt-card-body{padding:20px}
+.appt-form{display:grid;gap:14px}
+.appt-form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.appt-form label{display:block;font-size:12px;font-weight:900;color:#334155;margin-bottom:6px}
+.appt-form input,.appt-form select,.appt-form textarea{width:100%;min-height:42px;border:1px solid #cbd5e1;border-radius:12px;background:#f8fafc;color:#0f172a;font-family:inherit;font-size:13px;padding:9px 11px;outline:none}
+.appt-form textarea{min-height:92px;resize:vertical}
+.appt-form input:focus,.appt-form select:focus,.appt-form textarea:focus{background:#fff;border-color:#38bdf8;box-shadow:0 0 0 4px rgba(56,189,248,.16)}
+.appt-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+.appt-btn{min-height:42px;border:0;border-radius:12px;padding:9px 15px;display:inline-flex;align-items:center;justify-content:center;gap:7px;font-family:inherit;font-size:13px;font-weight:900;cursor:pointer;text-decoration:none}
+.appt-btn-primary{background:linear-gradient(135deg,#0891b2,#075985);color:#fff;box-shadow:0 12px 24px rgba(8,145,178,.18)}
+.appt-btn-secondary{background:#e0f2fe;color:#075985}
+.appt-btn-danger{background:#fee2e2;color:#b91c1c}
+.appt-btn-muted{background:#f1f5f9;color:#334155}
+.appt-table-wrap{overflow:auto}
+.appt-table{width:100%;border-collapse:separate;border-spacing:0;min-width:760px}
+.appt-table th{background:#f1f8ff;color:#334155;font-size:12px;font-weight:950;text-align:right;padding:12px;border-bottom:1px solid #dbeafe}
+.appt-table td{color:#334155;font-size:13px;padding:12px;border-bottom:1px solid #edf2f7;vertical-align:middle}
+.appt-table tr:hover td{background:#f8fbff}
+.appt-badge{min-height:24px;padding:4px 10px;border-radius:999px;font-size:11.5px;font-weight:950;display:inline-flex;align-items:center;justify-content:center}
+.appt-badge.active,.appt-badge.available{background:#dcfce7;color:#047857}
+.appt-badge.inactive,.appt-badge.disabled,.appt-badge.cancelled{background:#fee2e2;color:#b91c1c}
+.appt-badge.full{background:#fef3c7;color:#b45309}
+.appt-checkbox-list{display:grid;gap:8px;max-height:320px;overflow:auto;padding:6px;border:1px solid #e2e8f0;border-radius:14px;background:#f8fafc}
+.appt-checkbox-item{display:flex;align-items:center;gap:8px;padding:10px;border-radius:12px;background:#fff;border:1px solid #e2e8f0;font-size:13px;font-weight:800;color:#334155}
+.appt-page-links{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.appt-page-links a{min-height:40px;padding:8px 13px;border-radius:999px;background:#fff;border:1px solid #bae6fd;color:#075985;text-decoration:none;font-size:12.5px;font-weight:900}
+.appt-page-links a.active{background:#075985;color:#fff;border-color:#075985}
+.appt-empty{padding:28px;text-align:center;color:#64748b;line-height:2}
+.appt-stat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}
+.appt-stat{background:#fff;border:1px solid #dbeafe;border-radius:16px;padding:16px;box-shadow:0 10px 26px rgba(15,23,42,.05)}
+.appt-stat strong{display:block;color:#075985;font-size:24px;margin-bottom:4px}
+.appt-stat span{font-size:12px;color:#64748b;font-weight:800}
+@media(max-width:1100px){.appt-admin-grid{grid-template-columns:1fr}.appt-stat-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.appt-form-row{grid-template-columns:1fr}.appt-stat-grid{grid-template-columns:1fr}.appt-card-header{align-items:flex-start;flex-direction:column}}
+
+/* =========================================================
+   NOORVISTA Appointment UI/UX Professional Polish
+   برای زمان‌بندی، ارتباط پزشک/مرکز و ظرفیت نوبت‌ها
+========================================================= */
+.appt-page-links{
+  padding:10px;
+  background:rgba(255,255,255,.86);
+  border:1px solid #dbeafe;
+  border-radius:22px;
+  box-shadow:0 12px 30px rgba(15,23,42,.05);
+}
+.appt-page-links a{
+  min-height:44px;
+  padding:10px 16px;
+  border-radius:16px;
+  transition:.18s ease;
+}
+.appt-page-links a:hover{transform:translateY(-1px);box-shadow:0 10px 22px rgba(8,145,178,.10)}
+.appt-admin-grid{
+  grid-template-columns:minmax(360px,420px) minmax(0,1fr);
+  gap:24px;
+}
+.appt-card{
+  border-radius:26px;
+  border:1px solid rgba(219,234,254,.96);
+  box-shadow:0 20px 54px rgba(15,23,42,.08);
+}
+.appt-card-header{
+  min-height:68px;
+  padding:20px 24px;
+  background:linear-gradient(180deg,#ffffff,#f8fbff);
+}
+.appt-card-header h3{font-size:18px;color:#0f172a}
+.appt-card-body{padding:24px}
+.appt-form{gap:16px}
+.appt-form-row{gap:14px}
+.appt-form label{font-size:12.5px;color:#0f172a;margin-bottom:8px}
+.appt-form input,.appt-form select,.appt-form textarea{
+  min-height:46px;
+  border-radius:15px;
+  background:#f8fbff;
+  border-color:#cbd5e1;
+  font-size:13.5px;
+}
+.appt-form input:hover,.appt-form select:hover,.appt-form textarea:hover{border-color:#7dd3fc;background:#fff}
+.appt-actions{gap:12px;margin-top:8px}
+.appt-btn{border-radius:15px;min-height:44px;padding:10px 16px;white-space:nowrap}
+.appt-btn:hover{transform:translateY(-1px)}
+.appt-btn-primary{box-shadow:0 14px 28px rgba(8,145,178,.20)}
+.appt-table{min-width:980px}
+.appt-table th{padding:14px 12px;background:#f0f9ff;color:#075985;border-bottom:1px solid #bae6fd}
+.appt-table td{padding:14px 12px}
+.appt-table tr:hover td{background:#f8fbff}
+.appt-badge{min-width:62px}
+
+/* Doctor centers: compact professional cards, not huge checkboxes */
+.appt-checkbox-list{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  max-height:430px;
+  overflow:auto;
+  padding:12px;
+  border:1px solid #dbeafe;
+  border-radius:22px;
+  background:linear-gradient(180deg,#f8fbff,#ffffff);
+}
+.appt-checkbox-item,
+.appt-center-choice{
+  position:relative;
+  min-height:72px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px;
+  border-radius:18px;
+  background:#fff;
+  border:1px solid #e0f2fe;
+  box-shadow:0 10px 24px rgba(15,23,42,.045);
+  cursor:pointer;
+  transition:.18s ease;
+  font-size:14px;
+}
+.appt-checkbox-item:hover,
+.appt-center-choice:hover{border-color:#38bdf8;transform:translateY(-1px);box-shadow:0 14px 30px rgba(8,145,178,.10)}
+.appt-center-choice.checked{border-color:#0891b2;background:linear-gradient(180deg,#ecfeff,#ffffff)}
+.appt-checkbox-item input[type="checkbox"],
+.appt-center-choice input[type="checkbox"]{
+  appearance:auto !important;
+  -webkit-appearance:auto !important;
+  width:18px !important;
+  height:18px !important;
+  min-width:18px !important;
+  min-height:18px !important;
+  max-width:18px !important;
+  max-height:18px !important;
+  margin:0 !important;
+  padding:0 !important;
+  accent-color:#0891b2;
+  flex:0 0 18px;
+  cursor:pointer;
+}
+.appt-center-choice-body,
+.appt-checkbox-item span{
+  display:grid;
+  gap:4px;
+  min-width:0;
+}
+.appt-center-choice-body strong,
+.appt-checkbox-item span strong{
+  color:#0f172a;
+  font-size:14.5px;
+  font-weight:950;
+  line-height:1.5;
+}
+.appt-center-choice-body small,
+.appt-checkbox-item span small{
+  color:#64748b;
+  font-size:12px;
+  font-weight:800;
+  line-height:1.5;
+}
+.appt-center-choice.is-inactive{opacity:.62;filter:grayscale(.25)}
+
+/* Schedule page polish */
+body[data-appointment-page="schedules"] .appt-card:first-of-type .appt-card-header{
+  background:radial-gradient(circle at 0% 0%,rgba(20,184,166,.12),transparent 28%),linear-gradient(180deg,#fff,#f8fbff);
+}
+body[data-appointment-page="schedules"] .appt-card:first-of-type{
+  position:sticky;
+  top:18px;
+}
+body[data-appointment-page="schedules"] #scheduleForm{
+  background:linear-gradient(180deg,#fff,#fbfdff);
+}
+body[data-appointment-page="schedules"] .appt-form-row > div,
+body[data-appointment-page="schedules"] #scheduleForm > div:not(.appt-actions){
+  padding:12px;
+  border-radius:18px;
+  background:#fbfdff;
+  border:1px solid #eef6ff;
+}
+body[data-appointment-page="schedules"] #filter_doctor_id,
+body[data-appointment-page="schedules"] #filter_center_id,
+body[data-appointment-page="schedules"] #filter_service_id{
+  min-height:44px;
+  border-radius:15px;
+  border:1px solid #cbd5e1;
+  background:#fff;
+  padding:9px 12px;
+  font-family:inherit;
+  font-weight:850;
+}
+
+@media(max-width:1200px){
+  .appt-admin-grid{grid-template-columns:1fr}
+  body[data-appointment-page="schedules"] .appt-card:first-of-type{position:relative;top:auto}
+}
+@media(max-width:760px){
+  .appt-checkbox-list{grid-template-columns:1fr}
+  .appt-page-links{overflow:auto;flex-wrap:nowrap;padding-bottom:12px}
+  .appt-page-links a{white-space:nowrap}
+}
+
+
+/* =========================================================
+   Schedule / Slot bulk delete tools
+========================================================= */
+.appt-bulk-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 0 0 16px;
+  padding: 16px 18px;
+  border-radius: 22px;
+  border: 1px solid #dbeafe;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, .06);
+}
+
+.appt-bulk-toolbar strong {
+  display: block;
+  color: #0f172a;
+  font-size: 15px;
+  font-weight: 950;
+  margin-bottom: 4px;
+}
+
+.appt-bulk-toolbar small {
+  display: block;
+  color: #64748b;
+  font-size: 12.5px;
+  line-height: 1.9;
+}
+
+.appt-bulk-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.appt-row-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: 900;
+  color: #334155;
+}
+
+.appt-row-check input {
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  accent-color: #0891b2;
+  cursor: pointer;
+}
+
+.appt-row-check input:disabled {
+  cursor: not-allowed;
+  opacity: .45;
+}
+
+.appt-btn-danger-outline {
+  color: #b91c1c !important;
+  border: 1px solid #fecdd3 !important;
+  background: #fff7f7 !important;
+}
+
+.appt-btn-danger-outline:hover {
+  background: #fee2e2 !important;
+}
+
+.appt-btn-mini {
+  min-height: 28px !important;
+  padding: 4px 9px !important;
+  border-radius: 10px !important;
+  font-size: 12px !important;
+}
+
+.appt-btn-mini:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.slot-status-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 760px) {
+  .appt-bulk-toolbar {
+    align-items: stretch;
+  }
+
+  .appt-bulk-actions {
+    justify-content: stretch;
+  }
+
+  .appt-bulk-actions .appt-btn {
+    flex: 1 1 100%;
+  }
+}
+
+
+/* =========================================================
+   Schedule activation / hard delete controls
+========================================================= */
+.appt-row-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.appt-btn-success {
+  color: #047857 !important;
+  background: #ecfdf5 !important;
+  border: 1px solid #a7f3d0 !important;
+}
+
+.appt-btn-success:hover {
+  background: #d1fae5 !important;
+}
+
+.appt-btn-warning {
+  color: #92400e !important;
+  background: #fffbeb !important;
+  border: 1px solid #fde68a !important;
+}
+
+.appt-btn-warning:hover {
+  background: #fef3c7 !important;
+}
+
+@media (max-width: 760px) {
+  .appt-row-actions {
+    align-items: stretch;
+  }
+
+  .appt-row-actions .appt-btn {
+    flex: 1 1 100%;
+  }
+}
+
+
+/* =========================================================
+   Appointment UI Persian / Professional Polish
+   فقط روی صفحات نوبت‌دهی اثر دارد.
+========================================================= */
+
+.appt-hidden-select,
+.appt-hidden-time {
+  display: none !important;
+}
+
+.appt-ltr-input {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+.appt-slug-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 5px;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.appt-slug-label bdi {
+  direction: ltr;
+  color: #075985;
+  font-weight: 850;
+}
+
+/* Persian numeric inputs */
+.appt-fa-number-input {
+  font-weight: 900 !important;
+  letter-spacing: .2px;
+}
+
+/* Day/recurring choice chips */
+.appt-choice-pills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));
+  gap: 8px;
+  width: 100%;
+}
+
+.appt-choice-pill {
+  min-height: 52px;
+  border: 1px solid #dbeafe;
+  border-radius: 16px;
+  background: #f8fbff;
+  color: #334155;
+  padding: 9px 10px;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: center;
+  transition: .18s ease;
+}
+
+.appt-choice-pill strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 950;
+  line-height: 1.5;
+}
+
+.appt-choice-pill small {
+  display: block;
+  margin-top: 2px;
+  color: #64748b;
+  font-size: 11.5px;
+  line-height: 1.5;
+}
+
+.appt-choice-pill:hover {
+  border-color: #7dd3fc;
+  background: #eff6ff;
+}
+
+.appt-choice-pill.active {
+  border-color: #0891b2;
+  background: linear-gradient(135deg, #0891b2, #075985);
+  color: #ffffff;
+  box-shadow: 0 12px 24px rgba(8, 145, 178, .18);
+}
+
+.appt-choice-pill.active small {
+  color: rgba(255,255,255,.82);
+}
+
+/* Professional time picker */
+.appt-time-control {
+  border: 1px solid #dbeafe;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  padding: 12px;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, .05);
+}
+
+.appt-time-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.appt-time-display span {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.appt-time-display strong {
+  direction: ltr;
+  color: #075985;
+  font-size: 26px;
+  font-weight: 950;
+  letter-spacing: .5px;
+  line-height: 1;
+}
+
+.appt-time-buttons,
+.appt-time-presets {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.appt-time-buttons {
+  margin-bottom: 8px;
+}
+
+.appt-time-buttons button,
+.appt-time-presets button {
+  min-height: 34px;
+  border: 1px solid #dbeafe;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #075985;
+  padding: 6px 10px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: .18s ease;
+}
+
+.appt-time-buttons button:hover,
+.appt-time-presets button:hover {
+  background: #e0f2fe;
+  border-color: #7dd3fc;
+}
+
+/* Better slots filters */
+.appt-filter-card {
+  border: 1px solid #bae6fd !important;
+  background:
+    radial-gradient(circle at 6% 0%, rgba(14,165,233,.10), transparent 34%),
+    linear-gradient(180deg, #ffffff 0%, #f8fbff 100%) !important;
+  box-shadow: 0 18px 46px rgba(15,23,42,.07) !important;
+}
+
+.appt-filter-card .appt-card-header {
+  border-bottom: 1px solid #e0f2fe;
+}
+
+.appt-filter-card .appt-card-body {
+  display: grid;
+  gap: 14px;
+}
+
+.appt-filter-card .appt-form-row {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px !important;
+  margin-top: 0 !important;
+}
+
+.appt-filter-field {
+  display: grid;
+  gap: 6px;
+  width: 100%;
+}
+
+.appt-filter-field > span {
+  color: #334155;
+  font-size: 12.5px;
+  font-weight: 950;
+}
+
+.appt-filter-field > small {
+  margin-top: -4px;
+  color: #64748b;
+  font-size: 11.5px;
+  font-weight: 800;
+}
+
+.appt-filter-field select,
+.appt-filter-field input {
+  width: 100% !important;
+  min-height: 46px !important;
+  border-radius: 15px !important;
+  border: 1px solid #cbd5e1 !important;
+  background: #ffffff !important;
+  color: #0f172a !important;
+  padding: 9px 12px !important;
+  font-family: inherit !important;
+  font-weight: 850 !important;
+  outline: none !important;
+}
+
+.appt-filter-field select:focus,
+.appt-filter-field input:focus {
+  border-color: #38bdf8 !important;
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, .14) !important;
+}
+
+/* Make form cards more premium without touching sidebar */
+.appt-schedule-page .appt-card,
+body[data-appointment-page="slots"] .appt-card {
+  border-radius: 26px !important;
+}
+
+.appt-schedule-page .appt-form > div > label,
+.appt-schedule-page .appt-form-row label {
+  color: #334155 !important;
+  font-size: 13px !important;
+  font-weight: 950 !important;
+}
+
+.appt-schedule-page .appt-form input,
+.appt-schedule-page .appt-form select,
+.appt-schedule-page .appt-form textarea {
+  min-height: 46px !important;
+  border-radius: 15px !important;
+  font-weight: 850 !important;
+}
+
+@media (max-width: 760px) {
+  .appt-choice-pills {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .appt-filter-card .appt-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .appt-time-display strong {
+    font-size: 23px;
+  }
+}
+
+
+/* =========================================================
+   Persian validation + advanced time control
+========================================================= */
+.appt-time-control-pro {
+  display: grid;
+  gap: 12px;
+}
+
+.appt-time-manual label {
+  display: grid !important;
+  gap: 6px !important;
+  margin: 0 !important;
+}
+
+.appt-time-manual span {
+  color: #64748b !important;
+  font-size: 12px !important;
+  font-weight: 950 !important;
+}
+
+.appt-time-manual-input {
+  width: 100% !important;
+  min-height: 44px !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 14px !important;
+  background: #ffffff !important;
+  color: #075985 !important;
+  padding: 8px 12px !important;
+  direction: ltr !important;
+  text-align: center !important;
+  font-family: inherit !important;
+  font-size: 22px !important;
+  font-weight: 950 !important;
+  letter-spacing: .4px !important;
+  outline: none !important;
+}
+
+.appt-time-manual-input:focus {
+  border-color: #38bdf8 !important;
+  box-shadow: 0 0 0 4px rgba(56,189,248,.14) !important;
+}
+
+.appt-time-buttons-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 7px !important;
+}
+
+.appt-time-buttons-grid button {
+  min-height: 36px !important;
+  white-space: nowrap !important;
+}
+
+.appt-fa-number-input::placeholder,
+.appt-time-manual-input::placeholder {
+  color: #94a3b8 !important;
+  opacity: 1 !important;
+}
+
+.appt-fa-number-input:invalid,
+.appt-time-manual-input:invalid,
+.appt-form input:invalid,
+.appt-form select:invalid,
+.appt-form textarea:invalid {
+  border-color: #fca5a5 !important;
+}
+
+.appt-fa-number-input:focus:invalid,
+.appt-form input:focus:invalid,
+.appt-form select:focus:invalid,
+.appt-form textarea:focus:invalid {
+  box-shadow: 0 0 0 4px rgba(248,113,113,.13) !important;
+}
+
+@media (max-width: 760px) {
+  .appt-time-buttons-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+
+/* =========================================================
+   Time buttons layout + schedule period quick options
+========================================================= */
+.appt-time-section-label {
+  margin: 2px 0 -4px;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 950;
+}
+
+.appt-time-buttons-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+}
+
+.appt-time-buttons-grid button {
+  min-height: 38px !important;
+  font-size: 13px !important;
+}
+
+.appt-time-presets {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(72px, 1fr)) !important;
+  gap: 7px !important;
+}
+
+.appt-period-quick {
+  margin-top: 10px;
+  padding: 12px;
+  border: 1px solid #dbeafe;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, .05);
+}
+
+.appt-period-title {
+  margin-bottom: 10px;
+}
+
+.appt-period-title strong {
+  display: block;
+  color: #0f172a;
+  font-size: 13px;
+  font-weight: 950;
+  margin-bottom: 2px;
+}
+
+.appt-period-title small {
+  display: block;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.appt-period-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.appt-period-buttons button {
+  min-height: 38px;
+  border: 1px solid #dbeafe;
+  border-radius: 13px;
+  background: #ffffff;
+  color: #075985;
+  font-family: inherit;
+  font-weight: 950;
+  cursor: pointer;
+  transition: .18s ease;
+}
+
+.appt-period-buttons button:hover {
+  background: #e0f2fe;
+  border-color: #7dd3fc;
+}
+
+@media (max-width: 760px) {
+  .appt-period-buttons {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* =========================================================
+   Schedule time/period refinement
+========================================================= */
+
+/* فقط تکست‌باکس ساعت دیده شود؛ لیبل مقدار حذف شود */
+.appt-time-display {
+  display: none !important;
+}
+
+.appt-time-manual label,
+.appt-time-manual {
+  display: block !important;
+  margin: 0 !important;
+}
+
+.appt-time-manual span {
+  display: none !important;
+}
+
+.appt-time-manual-input {
+  width: 100% !important;
+  min-height: 48px !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 16px !important;
+  background: #ffffff !important;
+  color: #075985 !important;
+  padding: 8px 12px !important;
+  direction: ltr !important;
+  text-align: center !important;
+  font-family: inherit !important;
+  font-size: 24px !important;
+  font-weight: 950 !important;
+  letter-spacing: .4px !important;
+  outline: none !important;
+}
+
+.appt-time-section-label {
+  margin: 12px 0 6px !important;
+  color: #0f172a !important;
+  font-size: 13px !important;
+  font-weight: 950 !important;
+  text-align: right !important;
+}
+
+.appt-time-buttons-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+}
+
+.appt-time-buttons-grid button,
+.appt-time-presets button {
+  min-height: 38px !important;
+  border-radius: 13px !important;
+}
+
+/* متن‌های توضیحی بازه حذف شود و ماه‌ها زیر هم باشند */
+.appt-period-title {
+  display: none !important;
+}
+
+.appt-period-buttons,
+.appt-period-buttons-vertical {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 8px !important;
+}
+
+.appt-period-buttons button {
+  width: 100% !important;
+  min-height: 40px !important;
+  text-align: center !important;
+}
+
+/* جلوگیری از نمایش دکمه حذف تزریقی قدیمی کنار حذف اصلی */
+body[data-appointment-page="schedules"] #schedulesTableBody .btn-delete-schedule,
+body[data-appointment-page="slots"] #slotsTableBody .btn-delete-slot {
+  display: none !important;
+}
+
+/* =========================================================
+   Appointment slots pagination
+========================================================= */
+.nv-slot-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 14px 0 0;
+  padding: 12px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.04);
+  direction: rtl;
+}
+
+.nv-slot-pagination-info {
+  color: #475569;
+  font-size: 13px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.nv-slot-pagination-controls {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.nv-slot-page-btn {
+  min-width: 36px;
+  height: 36px;
+  padding: 0 11px;
+  border: 1px solid #dbeafe;
+  border-radius: 11px;
+  background: #ffffff;
+  color: #075985;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: .16s ease;
+}
+
+.nv-slot-page-btn:hover:not(:disabled) {
+  background: #e0f2fe;
+  border-color: #93c5fd;
+}
+
+.nv-slot-page-btn.active {
+  background: linear-gradient(135deg, #0ea5e9, #2563eb);
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.22);
+}
+
+.nv-slot-page-btn:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.nv-slot-page-ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 36px;
+  color: #94a3b8;
+  font-weight: 900;
+}
+
+.nv-slot-page-size {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: #475569;
+  font-size: 13px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.nv-slot-page-size select {
+  min-width: 82px;
+  height: 36px;
+  border: 1px solid #dbeafe;
+  border-radius: 11px;
+  background: #ffffff;
+  color: #075985;
+  font-family: inherit;
+  font-weight: 900;
+  padding: 0 10px;
+  outline: none;
+}
+
+@media (max-width: 760px) {
+  .nv-slot-pagination {
+    justify-content: center;
+  }
+
+  .nv-slot-pagination-info,
+  .nv-slot-page-size {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}

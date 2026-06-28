@@ -1,0 +1,40 @@
+/* NOORVISTA slot actions + SMS fix UI */
+
+body[data-appointment-page="slots"] .slot-status-actions {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 6px !important;
+  flex-wrap: wrap !important;
+  min-width: 180px !important;
+}
+
+body[data-appointment-page="slots"] .slot-status-actions .appt-btn-mini {
+  min-height: 28px !important;
+  padding: 5px 9px !important;
+  border-radius: 10px !important;
+  font-size: 11px !important;
+  font-weight: 950 !important;
+  white-space: nowrap !important;
+}
+
+.appt-badge.pending {
+  background: #fef3c7 !important;
+  color: #92400e !important;
+}
+
+.appt-badge.booked,
+.appt-badge.reserved {
+  background: #dbeafe !important;
+  color: #1d4ed8 !important;
+}
+
+.appt-badge.confirmed {
+  background: #dcfce7 !important;
+  color: #166534 !important;
+}
+
+.appt-badge.cancelled {
+  background: #fee2e2 !important;
+  color: #991b1b !important;
+}

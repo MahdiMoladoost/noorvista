@@ -1,0 +1,326 @@
+/* =========================================================
+   NOORVISTA Unified Global Pretty Selects
+   تنها ظاهر استاندارد listbox/select در همه پنل‌ها
+========================================================= */
+
+body.nv-panel-pretty-selects .nvps-select {
+  position: relative !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+body.nv-panel-pretty-selects .nvps-native {
+  position: absolute !important;
+  inset: 0 auto auto 0 !important;
+  width: 1px !important;
+  height: 1px !important;
+  min-height: 1px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  overflow: hidden !important;
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+body.nv-panel-pretty-selects .nvps-trigger {
+  position: relative !important;
+  width: 100% !important;
+  min-height: 42px !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 14px !important;
+  background:
+    radial-gradient(circle at 0 0, rgba(14,165,233,.10), transparent 34%),
+    linear-gradient(180deg, #ffffff 0%, #f8fbff 100%) !important;
+  color: #0f172a !important;
+  padding: 8px 14px 8px 44px !important;
+  font-family: inherit !important;
+  font-size: 13px !important;
+  font-weight: 900 !important;
+  line-height: 1.6 !important;
+  text-align: right !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 10px !important;
+  cursor: pointer !important;
+  outline: none !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.75),
+    0 8px 20px rgba(15,23,42,.035) !important;
+  transition: border-color .16s ease, box-shadow .16s ease, transform .16s ease, background .16s ease !important;
+}
+
+body.nv-panel-pretty-selects .nvps-trigger:hover {
+  border-color: #7dd3fc !important;
+  background:
+    radial-gradient(circle at 0 0, rgba(14,165,233,.13), transparent 34%),
+    linear-gradient(180deg, #ffffff 0%, #f0f9ff 100%) !important;
+}
+
+body.nv-panel-pretty-selects .nvps-select.open .nvps-trigger {
+  border-color: #38bdf8 !important;
+  box-shadow:
+    0 0 0 4px rgba(56,189,248,.15),
+    0 12px 28px rgba(15,23,42,.08) !important;
+}
+
+body.nv-panel-pretty-selects .nvps-value {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  color: inherit !important;
+}
+
+body.nv-panel-pretty-selects .nvps-chevron {
+  position: absolute !important;
+  left: 14px !important;
+  top: 50% !important;
+  width: 18px !important;
+  height: 18px !important;
+  transform: translateY(-50%) !important;
+  background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5' stroke='%23075985' stroke-width='2.45' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 18px 18px !important;
+  transition: transform .16s ease !important;
+}
+
+body.nv-panel-pretty-selects .nvps-select.open .nvps-chevron {
+  transform: translateY(-50%) rotate(180deg) !important;
+}
+
+body.nv-panel-pretty-selects .nvps-menu {
+  display: none !important;
+}
+
+/* Portal menu: همیشه روی body باز می‌شود تا داخل modal/div گیر نکند */
+.nvps-portal {
+  position: fixed !important;
+  z-index: 2147483000 !important;
+  overflow: auto !important;
+  padding: 7px !important;
+  border: 1px solid #bae6fd !important;
+  border-radius: 18px !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(248,252,255,.98) 100%) !important;
+  box-shadow:
+    0 26px 64px rgba(15,23,42,.24),
+    0 0 0 1px rgba(255,255,255,.5) inset !important;
+  direction: rtl !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.nvps-portal.nvps-day-menu {
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+.nvps-option,
+.nvps-empty {
+  width: 100% !important;
+  min-height: 38px !important;
+  border: 0 !important;
+  border-radius: 12px !important;
+  background: transparent !important;
+  color: #334155 !important;
+  padding: 8px 10px !important;
+  font-family: inherit !important;
+  font-size: 13px !important;
+  font-weight: 850 !important;
+  line-height: 1.55 !important;
+  text-align: right !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 8px !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  transition: background .13s ease, color .13s ease, box-shadow .13s ease !important;
+}
+
+.nvps-option:hover {
+  background: #f0f9ff !important;
+  color: #075985 !important;
+}
+
+.nvps-option.selected {
+  background: linear-gradient(135deg, #0891b2, #075985) !important;
+  color: #ffffff !important;
+  box-shadow: 0 10px 24px rgba(8,145,178,.18) !important;
+}
+
+.nvps-option.disabled,
+.nvps-empty {
+  opacity: .55 !important;
+  cursor: not-allowed !important;
+}
+
+.nvps-portal::-webkit-scrollbar {
+  width: 8px !important;
+}
+
+.nvps-portal::-webkit-scrollbar-track {
+  background: #f1f5f9 !important;
+  border-radius: 999px !important;
+}
+
+.nvps-portal::-webkit-scrollbar-thumb {
+  background: #bae6fd !important;
+  border-radius: 999px !important;
+}
+
+.nvps-portal::-webkit-scrollbar-thumb:hover {
+  background: #7dd3fc !important;
+}
+
+/* وقتی داخل modal/card هست، dropdown دیگر زیر لایه‌ها نمی‌ماند */
+.modal .nvps-select,
+.modal-content .nvps-select,
+.modal-body .nvps-select,
+.appointment-modal .nvps-select,
+.nv-modal .nvps-select,
+.appt-card .nvps-select,
+.appt-step .nvps-select,
+.card .nvps-select {
+  z-index: 10 !important;
+}
+
+/* سازگاری با فرم‌های زمان‌بندی */
+body[data-appointment-page="schedules"] .nvps-trigger,
+body[data-appointment-page] .nvps-trigger {
+  min-height: 40px !important;
+  border-radius: 13px !important;
+}
+
+/* اگر فایل‌های قدیمی wrapper ساخته باشند ولی قبل از JS دیده شوند، ظاهر native هم موقتاً زشت نباشد */
+body.nv-panel-pretty-selects select:not(.nvps-native):not([multiple]):not([size]) {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  background-color: #ffffff !important;
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5' stroke='%23075985' stroke-width='2.45' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"),
+    linear-gradient(180deg, #ffffff 0%, #f8fbff 100%) !important;
+  background-repeat: no-repeat, no-repeat !important;
+  background-position: left 14px center, center !important;
+  background-size: 18px 18px, 100% 100% !important;
+  min-height: 42px !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 14px !important;
+  color: #0f172a !important;
+  padding: 8px 14px 8px 44px !important;
+  font-family: inherit !important;
+  font-size: 13px !important;
+  font-weight: 900 !important;
+  cursor: pointer !important;
+  outline: none !important;
+}
+
+
+/* NOORVISTA Pretty Select Click Fix */
+.nvps-portal,
+.nvps-portal * {
+  pointer-events: auto !important;
+}
+
+.nvps-option {
+  user-select: none !important;
+  touch-action: manipulation !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+
+/* NOORVISTA Pretty Select Hover Flicker Fix */
+/* آیتم‌های dropdown روی hover نباید جابه‌جا شوند؛ جابه‌جایی باعث قطع و وصل hover می‌شد. */
+.nvps-portal .nvps-option,
+.nvps-portal .nvps-empty {
+  transition: background .13s ease, color .13s ease, box-shadow .13s ease !important;
+  will-change: background-color, color !important;
+}
+
+.nvps-portal .nvps-option:hover,
+.nvps-portal .nvps-option:focus,
+.nvps-portal .nvps-option.selected {
+}
+
+.nvps-portal .nvps-option:hover {
+  background: #f0f9ff !important;
+  color: #075985 !important;
+  box-shadow: inset 0 0 0 1px rgba(14, 165, 233, .10) !important;
+}
+
+.nvps-portal .nvps-option.selected:hover {
+  background: linear-gradient(135deg, #0891b2, #075985) !important;
+  color: #ffffff !important;
+}
+
+
+/* =========================================================
+   NOORVISTA Pretty Select No-Flicker Final
+   فقط همین CSS باید برای listboxها فعال باشد.
+========================================================= */
+
+html body .nvps-portal,
+html body .nvps-portal * {
+  pointer-events: auto !important;
+  animation: none !important;
+}
+
+html body .nvps-portal {
+  transform: none !important;
+  transition: none !important;
+  will-change: auto !important;
+  contain: layout paint !important;
+}
+
+html body .nvps-portal .nvps-option,
+html body .nvps-portal .nvps-empty {
+  transform: none !important;
+  translate: none !important;
+  scale: none !important;
+  rotate: none !important;
+  filter: none !important;
+  animation: none !important;
+  transition: none !important;
+  will-change: auto !important;
+  backface-visibility: hidden !important;
+  -webkit-font-smoothing: antialiased !important;
+  box-shadow: none !important;
+}
+
+html body .nvps-portal .nvps-option:hover,
+html body .nvps-portal .nvps-option:focus,
+html body .nvps-portal .nvps-option:active {
+  transform: none !important;
+  translate: none !important;
+  scale: none !important;
+  rotate: none !important;
+  background: #f0f9ff !important;
+  color: #075985 !important;
+  box-shadow: inset 0 0 0 1px rgba(14, 165, 233, .12) !important;
+}
+
+html body .nvps-portal .nvps-option.selected,
+html body .nvps-portal .nvps-option.selected:hover,
+html body .nvps-portal .nvps-option.selected:focus {
+  transform: none !important;
+  translate: none !important;
+  scale: none !important;
+  rotate: none !important;
+  background: linear-gradient(135deg, #0891b2, #075985) !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+/* خنثی‌سازی hoverهای عمومی button از سایر CSSها */
+html body .nvps-portal button,
+html body .nvps-portal button:hover,
+html body .nvps-portal button:focus,
+html body .nvps-portal button:active {
+  transform: none !important;
+  translate: none !important;
+  scale: none !important;
+  rotate: none !important;
+  animation: none !important;
+}

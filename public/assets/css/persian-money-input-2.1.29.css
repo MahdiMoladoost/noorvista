@@ -1,0 +1,176 @@
+/* NoorVista 2.1.29 — live Persian amount in words */
+.nv-money-words {
+  display: block;
+  min-height: 21px;
+  margin-top: 7px;
+  padding: 7px 10px;
+  border: 1px solid #d7eaf1;
+  border-radius: 10px;
+  color: #245d73;
+  background: #f5fbfd;
+  font-size: 10.5px;
+  font-weight: 850;
+  line-height: 1.8;
+  text-align: right;
+  direction: rtl;
+}
+.nv-money-words[hidden] { display: none !important; }
+body[data-appointment-page="schedules"] .nv-schedule-fee-panel .nv-money-words {
+  border-color: #bfe3ef;
+  color: #0c668c;
+  background: #eaf8fd;
+}
+@media (max-width: 640px) {
+  .nv-money-words { font-size: 10px; }
+}
+
+
+
+/* NoorVista 2.1.138 — remove duplicate money words + clean contact/footer info */
+
+/* Only one amount-to-words helper should remain */
+.nv-money-helper {
+  display: none !important;
+}
+
+/* Universal clean address rows: no extra nested borders/pills */
+.nv-address-lines {
+  display: grid !important;
+  gap: 7px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+.nv-address-line {
+  display: block !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  line-height: 2 !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+}
+.nv-address-label {
+  display: inline !important;
+  width: auto !important;
+  padding: 0 !important;
+  margin: 0 0 0 6px !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #0891b2 !important;
+  font-weight: 950 !important;
+  white-space: nowrap !important;
+}
+.nv-address-text {
+  display: inline !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: inherit !important;
+  font-weight: 850 !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+}
+
+/* Home/contact visit info: remove nested borders around address labels and address content */
+.home-location-details .nv-address-lines,
+.home-location-details .nv-address-line,
+.home-location-details .nv-address-label,
+.home-location-details .nv-address-text,
+.contact-quick-card .nv-address-lines,
+.contact-quick-card .nv-address-line,
+.contact-quick-card .nv-address-label,
+.contact-quick-card .nv-address-text,
+.contact-map-panel .nv-address-lines,
+.contact-map-panel .nv-address-line,
+.contact-map-panel .nv-address-label,
+.contact-map-panel .nv-address-text {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.home-location-details .nv-visit-address,
+.contact-quick-card .quick-item {
+  overflow: visible !important;
+}
+
+.contact-quick-card .quick-item {
+  border: 0 !important;
+  background: #f8fbff !important;
+  box-shadow: inset 0 0 0 1px rgba(224,242,254,.75) !important;
+}
+
+/* Footer clinic info rewrite */
+.footer .contact-list {
+  display: grid !important;
+  gap: 12px !important;
+  margin: 14px 0 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+.footer .contact-list li,
+.footer .contact-list .nv-footer-contact-row {
+  display: grid !important;
+  grid-template-columns: 28px minmax(0, 1fr) !important;
+  gap: 10px !important;
+  align-items: start !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #e5eef7 !important;
+  line-height: 2 !important;
+}
+.footer .contact-list .nv-contact-icon,
+.footer .contact-list li > span:first-child {
+  width: 28px !important;
+  min-width: 28px !important;
+  height: 28px !important;
+  margin-top: 2px !important;
+  display: grid !important;
+  place-items: center !important;
+  color: #bae6fd !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+.footer .contact-list .nv-contact-main {
+  min-width: 0 !important;
+  display: block !important;
+  color: #e5eef7 !important;
+  text-align: right !important;
+  line-height: 2 !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  text-decoration: none !important;
+}
+.footer .contact-list .nv-contact-main strong {
+  color: #22d3ee !important;
+  font-weight: 950 !important;
+  margin-inline-end: 4px !important;
+}
+.footer .contact-list .nv-address-lines {
+  gap: 6px !important;
+}
+.footer .contact-list .nv-address-line {
+  display: block !important;
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 2 !important;
+}
+.footer .contact-list .nv-address-label {
+  color: #22d3ee !important;
+  font-size: 14px !important;
+}
+.footer .contact-list .nv-address-text {
+  color: #f8fafc !important;
+  font-size: 14px !important;
+}

@@ -1,0 +1,1075 @@
+@charset "UTF-8";
+
+/*
+  NoorVista patient appointments page — v2.1.46
+  Scoped, collision-resistant layout for the patient booking and appointment list.
+*/
+
+body[data-patient-page="appointments"] #patientPageContent {
+  width: min(100%, 1500px);
+  margin-inline: auto;
+}
+
+body[data-patient-page="appointments"] .nv-pa-page {
+  display: grid;
+  gap: 22px;
+}
+
+body[data-patient-page="appointments"] .nv-pa-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  min-height: 210px;
+  padding: clamp(24px, 3vw, 38px);
+  border: 1px solid rgba(125, 211, 252, .28);
+  border-radius: 26px;
+  color: #fff;
+  background:
+    radial-gradient(circle at 8% 12%, rgba(255, 255, 255, .18), transparent 19rem),
+    linear-gradient(125deg, #0b3954 0%, #0b648f 48%, #1689c4 100%);
+  box-shadow: 0 22px 58px rgba(11, 57, 84, .18);
+}
+
+body[data-patient-page="appointments"] .nv-pa-hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: auto -85px -105px auto;
+  width: 260px;
+  height: 260px;
+  border: 42px solid rgba(255, 255, 255, .08);
+  border-radius: 999px;
+}
+
+body[data-patient-page="appointments"] .nv-pa-hero-copy {
+  min-width: 0;
+  max-width: 790px;
+}
+
+body[data-patient-page="appointments"] .nv-pa-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  border: 1px solid rgba(255, 255, 255, .20);
+  border-radius: 999px;
+  color: #e0f2fe;
+  background: rgba(255, 255, 255, .10);
+  font-size: 12px;
+  font-weight: 800;
+  backdrop-filter: blur(8px);
+}
+
+body[data-patient-page="appointments"] .nv-pa-hero h2 {
+  margin-top: 18px;
+  color: #fff;
+  font-size: clamp(24px, 3vw, 36px);
+  line-height: 1.45;
+  font-weight: 950;
+  letter-spacing: -.5px;
+}
+
+body[data-patient-page="appointments"] .nv-pa-hero p {
+  margin-top: 10px;
+  max-width: 720px;
+  color: #dff4ff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 2;
+}
+
+body[data-patient-page="appointments"] .nv-pa-book-button {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  flex: 0 0 auto;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border: 1px solid rgba(255, 255, 255, .82);
+  border-radius: 16px;
+  color: #0b5f8c !important;
+  background: #fff !important;
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 1.4;
+  box-shadow: 0 14px 34px rgba(4, 39, 60, .24);
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+}
+
+body[data-patient-page="appointments"] .nv-pa-book-button i {
+  display: inline-grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border-radius: 10px;
+  color: #fff;
+  background: linear-gradient(135deg, #2da9e6, #126d9f);
+}
+
+body[data-patient-page="appointments"] .nv-pa-book-button:hover {
+  color: #084b70 !important;
+  background: #f0f9ff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(4, 39, 60, .30);
+}
+
+body[data-patient-page="appointments"] .nv-pa-book-button:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, .68);
+  outline-offset: 4px;
+}
+
+body[data-patient-page="appointments"] .nv-pa-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  overflow: hidden;
+  border: 1px solid #dce8ef;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, .96);
+  box-shadow: 0 14px 42px rgba(15, 55, 78, .07);
+}
+
+body[data-patient-page="appointments"] .nv-pa-summary-item {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+}
+
+body[data-patient-page="appointments"] .nv-pa-summary-item + .nv-pa-summary-item::before {
+  content: "";
+  position: absolute;
+  inset: 18px 0 18px auto;
+  width: 1px;
+  background: #e7eef3;
+}
+
+body[data-patient-page="appointments"] .nv-pa-summary-icon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  place-items: center;
+  border-radius: 15px;
+  color: #126d9f;
+  background: #eef9ff;
+  font-size: 19px;
+}
+
+body[data-patient-page="appointments"] .nv-pa-summary-item.is-success .nv-pa-summary-icon {
+  color: #047857;
+  background: #ecfdf5;
+}
+
+body[data-patient-page="appointments"] .nv-pa-summary-item.is-warning .nv-pa-summary-icon {
+  color: #b45309;
+  background: #fffbeb;
+}
+
+body[data-patient-page="appointments"] .nv-pa-summary-copy {
+  min-width: 0;
+}
+
+body[data-patient-page="appointments"] .nv-pa-summary-value {
+  display: block;
+  color: #123047;
+  font-size: 24px;
+  font-weight: 950;
+  line-height: 1.2;
+}
+
+body[data-patient-page="appointments"] .nv-pa-summary-label {
+  display: block;
+  margin-top: 4px;
+  color: #60778a;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+body[data-patient-page="appointments"] .nv-pa-card {
+  overflow: visible;
+  border: 1px solid rgba(210, 224, 232, .96);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, .98);
+  box-shadow: 0 16px 46px rgba(15, 55, 78, .075);
+}
+
+body[data-patient-page="appointments"] .nv-pa-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  min-height: 76px;
+  padding: 18px 22px;
+  border-bottom: 1px solid #e8f0f4;
+  border-radius: 24px 24px 0 0;
+  background: linear-gradient(180deg, #fff 0%, #f9fcfd 100%);
+}
+
+body[data-patient-page="appointments"] .nv-pa-card-title {
+  min-width: 0;
+}
+
+body[data-patient-page="appointments"] .nv-pa-card-title h2 {
+  color: #15394e;
+  font-size: 17px;
+  font-weight: 950;
+  line-height: 1.5;
+}
+
+body[data-patient-page="appointments"] .nv-pa-card-title p {
+  margin-top: 4px;
+  color: #718596;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+body[data-patient-page="appointments"] .nv-pa-card-badge {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 11px;
+  border: 1px solid #cfeeff;
+  border-radius: 999px;
+  color: #0d668f;
+  background: #eef9ff;
+  font-size: 11px;
+  font-weight: 850;
+}
+
+body[data-patient-page="appointments"] .nv-pa-card-body {
+  padding: 22px;
+}
+
+body[data-patient-page="appointments"] .nv-pa-form {
+  display: grid;
+  gap: 20px;
+}
+
+body[data-patient-page="appointments"] .nv-pa-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+body[data-patient-page="appointments"] .nv-pa-field {
+  min-width: 0;
+}
+
+body[data-patient-page="appointments"] .nv-pa-field.is-full {
+  grid-column: 1 / -1;
+}
+
+body[data-patient-page="appointments"] .nv-pa-field-note {
+  display: block;
+  margin-top: 8px;
+  color: #718596;
+  font-size: 11.5px;
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+body[data-patient-page="appointments"] .nv-pa-reason-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 8px;
+  color: #718596;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+body[data-patient-page="appointments"] .nv-pa-book-footer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 20px;
+  padding: 17px 18px;
+  border: 1px solid #e4edf2;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #f8fbfd, #f3f9fc);
+}
+
+body[data-patient-page="appointments"] .nv-pa-fee-label {
+  display: block;
+  color: #718596;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+body[data-patient-page="appointments"] .nv-pa-fee-value {
+  display: block;
+  margin-top: 4px;
+  color: #123047;
+  font-size: 18px;
+  font-weight: 950;
+}
+
+body[data-patient-page="appointments"] .nv-pa-fee-note {
+  display: block;
+  margin-top: 4px;
+  color: #94a3b8;
+  font-size: 10.5px;
+  line-height: 1.7;
+}
+
+body[data-patient-page="appointments"] .nv-pa-submit {
+  min-width: 210px;
+  min-height: 48px;
+  border: 0;
+  border-radius: 15px;
+  color: #fff !important;
+  background: linear-gradient(135deg, #1689c4, #0b648f) !important;
+  font-weight: 900;
+  box-shadow: 0 10px 26px rgba(18, 109, 159, .24);
+}
+
+body[data-patient-page="appointments"] .nv-pa-submit:hover {
+  color: #fff !important;
+  background: linear-gradient(135deg, #126d9f, #0b5279) !important;
+  transform: translateY(-1px);
+}
+
+body[data-patient-page="appointments"] .nv-pa-list-head {
+  align-items: flex-start;
+}
+
+body[data-patient-page="appointments"] .nv-pa-list-tools {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(170px, .72fr);
+  gap: 10px;
+  width: min(100%, 470px);
+}
+
+body[data-patient-page="appointments"] .nv-pa-search {
+  position: relative;
+  min-width: 0;
+}
+
+body[data-patient-page="appointments"] .nv-pa-search > i {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  right: 14px;
+  color: #8ba0af;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+body[data-patient-page="appointments"] .nv-pa-search .noor-tw-input {
+  padding-right: 40px;
+}
+
+body[data-patient-page="appointments"] .nv-pa-list-body {
+  padding: 8px 22px 22px;
+}
+
+body[data-patient-page="appointments"] .nv-pa-list-body .nv-tw-table-wrap {
+  overflow: auto;
+  border: 1px solid #e5edf2;
+  border-radius: 18px;
+  background: #fff;
+}
+
+body[data-patient-page="appointments"] .nv-pa-list-body .nv-tw-table {
+  min-width: 860px;
+}
+
+body[data-patient-page="appointments"] .nv-pa-list-body .nv-tw-table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 13px 15px;
+  color: #587184;
+  background: #f6fafc;
+  font-size: 11.5px;
+  font-weight: 900;
+}
+
+body[data-patient-page="appointments"] .nv-pa-list-body .nv-tw-table td {
+  padding: 16px 15px;
+  vertical-align: middle;
+}
+
+body[data-patient-page="appointments"] .nv-pa-list-body .nv-tw-table tbody tr:hover {
+  background: #f7fcff;
+}
+
+body[data-patient-page="appointments"] .nv-pa-mobile-list {
+  display: grid;
+  gap: 12px;
+}
+
+body[data-patient-page="appointments"] .nv-pa-mobile-card {
+  overflow: hidden;
+  border: 1px solid #dfe9ef;
+  border-radius: 19px;
+  background: #fff;
+  box-shadow: 0 9px 25px rgba(15, 55, 78, .05);
+}
+
+body[data-patient-page="appointments"] .nv-pa-mobile-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px;
+  border-bottom: 1px solid #edf2f5;
+  background: linear-gradient(180deg, #fff, #fbfdfe);
+}
+
+body[data-patient-page="appointments"] .nv-pa-mobile-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  padding: 14px 16px;
+}
+
+body[data-patient-page="appointments"] .nv-pa-mobile-meta {
+  min-width: 0;
+  padding: 10px;
+  border-radius: 13px;
+  background: #f7fafc;
+}
+
+body[data-patient-page="appointments"] .nv-pa-mobile-meta span:first-child {
+  display: block;
+  color: #8a9ba8;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+body[data-patient-page="appointments"] .nv-pa-mobile-meta strong,
+body[data-patient-page="appointments"] .nv-pa-mobile-meta > span:last-child {
+  display: block;
+  margin-top: 5px;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 850;
+  line-height: 1.7;
+}
+
+body[data-patient-page="appointments"] .nv-pa-mobile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 16px 16px;
+}
+
+body[data-patient-page="appointments"] .nv-pa-list-body .nv-patient-empty {
+  margin-top: 14px;
+}
+
+body[data-patient-page="appointments"] [data-pagination] {
+  margin-top: 18px;
+  padding-top: 4px;
+}
+
+body[data-patient-page="appointments"] .nv-jalali-field,
+body[data-patient-page="appointments"] .nvps-select,
+body[data-patient-page="appointments"] .noor-tw-input {
+  min-width: 0;
+}
+
+
+body[data-patient-page="appointments"] .nv-pa-field > .nvps-select,
+body[data-patient-page="appointments"] .nv-pa-list-tools > .nvps-select {
+  width: 100%;
+  min-width: 0;
+}
+
+body[data-patient-page="appointments"] .nv-pa-list-tools .nvps-trigger {
+  min-height: 46px;
+}
+
+@media (max-width: 900px) {
+  body[data-patient-page="appointments"] .nv-pa-hero {
+    align-items: flex-start;
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  body[data-patient-page="appointments"] .nv-pa-book-button {
+    align-self: stretch;
+  }
+
+  body[data-patient-page="appointments"] .nv-pa-summary {
+    grid-template-columns: 1fr;
+  }
+
+  body[data-patient-page="appointments"] .nv-pa-summary-item + .nv-pa-summary-item::before {
+    inset: 0 18px auto;
+    width: auto;
+    height: 1px;
+  }
+
+  body[data-patient-page="appointments"] .nv-pa-card-head,
+  body[data-patient-page="appointments"] .nv-pa-list-head {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  body[data-patient-page="appointments"] .nv-pa-list-tools {
+    width: 100%;
+  }
+}
+
+@media (max-width: 680px) {
+  body[data-patient-page="appointments"] .nv-pa-page {
+    gap: 16px;
+  }
+
+  body[data-patient-page="appointments"] .nv-pa-hero {
+    padding: 22px 18px;
+    border-radius: 21px;
+  }
+
+  body[data-patient-page="appointments"] .nv-pa-hero h2 {
+    font-size: 23px;
+  }
+
+  body[data-patient-page="appointments"] .nv-pa-card {
+    border-radius: 20px;
+  }
+
+  body[data-patient-page="appointments"] .nv-pa-card-head {
+    min-height: 0;
+    padding: 16px;
+    border-radius: 20px 20px 0 0;
+  }
+
+  body[data-patient-page="appointments"] .nv-pa-card-body,
+  body[data-patient-page="appointments"] .nv-pa-list-body {
+    padding: 16px;
+  }
+
+  body[data-patient-page="appointments"] .nv-pa-form-grid,
+  body[data-patient-page="appointments"] .nv-pa-list-tools,
+  body[data-patient-page="appointments"] .nv-pa-book-footer {
+    grid-template-columns: 1fr;
+  }
+
+  body[data-patient-page="appointments"] .nv-pa-submit {
+    width: 100%;
+    min-width: 0;
+  }
+
+  body[data-patient-page="appointments"] .nv-pa-reason-meta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* Guided patient booking flow — v2.1.47 */
+body[data-patient-page="appointments"] .nv-pa-step-number {
+  display: inline-grid;
+  width: 24px;
+  height: 24px;
+  margin-left: 6px;
+  place-items: center;
+  border-radius: 8px;
+  color: #0b648f;
+  background: #e8f7ff;
+  font-size: 11px;
+  font-weight: 950;
+  box-shadow: inset 0 0 0 1px #c9ebfb;
+}
+
+body[data-patient-page="appointments"] .nv-pa-date-suggestions {
+  margin-top: 10px;
+}
+
+body[data-patient-page="appointments"] .nv-pa-suggestions-label {
+  display: block;
+  margin-bottom: 7px;
+  color: #526b7b;
+  font-size: 10.5px;
+  font-weight: 900;
+}
+
+body[data-patient-page="appointments"] .nv-pa-date-suggestions > div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 7px;
+}
+
+body[data-patient-page="appointments"] .nv-pa-date-chip {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  padding: 9px 11px;
+  border: 1px solid #bcebd8;
+  border-radius: 12px;
+  color: #075f49;
+  background: #f0fdf8;
+  text-align: right;
+  transition: border-color .18s ease, background .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+
+body[data-patient-page="appointments"] .nv-pa-date-chip:hover,
+body[data-patient-page="appointments"] .nv-pa-date-chip:focus-visible {
+  border-color: #5ee2b6;
+  background: #e8fff6;
+  transform: translateY(-1px);
+  box-shadow: 0 7px 18px rgba(5, 150, 105, .10);
+  outline: none;
+}
+
+body[data-patient-page="appointments"] .nv-pa-date-chip strong {
+  overflow: hidden;
+  max-width: 100%;
+  font-size: 11.5px;
+  font-weight: 950;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body[data-patient-page="appointments"] .nv-pa-date-chip small {
+  color: #35816b;
+  font-size: 9.5px;
+  font-weight: 700;
+}
+
+body[data-patient-page="appointments"] .nv-pa-no-date {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 12px;
+  border: 1px dashed #f4c97b;
+  border-radius: 12px;
+  color: #8a5908;
+  background: #fffaf0;
+  font-size: 10.5px;
+  font-weight: 750;
+  line-height: 1.8;
+}
+
+body[data-patient-page="appointments"] .nv-pa-submit:disabled {
+  cursor: not-allowed !important;
+  color: #7890a0 !important;
+  background: #e7edf1 !important;
+  box-shadow: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+body[data-patient-page="appointments"] .nv-pa-submit:not(:disabled) {
+  animation: nv-pa-ready-pulse 1.8s ease-in-out 1;
+}
+
+@keyframes nv-pa-ready-pulse {
+  0%, 100% { box-shadow: 0 10px 26px rgba(18, 109, 159, .24); }
+  50% { box-shadow: 0 0 0 5px rgba(45, 169, 230, .14), 0 12px 30px rgba(18, 109, 159, .30); }
+}
+
+@media (max-width: 680px) {
+  body[data-patient-page="appointments"] .nv-pa-date-suggestions > div {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Guided month → day → time booking experience — v2.1.50 */
+body[data-patient-page="appointments"] .nv-pa-search > i {
+  right: auto !important;
+  left: 15px !important;
+}
+
+body[data-patient-page="appointments"] .nv-pa-search .noor-tw-input {
+  padding-right: 14px !important;
+  padding-left: 46px !important;
+}
+
+body[data-patient-page="appointments"] .nv-pa-date-navigator {
+  display: grid;
+  gap: 14px;
+  margin-top: 10px;
+  padding: 16px;
+  overflow: hidden;
+  border: 1px solid #d6e7f0;
+  border-radius: 20px;
+  background: linear-gradient(180deg, #fbfeff 0%, #f5fafc 100%);
+  box-shadow: inset 0 1px 0 #fff;
+}
+
+body[data-patient-page="appointments"] .nv-pa-date-stage {
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid #e1ebf0;
+  border-radius: 16px;
+  background: #fff;
+}
+
+body[data-patient-page="appointments"] .nv-pa-day-stage[hidden] {
+  display: none !important;
+}
+
+body[data-patient-page="appointments"] .nv-pa-stage-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 13px;
+}
+
+body[data-patient-page="appointments"] .nv-pa-stage-heading > div {
+  min-width: 0;
+}
+
+body[data-patient-page="appointments"] .nv-pa-stage-heading strong,
+body[data-patient-page="appointments"] .nv-pa-stage-heading span {
+  display: block;
+}
+
+body[data-patient-page="appointments"] .nv-pa-stage-heading strong {
+  color: #15394e;
+  font-size: 15px;
+  font-weight: 950;
+  line-height: 1.7;
+}
+
+body[data-patient-page="appointments"] .nv-pa-stage-heading span {
+  margin-top: 3px;
+  color: #60778a;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.8;
+}
+
+body[data-patient-page="appointments"] .nv-pa-stage-heading > i {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  place-items: center;
+  border-radius: 13px;
+  color: #0b648f;
+  background: #eaf7fd;
+  font-size: 18px;
+}
+
+body[data-patient-page="appointments"] .nv-pa-month-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 9px;
+}
+
+body[data-patient-page="appointments"] .nv-pa-month-option {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 88px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 3px;
+  padding: 12px 13px;
+  border: 1px solid #d8e3e9;
+  border-radius: 14px;
+  font: inherit;
+  text-align: right;
+  transition: border-color .16s ease, background .16s ease, box-shadow .16s ease, transform .16s ease;
+}
+
+body[data-patient-page="appointments"] .nv-pa-month-option.has-appointments {
+  color: #fff;
+  border-color: #0a426d;
+  background: linear-gradient(145deg, #0b5d96 0%, #083d68 100%);
+  box-shadow: 0 9px 20px rgba(8, 61, 104, .20);
+  cursor: pointer;
+}
+
+body[data-patient-page="appointments"] .nv-pa-month-option.has-appointments:hover {
+  transform: translateY(-1px);
+  background: linear-gradient(145deg, #0b6ba9 0%, #084873 100%);
+}
+
+body[data-patient-page="appointments"] .nv-pa-month-option.is-selected {
+  border-color: #062f52;
+  box-shadow: 0 0 0 3px #fff, 0 0 0 6px #38bdf8, 0 12px 24px rgba(8, 61, 104, .24);
+}
+
+body[data-patient-page="appointments"] .nv-pa-month-option.is-disabled {
+  color: #7c8f9d;
+  border-color: #e4eaee;
+  background: #f2f5f7;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+body[data-patient-page="appointments"] .nv-pa-month-name {
+  font-size: 16px;
+  font-weight: 950;
+  line-height: 1.4;
+}
+
+body[data-patient-page="appointments"] .nv-pa-month-year {
+  font-size: 11px;
+  font-weight: 800;
+  opacity: .86;
+}
+
+body[data-patient-page="appointments"] .nv-pa-month-count {
+  margin-top: 5px;
+  font-size: 10.5px;
+  font-weight: 850;
+  line-height: 1.5;
+  opacity: .94;
+}
+
+body[data-patient-page="appointments"] .nv-pa-day-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+}
+
+body[data-patient-page="appointments"] .nv-pa-day-option {
+  display: grid;
+  min-width: 0;
+  min-height: 116px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "weekday capacity"
+    "date date"
+    "details details";
+  align-content: center;
+  gap: 6px 10px;
+  padding: 13px;
+  border: 2px solid #9bd0ea;
+  border-radius: 15px;
+  color: #123047;
+  background: #f7fcff;
+  font: inherit;
+  text-align: right;
+  cursor: pointer;
+  box-shadow: 0 7px 18px rgba(11, 100, 143, .07);
+  transition: border-color .16s ease, background .16s ease, box-shadow .16s ease, transform .16s ease;
+}
+
+body[data-patient-page="appointments"] .nv-pa-day-option:hover {
+  border-color: #1689c4;
+  background: #eef9ff;
+  transform: translateY(-1px);
+}
+
+body[data-patient-page="appointments"] .nv-pa-day-option.is-selected {
+  color: #fff;
+  border-color: #062f52;
+  background: linear-gradient(145deg, #0b5d96, #073a60);
+  box-shadow: 0 0 0 3px #dff4ff, 0 11px 24px rgba(7, 58, 96, .24);
+}
+
+body[data-patient-page="appointments"] .nv-pa-day-weekday {
+  grid-area: weekday;
+  font-size: 12px;
+  font-weight: 950;
+}
+
+body[data-patient-page="appointments"] .nv-pa-day-date {
+  grid-area: date;
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+}
+
+body[data-patient-page="appointments"] .nv-pa-day-date strong {
+  font-size: 27px;
+  font-weight: 950;
+  line-height: 1;
+}
+
+body[data-patient-page="appointments"] .nv-pa-day-date span {
+  font-size: 13px;
+  font-weight: 900;
+}
+
+body[data-patient-page="appointments"] .nv-pa-day-details {
+  grid-area: details;
+  font-size: 11px;
+  font-weight: 750;
+  line-height: 1.7;
+  opacity: .88;
+}
+
+body[data-patient-page="appointments"] .nv-pa-day-capacity {
+  grid-area: capacity;
+  justify-self: end;
+  padding: 3px 7px;
+  border-radius: 999px;
+  color: #075985;
+  background: #e0f2fe;
+  font-size: 9.5px;
+  font-weight: 900;
+}
+
+body[data-patient-page="appointments"] .nv-pa-day-option.is-selected .nv-pa-day-capacity {
+  color: #073a60;
+  background: #fff;
+}
+
+body[data-patient-page="appointments"] .nv-pa-slot-native {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+body[data-patient-page="appointments"] .nv-pa-slot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+  margin-top: 10px;
+}
+
+body[data-patient-page="appointments"] .nv-pa-slot-option {
+  display: flex;
+  min-width: 0;
+  min-height: 92px;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 5px;
+  padding: 12px 13px;
+  border: 2px solid #c4dce8;
+  border-radius: 15px;
+  color: #17364a;
+  background: #fff;
+  font: inherit;
+  text-align: right;
+  cursor: pointer;
+  transition: border-color .16s ease, background .16s ease, box-shadow .16s ease, transform .16s ease;
+}
+
+body[data-patient-page="appointments"] .nv-pa-slot-option:hover {
+  border-color: #38a8d8;
+  background: #f3fbff;
+  transform: translateY(-1px);
+}
+
+body[data-patient-page="appointments"] .nv-pa-slot-option.is-selected {
+  color: #fff;
+  border-color: #062f52;
+  background: linear-gradient(145deg, #0b5d96, #073a60);
+  box-shadow: 0 0 0 3px #dff4ff, 0 10px 22px rgba(7, 58, 96, .22);
+}
+
+body[data-patient-page="appointments"] .nv-pa-slot-time {
+  font-size: 16px;
+  font-weight: 950;
+}
+
+body[data-patient-page="appointments"] .nv-pa-slot-center {
+  overflow: hidden;
+  font-size: 11px;
+  font-weight: 750;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  opacity: .82;
+}
+
+body[data-patient-page="appointments"] .nv-pa-slot-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(148, 163, 184, .28);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+body[data-patient-page="appointments"] .nv-pa-slot-meta strong {
+  font-size: 11px;
+  font-weight: 950;
+}
+
+body[data-patient-page="appointments"] .nv-pa-guided-placeholder {
+  grid-column: 1 / -1;
+  display: flex;
+  min-height: 74px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px;
+  border: 1px dashed #b7cbd6;
+  border-radius: 14px;
+  color: #60778a;
+  background: #f8fbfc;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.8;
+  text-align: center;
+}
+
+body[data-patient-page="appointments"] .nv-pa-guided-placeholder i {
+  color: #1689c4;
+  font-size: 18px;
+}
+
+body[data-patient-page="appointments"] .nv-pa-month-option:focus-visible,
+body[data-patient-page="appointments"] .nv-pa-day-option:focus-visible,
+body[data-patient-page="appointments"] .nv-pa-slot-option:focus-visible {
+  outline: 3px solid #1d70b7;
+  outline-offset: 3px;
+}
+
+@media (max-width: 980px) {
+  body[data-patient-page="appointments"] .nv-pa-month-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  body[data-patient-page="appointments"] .nv-pa-day-grid,
+  body[data-patient-page="appointments"] .nv-pa-slot-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  body[data-patient-page="appointments"] .nv-pa-date-navigator {
+    padding: 10px;
+    border-radius: 16px;
+  }
+
+  body[data-patient-page="appointments"] .nv-pa-date-stage {
+    padding: 11px;
+    border-radius: 14px;
+  }
+
+  body[data-patient-page="appointments"] .nv-pa-month-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body[data-patient-page="appointments"] .nv-pa-month-option {
+    min-height: 84px;
+  }
+
+  body[data-patient-page="appointments"] .nv-pa-day-grid,
+  body[data-patient-page="appointments"] .nv-pa-slot-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body[data-patient-page="appointments"] .nv-pa-day-option,
+  body[data-patient-page="appointments"] .nv-pa-slot-option {
+    min-height: 96px;
+  }
+}

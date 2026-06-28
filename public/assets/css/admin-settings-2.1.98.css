@@ -1,0 +1,236 @@
+/* NoorVista 2.1.98 - Admin settings readability and layout polish */
+body[data-nv-page="settings"] .nv3-page {
+    --settings-text: #143a52;
+    --settings-muted: #607d91;
+    --settings-border: rgba(49, 150, 190, 0.24);
+    --settings-soft: rgba(232, 248, 253, 0.76);
+    --settings-accent: #0b8db7;
+    --settings-accent-2: #14b8a6;
+}
+
+body[data-nv-page="settings"] .settings-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    align-items: start;
+}
+
+body[data-nv-page="settings"] .settings-grid > .card:first-child {
+    grid-column: 1 / -1;
+}
+
+body[data-nv-page="settings"] .settings-grid > .card {
+    overflow: hidden;
+    border: 1px solid var(--settings-border);
+    border-radius: 24px;
+    box-shadow: 0 16px 40px rgba(15, 91, 124, 0.08);
+    background:
+        radial-gradient(circle at top left, rgba(20, 184, 166, 0.10), transparent 32%),
+        linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.94));
+}
+
+body[data-nv-page="settings"] .settings-grid .card-header {
+    padding: 22px 26px 18px;
+    border-bottom: 1px solid rgba(49, 150, 190, 0.18);
+    background: linear-gradient(90deg, rgba(231, 250, 255, 0.9), rgba(255,255,255,0.78));
+}
+
+body[data-nv-page="settings"] .settings-grid .card-header h4 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    color: var(--settings-text);
+    font-size: 1.18rem;
+    font-weight: 900;
+    line-height: 1.9;
+    letter-spacing: -0.01em;
+}
+
+body[data-nv-page="settings"] .settings-grid .card-header h4 i {
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 42px;
+    border-radius: 16px;
+    color: #fff;
+    background: linear-gradient(135deg, var(--settings-accent), var(--settings-accent-2));
+    box-shadow: 0 10px 26px rgba(12, 142, 183, 0.20);
+    font-size: 1rem;
+}
+
+body[data-nv-page="settings"] .settings-grid .card-body {
+    padding: 24px 26px 28px;
+    color: var(--settings-text);
+    font-size: 0.98rem;
+    line-height: 2;
+}
+
+body[data-nv-page="settings"] .form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 20px;
+}
+
+body[data-nv-page="settings"] .form-group {
+    margin-bottom: 18px;
+}
+
+body[data-nv-page="settings"] .form-group label {
+    display: block;
+    margin-bottom: 9px;
+    color: #1b4f68;
+    font-size: 0.96rem;
+    font-weight: 850;
+    line-height: 1.7;
+}
+
+body[data-nv-page="settings"] .form-control {
+    min-height: 50px;
+    border-radius: 16px;
+    border-color: rgba(49, 150, 190, 0.28);
+    background: rgba(248, 253, 255, 0.92);
+    color: var(--settings-text);
+    font-size: 0.98rem;
+    font-weight: 650;
+    line-height: 1.9;
+    padding: 11px 15px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+body[data-nv-page="settings"] .form-control::placeholder {
+    color: rgba(82, 112, 130, 0.62);
+    font-weight: 500;
+}
+
+body[data-nv-page="settings"] select.form-control {
+    padding-inline: 15px 42px;
+}
+
+body[data-nv-page="settings"] textarea.form-control {
+    min-height: 132px;
+    resize: vertical;
+}
+
+body[data-nv-page="settings"] #clinic_address,
+body[data-nv-page="settings"] #sms_otp_template,
+body[data-nv-page="settings"] #sms_appointment_template {
+    min-height: 112px;
+}
+
+body[data-nv-page="settings"] #ai_system_prompt {
+    min-height: 180px;
+}
+
+body[data-nv-page="settings"] .help-text {
+    margin-top: 8px;
+    color: var(--settings-muted);
+    font-size: 0.88rem;
+    font-weight: 600;
+    line-height: 1.9;
+}
+
+body[data-nv-page="settings"] .secret-note {
+    margin: 0 0 18px;
+    padding: 15px 17px;
+    border: 1px solid rgba(14, 139, 178, 0.20);
+    border-radius: 18px;
+    background: var(--settings-soft);
+    color: #24536b;
+    font-size: 0.94rem;
+    font-weight: 700;
+    line-height: 2;
+}
+
+body[data-nv-page="settings"] .secret-note .btn,
+body[data-nv-page="settings"] .secret-note a.btn {
+    min-height: 42px;
+    padding-inline: 18px;
+    border-radius: 14px;
+    font-size: 0.93rem;
+    font-weight: 850;
+}
+
+body[data-nv-page="settings"] .test-box {
+    margin-top: 22px;
+    padding: 20px;
+    border: 1px dashed rgba(14, 139, 178, 0.26);
+    border-radius: 22px;
+    background: rgba(244, 251, 255, 0.72);
+}
+
+body[data-nv-page="settings"] .test-result {
+    margin-top: 14px;
+    min-height: 44px;
+    padding: 13px 15px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.78);
+    color: #204e66;
+    font-size: 0.94rem;
+    font-weight: 650;
+    line-height: 2;
+    white-space: pre-line;
+}
+
+body[data-nv-page="settings"] .card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+body[data-nv-page="settings"] .btn {
+    min-height: 48px;
+    border-radius: 15px;
+    padding: 11px 22px;
+    font-size: 0.98rem;
+    font-weight: 850;
+    line-height: 1.8;
+}
+
+body[data-nv-page="settings"] .btn-primary {
+    box-shadow: 0 12px 26px rgba(14, 139, 178, 0.18);
+}
+
+@media (max-width: 1180px) {
+    body[data-nv-page="settings"] .settings-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 760px) {
+    body[data-nv-page="settings"] .settings-grid {
+        gap: 18px;
+    }
+
+    body[data-nv-page="settings"] .settings-grid .card-header,
+    body[data-nv-page="settings"] .settings-grid .card-body {
+        padding-inline: 18px;
+    }
+
+    body[data-nv-page="settings"] .form-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    body[data-nv-page="settings"] .settings-grid .card-header h4 {
+        font-size: 1.05rem;
+    }
+
+    body[data-nv-page="settings"] .form-control,
+    body[data-nv-page="settings"] .btn {
+        font-size: 0.96rem;
+    }
+
+    body[data-nv-page="settings"] textarea.form-control,
+    body[data-nv-page="settings"] #ai_system_prompt {
+        min-height: 150px;
+    }
+
+    body[data-nv-page="settings"] .card-actions .btn {
+        width: 100%;
+    }
+}

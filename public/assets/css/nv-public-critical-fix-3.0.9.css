@@ -1,0 +1,1793 @@
+/* NoorVista 3.0.9 critical public fix
+   Preserves the completed page, but replaces only visible topbar/footer runtime surfaces.
+   No animations, no observer-driven layout, no innerHTML loops. */
+
+body:not([data-panel-role]) .topbar.nv-static-topbar-shell,
+body:not([data-panel-role]) .topbar.nv-static-topbar-shell * {
+  box-sizing: border-box !important;
+}
+
+body:not([data-panel-role]) .topbar.nv-static-topbar-shell {
+  display: block !important;
+  width: 100% !important;
+  background: linear-gradient(135deg, #062f43 0%, #07384f 100%) !important;
+  color: #e0f7ff !important;
+  border: 0 !important;
+  overflow: hidden !important;
+  position: relative !important;
+  z-index: 70 !important;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, .12) !important;
+}
+
+body:not([data-panel-role]) .topbar.nv-static-topbar-shell .nv-static-topbar {
+  width: 100% !important;
+  max-width: var(--nv-container, 1180px) !important;
+  margin-inline: auto !important;
+  padding-block: 0 !important;
+  direction: ltr !important;
+  min-width: 0 !important;
+}
+
+body:not([data-panel-role]) .nv-static-topbar,
+body:not([data-panel-role]) .nv-static-topbar__socials,
+body:not([data-panel-role]) .nv-static-topbar__contacts,
+body:not([data-panel-role]) .nv-static-topbar__item,
+body:not([data-panel-role]) .nv-static-topbar__mobile-call,
+body:not([data-panel-role]) .nv-static-topbar__social {
+  transition: none !important;
+  animation: none !important;
+}
+
+body:not([data-panel-role]) .nv-static-topbar__socials,
+body:not([data-panel-role]) .nv-static-topbar__contacts {
+  display: flex !important;
+  align-items: center !important;
+  min-width: 0 !important;
+  height: 100% !important;
+}
+
+body:not([data-panel-role]) .nv-static-topbar__socials {
+  justify-content: flex-start !important;
+  direction: ltr !important;
+}
+
+body:not([data-panel-role]) .nv-static-topbar__contacts {
+  justify-content: flex-end !important;
+  direction: rtl !important;
+}
+
+body:not([data-panel-role]) .nv-static-topbar__item {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  color: #e0f7ff !important;
+  background: transparent !important;
+  border: 0 !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  line-height: 1 !important;
+  font-size: 14px !important;
+  font-weight: 850 !important;
+  vertical-align: middle !important;
+}
+
+body:not([data-panel-role]) .nv-static-topbar__text {
+  display: inline-flex !important;
+  align-items: center !important;
+  height: 18px !important;
+  line-height: 18px !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+body:not([data-panel-role]) .nv-static-topbar__icon {
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  flex: 0 0 18px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #7dd3fc !important;
+  line-height: 0 !important;
+  vertical-align: middle !important;
+}
+
+body:not([data-panel-role]) .nv-static-topbar__icon svg {
+  width: 18px !important;
+  height: 18px !important;
+  display: block !important;
+  fill: currentColor !important;
+}
+
+body:not([data-panel-role]) .nv-static-topbar__social {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 10px !important;
+  background: rgba(255, 255, 255, .08) !important;
+  border: 1px solid rgba(125, 211, 252, .14) !important;
+  box-shadow: none !important;
+  line-height: 0 !important;
+}
+
+body:not([data-panel-role]) .nv-static-topbar__social img {
+  display: block !important;
+  object-fit: contain !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+body:not([data-panel-role]) .nv-static-topbar__mobile-call {
+  color: #e0f7ff !important;
+  text-decoration: none !important;
+}
+
+body:not([data-panel-role]) .footer .nv-static-footer-contact-list,
+body:not([data-panel-role]) .footer .nv-static-footer-contact-list *,
+body:not([data-panel-role]) .footer .nv-static-footer-socials,
+body:not([data-panel-role]) .footer .nv-static-footer-socials *,
+body:not([data-panel-role]) .footer .nv-static-footer-bottom,
+body:not([data-panel-role]) .footer .nv-static-footer-bottom * {
+  transition: none !important;
+  animation: none !important;
+  box-sizing: border-box !important;
+}
+
+body:not([data-panel-role]) .footer .nv-static-footer-contact-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  min-height: 146px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  direction: rtl !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+body:not([data-panel-role]) .footer .nv-footer-contact-row {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+  min-height: 25px !important;
+  line-height: 1.85 !important;
+  color: #d9edf8 !important;
+}
+
+body:not([data-panel-role]) .footer .nv-contact-icon {
+  width: 20px !important;
+  min-width: 20px !important;
+  min-height: 22px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-top: 4px !important;
+  color: #9fe8ff !important;
+}
+
+body:not([data-panel-role]) .footer .nv-contact-main {
+  display: inline-flex !important;
+  align-items: baseline !important;
+  gap: 4px !important;
+  flex-wrap: wrap !important;
+  min-width: 0 !important;
+  color: #d9edf8 !important;
+  text-decoration: none !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  line-height: 1.85 !important;
+}
+
+body:not([data-panel-role]) .footer .nv-contact-label {
+  color: #f8fbff !important;
+  font-weight: 900 !important;
+  white-space: nowrap !important;
+}
+
+body:not([data-panel-role]) .footer .nv-contact-value {
+  color: #d9edf8 !important;
+  font-weight: 800 !important;
+}
+
+body:not([data-panel-role]) .footer .nv-static-footer-socials {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+  min-height: 40px !important;
+  margin-top: 16px !important;
+  direction: ltr !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+body:not([data-panel-role]) .footer .nv-static-footer-socials a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 12px !important;
+  background: rgba(255,255,255,.08) !important;
+  border: 1px solid rgba(125,211,252,.16) !important;
+  line-height: 0 !important;
+}
+
+body:not([data-panel-role]) .footer .nv-static-footer-socials img {
+  width: 24px !important;
+  height: 24px !important;
+  display: block !important;
+  object-fit: contain !important;
+}
+
+body:not([data-panel-role]) .footer .nv-static-footer-bottom {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+  min-height: 50px !important;
+  padding-top: 18px !important;
+  margin-top: 28px !important;
+  border-top: 1px solid rgba(226,232,240,.12) !important;
+  direction: rtl !important;
+  color: #cfe7f2 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+body:not([data-panel-role]) .footer .nv-static-footer-bottom span,
+body:not([data-panel-role]) .footer .nv-static-footer-bottom a {
+  color: #cfe7f2 !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  line-height: 1.8 !important;
+}
+
+body:not([data-panel-role]) .footer .nv-static-footer-bottom a {
+  direction: ltr !important;
+  unicode-bidi: isolate !important;
+  text-decoration: none !important;
+}
+
+@media (min-width: 721px) {
+  body:not([data-panel-role]) .topbar.nv-static-topbar-shell,
+  body:not([data-panel-role]) .topbar.nv-static-topbar-shell .nv-static-topbar {
+    height: 56px !important;
+    min-height: 56px !important;
+  }
+
+  body:not([data-panel-role]) .topbar.nv-static-topbar-shell .nv-static-topbar {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 28px !important;
+    padding-inline: 24px !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__socials {
+    order: 1 !important;
+    flex: 0 0 auto !important;
+    gap: 10px !important;
+    margin-right: auto !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__contacts {
+    order: 2 !important;
+    flex: 1 1 auto !important;
+    gap: 26px !important;
+    margin-left: auto !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__mobile-call {
+    display: none !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__social {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__social img {
+    width: 21px !important;
+    height: 21px !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__item--address .nv-static-topbar__text {
+    max-width: 260px !important;
+  }
+}
+
+@media (max-width: 720px) {
+  body:not([data-panel-role]) .topbar.nv-static-topbar-shell,
+  body:not([data-panel-role]) .topbar.nv-static-topbar-shell .nv-static-topbar {
+    height: 44px !important;
+    min-height: 44px !important;
+  }
+
+  body:not([data-panel-role]) .topbar.nv-static-topbar-shell .nv-static-topbar {
+    max-width: none !important;
+    padding-inline: 10px !important;
+    display: grid !important;
+    grid-template-columns: 36px minmax(84px, 1fr) minmax(106px, auto) !important;
+    grid-template-areas: "call socials address" !important;
+    align-items: center !important;
+    gap: 8px !important;
+    direction: ltr !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__mobile-call {
+    grid-area: call !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    justify-self: start !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 10px !important;
+    background: rgba(255,255,255,.09) !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__socials {
+    grid-area: socials !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    min-width: 0 !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__contacts {
+    grid-area: address !important;
+    justify-content: flex-end !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__item--hours,
+  body:not([data-panel-role]) .nv-static-topbar__item--phone {
+    display: none !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__item--address {
+    max-width: 132px !important;
+    height: 32px !important;
+    min-height: 32px !important;
+    font-size: 11px !important;
+    gap: 5px !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__item--address .nv-static-topbar__text {
+    max-width: 104px !important;
+    height: 16px !important;
+    line-height: 16px !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__item--address .nv-static-topbar__icon,
+  body:not([data-panel-role]) .nv-static-topbar__item--address .nv-static-topbar__icon svg {
+    width: 15px !important;
+    height: 15px !important;
+    min-width: 15px !important;
+    flex-basis: 15px !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__social {
+    width: 27px !important;
+    height: 27px !important;
+    border-radius: 9px !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__social img {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  body:not([data-panel-role]) .footer .nv-static-footer-contact-list {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  body:not([data-panel-role]) .footer .nv-footer-contact-row,
+  body:not([data-panel-role]) .footer .nv-static-footer-socials,
+  body:not([data-panel-role]) .footer .nv-static-footer-bottom {
+    justify-content: center !important;
+  }
+}
+
+
+/* NoorVista 3.0.10 — layout polish only
+   Fixes topbar alignment, mobile topbar spacing, footer contact alignment,
+   and removes visual double-icon effect from legacy social backgrounds. */
+
+/* ---------- Topbar: desktop exact layout ---------- */
+@media (min-width: 721px) {
+  body:not([data-panel-role]) .topbar.nv-static-topbar-shell {
+    height: 60px !important;
+    min-height: 60px !important;
+    padding: 0 !important;
+    display: block !important;
+    overflow: hidden !important;
+  }
+
+  body:not([data-panel-role]) .topbar.nv-static-topbar-shell .nv-static-topbar {
+    width: 100% !important;
+    max-width: 1180px !important;
+    height: 60px !important;
+    min-height: 60px !important;
+    margin-inline: auto !important;
+    padding-inline: 18px !important;
+    display: grid !important;
+    grid-template-columns: minmax(130px, 1fr) auto !important;
+    grid-template-areas: "socials contacts" !important;
+    align-items: center !important;
+    justify-items: stretch !important;
+    gap: 28px !important;
+    direction: ltr !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__socials {
+    grid-area: socials !important;
+    width: 100% !important;
+    height: 60px !important;
+    min-height: 60px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    direction: ltr !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__contacts {
+    grid-area: contacts !important;
+    width: auto !important;
+    height: 60px !important;
+    min-height: 60px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 28px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    direction: rtl !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__item {
+    height: 60px !important;
+    min-height: 60px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    line-height: 1 !important;
+    transform: none !important;
+    position: static !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__text {
+    height: auto !important;
+    min-height: 18px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    line-height: 1.15 !important;
+    transform: none !important;
+    position: static !important;
+    padding-top: 0 !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__icon {
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    flex: 0 0 18px !important;
+    align-self: center !important;
+    margin: 0 !important;
+    transform: none !important;
+    position: static !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__social {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    align-self: center !important;
+    margin: 0 !important;
+  }
+}
+
+/* ---------- Topbar: mobile balanced layout ---------- */
+@media (max-width: 720px) {
+  body:not([data-panel-role]) .topbar.nv-static-topbar-shell {
+    height: 42px !important;
+    min-height: 42px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  body:not([data-panel-role]) .topbar.nv-static-topbar-shell .nv-static-topbar {
+    width: 100% !important;
+    max-width: none !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    padding-inline: 8px !important;
+    display: grid !important;
+    grid-template-columns: 34px minmax(96px, 1fr) minmax(92px, 118px) !important;
+    grid-template-areas: "call socials address" !important;
+    align-items: center !important;
+    justify-items: stretch !important;
+    gap: 7px !important;
+    direction: ltr !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__mobile-call {
+    grid-area: call !important;
+    width: 30px !important;
+    height: 30px !important;
+    min-width: 30px !important;
+    align-self: center !important;
+    justify-self: start !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    border-radius: 10px !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__socials {
+    grid-area: socials !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 7px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__contacts {
+    grid-area: address !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    direction: rtl !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__item--address {
+    height: 30px !important;
+    min-height: 30px !important;
+    max-width: 118px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 5px !important;
+    font-size: 10.5px !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__item--address .nv-static-topbar__text {
+    max-width: 92px !important;
+    height: auto !important;
+    line-height: 1.15 !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__item--address .nv-static-topbar__icon,
+  body:not([data-panel-role]) .nv-static-topbar__item--address .nv-static-topbar__icon svg,
+  body:not([data-panel-role]) .nv-static-topbar__mobile-call .nv-static-topbar__icon,
+  body:not([data-panel-role]) .nv-static-topbar__mobile-call .nv-static-topbar__icon svg {
+    width: 15px !important;
+    height: 15px !important;
+    min-width: 15px !important;
+    flex-basis: 15px !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__social {
+    width: 26px !important;
+    height: 26px !important;
+    min-width: 26px !important;
+    border-radius: 8px !important;
+    align-self: center !important;
+    margin: 0 !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__social img {
+    width: 19px !important;
+    height: 19px !important;
+  }
+}
+
+/* ---------- Remove legacy double-icon visual backgrounds ---------- */
+body:not([data-panel-role]) .nv-static-topbar__social,
+body:not([data-panel-role]) .footer .nv-static-footer-socials a.social-link,
+body:not([data-panel-role]) .footer .nv-static-footer-socials a {
+  background-color: rgba(255, 255, 255, .08) !important;
+  background-image: none !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  box-shadow: none !important;
+}
+
+body:not([data-panel-role]) .nv-static-topbar__social::before,
+body:not([data-panel-role]) .nv-static-topbar__social::after,
+body:not([data-panel-role]) .footer .nv-static-footer-socials a::before,
+body:not([data-panel-role]) .footer .nv-static-footer-socials a::after {
+  content: none !important;
+  display: none !important;
+}
+
+body:not([data-panel-role]) .nv-static-topbar__social img,
+body:not([data-panel-role]) .footer .nv-static-footer-socials img {
+  display: block !important;
+  object-fit: contain !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+/* ---------- Footer desktop: clean column alignment ---------- */
+@media (min-width: 721px) {
+  body:not([data-panel-role]) .footer .footer-grid {
+    align-items: start !important;
+    column-gap: 42px !important;
+  }
+
+  body:not([data-panel-role]) .footer .footer-grid > div:last-child {
+    text-align: right !important;
+    direction: rtl !important;
+  }
+
+  body:not([data-panel-role]) .footer .footer-grid > div:last-child h3 {
+    text-align: right !important;
+    margin-bottom: 18px !important;
+  }
+
+  body:not([data-panel-role]) .footer .nv-static-footer-contact-list {
+    width: 100% !important;
+    align-items: stretch !important;
+    text-align: right !important;
+    gap: 13px !important;
+  }
+
+  body:not([data-panel-role]) .footer .nv-footer-contact-row {
+    width: 100% !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+    direction: rtl !important;
+    text-align: right !important;
+  }
+
+  body:not([data-panel-role]) .footer .nv-contact-icon {
+    margin-top: 5px !important;
+    flex: 0 0 20px !important;
+  }
+
+  body:not([data-panel-role]) .footer .nv-contact-main {
+    display: inline-flex !important;
+    align-items: baseline !important;
+    justify-content: flex-start !important;
+    gap: 6px !important;
+    flex-wrap: wrap !important;
+    text-align: right !important;
+    line-height: 1.9 !important;
+  }
+
+  body:not([data-panel-role]) .footer .nv-contact-label {
+    margin-left: 2px !important;
+  }
+
+  body:not([data-panel-role]) .footer .nv-static-footer-socials {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 10px !important;
+    direction: ltr !important;
+    margin-top: 18px !important;
+  }
+
+  body:not([data-panel-role]) .footer .nv-static-footer-socials a {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+  }
+}
+
+/* ---------- Footer mobile: centered but consistent ---------- */
+@media (max-width: 720px) {
+  body:not([data-panel-role]) .footer .footer-grid > div:last-child {
+    text-align: center !important;
+    direction: rtl !important;
+  }
+
+  body:not([data-panel-role]) .footer .nv-static-footer-contact-list {
+    align-items: center !important;
+    text-align: center !important;
+    gap: 12px !important;
+  }
+
+  body:not([data-panel-role]) .footer .nv-footer-contact-row {
+    width: 100% !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    text-align: center !important;
+  }
+
+  body:not([data-panel-role]) .footer .nv-contact-main {
+    justify-content: center !important;
+    gap: 5px !important;
+  }
+
+  body:not([data-panel-role]) .footer .nv-static-footer-socials {
+    justify-content: center !important;
+    gap: 10px !important;
+    margin-top: 18px !important;
+  }
+
+  body:not([data-panel-role]) .footer .nv-static-footer-bottom {
+    justify-content: center !important;
+    text-align: center !important;
+    padding-inline: 14px !important;
+  }
+}
+
+
+/* NoorVista 3.0.11 — final visible polish:
+   1) only Home is active on homepage,
+   2) professional back-to-top button,
+   3) mobile back-to-top stays above bottom floating actions. */
+
+/* ---------- Nav active-state reset on homepage ---------- */
+body:not([data-panel-role]) .navbar .menu > li > a,
+body:not([data-panel-role]) .navbar .menu > li > a[href="/#patient-guide"],
+body:not([data-panel-role]) .navbar .menu > li > a[href="/#articles"],
+body:not([data-panel-role]) .navbar .menu > li > a[href="#patient-guide"],
+body:not([data-panel-role]) .navbar .menu > li > a[href="#articles"] {
+  background: transparent !important;
+  color: #334155 !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+
+body:not([data-panel-role]) .navbar .menu > li > a:hover {
+  background: #f0f9ff !important;
+  color: #075985 !important;
+  box-shadow: inset 0 0 0 1px rgba(8,145,178,.10) !important;
+}
+
+body:not([data-panel-role]) .navbar .menu > li > a.active,
+body:not([data-panel-role]) .navbar .menu > li > a[aria-current="page"],
+body:not([data-panel-role]) .navbar .menu > li:first-child > a[href="/"] {
+  background: #e0f2fe !important;
+  color: #075985 !important;
+  box-shadow: inset 0 0 0 1px rgba(8,145,178,.18), 0 8px 20px rgba(8,145,178,.08) !important;
+}
+
+/* Do not let hash links look selected on page load. */
+body:not([data-panel-role]) .navbar .menu > li > a[href*="#"]:not(:hover) {
+  background: transparent !important;
+  color: #334155 !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+
+/* ---------- Back to top redesign ---------- */
+body:not([data-panel-role]) .nv-back-to-top {
+  position: fixed !important;
+  left: 22px !important;
+  right: auto !important;
+  bottom: 22px !important;
+  z-index: 2147482500 !important;
+  width: 54px !important;
+  height: 54px !important;
+  min-width: 54px !important;
+  min-height: 54px !important;
+  border: 1px solid rgba(125, 211, 252, .38) !important;
+  border-radius: 18px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  background:
+    radial-gradient(circle at 32% 24%, rgba(255,255,255,.36), transparent 30%),
+    linear-gradient(135deg, #06b6d4 0%, #0891b2 52%, #0e7490 100%) !important;
+  color: #fff !important;
+  box-shadow:
+    0 18px 38px rgba(8,145,178,.34),
+    0 4px 14px rgba(15,23,42,.14) !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateY(10px) scale(.94) !important;
+  transition: opacity .18s ease, transform .18s ease, box-shadow .18s ease !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  cursor: pointer !important;
+}
+
+body:not([data-panel-role]) .nv-back-to-top::before {
+  content: "" !important;
+  width: 18px !important;
+  height: 18px !important;
+  display: block !important;
+  background: currentColor !important;
+  -webkit-mask:
+    linear-gradient(currentColor 0 0) center 3px / 3px 15px no-repeat,
+    linear-gradient(135deg, transparent 48%, currentColor 49% 58%, transparent 59%) 4px 1px / 10px 10px no-repeat,
+    linear-gradient(45deg, transparent 48%, currentColor 49% 58%, transparent 59%) 4px 1px / 10px 10px no-repeat;
+          mask:
+    linear-gradient(currentColor 0 0) center 3px / 3px 15px no-repeat,
+    linear-gradient(135deg, transparent 48%, currentColor 49% 58%, transparent 59%) 4px 1px / 10px 10px no-repeat,
+    linear-gradient(45deg, transparent 48%, currentColor 49% 58%, transparent 59%) 4px 1px / 10px 10px no-repeat;
+}
+
+body:not([data-panel-role]) .nv-back-to-top:hover {
+  box-shadow:
+    0 22px 46px rgba(8,145,178,.42),
+    0 6px 18px rgba(15,23,42,.18) !important;
+  transform: translateY(-2px) scale(1) !important;
+}
+
+body:not([data-panel-role]) .nv-back-to-top.is-visible {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+/* Keep it away from consultation/booking floating buttons on mobile. */
+@media (max-width: 720px) {
+  body:not([data-panel-role]) .nv-back-to-top {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+    left: 14px !important;
+    bottom: 116px !important;
+    border-radius: 16px !important;
+    z-index: 2147482600 !important;
+  }
+
+  body:not([data-panel-role]) .site-actions,
+  body:not([data-panel-role]) .floating-actions,
+  body:not([data-panel-role]) .nv-floating-actions,
+  body:not([data-panel-role]) [data-floating-actions] {
+    z-index: 2147482400 !important;
+  }
+}
+
+/* Desktop should keep the button clear from page borders and footer text. */
+@media (min-width: 721px) {
+  body:not([data-panel-role]) .nv-back-to-top {
+    left: 20px !important;
+    bottom: 20px !important;
+  }
+}
+
+
+/* NoorVista 3.0.12 — final tune:
+   correct active menu per page and replace broken CSS-mask back-to-top icon with a real SVG arrow. */
+
+/* ---------- Menu active state is now driven by JS-added .nv-current-page ---------- */
+body:not([data-panel-role]) .navbar .menu > li > a,
+body:not([data-panel-role]) .navbar .menu > li > a.active,
+body:not([data-panel-role]) .navbar .menu > li > a[aria-current="page"],
+body:not([data-panel-role]) .navbar .menu > li:first-child > a[href="/"],
+body:not([data-panel-role]) .navbar .menu > li > a[href*="#"] {
+  background: transparent !important;
+  color: #334155 !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+
+body:not([data-panel-role]) .navbar .menu > li > a:hover {
+  background: #f0f9ff !important;
+  color: #075985 !important;
+  box-shadow: inset 0 0 0 1px rgba(8,145,178,.10) !important;
+}
+
+body:not([data-panel-role]) .navbar .menu > li > a.nv-current-page {
+  background: #e0f2fe !important;
+  color: #075985 !important;
+  box-shadow: inset 0 0 0 1px rgba(8,145,178,.18), 0 8px 20px rgba(8,145,178,.08) !important;
+}
+
+/* ---------- Back-to-top icon: use real SVG, not mask, to avoid cross/star rendering ---------- */
+body:not([data-panel-role]) .nv-back-to-top {
+  font-size: 0 !important;
+  line-height: 0 !important;
+  overflow: hidden !important;
+}
+
+body:not([data-panel-role]) .nv-back-to-top::before {
+  content: "" !important;
+  width: 24px !important;
+  height: 24px !important;
+  display: block !important;
+  background-color: transparent !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 19V5'/%3E%3Cpath d='M6 11l6-6 6 6'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 24px 24px !important;
+  -webkit-mask: none !important;
+          mask: none !important;
+  transform: none !important;
+}
+
+body:not([data-panel-role]) .nv-back-to-top::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 9px !important;
+  border-radius: 14px !important;
+  background: rgba(255,255,255,.10) !important;
+  opacity: 0 !important;
+  transition: opacity .18s ease !important;
+  pointer-events: none !important;
+}
+
+body:not([data-panel-role]) .nv-back-to-top:hover::after {
+  opacity: 1 !important;
+}
+
+
+/* NoorVista 3.0.13 — mobile CTA and location-info fix */
+
+/* ---------- Static visit/location info: replace empty placeholder rows ---------- */
+body:not([data-panel-role]) .home-location-copy .nv-static-location-details {
+  display: grid !important;
+  gap: 12px !important;
+  margin: 24px 0 28px !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  min-height: 0 !important;
+}
+
+body:not([data-panel-role]) .home-location-copy .nv-location-row {
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+  min-height: 32px !important;
+  padding: 0 !important;
+  color: #334155 !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  line-height: 1.9 !important;
+  text-decoration: none !important;
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+body:not([data-panel-role]) .home-location-copy .nv-location-row strong {
+  color: #075985 !important;
+  font-weight: 950 !important;
+}
+
+body:not([data-panel-role]) .home-location-copy .nv-location-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 0 0 20px !important;
+  width: 20px !important;
+  height: 20px !important;
+  margin-top: 6px !important;
+  color: #0891b2 !important;
+}
+
+body:not([data-panel-role]) .home-location-copy .nv-location-icon svg {
+  display: block !important;
+  width: 18px !important;
+  height: 18px !important;
+  fill: currentColor !important;
+}
+
+body:not([data-panel-role]) .home-location-copy .map-open-link {
+  margin-top: 10px !important;
+}
+
+/* Hide any old placeholder-only children if a legacy script injects them again. */
+body:not([data-panel-role]) .home-location-details:not(.nv-static-location-details) {
+  min-height: 0 !important;
+}
+
+body:not([data-panel-role]) .home-location-details:not(.nv-static-location-details) > :empty {
+  display: none !important;
+}
+
+/* ---------- Mobile: keep floating actions below content, not on top of hero/trust card ---------- */
+@media (max-width: 720px) {
+  body:not([data-panel-role]) {
+    padding-bottom: 88px !important;
+  }
+
+  body:not([data-panel-role]) .hero {
+    padding-bottom: 112px !important;
+  }
+
+  body:not([data-panel-role]) .hero .hero-actions {
+    margin-bottom: 22px !important;
+  }
+
+  body:not([data-panel-role]) .hero .trust-row,
+  body:not([data-panel-role]) .hero .trust-card,
+  body:not([data-panel-role]) .hero .doctor-card,
+  body:not([data-panel-role]) .hero .appointment-card {
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  body:not([data-panel-role]) .floating-actions,
+  body:not([data-panel-role]) .site-actions,
+  body:not([data-panel-role]) .nv-floating-actions,
+  body:not([data-panel-role]) .site-floating-actions,
+  body:not([data-panel-role]) [data-floating-actions] {
+    right: 10px !important;
+    left: 10px !important;
+    bottom: 10px !important;
+    width: auto !important;
+    max-width: none !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    gap: 8px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 2147482400 !important;
+    pointer-events: none !important;
+  }
+
+  body:not([data-panel-role]) .floating-actions .floating-action-btn,
+  body:not([data-panel-role]) .floating-actions .chatbot-fab,
+  body:not([data-panel-role]) .site-actions .floating-action-btn,
+  body:not([data-panel-role]) .site-actions .chatbot-fab,
+  body:not([data-panel-role]) [data-floating-actions] .floating-action-btn,
+  body:not([data-panel-role]) [data-floating-actions] .chatbot-fab {
+    pointer-events: auto !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    border-radius: 999px !important;
+    padding: 0 10px !important;
+    font-size: 12px !important;
+    transform: none !important;
+  }
+
+  body:not([data-panel-role]) .nv-back-to-top {
+    bottom: 74px !important;
+    left: 14px !important;
+  }
+
+  body:not([data-panel-role]) .home-location-grid {
+    gap: 18px !important;
+  }
+
+  body:not([data-panel-role]) .home-location-copy .nv-static-location-details {
+    margin-top: 18px !important;
+    margin-bottom: 22px !important;
+    gap: 10px !important;
+  }
+
+  body:not([data-panel-role]) .home-location-copy .nv-location-row {
+    justify-content: center !important;
+    text-align: center !important;
+    font-size: 13px !important;
+    line-height: 1.85 !important;
+  }
+}
+
+
+/* NoorVista 3.0.14 — exact mobile topbar and visit-info card layout */
+
+/* Mobile topbar: address pinned to the far right, messengers exactly centered, phone pinned left */
+@media (max-width: 720px) {
+  body:not([data-panel-role]) .topbar.nv-static-topbar-shell {
+    height: 42px !important;
+    min-height: 42px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  body:not([data-panel-role]) .topbar.nv-static-topbar-shell .nv-static-topbar {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    padding: 0 8px !important;
+    margin: 0 auto !important;
+    direction: ltr !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__mobile-call {
+    position: absolute !important;
+    left: 8px !important;
+    right: auto !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 30px !important;
+    height: 30px !important;
+    min-width: 30px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    border-radius: 10px !important;
+    z-index: 2 !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__socials {
+    position: absolute !important;
+    left: 50% !important;
+    right: auto !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: auto !important;
+    height: 30px !important;
+    min-height: 30px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 7px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    direction: ltr !important;
+    z-index: 2 !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__contacts {
+    position: absolute !important;
+    right: 8px !important;
+    left: auto !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 122px !important;
+    height: 30px !important;
+    min-height: 30px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    direction: rtl !important;
+    z-index: 2 !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__item--address {
+    width: 122px !important;
+    max-width: 122px !important;
+    height: 30px !important;
+    min-height: 30px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 5px !important;
+    font-size: 10.5px !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: right !important;
+    direction: rtl !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__item--address .nv-static-topbar__text {
+    max-width: 96px !important;
+    height: auto !important;
+    line-height: 1.15 !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    text-align: right !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__item--hours,
+  body:not([data-panel-role]) .nv-static-topbar__item--phone {
+    display: none !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__social {
+    width: 26px !important;
+    height: 26px !important;
+    min-width: 26px !important;
+    border-radius: 8px !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__social img {
+    width: 19px !important;
+    height: 19px !important;
+  }
+}
+
+/* Desktop visit info: remove the placeholder/pill look and show clean textual rows */
+body:not([data-panel-role]) .home-location-copy .home-location-details,
+body:not([data-panel-role]) .home-location-copy .nv-static-location-details {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 14px !important;
+  margin: 24px 0 30px !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  min-height: 0 !important;
+}
+
+body:not([data-panel-role]) .home-location-copy .home-location-details::before,
+body:not([data-panel-role]) .home-location-copy .home-location-details::after,
+body:not([data-panel-role]) .home-location-copy .nv-static-location-details::before,
+body:not([data-panel-role]) .home-location-copy .nv-static-location-details::after {
+  content: none !important;
+  display: none !important;
+}
+
+body:not([data-panel-role]) .home-location-copy .nv-location-row {
+  display: grid !important;
+  grid-template-columns: 22px minmax(0, 1fr) !important;
+  align-items: start !important;
+  gap: 10px !important;
+  width: 100% !important;
+  min-height: 28px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #334155 !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  line-height: 1.9 !important;
+  text-decoration: none !important;
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+body:not([data-panel-role]) .home-location-copy .nv-location-row > span:last-child {
+  display: block !important;
+  min-width: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  line-height: 1.9 !important;
+}
+
+body:not([data-panel-role]) .home-location-copy .nv-location-row strong {
+  color: #075985 !important;
+  font-weight: 950 !important;
+}
+
+body:not([data-panel-role]) .home-location-copy .nv-location-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  margin-top: 5px !important;
+  color: #0891b2 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+body:not([data-panel-role]) .home-location-copy .nv-location-icon svg {
+  display: block !important;
+  width: 18px !important;
+  height: 18px !important;
+  fill: currentColor !important;
+}
+
+body:not([data-panel-role]) .home-location-copy .map-open-link {
+  margin-top: 8px !important;
+}
+
+/* Mobile visit info remains centered and compact */
+@media (max-width: 720px) {
+  body:not([data-panel-role]) .home-location-copy .home-location-details,
+  body:not([data-panel-role]) .home-location-copy .nv-static-location-details {
+    align-items: center !important;
+    gap: 11px !important;
+    margin-top: 18px !important;
+    margin-bottom: 22px !important;
+  }
+
+  body:not([data-panel-role]) .home-location-copy .nv-location-row {
+    grid-template-columns: 20px minmax(0, auto) !important;
+    justify-content: center !important;
+    width: auto !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    font-size: 13px !important;
+    line-height: 1.85 !important;
+  }
+
+  body:not([data-panel-role]) .home-location-copy .nv-location-row > span:last-child {
+    text-align: center !important;
+  }
+}
+
+/* Floating CTA: never overlap the visible hero cards on small mobile screens */
+@media (max-width: 720px) {
+  body:not([data-panel-role]) .hero {
+    padding-bottom: 136px !important;
+  }
+
+  body:not([data-panel-role]) .floating-actions,
+  body:not([data-panel-role]) .site-actions,
+  body:not([data-panel-role]) .nv-floating-actions,
+  body:not([data-panel-role]) .site-floating-actions,
+  body:not([data-panel-role]) [data-floating-actions] {
+    bottom: 8px !important;
+  }
+
+  body:not([data-panel-role]) .nv-back-to-top {
+    bottom: 72px !important;
+  }
+}
+
+
+/* NoorVista 3.0.15 — FAQ/booking behavior visual guard */
+body:not([data-panel-role]) .faq-question {
+  cursor: pointer !important;
+}
+
+body:not([data-panel-role]) .faq-question[data-open-booking],
+body:not([data-panel-role]) .faq-item [data-open-booking] {
+  pointer-events: auto !important;
+}
+
+
+/* NoorVista 3.0.16 — mobile topbar address truly pinned to viewport right
+   The .container class was limiting the topbar width to calc(100% - 36px);
+   this override makes the mobile topbar inner layer full-bleed. */
+
+@media (max-width: 720px) {
+  body:not([data-panel-role]) .topbar.nv-static-topbar-shell {
+    width: 100% !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+
+  body:not([data-panel-role]) .topbar.nv-static-topbar-shell > .container.nv-static-topbar,
+  body:not([data-panel-role]) .topbar.nv-static-topbar-shell .container.nv-static-topbar,
+  body:not([data-panel-role]) .topbar.nv-static-topbar-shell .topbar-inner.nv-static-topbar {
+    position: relative !important;
+    inset: auto !important;
+    display: block !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    min-width: 100vw !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    margin-right: calc(50% - 50vw) !important;
+    margin-left: calc(50% - 50vw) !important;
+    padding: 0 !important;
+    transform: none !important;
+    direction: ltr !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__contacts {
+    position: absolute !important;
+    right: 8px !important;
+    left: auto !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 128px !important;
+    max-width: 128px !important;
+    height: 30px !important;
+    min-height: 30px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    direction: rtl !important;
+    z-index: 3 !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__item--address {
+    width: 128px !important;
+    max-width: 128px !important;
+    height: 30px !important;
+    min-height: 30px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 5px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: right !important;
+    direction: rtl !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__item--address .nv-static-topbar__text {
+    max-width: 101px !important;
+    text-align: right !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__socials {
+    position: absolute !important;
+    left: 50% !important;
+    right: auto !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: auto !important;
+    height: 30px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 7px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    z-index: 2 !important;
+  }
+
+  body:not([data-panel-role]) .nv-static-topbar__mobile-call {
+    position: absolute !important;
+    left: 8px !important;
+    right: auto !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 3 !important;
+  }
+}
+
+
+/* NoorVista 3.0.17 — mobile visit-info layout + map popup font */
+
+/* ---------- Visit info card: remove pill/placeholder look everywhere ---------- */
+body:not([data-panel-role]) .home-location-copy {
+  overflow: hidden !important;
+}
+
+body:not([data-panel-role]) .home-location-copy .home-location-details,
+body:not([data-panel-role]) .home-location-copy .nv-static-location-details {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  margin: 24px 0 28px !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  min-height: 0 !important;
+}
+
+body:not([data-panel-role]) .home-location-copy .home-location-details > *,
+body:not([data-panel-role]) .home-location-copy .nv-static-location-details > * {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+body:not([data-panel-role]) .home-location-copy .nv-location-row {
+  width: 100% !important;
+  display: grid !important;
+  grid-template-columns: 22px minmax(0, 1fr) !important;
+  align-items: start !important;
+  gap: 10px !important;
+  min-height: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #334155 !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  line-height: 1.9 !important;
+  text-decoration: none !important;
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+body:not([data-panel-role]) .home-location-copy .nv-location-row > span:last-child {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  text-align: right !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 1.9 !important;
+}
+
+body:not([data-panel-role]) .home-location-copy .nv-location-row strong {
+  display: inline !important;
+  color: #075985 !important;
+  font-weight: 950 !important;
+  white-space: nowrap !important;
+}
+
+body:not([data-panel-role]) .home-location-copy .nv-location-icon {
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-top: 5px !important;
+  color: #0891b2 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+body:not([data-panel-role]) .home-location-copy .nv-location-icon:empty {
+  visibility: hidden !important;
+}
+
+body:not([data-panel-role]) .home-location-copy .nv-location-icon svg {
+  display: block !important;
+  width: 18px !important;
+  height: 18px !important;
+  fill: currentColor !important;
+}
+
+/* ---------- Mobile visit info: compact readable list, icon on right, text aligned ---------- */
+@media (max-width: 720px) {
+  body:not([data-panel-role]) .home-location-copy {
+    padding: 24px 18px !important;
+    text-align: right !important;
+  }
+
+  body:not([data-panel-role]) .home-location-copy h3 {
+    text-align: center !important;
+    margin-bottom: 18px !important;
+  }
+
+  body:not([data-panel-role]) .home-location-copy .home-location-details,
+  body:not([data-panel-role]) .home-location-copy .nv-static-location-details {
+    width: 100% !important;
+    max-width: 100% !important;
+    align-items: stretch !important;
+    gap: 13px !important;
+    margin: 18px 0 24px !important;
+  }
+
+  body:not([data-panel-role]) .home-location-copy .nv-location-row {
+    width: 100% !important;
+    grid-template-columns: 22px minmax(0, 1fr) !important;
+    justify-content: stretch !important;
+    align-items: start !important;
+    gap: 9px !important;
+    text-align: right !important;
+    font-size: 13px !important;
+    line-height: 1.85 !important;
+  }
+
+  body:not([data-panel-role]) .home-location-copy .nv-location-row > span:last-child {
+    text-align: right !important;
+    line-height: 1.85 !important;
+  }
+
+  body:not([data-panel-role]) .home-location-copy .nv-location-icon {
+    margin-top: 4px !important;
+  }
+
+  body:not([data-panel-role]) .home-location-copy .map-open-link {
+    width: 100% !important;
+    max-width: 240px !important;
+    min-height: 44px !important;
+    margin: 8px auto 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
+/* ---------- Map font and popup polish ---------- */
+body:not([data-panel-role]) .home-neshan-map,
+body:not([data-panel-role]) .leaflet-container,
+body:not([data-panel-role]) .leaflet-container * {
+  font-family: Vazirmatn, Vazir, IRANSans, Tahoma, Arial, sans-serif !important;
+}
+
+body:not([data-panel-role]) .leaflet-popup-content-wrapper {
+  border-radius: 16px !important;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, .16) !important;
+}
+
+body:not([data-panel-role]) .leaflet-popup-content {
+  direction: rtl !important;
+  text-align: right !important;
+  font-family: Vazirmatn, Vazir, IRANSans, Tahoma, Arial, sans-serif !important;
+  font-size: 12.5px !important;
+  font-weight: 800 !important;
+  line-height: 1.8 !important;
+  color: #0f172a !important;
+  min-width: 170px !important;
+  max-width: 230px !important;
+  margin: 12px 14px !important;
+}
+
+body:not([data-panel-role]) .leaflet-popup-content b,
+body:not([data-panel-role]) .leaflet-popup-content strong {
+  color: #075985 !important;
+  font-weight: 950 !important;
+}
+
+body:not([data-panel-role]) .leaflet-popup-close-button {
+  font-family: Tahoma, Arial, sans-serif !important;
+  font-size: 18px !important;
+  color: #64748b !important;
+}
+
+@media (max-width: 720px) {
+  body:not([data-panel-role]) .home-location-map-card {
+    padding: 10px !important;
+  }
+
+  body:not([data-panel-role]) .home-neshan-map {
+    min-height: 270px !important;
+    border-radius: 18px !important;
+    overflow: hidden !important;
+  }
+
+  body:not([data-panel-role]) .leaflet-popup-content {
+    font-size: 11.5px !important;
+    line-height: 1.75 !important;
+    min-width: 145px !important;
+    max-width: 180px !important;
+    margin: 10px 12px !important;
+  }
+
+  body:not([data-panel-role]) .leaflet-control-zoom a {
+    width: 28px !important;
+    height: 28px !important;
+    line-height: 28px !important;
+    font-size: 16px !important;
+  }
+}
+
+
+/* NoorVista 3.0.18 — hero vertical spacing polish
+   Reduces excessive empty space above and below the homepage hero without touching content/layout logic. */
+
+/* Desktop and tablet hero: tighter but still premium */
+@media (min-width: 981px) {
+  body:not([data-panel-role]) .hero,
+  body:not([data-panel-role]) .hero.public-hero,
+  body:not([data-panel-role]) section.hero {
+    min-height: auto !important;
+    padding-top: 72px !important;
+    padding-bottom: 72px !important;
+  }
+
+  body:not([data-panel-role]) .hero .container,
+  body:not([data-panel-role]) .hero-grid,
+  body:not([data-panel-role]) .hero .hero-grid {
+    min-height: auto !important;
+    align-items: center !important;
+  }
+
+  body:not([data-panel-role]) .hero-visual,
+  body:not([data-panel-role]) .hero-media,
+  body:not([data-panel-role]) .doctor-visual,
+  body:not([data-panel-role]) .hero-gallery {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  body:not([data-panel-role]) .hero-content,
+  body:not([data-panel-role]) .hero-copy {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  body:not([data-panel-role]) .hero h1 {
+    margin-top: 16px !important;
+    margin-bottom: 18px !important;
+  }
+
+  body:not([data-panel-role]) .hero p {
+    margin-bottom: 24px !important;
+  }
+}
+
+/* Large desktop: keep enough breathing room, but remove the huge blank band */
+@media (min-width: 1280px) {
+  body:not([data-panel-role]) .hero,
+  body:not([data-panel-role]) .hero.public-hero,
+  body:not([data-panel-role]) section.hero {
+    padding-top: 78px !important;
+    padding-bottom: 78px !important;
+  }
+}
+
+/* The next services section should start closer to hero */
+body:not([data-panel-role]) .hero + .section,
+body:not([data-panel-role]) .hero + section,
+body:not([data-panel-role]) #services {
+  margin-top: 0 !important;
+}
+
+/* Mobile: keep floating button safety, but remove extra empty vertical space */
+@media (max-width: 720px) {
+  body:not([data-panel-role]) .hero,
+  body:not([data-panel-role]) .hero.public-hero,
+  body:not([data-panel-role]) section.hero {
+    min-height: auto !important;
+    padding-top: 28px !important;
+    padding-bottom: 112px !important;
+  }
+
+  body:not([data-panel-role]) .hero h1 {
+    margin-top: 14px !important;
+    margin-bottom: 14px !important;
+  }
+
+  body:not([data-panel-role]) .hero p {
+    margin-bottom: 18px !important;
+  }
+
+  body:not([data-panel-role]) .hero .trust-row {
+    margin-top: 20px !important;
+  }
+}
+
+/* Medium mobile/tablet */
+@media (min-width: 721px) and (max-width: 980px) {
+  body:not([data-panel-role]) .hero,
+  body:not([data-panel-role]) .hero.public-hero,
+  body:not([data-panel-role]) section.hero {
+    min-height: auto !important;
+    padding-top: 56px !important;
+    padding-bottom: 64px !important;
+  }
+}
+
+
+/* NoorVista 3.0.19 — public behavior visual safety */
+body:not([data-panel-role]) .chat-booking-action,
+body:not([data-panel-role]) .chat-action-btn[data-chat-booking] {
+  cursor: pointer !important;
+}
+
+body:not([data-panel-role]) .chatbot-panel[aria-hidden="true"] {
+  pointer-events: none !important;
+}
+
+body:not([data-panel-role]) .chatbot-panel.open,
+body:not([data-panel-role]) .chatbot-panel[aria-hidden="false"] {
+  pointer-events: auto !important;
+}

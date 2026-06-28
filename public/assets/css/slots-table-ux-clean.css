@@ -1,0 +1,84 @@
+/* NOORVISTA appointment-slots table UX clean */
+
+body[data-appointment-page="slots"] #slotsTableBody td:nth-child(7),
+body[data-appointment-page="slots"] #slotsTableBody td:nth-child(8),
+body[data-appointment-page="slots"] #slotsTableBody td:nth-child(9) {
+  vertical-align: middle !important;
+}
+
+body[data-appointment-page="slots"] .slot-time-stack {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+  align-items: flex-start !important;
+}
+
+body[data-appointment-page="slots"] .slot-time-stack small {
+  color: #075985 !important;
+  font-weight: 950 !important;
+  font-size: 11.5px !important;
+  background: #e0f2fe !important;
+  border: 1px solid rgba(14, 165, 233, .18) !important;
+  border-radius: 999px !important;
+  padding: 2px 8px !important;
+}
+
+body[data-appointment-page="slots"] .slot-patient {
+  display: inline-flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+  min-width: 110px !important;
+  line-height: 1.5 !important;
+}
+
+body[data-appointment-page="slots"] .slot-patient strong {
+  font-size: 12px !important;
+  color: #0f172a !important;
+  font-weight: 950 !important;
+}
+
+body[data-appointment-page="slots"] .slot-patient small {
+  font-size: 11px !important;
+  color: #64748b !important;
+  direction: ltr !important;
+  unicode-bidi: plaintext !important;
+}
+
+body[data-appointment-page="slots"] .slot-free {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 25px !important;
+  padding: 3px 12px !important;
+  border-radius: 999px !important;
+  background: #ecfeff !important;
+  color: #0e7490 !important;
+  font-size: 11.5px !important;
+  font-weight: 950 !important;
+}
+
+body[data-appointment-page="slots"] .slot-action-muted {
+  color: #94a3b8 !important;
+  font-weight: 900 !important;
+}
+
+.appt-badge.pending {
+  background: #fef3c7 !important;
+  color: #92400e !important;
+}
+
+.appt-badge.booked,
+.appt-badge.reserved {
+  background: #dbeafe !important;
+  color: #1d4ed8 !important;
+}
+
+.appt-badge.confirmed {
+  background: #dcfce7 !important;
+  color: #166534 !important;
+}
+
+.appt-badge.cancelled {
+  background: #fee2e2 !important;
+  color: #991b1b !important;
+}

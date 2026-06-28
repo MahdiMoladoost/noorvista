@@ -1,0 +1,32 @@
+:root{--pay-ink:#123247;--pay-muted:#64798a;--pay-line:#d3e4ed;--pay-primary:#087ead;--pay-success:#08785b;--pay-danger:#be123c}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;direction:rtl;font-family:Vazir,Shabnam,Tahoma,Arial,sans-serif;color:var(--pay-ink);background:radial-gradient(circle at 12% 8%,rgba(14,165,233,.15),transparent 26rem),linear-gradient(180deg,#f5fbfe,#edf5f9)}
+.nv-pay-shell{width:min(760px,100%)}
+.nv-pay-brand{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:18px;text-decoration:none;color:var(--pay-ink)}
+.nv-pay-brand__mark{width:50px;height:50px;display:grid;place-items:center;border-radius:17px;background:linear-gradient(135deg,#0ea5e9,#0878ad);color:#fff;font-size:1.35rem;box-shadow:0 12px 28px rgba(8,126,173,.22)}
+.nv-pay-brand strong{display:block;font-size:1rem}.nv-pay-brand small{display:block;margin-top:3px;color:#0878ad;font-weight:800}
+.nv-pay-card{overflow:hidden;border:1px solid #c8dfeb;border-radius:27px;background:#fff;box-shadow:0 28px 80px rgba(8,49,70,.16)}
+.nv-pay-head{padding:24px 26px;border-bottom:1px solid #deebf2;background:linear-gradient(180deg,#f7fcff,#fff);text-align:center}
+.nv-pay-head__icon{width:64px;height:64px;display:grid;place-items:center;margin:0 auto 12px;border-radius:20px;background:#e6f7ff;color:#087ead;font-size:1.65rem}
+.nv-pay-head h1{margin:0;font-size:clamp(1.25rem,2.5vw,1.65rem)}
+.nv-pay-head p{margin:9px 0 0;color:var(--pay-muted);font-size:.86rem;line-height:1.9}
+.nv-pay-body{padding:24px 26px}
+.nv-pay-status{min-height:170px;display:grid;place-items:center;text-align:center;color:var(--pay-muted)}
+.nv-pay-spinner{width:42px;height:42px;margin:0 auto 12px;border:4px solid #dff2fa;border-top-color:#087ead;border-radius:50%;animation:nvPaySpin .8s linear infinite}
+.nv-pay-summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.nv-pay-summary div{min-width:0;padding:14px;border:1px solid #dbe8ef;border-radius:15px;background:#f9fcfe}
+.nv-pay-summary span{display:block;color:#718493;font-size:.72rem}.nv-pay-summary strong{display:block;margin-top:5px;color:#173e54;font-size:.88rem;overflow-wrap:anywhere}
+.nv-pay-amount{margin:16px 0;padding:18px;border:1px solid #bae6fd;border-radius:18px;background:#effaff;text-align:center}
+.nv-pay-amount span{display:block;color:#557083;font-size:.76rem}.nv-pay-amount strong{display:block;margin-top:6px;color:#075985;font-size:1.45rem}
+.nv-pay-notice{display:flex;gap:10px;padding:13px 14px;border:1px solid #fde68a;border-radius:14px;background:#fffbeb;color:#92400e;font-size:.8rem;line-height:1.85}
+.nv-pay-countdown{margin-top:14px;text-align:center;color:#526d7e;font-size:.8rem}.nv-pay-countdown strong{color:#be123c;font-size:1rem}
+.nv-pay-actions{display:flex;gap:10px;margin-top:20px}
+.nv-pay-btn{min-height:48px;flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 16px;border:0;border-radius:14px;font:inherit;font-weight:900;cursor:pointer;text-decoration:none}.nv-pay-btn:disabled{opacity:.55;cursor:not-allowed}
+.nv-pay-btn--primary{background:linear-gradient(135deg,#0ea5e9,#0878ad);color:#fff;box-shadow:0 11px 26px rgba(8,126,173,.2)}
+.nv-pay-btn--secondary{border:1px solid #cbdfe9;background:#f5fafc;color:#315c72}
+.nv-pay-message{padding:18px;border-radius:17px;text-align:center;line-height:1.95}.nv-pay-message.is-error{border:1px solid #fecdd3;background:#fff1f2;color:#be123c}.nv-pay-message.is-success{border:1px solid #a7f3d0;background:#ecfdf5;color:#067647}
+.nv-pay-message code{display:inline-block;margin-top:10px;padding:7px 10px;border-radius:9px;background:#fff;color:#075985;font:inherit;font-weight:900;user-select:all}
+.nv-pay-footer{margin-top:15px;text-align:center;color:#64798a;font-size:.75rem;line-height:1.8}
+@keyframes nvPaySpin{to{transform:rotate(360deg)}}
+@media(max-width:560px){body{padding:12px}.nv-pay-card{border-radius:21px}.nv-pay-head,.nv-pay-body{padding:19px 16px}.nv-pay-summary{grid-template-columns:1fr}.nv-pay-actions{flex-direction:column}.nv-pay-btn{width:100%}}
+@media(prefers-reduced-motion:reduce){.nv-pay-spinner{animation:none}}

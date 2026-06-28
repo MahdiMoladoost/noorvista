@@ -1,0 +1,613 @@
+/* NOORVISTA Persian/Jalali Date Picker */
+.nv-jalali-input,
+.nv-jalali-date,
+.nv-jalali-datetime {
+  direction: ltr !important;
+  text-align: center !important;
+  font-weight: 850 !important;
+  letter-spacing: .2px;
+  cursor: pointer;
+}
+
+.nv-date-help {
+  display: block;
+  margin-top: 6px;
+  color: #64748b;
+  font-size: 11.5px;
+  font-weight: 800;
+}
+
+.nv-jalali-picker {
+  position: absolute;
+  z-index: 6000;
+  display: none;
+  direction: rtl;
+  width: 310px;
+  padding: 14px;
+  border-radius: 22px;
+  background: rgba(255,255,255,.98);
+  border: 1px solid #bae6fd;
+  box-shadow: 0 24px 72px rgba(15,23,42,.20);
+  font-family: Vazir, Shabnam, Tahoma, Arial, sans-serif;
+  color: #0f172a;
+  user-select: none;
+}
+
+.nv-jalali-picker.show { display: block; }
+
+.nv-jp-head {
+  display: grid;
+  grid-template-columns: 40px 1fr 40px;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.nv-jp-head strong {
+  text-align: center;
+  color: #075985;
+  font-size: 15.5px;
+  font-weight: 950;
+  line-height: 1.6;
+}
+
+.nv-jp-head button,
+.nv-jp-actions button {
+  min-height: 38px;
+  border: 0;
+  border-radius: 14px;
+  background: #e0f2fe;
+  color: #075985;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 950;
+  cursor: pointer;
+}
+
+.nv-jp-head button:hover,
+.nv-jp-actions button:hover {
+  background: #bae6fd;
+}
+
+.nv-jp-week,
+.nv-jp-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.nv-jp-week {
+  margin-bottom: 8px;
+}
+
+.nv-jp-week span {
+  min-height: 28px;
+  display: grid;
+  place-items: center;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 950;
+}
+
+.nv-jp-days span,
+.nv-jp-day {
+  min-height: 36px;
+}
+
+.nv-jp-day {
+  border: 1px solid transparent;
+  border-radius: 13px;
+  background: #f8fbff;
+  color: #334155;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.nv-jp-day:hover {
+  border-color: #38bdf8;
+  background: #e0f2fe;
+  color: #075985;
+}
+
+.nv-jp-day.active {
+  background: linear-gradient(135deg,#0891b2,#075985);
+  color: #ffffff;
+  box-shadow: 0 10px 22px rgba(8,145,178,.22);
+}
+
+.nv-jp-time {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 8px;
+  align-items: center;
+}
+
+.nv-jp-time label {
+  color: #475569;
+  font-size: 12px;
+  font-weight: 950;
+}
+
+.nv-jp-time input {
+  width: 100%;
+  min-height: 38px;
+  border: 1px solid #cbd5e1;
+  border-radius: 13px;
+  padding: 6px 10px;
+  direction: ltr;
+  text-align: center;
+}
+
+.nv-jp-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.nv-jp-actions button {
+  font-size: 12.5px;
+}
+
+@media (max-width: 520px) {
+  .nv-jalali-picker {
+    position: fixed;
+    left: 12px !important;
+    right: 12px !important;
+    top: auto !important;
+    bottom: 12px !important;
+    width: auto;
+    min-width: 0 !important;
+  }
+}
+
+/* ==========================================================
+   NoorVista Persian calendar viewport + header refinement v2.1.68
+========================================================== */
+.nv-jalali-picker,
+.persian-datepicker {
+  position: fixed !important;
+  width: 340px;
+  max-width: calc(100vw - 24px) !important;
+  max-height: calc(100dvh - 24px) !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  border: 1px solid #b9ddeb !important;
+  border-radius: 22px !important;
+  background: rgba(255,255,255,.985) !important;
+  box-shadow: 0 24px 72px rgba(15,55,78,.24), 0 2px 10px rgba(15,55,78,.08) !important;
+  transform-origin: center top;
+}
+.nv-jalali-picker[data-placement="top"],
+.persian-datepicker[data-placement="top"] { transform-origin: center bottom; }
+.nv-jalali-picker.is-measuring { visibility: hidden !important; pointer-events: none !important; }
+.nv-jalali-picker.show { animation: nvCalendarReveal .14s ease-out both; }
+@keyframes nvCalendarReveal {
+  from { opacity: 0; transform: translateY(4px) scale(.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.nv-jalali-picker[data-placement="top"].show {
+  animation-name: nvCalendarRevealTop;
+}
+@keyframes nvCalendarRevealTop {
+  from { opacity: 0; transform: translateY(-4px) scale(.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.nv-jalali-picker .nv-jp-head,
+.persian-datepicker .nv-jp-head {
+  display: grid !important;
+  grid-template-columns: 42px minmax(0,1fr) 42px !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin-bottom: 12px !important;
+}
+.nv-jalali-picker .nv-jp-period,
+.persian-datepicker .nv-jp-period {
+  display: grid;
+  min-width: 0;
+  gap: 7px;
+}
+.nv-jalali-picker .nv-jp-period-label,
+.persian-datepicker .nv-jp-period-label {
+  display: block;
+  min-width: 0;
+  color: #075985;
+  font-size: 14px;
+  font-weight: 950;
+  line-height: 1.45;
+  text-align: center;
+  white-space: nowrap;
+  overflow: visible;
+}
+.nv-jalali-picker .nv-jp-selects,
+.persian-datepicker .nv-jp-selects {
+  display: grid !important;
+  grid-template-columns: minmax(126px,1.35fr) minmax(86px,.8fr) !important;
+  gap: 7px !important;
+  min-width: 0;
+}
+.nv-jalali-picker .nv-calendar-listbox-trigger,
+.persian-datepicker .nv-calendar-listbox-trigger {
+  height: 40px !important;
+  min-height: 40px !important;
+  padding-inline: 1.8rem !important;
+  font-size: 12.5px !important;
+  border-radius: 13px !important;
+}
+.nv-jalali-picker .nv-calendar-listbox-value,
+.persian-datepicker .nv-calendar-listbox-value {
+  overflow: visible !important;
+  text-overflow: clip !important;
+  white-space: nowrap !important;
+}
+.nv-jalali-picker .nv-calendar-listbox-menu,
+.persian-datepicker .nv-calendar-listbox-menu {
+  top: calc(100% + 7px);
+  bottom: auto;
+  z-index: 100500 !important;
+}
+.nv-jalali-picker .nv-calendar-listbox.open-up .nv-calendar-listbox-menu,
+.persian-datepicker .nv-calendar-listbox.open-up .nv-calendar-listbox-menu {
+  top: auto !important;
+  bottom: calc(100% + 7px) !important;
+}
+.nv-jalali-picker .nv-jp-head > button,
+.persian-datepicker .nv-jp-head > button {
+  width: 42px !important;
+  min-width: 42px !important;
+  height: 42px !important;
+  min-height: 42px !important;
+  display: grid !important;
+  place-items: center !important;
+  padding: 0 !important;
+  border: 1px solid #cde7f2 !important;
+  border-radius: 13px !important;
+  color: #075985 !important;
+  background: linear-gradient(180deg,#f8fdff,#eaf8ff) !important;
+  font-size: 18px !important;
+}
+.nv-jalali-picker .nv-jp-head > button:hover,
+.nv-jalali-picker .nv-jp-head > button:focus-visible,
+.persian-datepicker .nv-jp-head > button:hover,
+.persian-datepicker .nv-jp-head > button:focus-visible {
+  color: #fff !important;
+  border-color: #168dc6 !important;
+  background: #168dc6 !important;
+  box-shadow: 0 0 0 4px rgba(22,141,198,.15) !important;
+  outline: none !important;
+}
+.nv-jalali-picker::-webkit-scrollbar,
+.persian-datepicker::-webkit-scrollbar { width: 7px; }
+.nv-jalali-picker::-webkit-scrollbar-thumb,
+.persian-datepicker::-webkit-scrollbar-thumb { background: #bae6fd; border-radius: 999px; }
+@media (max-width: 520px) {
+  .nv-jalali-picker,
+  .persian-datepicker {
+    position: fixed !important;
+    width: min(340px,calc(100vw - 24px)) !important;
+    min-width: 0 !important;
+    right: auto !important;
+    bottom: auto !important;
+    padding: 12px !important;
+  }
+  .nv-jalali-picker .nv-jp-head,
+  .persian-datepicker .nv-jp-head {
+    grid-template-columns: 40px minmax(0,1fr) 40px !important;
+    gap: 6px !important;
+  }
+  .nv-jalali-picker .nv-jp-selects,
+  .persian-datepicker .nv-jp-selects {
+    grid-template-columns: minmax(112px,1.3fr) minmax(78px,.8fr) !important;
+    gap: 5px !important;
+  }
+  .nv-jalali-picker .nv-calendar-listbox-trigger,
+  .persian-datepicker .nv-calendar-listbox-trigger {
+    padding-inline: 1.55rem !important;
+    font-size: 12px !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nv-jalali-picker.show { animation: none !important; }
+}
+
+/* ==========================================================
+   NoorVista compact Persian calendar refinement v2.1.69
+   Compact single-row header, fixed day cells and viewport-safe sizing.
+========================================================== */
+.nv-jalali-picker,
+.persian-datepicker {
+  width: 320px !important;
+  max-width: calc(100vw - 20px) !important;
+  padding: 12px !important;
+  border-radius: 18px !important;
+  overflow-x: hidden !important;
+}
+
+.nv-jalali-picker .nv-jp-head,
+.persian-datepicker .nv-jp-head {
+  position: relative;
+  display: grid !important;
+  grid-template-columns: 40px minmax(0, 1fr) 40px !important;
+  align-items: center !important;
+  gap: 7px !important;
+  margin: 0 0 9px !important;
+  padding: 0 !important;
+}
+
+.nv-jalali-picker .nv-jp-period-label.tw-sr-only,
+.persian-datepicker .nv-jp-period-label.tw-sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.nv-jalali-picker .nv-jp-selects,
+.persian-datepicker .nv-jp-selects {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.2fr) minmax(88px, .8fr) !important;
+  align-items: center !important;
+  gap: 6px !important;
+  min-width: 0 !important;
+}
+
+.nv-jalali-picker .nv-calendar-listbox-trigger,
+.persian-datepicker .nv-calendar-listbox-trigger {
+  width: 100% !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  padding-inline: 30px 12px !important;
+  border-radius: 12px !important;
+  font-size: 12.5px !important;
+  line-height: 1 !important;
+}
+
+.nv-jalali-picker .nv-jp-head > button,
+.persian-datepicker .nv-jp-head > button {
+  width: 40px !important;
+  min-width: 40px !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  border-radius: 12px !important;
+  line-height: 1 !important;
+}
+
+.nv-jalali-picker .nv-jp-week,
+.nv-jalali-picker .nv-jp-days,
+.persian-datepicker .nv-jp-week,
+.persian-datepicker .nv-jp-days {
+  display: grid !important;
+  grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+  gap: 3px !important;
+  direction: rtl !important;
+}
+
+.nv-jalali-picker .nv-jp-week,
+.persian-datepicker .nv-jp-week {
+  margin: 0 0 4px !important;
+}
+
+.nv-jalali-picker .nv-jp-week > span,
+.persian-datepicker .nv-jp-week > span {
+  display: grid !important;
+  place-items: center !important;
+  min-width: 0 !important;
+  height: 24px !important;
+  min-height: 24px !important;
+  padding: 0 !important;
+  color: #64748b !important;
+  font-size: 11.5px !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+}
+
+.nv-jalali-picker .nv-jp-days,
+.persian-datepicker .nv-jp-days {
+  grid-auto-rows: 38px !important;
+}
+
+.nv-jalali-picker .nv-jp-days > span,
+.persian-datepicker .nv-jp-days > span,
+.nv-jalali-picker .nv-jp-day,
+.persian-datepicker .nv-jp-day {
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 38px !important;
+  min-height: 38px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: 10px !important;
+  line-height: 1 !important;
+}
+
+.nv-jalali-picker .nv-jp-day,
+.persian-datepicker .nv-jp-day {
+  display: grid !important;
+  place-items: center !important;
+  border: 1px solid transparent !important;
+  background: transparent !important;
+  color: #334155 !important;
+  font-family: inherit !important;
+  font-size: 13px !important;
+  font-weight: 850 !important;
+  cursor: pointer !important;
+}
+
+.nv-jalali-picker .nv-jp-day:hover,
+.nv-jalali-picker .nv-jp-day:focus-visible,
+.persian-datepicker .nv-jp-day:hover,
+.persian-datepicker .nv-jp-day:focus-visible {
+  border-color: #7dd3fc !important;
+  background: #eaf8ff !important;
+  color: #075985 !important;
+  outline: none !important;
+}
+
+.nv-jalali-picker .nv-jp-day.today:not(.active),
+.persian-datepicker .nv-jp-day.today:not(.active) {
+  border-color: #bae6fd !important;
+  background: #f0f9ff !important;
+  color: #0369a1 !important;
+}
+
+.nv-jalali-picker .nv-jp-day.active,
+.persian-datepicker .nv-jp-day.active {
+  border-color: #0284c7 !important;
+  background: linear-gradient(135deg, #0ea5e9, #0878ad) !important;
+  color: #fff !important;
+  box-shadow: 0 6px 14px rgba(2, 132, 199, .22) !important;
+}
+
+.nv-jalali-picker .nv-jp-actions,
+.persian-datepicker .nv-jp-actions {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 8px !important;
+  margin-top: 9px !important;
+  padding-top: 9px !important;
+  border-top: 1px solid #e2e8f0 !important;
+}
+
+.nv-jalali-picker .nv-jp-actions button,
+.persian-datepicker .nv-jp-actions button {
+  min-height: 40px !important;
+  padding: 0 10px !important;
+  border: 1px solid #bae6fd !important;
+  border-radius: 11px !important;
+  background: #f0f9ff !important;
+  color: #075985 !important;
+  font-family: inherit !important;
+  font-size: 12px !important;
+  font-weight: 900 !important;
+  cursor: pointer !important;
+}
+
+.nv-jalali-picker .nv-jp-actions button:last-child,
+.persian-datepicker .nv-jp-actions button:last-child {
+  border-color: #fecdd3 !important;
+  background: #fff1f2 !important;
+  color: #be123c !important;
+}
+
+@media (max-width: 420px) {
+  .nv-jalali-picker,
+  .persian-datepicker {
+    width: calc(100vw - 16px) !important;
+    max-width: calc(100vw - 16px) !important;
+    padding: 10px !important;
+    border-radius: 16px !important;
+  }
+
+  .nv-jalali-picker .nv-jp-head,
+  .persian-datepicker .nv-jp-head {
+    grid-template-columns: 38px minmax(0, 1fr) 38px !important;
+    gap: 5px !important;
+  }
+
+  .nv-jalali-picker .nv-jp-head > button,
+  .persian-datepicker .nv-jp-head > button {
+    width: 38px !important;
+    min-width: 38px !important;
+    height: 38px !important;
+    min-height: 38px !important;
+  }
+
+  .nv-jalali-picker .nv-jp-selects,
+  .persian-datepicker .nv-jp-selects {
+    grid-template-columns: minmax(0, 1.15fr) minmax(78px, .85fr) !important;
+    gap: 5px !important;
+  }
+
+  .nv-jalali-picker .nv-calendar-listbox-trigger,
+  .persian-datepicker .nv-calendar-listbox-trigger {
+    height: 38px !important;
+    min-height: 38px !important;
+    padding-inline: 26px 9px !important;
+    font-size: 12px !important;
+  }
+
+  .nv-jalali-picker .nv-jp-days,
+  .persian-datepicker .nv-jp-days {
+    grid-auto-rows: 36px !important;
+  }
+
+  .nv-jalali-picker .nv-jp-days > span,
+  .persian-datepicker .nv-jp-days > span,
+  .nv-jalali-picker .nv-jp-day,
+  .persian-datepicker .nv-jp-day {
+    height: 36px !important;
+    min-height: 36px !important;
+  }
+}
+
+/* ==========================================================
+   NoorVista Persian calendar header text alignment v2.1.70
+   Keep month/year labels on the right and reserve a fixed
+   chevron lane so labels never sit underneath dropdown arrows.
+========================================================== */
+.nv-jalali-picker .nv-jp-selects,
+.persian-datepicker .nv-jp-selects {
+  direction: rtl !important;
+}
+
+.nv-jalali-picker .nv-jp-month-shell,
+.nv-jalali-picker .nv-jp-year-shell,
+.persian-datepicker .nv-jp-month-shell,
+.persian-datepicker .nv-jp-year-shell {
+  min-width: 0 !important;
+  direction: rtl !important;
+}
+
+.nv-jalali-picker .nv-calendar-listbox-trigger,
+.persian-datepicker .nv-calendar-listbox-trigger {
+  justify-content: flex-start !important;
+  overflow: hidden !important;
+  padding-right: 13px !important;
+  padding-left: 34px !important;
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+.nv-jalali-picker .nv-calendar-listbox-value,
+.persian-datepicker .nv-calendar-listbox-value {
+  display: block !important;
+  min-width: 0 !important;
+  width: 100% !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  direction: rtl !important;
+  text-align: right !important;
+  line-height: 1.35 !important;
+}
+
+.nv-jalali-picker .nv-calendar-listbox-chevron,
+.persian-datepicker .nv-calendar-listbox-chevron {
+  left: 10px !important;
+  right: auto !important;
+  flex: 0 0 18px !important;
+}
+
+@media (max-width: 420px) {
+  .nv-jalali-picker .nv-calendar-listbox-trigger,
+  .persian-datepicker .nv-calendar-listbox-trigger {
+    padding-right: 10px !important;
+    padding-left: 30px !important;
+  }
+
+  .nv-jalali-picker .nv-calendar-listbox-chevron,
+  .persian-datepicker .nv-calendar-listbox-chevron {
+    left: 8px !important;
+  }
+}

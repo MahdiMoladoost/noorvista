@@ -1,0 +1,245 @@
+/* NoorVista 2.1.29 — unified patient detail modal */
+#viewPatientModal .nv-patient-detail-modal {
+  width: min(860px, calc(100vw - 28px)) !important;
+  max-width: 860px !important;
+  max-height: min(88dvh, 840px) !important;
+  overflow: hidden !important;
+  border-radius: 22px !important;
+}
+
+#viewPatientModal .modal-header {
+  flex: 0 0 auto;
+  min-height: 68px;
+  padding: 15px 18px !important;
+  border-bottom: 1px solid #dceaf0;
+  background: linear-gradient(135deg, #f0fbff, #ffffff);
+}
+
+#viewPatientModal .modal-header h3 {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0;
+  color: #123f56;
+  font-size: 16px;
+  font-weight: 950;
+}
+
+#viewPatientModal .nv-patient-detail-body {
+  overflow-y: auto !important;
+  padding: 16px 18px 18px !important;
+  background: #f7fbfd;
+}
+
+#viewPatientModal .nv-patient-detail-hero {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 14px;
+  padding: 15px;
+  border: 1px solid #cce8f1;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #ecfaff, #ffffff 65%);
+  box-shadow: 0 10px 25px rgba(14, 91, 126, .06);
+}
+
+#viewPatientModal .nv-patient-detail-avatar {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  color: #fff;
+  background: linear-gradient(135deg, #20a8d9, #0875a7);
+  font-size: 21px;
+  font-weight: 950;
+  box-shadow: 0 10px 22px rgba(8, 117, 167, .2);
+}
+
+#viewPatientModal .nv-patient-detail-copy {
+  min-width: 0;
+}
+
+#viewPatientModal .nv-patient-detail-copy > small,
+#viewPatientModal .nv-patient-detail-copy > strong,
+#viewPatientModal .nv-patient-detail-copy > span {
+  display: block;
+}
+
+#viewPatientModal .nv-patient-detail-copy > small {
+  color: #6f8793;
+  font-size: 10.5px;
+  font-weight: 850;
+}
+
+#viewPatientModal .nv-patient-detail-copy > strong {
+  margin-top: 2px;
+  overflow: hidden;
+  color: #123e54;
+  font-size: 17px;
+  font-weight: 950;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#viewPatientModal .nv-patient-detail-copy > span {
+  margin-top: 4px;
+  color: #607a88;
+  font-size: 11px;
+  font-weight: 750;
+  line-height: 1.8;
+}
+
+#viewPatientModal .nv-patient-detail-badges {
+  display: grid;
+  justify-items: end;
+  gap: 7px;
+}
+
+#viewPatientModal .nv-patient-detail-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 950;
+  white-space: nowrap;
+}
+
+#viewPatientModal .nv-patient-detail-badge.is-active {
+  color: #047857;
+  background: #dff8eb;
+}
+
+#viewPatientModal .nv-patient-detail-badge.is-inactive {
+  color: #b42318;
+  background: #feeceb;
+}
+
+#viewPatientModal .nv-patient-detail-badge.is-count {
+  color: #075985;
+  background: #e0f2fe;
+}
+
+#viewPatientModal .nv-patient-detail-section {
+  margin-top: 12px;
+  padding: 13px;
+  border: 1px solid #dceaf0;
+  border-radius: 17px;
+  background: #fff;
+}
+
+#viewPatientModal .nv-patient-detail-section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 10px;
+  color: #24556c;
+  font-size: 12px;
+  font-weight: 950;
+}
+
+#viewPatientModal .nv-patient-detail-section-title::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #1a9fd0;
+  box-shadow: 0 0 0 4px #e5f6fc;
+}
+
+#viewPatientModal .nv-patient-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+#viewPatientModal .nv-patient-detail-item {
+  min-width: 0;
+  min-height: 72px;
+  display: grid;
+  align-content: center;
+  gap: 5px;
+  padding: 11px 12px;
+  border: 1px solid #e1edf2;
+  border-radius: 14px;
+  background: #fbfdfe;
+}
+
+#viewPatientModal .nv-patient-detail-item.is-full {
+  grid-column: 1 / -1;
+}
+
+#viewPatientModal .nv-patient-detail-label {
+  color: #7a8f9a;
+  font-size: 10px;
+  font-weight: 850;
+}
+
+#viewPatientModal .nv-patient-detail-value {
+  overflow-wrap: anywhere;
+  color: #153f54;
+  font-size: 12.5px;
+  font-weight: 950;
+  line-height: 1.9;
+  white-space: pre-line;
+}
+
+#viewPatientModal .nv-patient-detail-footer {
+  flex: 0 0 auto;
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 9px !important;
+  padding: 12px 18px 15px !important;
+  border-top: 1px solid #dceaf0;
+  background: #fff;
+}
+
+#viewPatientModal .nv-patient-detail-footer .btn {
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 44px !important;
+  margin: 0 !important;
+  font-weight: 900 !important;
+}
+
+@media (max-width: 620px) {
+  #viewPatientModal .nv-patient-detail-modal {
+    width: calc(100vw - 18px) !important;
+    max-height: calc(100dvh - 18px) !important;
+    border-radius: 18px !important;
+  }
+
+  #viewPatientModal .nv-patient-detail-body {
+    padding: 12px !important;
+  }
+
+  #viewPatientModal .nv-patient-detail-hero {
+    grid-template-columns: 50px minmax(0, 1fr);
+    padding: 12px;
+  }
+
+  #viewPatientModal .nv-patient-detail-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+  }
+
+  #viewPatientModal .nv-patient-detail-badges {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-items: stretch;
+  }
+
+  #viewPatientModal .nv-patient-detail-grid,
+  #viewPatientModal .nv-patient-detail-footer {
+    grid-template-columns: 1fr !important;
+  }
+
+  #viewPatientModal .nv-patient-detail-item.is-full {
+    grid-column: auto;
+  }
+}

@@ -1,0 +1,32 @@
+/* NoorVista 2.1.16 — notification table action spacing */
+body.nv3-dashboard[data-nv-page="notifications"] td.table-actions {
+  min-width: 250px;
+  white-space: normal;
+  line-height: 1;
+}
+
+body.nv3-dashboard[data-nv-page="notifications"] td.table-actions .action-btn {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 36px;
+  margin: 4px 3px !important;
+  padding: 7px 10px !important;
+  border-radius: 10px !important;
+  vertical-align: middle;
+}
+
+body.nv3-dashboard[data-nv-page="notifications"] td.table-actions .action-btn i {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 760px) {
+  body.nv3-dashboard[data-nv-page="notifications"] td.table-actions {
+    min-width: 210px;
+  }
+  body.nv3-dashboard[data-nv-page="notifications"] td.table-actions .action-btn {
+    width: calc(50% - 8px);
+    margin: 4px 2px !important;
+  }
+}

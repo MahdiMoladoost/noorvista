@@ -1,0 +1,1531 @@
+:root {
+  --nv-booking-ink: #123247;
+  --nv-booking-muted: #607589;
+  --nv-booking-line: #d5e5ee;
+  --nv-booking-soft: #f6fbfe;
+  --nv-booking-primary: #087ead;
+  --nv-booking-primary-dark: #075985;
+  --nv-booking-success: #08785b;
+  --nv-booking-warning: #a16207;
+}
+
+.nv-public-booking[hidden] { display: none !important; }
+
+.nv-public-booking {
+  position: fixed;
+  inset: 0;
+  z-index: 120000;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  direction: rtl;
+  font-family: Vazir, Shabnam, Tahoma, Arial, sans-serif;
+}
+
+.nv-public-booking * { box-sizing: border-box; }
+
+.nv-public-booking__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 30, 45, .72);
+  backdrop-filter: blur(7px);
+}
+
+.nv-public-booking__panel {
+  position: relative;
+  width: min(980px, 100%);
+  max-height: min(94dvh, 900px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(186, 230, 253, .9);
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 34px 100px rgba(5, 35, 52, .34);
+}
+
+.nv-public-booking__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: start;
+  padding: 22px 24px 18px;
+  border-bottom: 1px solid #dcebf3;
+  background:
+    radial-gradient(circle at 8% 0, rgba(14, 165, 233, .13), transparent 14rem),
+    linear-gradient(180deg, #f8fcff, #fff);
+}
+
+.nv-public-booking__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  color: #0878a5;
+  font-size: .78rem;
+  font-weight: 900;
+}
+
+.nv-public-booking__header h2 {
+  margin: 0;
+  color: var(--nv-booking-ink);
+  font-size: clamp(1.2rem, 2vw, 1.65rem);
+  line-height: 1.55;
+}
+
+.nv-public-booking__header p {
+  margin: 7px 0 0;
+  color: var(--nv-booking-muted);
+  font-size: .87rem;
+  line-height: 1.9;
+}
+
+.nv-public-booking__close {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #fecdd3;
+  border-radius: 14px;
+  background: #fff1f2;
+  color: #be123c;
+  font: inherit;
+  font-size: 1.45rem;
+  cursor: pointer;
+}
+
+.nv-public-booking__progress {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  padding: 14px 24px;
+  border-bottom: 1px solid #e3edf3;
+  background: #fbfdff;
+}
+
+.nv-public-booking__progress-item {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 10px;
+  border: 1px solid transparent;
+  border-radius: 13px;
+  color: #718496;
+  font-size: .76rem;
+  font-weight: 850;
+}
+
+.nv-public-booking__progress-item span:first-child {
+  width: 26px;
+  height: 26px;
+  flex: 0 0 26px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  background: #edf4f8;
+  color: #50697a;
+}
+
+.nv-public-booking__progress-item.is-active {
+  border-color: #bae6fd;
+  background: #eefaff;
+  color: #075985;
+}
+
+.nv-public-booking__progress-item.is-active span:first-child,
+.nv-public-booking__progress-item.is-done span:first-child {
+  background: linear-gradient(135deg, #0ea5e9, #0878ad);
+  color: #fff;
+}
+
+.nv-public-booking__progress-item.is-done { color: #08785b; }
+
+.nv-public-booking__body {
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow: auto;
+  padding: 22px 24px 26px;
+  background: #fff;
+}
+
+.nv-booking-step[hidden] { display: none !important; }
+
+.nv-booking-step__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.nv-booking-step__head h3 {
+  margin: 0;
+  color: var(--nv-booking-ink);
+  font-size: 1.08rem;
+}
+
+.nv-booking-step__head p {
+  margin: 6px 0 0;
+  color: var(--nv-booking-muted);
+  font-size: .84rem;
+  line-height: 1.85;
+}
+
+.nv-booking-back {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border: 1px solid #c9dfe9;
+  border-radius: 13px;
+  background: #f6fbfe;
+  color: #075985;
+  font: inherit;
+  font-size: .82rem;
+  font-weight: 850;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.nv-booking-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.nv-booking-choice {
+  min-width: 0;
+  min-height: 132px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: right;
+  padding: 17px;
+  border: 1px solid var(--nv-booking-line);
+  border-radius: 19px;
+  background: linear-gradient(180deg, #fff, #f8fcff);
+  color: var(--nv-booking-ink);
+  font: inherit;
+  cursor: pointer;
+  transition: border-color .16s ease, transform .16s ease, box-shadow .16s ease, background .16s ease;
+}
+
+.nv-booking-choice:hover,
+.nv-booking-choice:focus-visible {
+  border-color: #5ec6ed;
+  background: #f1fbff;
+  box-shadow: 0 12px 28px rgba(8, 126, 173, .10);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.nv-booking-choice.is-selected {
+  border-color: #0ea5e9;
+  background: linear-gradient(180deg, #eaf9ff, #f8fdff);
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, .12);
+}
+
+.nv-booking-choice__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.nv-booking-choice__icon {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  background: #e0f5ff;
+  color: #0878a5;
+  font-size: 1.1rem;
+}
+
+.nv-booking-choice strong {
+  display: block;
+  min-width: 0;
+  color: #123b53;
+  font-size: .95rem;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+.nv-booking-choice p {
+  margin: 10px 0 0;
+  color: #607589;
+  font-size: .78rem;
+  line-height: 1.8;
+}
+
+.nv-booking-choice__meta {
+  margin-top: auto;
+  padding-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  color: #466579;
+  font-size: .74rem;
+}
+
+.nv-booking-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: #edf6fa;
+  color: #315b70;
+  font-weight: 800;
+}
+
+.nv-booking-months {
+  display: flex;
+  gap: 9px;
+  overflow-x: auto;
+  padding: 2px 1px 10px;
+  scrollbar-width: thin;
+}
+
+.nv-booking-month {
+  min-height: 42px;
+  flex: 0 0 auto;
+  padding: 8px 15px;
+  border: 1px solid #cfe1ea;
+  border-radius: 13px;
+  background: #fff;
+  color: #345c70;
+  font: inherit;
+  font-size: .82rem;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.nv-booking-month.is-selected {
+  border-color: #0ea5e9;
+  background: #eaf9ff;
+  color: #075985;
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, .11);
+}
+
+.nv-booking-days,
+.nv-booking-times {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.nv-booking-day,
+.nv-booking-time {
+  min-height: 76px;
+  display: grid;
+  place-items: center;
+  gap: 3px;
+  padding: 9px;
+  border: 1px solid #d4e4ed;
+  border-radius: 15px;
+  background: #fbfdff;
+  color: #244d63;
+  font: inherit;
+  cursor: pointer;
+}
+
+.nv-booking-day strong,
+.nv-booking-time strong { font-size: .9rem; }
+.nv-booking-day span,
+.nv-booking-time span { color: #708596; font-size: .72rem; }
+
+.nv-booking-day:hover,
+.nv-booking-time:hover,
+.nv-booking-day:focus-visible,
+.nv-booking-time:focus-visible,
+.nv-booking-day.is-selected,
+.nv-booking-time.is-selected {
+  border-color: #0ea5e9;
+  background: #eaf9ff;
+  color: #075985;
+  outline: none;
+}
+
+.nv-booking-time { min-height: 88px; }
+.nv-booking-time em { color: #08785b; font-size: .72rem; font-style: normal; font-weight: 850; }
+
+.nv-booking-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.nv-booking-field { min-width: 0; }
+.nv-booking-field.is-full { grid-column: 1 / -1; }
+.nv-booking-field label {
+  display: block;
+  margin-bottom: 8px;
+  color: #294f64;
+  font-size: .82rem;
+  font-weight: 850;
+}
+
+.nv-booking-field input,
+.nv-booking-field textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 11px 13px;
+  border: 1px solid #bfd5e1;
+  border-radius: 14px;
+  background: #f9fcfe;
+  color: #153a50;
+  font: inherit;
+  font-size: .9rem;
+}
+
+.nv-booking-field textarea { min-height: 92px; resize: vertical; }
+.nv-booking-field input:focus,
+.nv-booking-field textarea:focus {
+  border-color: #0ea5e9;
+  background: #fff;
+  outline: 3px solid rgba(14, 165, 233, .14);
+}
+
+.nv-booking-review {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 18px 0;
+  padding: 15px;
+  border: 1px solid #d8e7ef;
+  border-radius: 17px;
+  background: #f8fcfe;
+}
+
+.nv-booking-review div { min-width: 0; }
+.nv-booking-review span { display: block; color: #718596; font-size: .72rem; }
+.nv-booking-review strong { display: block; margin-top: 4px; color: #143d54; font-size: .86rem; overflow-wrap: anywhere; }
+
+.nv-booking-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #e2edf3;
+}
+
+.nv-booking-btn {
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 14px;
+  font: inherit;
+  font-size: .86rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.nv-booking-btn:disabled { opacity: .55; cursor: not-allowed; }
+.nv-booking-btn--primary { color: #fff; background: linear-gradient(135deg, #0ea5e9, #0878ad); box-shadow: 0 10px 24px rgba(8, 126, 173, .18); }
+.nv-booking-btn--secondary { color: #075985; background: #eaf6fb; border: 1px solid #c4deea; }
+
+.nv-booking-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 15px;
+  border: 1px solid #cfe2ec;
+  border-radius: 15px;
+  background: #f7fbfd;
+  color: #456579;
+  font-size: .82rem;
+  line-height: 1.85;
+}
+
+.nv-booking-message.is-error { border-color: #fecdd3; background: #fff1f2; color: #be123c; }
+.nv-booking-message.is-success { border-color: #a7f3d0; background: #ecfdf5; color: #067647; }
+
+.nv-booking-loading {
+  min-height: 180px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: #607589;
+}
+
+.nv-booking-spinner {
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 12px;
+  border: 4px solid #dff3fb;
+  border-top-color: #0a8dc1;
+  border-radius: 50%;
+  animation: nv-booking-spin .8s linear infinite;
+}
+
+.nv-booking-success {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 26px;
+  border: 1px solid #a7f3d0;
+  border-radius: 22px;
+  background: #ecfdf5;
+  text-align: center;
+  color: #065f46;
+}
+
+.nv-booking-success__icon {
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 14px;
+  border-radius: 20px;
+  background: #fff;
+  color: #079669;
+  font-size: 1.8rem;
+  box-shadow: 0 10px 25px rgba(7, 150, 105, .12);
+}
+
+.nv-booking-success h3 { margin: 0; font-size: 1.2rem; }
+.nv-booking-success p { margin: 10px 0 0; line-height: 1.95; }
+.nv-booking-success code { display: inline-block; margin-top: 12px; padding: 8px 12px; border-radius: 10px; background: #fff; color: #075985; font: inherit; font-weight: 900; user-select: all; }
+
+body.nv-booking-open { overflow: hidden; }
+
+@keyframes nv-booking-spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 900px) {
+  .nv-booking-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .nv-public-booking__progress-item span:last-child { display: none; }
+  .nv-public-booking__progress-item { justify-content: center; }
+  .nv-booking-days, .nv-booking-times { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+@media (max-width: 620px) {
+  .nv-public-booking { padding: 0; align-items: end; }
+  .nv-public-booking__panel { width: 100%; max-height: 96dvh; border-radius: 24px 24px 0 0; }
+  .nv-public-booking__header { padding: 18px 16px 14px; }
+  .nv-public-booking__progress { padding: 10px 14px; gap: 5px; }
+  .nv-public-booking__progress-item { padding: 6px; }
+  .nv-public-booking__progress-item span:first-child { width: 24px; height: 24px; flex-basis: 24px; }
+  .nv-public-booking__body { padding: 18px 15px 22px; }
+  .nv-booking-step__head { align-items: center; }
+  .nv-booking-card-grid { grid-template-columns: 1fr; }
+  .nv-booking-choice { min-height: 116px; }
+  .nv-booking-days, .nv-booking-times { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .nv-booking-form, .nv-booking-review { grid-template-columns: 1fr; }
+  .nv-booking-actions { flex-direction: column-reverse; }
+  .nv-booking-btn { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nv-booking-choice { transition: none; }
+  .nv-booking-spinner { animation: none; }
+}
+.nv-booking-field small{display:block;margin-top:7px;color:#60798a;font-size:.75rem;line-height:1.8}
+
+
+/* NoorVista 2.1.111 - premium, readable public booking modal */
+.nv-public-booking__panel {
+  width: min(1080px, calc(100vw - 32px)) !important;
+  max-height: min(94dvh, 920px) !important;
+  border-radius: 32px !important;
+  box-shadow: 0 36px 110px rgba(5, 35, 52, .34) !important;
+}
+
+.nv-public-booking__panel::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(147, 197, 253, .75);
+}
+
+.nv-public-booking__header {
+  padding: 26px 28px 20px !important;
+  gap: 20px !important;
+}
+
+.nv-public-booking__eyebrow {
+  margin-bottom: 10px !important;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #eaf8ff;
+  border: 1px solid #c7e8f8;
+  font-size: .8rem !important;
+}
+
+.nv-public-booking__header h2 {
+  font-size: clamp(1.35rem, 2vw, 1.95rem) !important;
+  line-height: 1.6 !important;
+}
+
+.nv-public-booking__header p {
+  margin-top: 10px !important;
+  max-width: 72ch;
+  font-size: .94rem !important;
+  line-height: 1.95 !important;
+}
+
+.nv-public-booking__close {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 16px !important;
+  font-size: 1.6rem !important;
+  box-shadow: 0 8px 18px rgba(190, 24, 60, .08);
+}
+
+.nv-public-booking__progress {
+  gap: 10px !important;
+  padding: 16px 24px !important;
+}
+
+.nv-public-booking__progress-item {
+  padding: 10px 12px !important;
+  border-color: #e2edf3 !important;
+  background: #ffffff;
+  font-size: .8rem !important;
+}
+
+.nv-public-booking__progress-item span:first-child {
+  width: 30px !important;
+  height: 30px !important;
+  flex-basis: 30px !important;
+  border-radius: 10px !important;
+  font-size: .82rem;
+}
+
+.nv-public-booking__body {
+  padding: 24px 28px 28px !important;
+}
+
+.nv-booking-step__head {
+  margin-bottom: 20px !important;
+  align-items: flex-start !important;
+}
+
+.nv-booking-step__head h3 {
+  font-size: 1.16rem !important;
+  line-height: 1.65;
+}
+
+.nv-booking-step__head p {
+  font-size: .92rem !important;
+  line-height: 1.95 !important;
+}
+
+.nv-booking-back {
+  min-height: 44px !important;
+  border-radius: 14px !important;
+  font-size: .84rem !important;
+}
+
+.nv-booking-card-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+  gap: 16px !important;
+}
+
+.nv-booking-choice {
+  min-height: 150px !important;
+  padding: 20px !important;
+  border-radius: 22px !important;
+  box-shadow: 0 10px 22px rgba(12, 56, 77, .04);
+}
+
+.nv-booking-choice__icon {
+  width: 48px !important;
+  height: 48px !important;
+  flex-basis: 48px !important;
+  border-radius: 15px !important;
+}
+
+.nv-booking-choice strong {
+  font-size: 1rem !important;
+  line-height: 1.8 !important;
+}
+
+.nv-booking-choice p {
+  font-size: .82rem !important;
+  line-height: 1.9 !important;
+}
+
+.nv-booking-choice__meta {
+  gap: 8px !important;
+  padding-top: 14px !important;
+  font-size: .78rem !important;
+}
+
+.nv-booking-months {
+  padding-bottom: 12px !important;
+  margin-bottom: 2px;
+}
+
+.nv-booking-days,
+.nv-booking-times {
+  grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)) !important;
+  gap: 12px !important;
+}
+
+.nv-booking-day,
+.nv-booking-time {
+  min-height: 84px !important;
+  border-radius: 18px !important;
+}
+
+.nv-booking-time { min-height: 94px !important; }
+
+.nv-booking-day strong,
+.nv-booking-time strong { font-size: .96rem !important; }
+
+.nv-booking-day span,
+.nv-booking-time span,
+.nv-booking-time em { font-size: .76rem !important; }
+
+.nv-booking-form {
+  gap: 18px !important;
+}
+
+.nv-booking-field label {
+  font-size: .86rem !important;
+  margin-bottom: 9px !important;
+}
+
+.nv-booking-field input,
+.nv-booking-field textarea {
+  min-height: 54px !important;
+  border-radius: 16px !important;
+  padding: 12px 14px !important;
+  font-size: .98rem !important;
+}
+
+.nv-booking-field textarea {
+  min-height: 110px !important;
+}
+
+.nv-booking-review {
+  gap: 12px !important;
+  margin: 20px 0 !important;
+  padding: 18px !important;
+  border-radius: 20px !important;
+}
+
+.nv-booking-review span { font-size: .76rem !important; }
+.nv-booking-review strong { font-size: .9rem !important; line-height: 1.85 !important; }
+
+.nv-booking-actions {
+  padding-top: 18px !important;
+}
+
+.nv-booking-btn {
+  min-height: 50px !important;
+  border-radius: 16px !important;
+  font-size: .92rem !important;
+}
+
+.nv-booking-message {
+  font-size: .86rem !important;
+  line-height: 1.95 !important;
+  border-radius: 16px !important;
+}
+
+@media (max-width: 900px) {
+  .nv-public-booking__panel {
+    width: calc(100vw - 20px) !important;
+  }
+
+  .nv-public-booking__progress {
+    padding: 14px 16px !important;
+  }
+
+  .nv-booking-card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .nv-public-booking {
+    padding: 0 !important;
+    align-items: end !important;
+  }
+
+  .nv-public-booking__panel {
+    width: 100% !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    border-radius: 24px 24px 0 0 !important;
+  }
+
+  .nv-public-booking__panel::before {
+    top: 8px;
+    width: 58px;
+  }
+
+  .nv-public-booking__header {
+    padding: 18px 16px 14px !important;
+  }
+
+  .nv-public-booking__header h2 {
+    font-size: 1.34rem !important;
+  }
+
+  .nv-public-booking__header p {
+    font-size: .87rem !important;
+    line-height: 1.9 !important;
+  }
+
+  .nv-public-booking__close {
+    width: 46px !important;
+    height: 46px !important;
+  }
+
+  .nv-public-booking__progress {
+    display: flex !important;
+    overflow-x: auto !important;
+    gap: 8px !important;
+    padding: 10px 12px !important;
+    scrollbar-width: none;
+  }
+
+  .nv-public-booking__progress::-webkit-scrollbar { display: none; }
+
+  .nv-public-booking__progress-item {
+    min-width: 96px;
+    flex: 0 0 auto;
+    justify-content: flex-start !important;
+    gap: 7px !important;
+    padding: 8px 10px !important;
+  }
+
+  .nv-public-booking__progress-item span:last-child {
+    display: inline !important;
+    font-size: .72rem !important;
+  }
+
+  .nv-public-booking__body {
+    padding: 18px 14px calc(22px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  .nv-booking-step__head {
+    gap: 12px !important;
+  }
+
+  .nv-booking-step__head h3 {
+    font-size: 1.04rem !important;
+  }
+
+  .nv-booking-card-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .nv-booking-choice {
+    min-height: 126px !important;
+    padding: 16px !important;
+  }
+
+  .nv-booking-days,
+  .nv-booking-times {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  .nv-booking-day,
+  .nv-booking-time {
+    min-height: 80px !important;
+  }
+
+  .nv-booking-form,
+  .nv-booking-review {
+    grid-template-columns: 1fr !important;
+  }
+
+  .nv-booking-actions {
+    flex-direction: column-reverse !important;
+  }
+
+  .nv-booking-btn {
+    width: 100% !important;
+  }
+}
+
+/* NoorVista 2.1.114 - supplementary insurance booking fields */
+.nv-booking-check {
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid #bfe4f2;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #f8fdff, #eefaff);
+  color: #123247;
+  font-weight: 900;
+  cursor: pointer;
+}
+.nv-booking-check input {
+  width: 20px;
+  height: 20px;
+  accent-color: #0ea5e9;
+}
+.nv-booking-insurance-details {
+  padding: 14px;
+  border: 1px dashed #9edcf4;
+  border-radius: 18px;
+  background: #f7fcff;
+}
+.nv-booking-pill--insurance {
+  background: #ecfdf5 !important;
+  color: #047857 !important;
+}
+.nv-booking-review small {
+  display: block;
+  margin-top: 4px;
+  color: #64748b;
+  font-size: .72rem;
+  line-height: 1.7;
+}
+
+
+/* NoorVista 2.1.114 - supplementary insurance fields in public booking */
+.nv-booking-insurance {
+  grid-column: 1 / -1;
+  border: 1px solid #cde8f5;
+  border-radius: 18px;
+  padding: 14px;
+  background: linear-gradient(180deg, #f7fcff, #ffffff);
+}
+.nv-booking-insurance__toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #0f3d57;
+  font-weight: 900;
+  cursor: pointer;
+}
+.nv-booking-insurance__toggle input {
+  width: 20px;
+  height: 20px;
+  accent-color: #0891b2;
+}
+.nv-booking-insurance__details {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.nv-booking-insurance__details[hidden] { display: none !important; }
+.nv-booking-insurance__notice {
+  grid-column: 1 / -1;
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: #fff7ed;
+  color: #9a3412;
+  font-size: .82rem;
+  line-height: 1.8;
+}
+.nv-booking-pill--insurance {
+  background: #ecfeff;
+  color: #0e7490;
+  border: 1px solid #a5f3fc;
+}
+@media (max-width: 620px) {
+  .nv-booking-insurance__details { grid-template-columns: 1fr; }
+}
+
+
+/* NoorVista 2.1.116 - mobile booking spacing and insurance checkbox alignment hotfix */
+.nv-booking-insurance-box {
+  padding: 14px 16px;
+  border: 1px solid #cfe6f2;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #f7fcff, #ffffff);
+}
+.nv-booking-insurance-box > .nv-booking-check {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  width: 100%;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.nv-booking-insurance-box > .nv-booking-check input {
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+}
+.nv-booking-insurance-box > .nv-booking-check span {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.7;
+}
+.nv-booking-insurance-box > small {
+  display: block;
+  margin-top: 10px;
+  padding-inline: 2px;
+  color: #5f7284;
+  font-size: .78rem;
+  line-height: 1.9;
+}
+.nv-booking-insurance-details {
+  margin-top: 12px;
+}
+
+@media (max-width: 620px) {
+  .nv-public-booking {
+    padding: max(6px, env(safe-area-inset-top, 0px)) 6px 0 !important;
+    place-items: end center;
+  }
+  .nv-public-booking__panel {
+    width: min(100%, calc(100vw - 12px)) !important;
+    height: calc(100dvh - 6px) !important;
+    max-height: calc(100dvh - 6px) !important;
+    border-radius: 24px 24px 0 0 !important;
+  }
+  .nv-public-booking__header {
+    padding: 16px 16px 12px !important;
+  }
+  .nv-public-booking__body {
+    padding: 16px 16px calc(22px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+  .nv-booking-step__head,
+  .nv-booking-review,
+  .nv-booking-actions,
+  .nv-booking-message,
+  .nv-booking-insurance-box,
+  .nv-booking-insurance-details {
+    margin-inline: 2px;
+  }
+  .nv-booking-field input,
+  .nv-booking-field textarea,
+  .nv-booking-btn {
+    width: 100%;
+  }
+}
+
+
+
+/* NoorVista 2.1.139 — appointment slots filters + booking wizard flow */
+
+/* Appointment slots filters: keep status aligned with date-from/date-to row */
+body[data-appointment-page="slots"] .nv-appt-filter-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(220px, 1fr)) !important;
+  gap: 18px 12px !important;
+  align-items: end !important;
+}
+body[data-appointment-page="slots"] .nv-appt-filter-grid > :is(select,.slot-filter,.nv-appt-jalali-wrap) {
+  min-height: 48px !important;
+  align-self: end !important;
+}
+body[data-appointment-page="slots"] #filter_status {
+  grid-column: 3 !important;
+  grid-row: 2 !important;
+}
+body[data-appointment-page="slots"] .nv-appt-jalali-wrap:has(#date_from) {
+  grid-column: 2 !important;
+  grid-row: 2 !important;
+}
+body[data-appointment-page="slots"] .nv-appt-jalali-wrap:has(#date_to) {
+  grid-column: 1 !important;
+  grid-row: 2 !important;
+}
+
+/* Remove the extra/outside calendar icon; keep the proper input trigger only */
+body[data-appointment-page="slots"] .nv-appt-jalali-wrap > i,
+body[data-appointment-page="slots"] .nv-appt-jalali-wrap::before,
+body[data-appointment-page="slots"] .nv-appt-jalali-wrap > .icon-calendar,
+body[data-appointment-page="slots"] .nv-date-field > i,
+body[data-appointment-page="slots"] .nv-date-field > .nv-date-icon,
+body[data-appointment-page="slots"] .nv-date-field > .nv-date-trigger:not([data-nv-date-primary="1"]):not(:only-of-type) {
+  display: none !important;
+}
+body[data-appointment-page="slots"] .nv-appt-jalali-wrap .nv-date-field > input,
+body[data-appointment-page="slots"] .nv-appt-jalali-wrap > input {
+  padding-inline-end: 24px !important;
+  padding-inline-start: 54px !important;
+}
+
+/* Booking wizard selected summary */
+.nv-booking-selection-summary {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+  align-items: center !important;
+  padding: 14px 22px !important;
+  background: linear-gradient(135deg, rgba(6,182,212,.11), rgba(124,58,237,.10)) !important;
+  border-top: 1px solid rgba(186,230,253,.85) !important;
+  border-bottom: 1px solid rgba(186,230,253,.85) !important;
+}
+.nv-booking-selection-summary[hidden] { display: none !important; }
+.nv-booking-summary-chip {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  min-height: 36px !important;
+  padding: 7px 12px !important;
+  border-radius: 999px !important;
+  background: rgba(255,255,255,.92) !important;
+  border: 1px solid rgba(125,211,252,.85) !important;
+  box-shadow: 0 10px 22px rgba(8,145,178,.10) !important;
+}
+.nv-booking-summary-chip em {
+  font-style: normal !important;
+  color: #0891b2 !important;
+  font-weight: 950 !important;
+  font-size: 12px !important;
+}
+.nv-booking-summary-chip strong {
+  color: #0f172a !important;
+  font-weight: 950 !important;
+  font-size: 13px !important;
+}
+
+/* Highlight selected/completed steps more clearly */
+.nv-public-booking__progress-item.is-active {
+  background: linear-gradient(135deg, #e0f2fe, #ccfbf1) !important;
+  border-color: #67e8f9 !important;
+  box-shadow: 0 14px 30px rgba(8,145,178,.15) !important;
+}
+.nv-public-booking__progress-item.is-done {
+  background: #f0fdfa !important;
+  border-color: #99f6e4 !important;
+}
+
+/* Hide insurance block for services without configured insurance */
+.nv-booking-insurance-box[hidden],
+.nv-booking-insurance-details[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  body[data-appointment-page="slots"] .nv-appt-filter-grid {
+    grid-template-columns: 1fr !important;
+  }
+  body[data-appointment-page="slots"] #filter_status,
+  body[data-appointment-page="slots"] .nv-appt-jalali-wrap:has(#date_from),
+  body[data-appointment-page="slots"] .nv-appt-jalali-wrap:has(#date_to) {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+}
+
+
+
+/* NoorVista 2.1.140 — compact public/staff booking UX */
+
+/* Public booking: less vertical space, progress in one line */
+.nv-public-booking__panel {
+  width: min(1000px, calc(100vw - 36px)) !important;
+  max-height: min(92vh, 760px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+.nv-public-booking__header {
+  padding: 18px 24px 14px !important;
+  min-height: auto !important;
+}
+.nv-public-booking__header h2 {
+  font-size: clamp(22px, 2.4vw, 32px) !important;
+  line-height: 1.45 !important;
+  margin: 0 !important;
+}
+.nv-public-booking__header p,
+.nv-booking-header-note {
+  display: none !important;
+}
+.nv-public-booking__progress {
+  display: grid !important;
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+  padding: 10px 22px !important;
+  align-items: stretch !important;
+}
+.nv-public-booking__progress-item {
+  min-height: 42px !important;
+  padding: 7px 8px !important;
+  border-radius: 12px !important;
+  gap: 6px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+}
+.nv-public-booking__progress-item > span:first-child {
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  border-radius: 10px !important;
+  font-size: 13px !important;
+}
+.nv-public-booking__progress-item > span:last-child {
+  font-size: 12px !important;
+  font-weight: 950 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+.nv-booking-selection-summary {
+  padding: 9px 22px !important;
+  gap: 8px !important;
+}
+.nv-booking-summary-chip {
+  min-height: 30px !important;
+  padding: 5px 10px !important;
+}
+.nv-booking-summary-chip em,
+.nv-booking-summary-chip strong {
+  font-size: 12px !important;
+}
+.nv-public-booking__body {
+  padding: 18px 22px 22px !important;
+  overflow: auto !important;
+}
+.nv-booking-step__head {
+  margin-bottom: 14px !important;
+}
+.nv-booking-step__head h3 {
+  font-size: 21px !important;
+  margin-bottom: 5px !important;
+}
+.nv-booking-step__head p {
+  font-size: 13px !important;
+  margin: 0 !important;
+}
+.nv-booking-card-grid,
+.nv-booking-days,
+.nv-booking-times {
+  gap: 12px !important;
+}
+.nv-booking-day,
+.nv-booking-time,
+.nv-booking-choice {
+  min-height: 76px !important;
+  padding: 14px 16px !important;
+}
+.nv-booking-months {
+  margin-bottom: 12px !important;
+}
+
+/* Staff/admin/secretary appointment wizard: compact and easier */
+#appointmentFormModal .modal-dialog,
+#appointmentFormModal .modal-content {
+  max-height: 92vh !important;
+}
+#appointmentFormModal .modal-body {
+  max-height: calc(92vh - 120px) !important;
+  overflow: auto !important;
+}
+#appointmentFormModal .nv-booking-progress,
+#appointmentFormModal .nv-wizard-progress {
+  gap: 8px !important;
+}
+#appointmentFormModal .nv-booking-step {
+  padding-block: 12px !important;
+}
+#appointmentFormModal .nv-booking-step-header {
+  margin-bottom: 12px !important;
+}
+#appointmentFormModal .nv-booking-step-title strong {
+  font-size: 16px !important;
+}
+#appointmentFormModal .nv-booking-step-title span {
+  font-size: 12px !important;
+}
+#appointmentFormModal .nv-staff-insurance-box[hidden],
+#appointmentFormModal [data-appointment-insurance-details][hidden] {
+  display: none !important;
+}
+
+@media (max-width: 720px) {
+  .nv-public-booking__panel {
+    width: 100vw !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    border-radius: 0 !important;
+  }
+  .nv-public-booking__progress {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+  .nv-public-booking__progress-item {
+    min-height: 38px !important;
+  }
+}
+
+
+
+/* NoorVista 2.1.150 — patient panel booking + appointments table cleanup */
+body[data-panel-role="patient"] .nv-public-booking.is-patient-panel-booking .nv-booking-field:has(#nvBookingFirstName),
+body[data-panel-role="patient"] .nv-public-booking.is-patient-panel-booking .nv-booking-field:has(#nvBookingLastName),
+body[data-panel-role="patient"] .nv-public-booking.is-patient-panel-booking .nv-booking-field:has(#nvBookingPhone),
+body.nv3-role-patient .nv-public-booking.is-patient-panel-booking .nv-booking-field:has(#nvBookingFirstName),
+body.nv3-role-patient .nv-public-booking.is-patient-panel-booking .nv-booking-field:has(#nvBookingLastName),
+body.nv3-role-patient .nv-public-booking.is-patient-panel-booking .nv-booking-field:has(#nvBookingPhone),
+.nv-public-booking.is-patient-panel-booking .nv-patient-identity-hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+.nv-public-booking.is-patient-panel-booking [data-nv-booking-step="6"] .nv-booking-form {
+  grid-template-columns: 1fr !important;
+}
+.nv-public-booking.is-patient-panel-booking [data-nv-booking-step="6"] .nv-booking-review {
+  margin-bottom: 16px !important;
+}
+
+body[data-patient-page="appointments"] .nv-pa-page.nv-pa-appointments-only {
+  width: min(1180px, 100%) !important;
+  margin-inline: auto !important;
+}
+body[data-patient-page="appointments"] .nv-pa-appointments-table-only {
+  border-radius: 28px !important;
+  overflow: hidden !important;
+  border: 1px solid #dbeafe !important;
+  background: #fff !important;
+  box-shadow: 0 20px 60px rgba(15,23,42,.08) !important;
+}
+body[data-patient-page="appointments"] .nv-pa-list-head {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 18px !important;
+  flex-wrap: wrap !important;
+  padding: 22px 24px !important;
+  background: linear-gradient(135deg, #f8fcff, #eef9ff) !important;
+  border-bottom: 1px solid #e0f2fe !important;
+}
+body[data-patient-page="appointments"] .nv-pa-card-title h2 {
+  margin: 0 !important;
+  font-size: 24px !important;
+  line-height: 1.6 !important;
+}
+body[data-patient-page="appointments"] .nv-pa-card-title p {
+  margin: 4px 0 0 !important;
+  color: #64748b !important;
+  font-weight: 750 !important;
+}
+body[data-patient-page="appointments"] .nv-pa-list-tools {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  flex-wrap: wrap !important;
+}
+body[data-patient-page="appointments"] .nv-pa-book-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  min-height: 44px !important;
+  padding: 0 18px !important;
+  border-radius: 999px !important;
+  border: 0 !important;
+  background: linear-gradient(135deg, #0891b2, #10b981) !important;
+  color: #fff !important;
+  font-weight: 950 !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  box-shadow: 0 14px 32px rgba(8,145,178,.20) !important;
+}
+body[data-patient-page="appointments"] .nv-pa-search,
+body[data-patient-page="appointments"] #appointmentStatusFilter {
+  min-width: 210px !important;
+  max-width: 260px !important;
+}
+body[data-patient-page="appointments"] .nv-pa-list-body {
+  padding: 0 !important;
+}
+body[data-patient-page="appointments"] .nv-tw-table-wrap {
+  border-radius: 0 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+body[data-patient-page="appointments"] .nv-pa-hero,
+body[data-patient-page="appointments"] #book,
+body[data-patient-page="appointments"] .nv-pa-booking-date-step,
+body[data-patient-page="appointments"] .nv-pa-booking-time-step,
+body[data-patient-page="appointments"] .nv-pa-book-footer,
+body[data-patient-page="appointments"] #appointmentBookingForm {
+  display: none !important;
+}
+@media (max-width: 760px) {
+  body[data-patient-page="appointments"] .nv-pa-list-head,
+  body[data-patient-page="appointments"] .nv-pa-list-tools {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  body[data-patient-page="appointments"] .nv-pa-search,
+  body[data-patient-page="appointments"] #appointmentStatusFilter,
+  body[data-patient-page="appointments"] .nv-pa-book-button {
+    width: 100% !important;
+    max-width: none !important;
+  }
+}
+
+
+
+/* NoorVista 2.1.152 — simplified final booking step */
+.nv-public-booking .nv-booking-review[hidden],
+.nv-public-booking .nv-patient-identity-hidden {
+  display: none !important;
+}
+.nv-public-booking .nv-booking-phone-field[hidden],
+.nv-public-booking .nv-booking-insurance-box[hidden],
+.nv-public-booking .nv-booking-insurance-details[hidden] {
+  display: none !important;
+}
+.nv-public-booking .nv-booking-step[data-nv-booking-step="6"] .nv-booking-form {
+  max-width: 620px;
+  margin-inline: auto;
+}
+.nv-public-booking .nv-booking-step[data-nv-booking-step="6"] .nv-booking-field.is-full {
+  grid-column: 1 / -1;
+}
+.nv-public-booking .nv-booking-step[data-nv-booking-step="6"] .nv-booking-actions {
+  justify-content: center;
+}
+
+
+
+/* NoorVista 2.1.155 — booking UX redesign: amount only in final step */
+.nv-public-booking__panel {
+  max-height: min(90vh, 760px) !important;
+}
+.nv-public-booking__header {
+  padding-block: 16px 12px !important;
+}
+.nv-public-booking__progress {
+  padding-block: 9px !important;
+}
+.nv-booking-selection-summary {
+  gap: 7px !important;
+  padding-block: 8px !important;
+  overflow-x: auto !important;
+  flex-wrap: nowrap !important;
+}
+.nv-booking-summary-chip {
+  white-space: nowrap !important;
+  flex: 0 0 auto !important;
+}
+.nv-booking-choice__icon:empty {
+  display: none !important;
+}
+.nv-booking-choice p {
+  word-break: normal !important;
+  overflow-wrap: anywhere !important;
+}
+/* Price must not appear before the final step */
+.nv-booking-choice__meta .nv-booking-pill:has(+ .nv-booking-pill--insurance),
+.nv-booking-time em {
+  display: none !important;
+}
+.nv-booking-step:not([data-nv-booking-step="6"]) .nv-final-amount-card,
+.nv-booking-step:not([data-nv-booking-step="6"]) [class*="amount"],
+.nv-booking-step:not([data-nv-booking-step="6"]) [class*="price"] {
+  display: none !important;
+}
+
+.nv-booking-final-amount {
+  display: block !important;
+  max-width: 620px !important;
+  margin: 0 auto 18px !important;
+}
+.nv-final-amount-card {
+  border: 1px solid #bae6fd !important;
+  border-radius: 22px !important;
+  background: linear-gradient(135deg, #f0f9ff, #ffffff) !important;
+  padding: 18px 20px !important;
+  box-shadow: 0 18px 42px rgba(8, 145, 178, .10) !important;
+}
+.nv-final-amount-title {
+  font-weight: 950 !important;
+  color: #075985 !important;
+  margin-bottom: 10px !important;
+  font-size: 15px !important;
+}
+.nv-final-amount-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 14px !important;
+  padding: 8px 0 !important;
+  border-top: 1px dashed rgba(125, 211, 252, .55) !important;
+}
+.nv-final-amount-row:first-of-type {
+  border-top: 0 !important;
+}
+.nv-final-amount-row span {
+  color: #64748b !important;
+  font-weight: 850 !important;
+}
+.nv-final-amount-row strong {
+  color: #0f172a !important;
+  font-weight: 950 !important;
+}
+.nv-final-amount-row.is-main strong {
+  font-size: 19px !important;
+  color: #0891b2 !important;
+}
+.nv-final-amount-row.is-muted strong {
+  color: #64748b !important;
+  text-decoration: line-through !important;
+}
+.nv-final-amount-card small {
+  display: block !important;
+  margin-top: 10px !important;
+  color: #64748b !important;
+  line-height: 1.9 !important;
+}
+.nv-booking-final-actions {
+  position: sticky !important;
+  bottom: 0 !important;
+  background: linear-gradient(180deg, rgba(255,255,255,0), #fff 30%) !important;
+  padding-top: 16px !important;
+  z-index: 4 !important;
+}
+.nv-public-booking.is-patient-panel-booking .nv-booking-phone-field {
+  display: none !important;
+}
+
+
+
+/* NoorVista 2.1.158 — booking details step before final confirmation */
+.nv-public-booking__progress { grid-template-columns: repeat(7, minmax(92px, 1fr)) !important; }
+.nv-public-booking__progress-item { min-width: 92px !important; }
+.nv-booking-step[data-nv-booking-step="6"] .nv-booking-form,
+.nv-booking-step[data-nv-booking-step="7"] .nv-booking-final-amount {
+  max-width: 620px !important;
+  margin-inline: auto !important;
+}
+.nv-booking-step[data-nv-booking-step="6"] .nv-booking-actions,
+.nv-booking-step[data-nv-booking-step="7"] .nv-booking-actions { justify-content: center !important; }
+.nv-booking-step[data-nv-booking-step="7"] .nv-booking-step__head { margin-bottom: 14px !important; }
+.nv-booking-step[data-nv-booking-step="6"] .nv-booking-phone-field,
+.nv-booking-step[data-nv-booking-step="6"] .nv-booking-insurance-box,
+.nv-booking-step[data-nv-booking-step="6"] .nv-booking-insurance-details {
+  background: #fff !important;
+  border: 1px solid #dbeafe !important;
+  border-radius: 18px !important;
+  padding: 14px !important;
+}
+.nv-public-booking.is-patient-panel-booking .nv-booking-step[data-nv-booking-step="6"] .nv-booking-phone-field {
+  display: none !important;
+}
+@media (max-width: 760px) {
+  .nv-public-booking__progress {
+    display: flex !important;
+    overflow-x: auto !important;
+    padding-inline: 12px !important;
+  }
+}

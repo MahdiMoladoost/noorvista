@@ -1,0 +1,284 @@
+
+/* NoorVista 2.1.168 — final stable topbar. This component owns the topbar and stops flicker. */
+body:not([data-panel-role]) .topbar {
+  background: linear-gradient(135deg, #062f43, #082f49) !important;
+  color: #e0f7ff !important;
+  border: 0 !important;
+  overflow: hidden !important;
+  box-shadow: 0 8px 22px rgba(15,23,42,.13) !important;
+}
+
+body:not([data-panel-role]) .topbar.nv-final-topbar-ready .topbar-info,
+body:not([data-panel-role]) .topbar.nv-final-topbar-ready > .topbar-info,
+body:not([data-panel-role]) .topbar.nv-final-topbar-ready .topbar-inner > .topbar-info,
+body:not([data-panel-role]) .topbar.nv-final-topbar-ready .container > .topbar-info,
+body:not([data-panel-role]) .topbar.nv-final-topbar-ready .topbar-inner > .socials,
+body:not([data-panel-role]) .topbar.nv-final-topbar-ready .container > .socials,
+body:not([data-panel-role]) .topbar.nv-final-topbar-ready .nv-mobile-call-action,
+body:not([data-panel-role]) .topbar.nv-final-topbar-ready .nv-mobile-topbar-actions {
+  display: none !important;
+}
+
+body:not([data-panel-role]) .topbar .nv-final-topbar {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: inherit !important;
+  direction: rtl !important;
+}
+
+body:not([data-panel-role]) .nv-final-topbar a {
+  text-decoration: none !important;
+}
+
+body:not([data-panel-role]) .nv-final-topbar-icon svg,
+body:not([data-panel-role]) .nv-final-topbar-call svg {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  fill: currentColor !important;
+}
+
+body:not([data-panel-role]) .nv-final-topbar-contact,
+body:not([data-panel-role]) .nv-final-topbar-socials {
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* desktop */
+@media (min-width: 721px) {
+  body:not([data-panel-role]) .topbar {
+    height: 52px !important;
+    min-height: 52px !important;
+  }
+
+  body:not([data-panel-role]) .topbar .topbar-inner,
+  body:not([data-panel-role]) .topbar .container {
+    height: 52px !important;
+    min-height: 52px !important;
+    display: block !important;
+    padding-block: 0 !important;
+  }
+
+  body:not([data-panel-role]) .topbar .nv-final-topbar {
+    max-width: var(--nv-container, 1180px) !important;
+    margin: 0 auto !important;
+    padding: 0 18px !important;
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    grid-template-areas: "socials contact" !important;
+    align-items: center !important;
+    gap: 24px !important;
+  }
+
+  body:not([data-panel-role]) .nv-final-topbar-contact {
+    grid-area: contact !important;
+    justify-content: flex-end !important;
+    gap: 22px !important;
+    min-width: 0 !important;
+    height: 52px !important;
+  }
+
+  body:not([data-panel-role]) .nv-final-topbar-socials {
+    grid-area: socials !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+    height: 52px !important;
+  }
+
+  body:not([data-panel-role]) .nv-final-topbar-item {
+    height: 34px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 7px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    color: #e0f7ff !important;
+    font-size: 13px !important;
+    font-weight: 850 !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+  }
+
+  body:not([data-panel-role]) .nv-final-topbar-icon {
+    width: 16px !important;
+    height: 16px !important;
+    min-width: 16px !important;
+    display: inline-grid !important;
+    place-items: center !important;
+    color: #7dd3fc !important;
+  }
+
+  body:not([data-panel-role]) .nv-final-topbar-text {
+    max-width: 250px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  body:not([data-panel-role]) .nv-final-topbar-call {
+    display: none !important;
+  }
+
+  body:not([data-panel-role]) .nv-final-social-link {
+    width: 31px !important;
+    height: 31px !important;
+    min-width: 31px !important;
+    display: inline-grid !important;
+    place-items: center !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 11px !important;
+    background: rgba(255,255,255,.08) !important;
+    box-shadow: none !important;
+    transition: transform .16s ease, background .16s ease !important;
+  }
+
+  body:not([data-panel-role]) .nv-final-social-link:hover {
+    transform: translateY(-1px) !important;
+    background: rgba(255,255,255,.14) !important;
+  }
+
+  body:not([data-panel-role]) .nv-final-social-link img {
+    width: 19px !important;
+    height: 19px !important;
+    display: block !important;
+  }
+}
+
+/* mobile */
+@media (max-width: 720px) {
+  body:not([data-panel-role]) .topbar {
+    height: 42px !important;
+    min-height: 42px !important;
+  }
+
+  body:not([data-panel-role]) .topbar .topbar-inner,
+  body:not([data-panel-role]) .topbar .container {
+    height: 42px !important;
+    min-height: 42px !important;
+    width: 100% !important;
+    max-width: none !important;
+    display: block !important;
+    padding: 0 !important;
+  }
+
+  body:not([data-panel-role]) .topbar .nv-final-topbar {
+    width: 100% !important;
+    max-width: none !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    padding: 0 10px !important;
+    display: grid !important;
+    grid-template-columns: 38px auto minmax(96px, 1fr) !important;
+    grid-template-areas: "call socials contact" !important;
+    align-items: center !important;
+    gap: 8px !important;
+    direction: ltr !important;
+  }
+
+  body:not([data-panel-role]) .nv-final-topbar-contact {
+    grid-area: contact !important;
+    direction: rtl !important;
+    height: 42px !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  body:not([data-panel-role]) .nv-final-topbar-contact .nv-final-topbar-clock,
+  body:not([data-panel-role]) .nv-final-topbar-contact .nv-final-topbar-phone {
+    display: none !important;
+  }
+
+  body:not([data-panel-role]) .nv-final-topbar-location {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: 30px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    color: #e0f7ff !important;
+    font-size: 11px !important;
+    font-weight: 850 !important;
+    line-height: 1 !important;
+    overflow: hidden !important;
+  }
+
+  body:not([data-panel-role]) .nv-final-topbar-location .nv-final-topbar-icon {
+    width: 15px !important;
+    height: 15px !important;
+    min-width: 15px !important;
+    color: #7dd3fc !important;
+  }
+
+  body:not([data-panel-role]) .nv-final-topbar-location .nv-final-topbar-text {
+    max-width: 118px !important;
+    min-width: 0 !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  body:not([data-panel-role]) .nv-final-topbar-socials {
+    grid-area: socials !important;
+    direction: rtl !important;
+    height: 42px !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 6px !important;
+    min-width: 0 !important;
+  }
+
+  body:not([data-panel-role]) .nv-final-social-link {
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    display: inline-grid !important;
+    place-items: center !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 8px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  body:not([data-panel-role]) .nv-final-social-link img {
+    width: 17px !important;
+    height: 17px !important;
+    display: block !important;
+  }
+
+  body:not([data-panel-role]) .nv-final-topbar-call {
+    grid-area: call !important;
+    justify-self: start !important;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    display: inline-grid !important;
+    place-items: center !important;
+    color: #e0f7ff !important;
+    border: 1px solid rgba(186,230,253,.35) !important;
+    border-radius: 12px !important;
+    background: rgba(255,255,255,.08) !important;
+    box-shadow: 0 8px 18px rgba(15,23,42,.12) !important;
+  }
+
+  body:not([data-panel-role]) .nv-final-topbar-call svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+}
+
+/* hard close chatbot after opening booking */
+.nv-chatbot-closed-hard {
+  display: none !important;
+}
+
+/* keep booking choices less pill-like */
+body:not([data-panel-role]) .nv-booking-choice,
+body:not([data-panel-role]) .nv-booking-time {
+  border-radius: 22px !important;
+}

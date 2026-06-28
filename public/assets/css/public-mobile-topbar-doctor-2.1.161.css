@@ -1,0 +1,216 @@
+
+/* NoorVista 2.1.161 — mobile dark contact/social topbar + doctor glass hero card */
+@media (max-width: 720px) {
+  body {
+    padding-bottom: calc(86px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  /* Mobile top: dark strip with contact row and social row */
+  .topbar,
+  .top-bar,
+  .public-topbar,
+  .site-topbar,
+  .contact-topbar {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  .topbar {
+    position: relative !important;
+    z-index: 920 !important;
+    background: linear-gradient(135deg, #06364a, #082f49) !important;
+    color: #e0f7ff !important;
+    border-bottom: 1px solid rgba(125, 211, 252, .22) !important;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, .16) !important;
+  }
+  .topbar .container,
+  .topbar-inner {
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    padding: 7px 10px 8px !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto auto !important;
+    gap: 6px !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .topbar-info {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    order: 1 !important;
+    direction: rtl !important;
+  }
+  .topbar-info > [data-topbar-item="clock"],
+  .topbar-info > span:nth-child(2) {
+    display: none !important;
+  }
+  .topbar-info > span,
+  .topbar-info > a.topbar-phone {
+    min-width: 0 !important;
+    max-width: 50% !important;
+    height: 28px !important;
+    min-height: 28px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 5px !important;
+    padding: 0 8px !important;
+    border-radius: 999px !important;
+    background: rgba(255,255,255,.08) !important;
+    border: 1px solid rgba(186,230,253,.20) !important;
+    color: #e0f7ff !important;
+    text-decoration: none !important;
+    overflow: hidden !important;
+    font-size: 11px !important;
+    line-height: 1 !important;
+    font-weight: 850 !important;
+  }
+  .topbar-info > [data-topbar-item="location"] {
+    flex: 1 1 auto !important;
+    justify-content: flex-start !important;
+  }
+  .topbar-info > a.topbar-phone,
+  .topbar-info > [data-topbar-item="phone"] {
+    flex: 0 0 auto !important;
+    max-width: 42% !important;
+  }
+  .topbar-info .nv-topbar-icon-wrap,
+  .topbar-info .nv-topbar-svg,
+  .topbar-info .nv-inline-icon {
+    width: 14px !important;
+    height: 14px !important;
+    min-width: 14px !important;
+    display: inline-grid !important;
+    opacity: .95 !important;
+    color: #bae6fd !important;
+    fill: currentColor !important;
+  }
+  .topbar-info .nv-topbar-text {
+    display: inline-block !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+  .topbar .socials {
+    order: 2 !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 7px !important;
+    padding-top: 6px !important;
+    border-top: 1px solid rgba(186,230,253,.18) !important;
+    min-height: 34px !important;
+  }
+  .topbar .socials a.social-link:not([hidden]) {
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    border-radius: 11px !important;
+    display: inline-grid !important;
+    place-items: center !important;
+    background: rgba(255,255,255,.11) !important;
+    border: 1px solid rgba(186,230,253,.20) !important;
+    box-shadow: 0 6px 14px rgba(0,0,0,.14) !important;
+  }
+  .topbar .socials img {
+    width: 19px !important;
+    height: 19px !important;
+    display: block !important;
+  }
+
+  /* Header below dark strip */
+  .navbar {
+    top: 0 !important;
+    border-top: 0 !important;
+  }
+  .nav-actions .btn-outline,
+  .nav-actions a[href*="login"] {
+    min-width: 58px !important;
+    justify-content: center !important;
+  }
+
+  /* Glass doctor card in hero */
+  .nv-mobile-doctor-glass {
+    width: min(100%, 300px) !important;
+    margin: 10px auto 6px !important;
+    padding: 9px 10px !important;
+    border-radius: 24px !important;
+    background: linear-gradient(135deg, rgba(255,255,255,.78), rgba(240,249,255,.46)) !important;
+    border: 1px solid rgba(186,230,253,.85) !important;
+    box-shadow: 0 20px 55px rgba(8, 145, 178, .16) !important;
+    backdrop-filter: blur(16px) saturate(1.1) !important;
+    display: grid !important;
+    grid-template-columns: 82px minmax(0, 1fr) !important;
+    gap: 10px !important;
+    align-items: center !important;
+    direction: rtl !important;
+  }
+  .nv-mobile-doctor-glass img {
+    width: 82px !important;
+    height: 82px !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+    border-radius: 21px !important;
+    box-shadow: 0 12px 32px rgba(15,23,42,.16) !important;
+  }
+  .nv-mobile-doctor-glass__text {
+    min-width: 0 !important;
+    display: grid !important;
+    gap: 3px !important;
+    text-align: right !important;
+  }
+  .nv-mobile-doctor-glass__text strong {
+    color: #075985 !important;
+    font-size: 13px !important;
+    font-weight: 950 !important;
+    line-height: 1.7 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  .nv-mobile-doctor-glass__text span {
+    color: #475569 !important;
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    line-height: 1.8 !important;
+  }
+
+  .hero, .hero-section, .noorvista-hero, .nv-hero {
+    padding-top: 20px !important;
+  }
+  .hero h1, .hero-title, .hero-content h1 {
+    margin-top: 8px !important;
+  }
+
+  /* reduce duplicate CTA pressure in hero now that bottom fixed actions exist */
+  .hero-actions .open-chat,
+  .hero-actions [data-open-chat],
+  .hero-actions .chatbot-trigger {
+    display: none !important;
+  }
+  .hero-actions .btn[href="#services"],
+  .hero-actions .btn-outline {
+    min-height: 42px !important;
+  }
+
+  /* Keep next cards clear of fixed bottom CTAs */
+  main,
+  .home-main,
+  .public-page {
+    padding-bottom: 96px !important;
+  }
+  .trust-row,
+  .features-grid,
+  .services-grid {
+    margin-bottom: 34px !important;
+  }
+}

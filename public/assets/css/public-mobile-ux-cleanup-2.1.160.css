@@ -1,0 +1,334 @@
+
+/* NoorVista 2.1.160 — public mobile UX cleanup and working menu */
+@media (max-width: 720px) {
+  html { scroll-padding-bottom: 82px !important; }
+  body { padding-bottom: calc(70px + env(safe-area-inset-bottom, 0px)) !important; overflow-x: hidden !important; }
+
+  /* Reduce public top contact clutter on mobile */
+  .topbar,
+  .top-bar,
+  .public-topbar,
+  .site-topbar,
+  .contact-topbar {
+    display: none !important;
+  }
+
+  /* Compact mobile header */
+  .navbar {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 900 !important;
+    border-bottom: 1px solid rgba(186, 230, 253, .85) !important;
+    background: rgba(255, 255, 255, .96) !important;
+    backdrop-filter: blur(14px) !important;
+  }
+  .nav-inner,
+  .navbar .container,
+  .navbar .nav-inner {
+    min-height: 66px !important;
+    padding: 8px 12px !important;
+    gap: 8px !important;
+    display: grid !important;
+    grid-template-columns: 44px minmax(0, 1fr) auto !important;
+    align-items: center !important;
+  }
+  .mobile-toggle,
+  #mobileToggle,
+  .nv-mobile-toggle,
+  .nav-toggle,
+  .menu-toggle {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    min-height: 42px !important;
+    border-radius: 14px !important;
+    border: 1px solid #bae6fd !important;
+    background: #fff !important;
+    color: #075985 !important;
+    display: inline-grid !important;
+    place-items: center !important;
+    padding: 0 !important;
+    z-index: 1201 !important;
+  }
+  .brand {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    justify-self: start !important;
+    min-width: 0 !important;
+    gap: 8px !important;
+  }
+  .brand-logo,
+  .brand-logo-image {
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    border-radius: 14px !important;
+  }
+  .brand strong {
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+    white-space: nowrap !important;
+    max-width: 145px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  .brand small {
+    font-size: 10px !important;
+    line-height: 1.4 !important;
+    max-width: 145px !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+  }
+  .nav-actions {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+  }
+  .nav-actions .btn,
+  .nav-actions a[href*="login"],
+  .nav-actions .btn-outline {
+    min-height: 38px !important;
+    height: 38px !important;
+    padding: 0 12px !important;
+    border-radius: 999px !important;
+    font-size: 12px !important;
+    font-weight: 850 !important;
+    display: inline-flex !important;
+  }
+  /* Keep only one appointment CTA on mobile: the fixed bottom one */
+  .nav-actions .nav-booking,
+  .nav-actions [data-open-booking],
+  .navbar .nav-booking,
+  .navbar [data-open-booking] {
+    display: none !important;
+  }
+
+  /* Off-canvas/mobile dropdown menu */
+  .navbar nav,
+  .navbar .nav-menu-wrap {
+    display: contents !important;
+  }
+  .navbar .menu,
+  .navbar .nav-menu,
+  .navbar .main-menu,
+  .menu,
+  .nav-menu,
+  .main-menu {
+    position: fixed !important;
+    top: 72px !important;
+    right: 12px !important;
+    left: 12px !important;
+    bottom: auto !important;
+    z-index: 1190 !important;
+    display: none !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 6px !important;
+    max-height: min(72vh, 520px) !important;
+    overflow-y: auto !important;
+    padding: 12px !important;
+    margin: 0 !important;
+    list-style: none !important;
+    border: 1px solid #bae6fd !important;
+    border-radius: 22px !important;
+    background: rgba(255, 255, 255, .98) !important;
+    box-shadow: 0 24px 70px rgba(15,23,42,.20) !important;
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto !important;
+  }
+  body.nv-mobile-menu-open .navbar .menu,
+  body.nv-mobile-menu-open .navbar .nav-menu,
+  body.nv-mobile-menu-open .navbar .main-menu,
+  .navbar.is-menu-open .menu,
+  .navbar.is-menu-open .nav-menu,
+  .navbar.is-menu-open .main-menu,
+  .menu.open,
+  .menu.is-open,
+  .nav-menu.open,
+  .nav-menu.is-open {
+    display: flex !important;
+    visibility: visible !important;
+  }
+  .navbar .menu li,
+  .navbar .nav-menu li,
+  .navbar .main-menu li {
+    width: 100% !important;
+  }
+  .navbar .menu a,
+  .navbar .nav-menu a,
+  .navbar .main-menu a {
+    width: 100% !important;
+    min-height: 42px !important;
+    padding: 10px 12px !important;
+    border-radius: 14px !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    color: #0f172a !important;
+    background: #f8fbff !important;
+    font-size: 13px !important;
+    font-weight: 850 !important;
+  }
+  .navbar .menu a.active,
+  .navbar .nav-menu a.active,
+  .navbar .main-menu a.active {
+    background: #e0f2fe !important;
+    color: #075985 !important;
+  }
+  .navbar .mega-menu {
+    position: static !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    display: none !important;
+    width: 100% !important;
+    box-shadow: none !important;
+    border: 0 !important;
+    padding: 6px !important;
+    margin-top: 6px !important;
+    background: #f0f9ff !important;
+    border-radius: 16px !important;
+  }
+  .navbar .has-mega.is-open .mega-menu,
+  .navbar .has-mega.open .mega-menu,
+  .navbar .has-mega:focus-within .mega-menu {
+    display: block !important;
+  }
+
+  /* Hero: smaller, less crowded, no duplicated CTA */
+  .hero,
+  .hero-section,
+  .noorvista-hero,
+  .nv-hero {
+    padding: 28px 0 92px !important;
+    min-height: auto !important;
+  }
+  .hero-grid,
+  .hero .container,
+  .hero-content {
+    gap: 18px !important;
+  }
+  .hero .eyebrow,
+  .hero-content .eyebrow {
+    max-width: calc(100vw - 40px) !important;
+    margin-inline: auto !important;
+    font-size: 12px !important;
+    padding: 7px 12px !important;
+    line-height: 1.7 !important;
+  }
+  .hero h1,
+  .hero-title,
+  .hero-content h1 {
+    font-size: clamp(27px, 9.5vw, 34px) !important;
+    line-height: 1.45 !important;
+    letter-spacing: -1.2px !important;
+    text-align: right !important;
+    margin: 12px 0 12px !important;
+  }
+  .hero p,
+  .hero-content p {
+    font-size: 13px !important;
+    line-height: 2 !important;
+    margin-bottom: 14px !important;
+  }
+  .hero-actions,
+  .nv-hero-cta,
+  .hero-cta,
+  .cta-actions {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    margin-bottom: 12px !important;
+  }
+  .hero-actions [data-open-booking],
+  .hero-actions .nav-booking,
+  .nv-hero-cta [data-open-booking],
+  .cta-actions [data-open-booking] {
+    display: none !important;
+  }
+  .hero-actions .btn,
+  .nv-hero-cta .btn,
+  .cta-actions .btn {
+    width: 100% !important;
+    min-height: 44px !important;
+    justify-content: center !important;
+  }
+
+  /* Bottom quick actions: exactly two clean buttons, no overlap, always above safe-area */
+  .floating-actions,
+  .floating-actions[data-nv-floating-actions],
+  .nv-floating-actions,
+  .site-floating-actions,
+  [data-floating-actions],
+  .site-actions {
+    position: fixed !important;
+    right: 10px !important;
+    left: 10px !important;
+    bottom: calc(10px + env(safe-area-inset-bottom, 0px)) !important;
+    transform: none !important;
+    z-index: 860 !important;
+    width: auto !important;
+    max-width: none !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    gap: 8px !important;
+    padding: 0 !important;
+    pointer-events: none !important;
+    direction: rtl !important;
+  }
+  .floating-actions .floating-action-btn,
+  .floating-action-btn,
+  .chatbot-fab {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    padding: 0 10px !important;
+    border-radius: 999px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 7px !important;
+    font-size: 12px !important;
+    font-weight: 900 !important;
+    pointer-events: auto !important;
+    white-space: nowrap !important;
+  }
+  .floating-actions > *:nth-child(n+3) {
+    display: none !important;
+  }
+  .floating-action-icon {
+    width: 22px !important;
+    height: 22px !important;
+    min-width: 22px !important;
+  }
+  .floating-action-text,
+  .chatbot-fab-label {
+    display: inline !important;
+    font-size: 12px !important;
+  }
+  body.chatbot-open .floating-actions,
+  html.chatbot-lock .floating-actions {
+    display: none !important;
+  }
+  body.nv-booking-open .floating-actions {
+    display: none !important;
+  }
+  .chatbot-panel.open,
+  body.chatbot-open .chatbot-panel {
+    inset: 0 !important;
+    width: 100dvw !important;
+    height: 100dvh !important;
+    max-width: none !important;
+    max-height: none !important;
+    border-radius: 0 !important;
+    z-index: 2147483000 !important;
+  }
+}

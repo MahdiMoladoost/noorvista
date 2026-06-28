@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa">
+<head>
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>مدیریت کارکنان | NOORVISTA</title>
+<meta content="#0b3954" name="theme-color"/><link href="/css/local-fonts.css" rel="stylesheet"/><link href="/css/open-iconic-bootstrap.min.css" rel="stylesheet"/><link href="/css/ionicons.min.css" rel="stylesheet"/><link href="/css/icomoon.css" rel="stylesheet"/><link href="/assets/css/noorvista-dashboard-tailwind.css?v=2.1.70" rel="stylesheet"/><link href="/assets/css/calendar-select-tailwind-2.1.32.css?v=2.1.70" rel="stylesheet"/><link href="/assets/css/profile-detail-modals-2.1.24.css?v=2.1.24" rel="stylesheet"/><link href="/css/persian-datepicker.css?v=2.1.70" rel="stylesheet"/>  <script src="/assets/js/auth-cookie-client.js"></script><script src="/assets/js/clinic-manager-e2e-2.1.87.js?v=2.1.87"></script>
+<link href="/assets/css/panel-sidebar-patient-parity-2.1.65.css?v=2.1.65" rel="stylesheet"/>
+
+<link href="/assets/css/panel-pretty-selects-global.css?v=2.1.67" rel="stylesheet"/>
+<link href="/assets/css/panel-form-controls-pro-2.1.67.css?v=2.1.67" rel="stylesheet"/>
+<link href="/assets/css/clinic-manager-e2e-2.1.87.css?v=2.1.87" rel="stylesheet"/><link href="/assets/css/nv-uiux-stability-2.1.129.css?v=2.1.157" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/css/persian-digits-global-2.1.130.css?v=2.1.130">
+<link href="/assets/css/nv-uiux-stability-2.1.131.css?v=2.1.131" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/css/nv-comprehensive-audit-2.1.146.css?v=2.1.146"/>
+<link rel="stylesheet" href="/assets/css/topbar-footer-hardfix-2.1.154.css?v=2.1.154"/>
+<link rel="stylesheet" href="/assets/css/footer-visit-info-refine-2.1.156.css?v=2.1.156"/>
+<link rel="stylesheet" href="/assets/css/chatbot-booking-labels-2.1.159.css?v=2.1.160"/>
+<link rel="stylesheet" href="/assets/css/public-mobile-ux-cleanup-2.1.160.css?v=2.1.161"/>
+<link rel="stylesheet" href="/assets/css/public-mobile-topbar-doctor-2.1.162.css?v=2.1.162"/>
+<link rel="stylesheet" href="/assets/css/noorvista-international-uiux.css?v=3.0.0"/>
+</head>
+<body class="nv3-dashboard nv3-role-clinic-manager nv3-sidebar-patient-parity" data-panel-role="clinic-manager" data-nv-page="staff">
+<a class="nv3-skip-link" href="#main-content">رفتن به محتوای اصلی</a>
+<div class="nv3-shell">
+<div class="nv3-sidebar-overlay" data-nv3-sidebar-overlay=""></div>
+<aside aria-label="منوی مدیر کلینیک" class="sidebar nv3-sidebar" data-nv3-sidebar="">
+<div class="nv3-sidebar-header">
+<a aria-label="داشبورد سامانه کلینیک" class="nv3-brand" href="index.html">
+<span class="nv3-brand-mark nv3-brand-logo-image" aria-hidden="true"><img src="/assets/brand/sadra-clinic-mark.svg" alt=""/></span>
+<span class="nv3-brand-copy"><strong>سامانه کلینیک</strong><small>در حال بارگذاری...</small></span>
+</a>
+<button aria-label="جمع کردن منوی کناری" class="nv3-sidebar-collapse" data-nv3-sidebar-collapse="" title="جمع کردن منوی کناری" type="button"><i class="icon-chevron-right" aria-hidden="true"></i></button>
+<button aria-label="بستن منو" class="nv3-sidebar-mobile-close" data-nv3-sidebar-close="" type="button"><i class="icon-close" aria-hidden="true"></i></button>
+</div>
+<nav aria-label="دسترسی‌های پنل" class="nv3-nav"><ul><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="index.html"><span class="nv3-nav-icon"><i class="icon-dashboard" aria-hidden="true"></i></span><span class="nv3-nav-label">داشبورد</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="doctors.html"><span class="nv3-nav-icon"><i class="icon-user-md" aria-hidden="true"></i></span><span class="nv3-nav-label">پزشکان</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="schedule.html"><span class="nv3-nav-icon"><i class="icon-clock-o" aria-hidden="true"></i></span><span class="nv3-nav-label">برنامه کاری پزشکان</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="patients.html"><span class="nv3-nav-icon"><i class="icon-people" aria-hidden="true"></i></span><span class="nv3-nav-label">بیماران</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="appointments.html"><span class="nv3-nav-icon"><i class="icon-calendar" aria-hidden="true"></i></span><span class="nv3-nav-label">نوبت‌ها</span></a></li><li class="nv3-nav-item"><a aria-current="page" class="nav-link nv3-nav-link is-active" href="staff.html"><span class="nv3-nav-icon"><i class="icon-briefcase" aria-hidden="true"></i></span><span class="nv3-nav-label">کارکنان</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="payments.html"><span class="nv3-nav-icon"><i class="icon-credit-card" aria-hidden="true"></i></span><span class="nv3-nav-label">امور مالی</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="medical-centers.html"><span class="nv3-nav-icon"><i class="icon-medkit" aria-hidden="true"></i></span><span class="nv3-nav-label">مراکز درمانی</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="services-management.html"><span class="nv3-nav-icon"><i class="icon-list" aria-hidden="true"></i></span><span class="nv3-nav-label">خدمات کلینیک</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="faqs.html"><span class="nv3-nav-icon"><i class="icon-comments" aria-hidden="true"></i></span><span class="nv3-nav-label">پرسش‌های پرتکرار</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="notifications.html"><span class="nv3-nav-icon"><i class="icon-bell" aria-hidden="true"></i></span><span class="nv3-nav-label">اعلان‌ها</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="reports.html"><span class="nv3-nav-icon"><i class="icon-bar-chart" aria-hidden="true"></i></span><span class="nv3-nav-label">گزارش‌ها</span></a></li></ul></nav>
+<div class="nv3-sidebar-footer"><button class="nv3-sidebar-logout" data-nv3-logout="" type="button"><i class="icon-sign-out" aria-hidden="true"></i><span class="nv3-nav-label">خروج امن</span></button></div>
+</aside>
+<div class="main-content nv3-main">
+<header class="top-header nv3-topbar">
+<div class="nv3-topbar-inner">
+<div class="nv3-heading-wrap"><button aria-label="باز کردن منو" class="nv3-mobile-menu" data-nv3-sidebar-open="" type="button"><i class="icon-menu" aria-hidden="true"></i></button><div class="nv3-page-heading"><h1>مدیریت کارکنان</h1><p>مشاهده و مدیریت کارکنان کلینیک</p></div></div>
+<div class="nv3-topbar-actions"><a aria-label="صفحه اصلی" class="nv3-icon-button nv3-home-button" href="/" title="صفحه اصلی"><i class="icon-home" aria-hidden="true"></i></a><div class="nv3-date-box"><small>امروز</small><strong data-nv3-today="">—</strong></div><a aria-label="اعلان‌ها" class="nv3-icon-button" href="notifications.html" title="اعلان‌ها"><i class="icon-bell" aria-hidden="true"></i><span aria-hidden="true" class="nv3-notification-dot"></span></a><div class="nv3-user-menu"><button aria-expanded="false" aria-haspopup="true" class="user-menu-trigger nv3-user-menu-trigger" data-nv3-user-menu-toggle="" type="button"><span class="user-avatar nv3-user-avatar" data-fallback="مک" data-nv3-user-avatar="">مک</span><span class="nv3-user-copy"><strong class="user-name" data-nv3-user-name="">مدیر کلینیک</strong><small data-nv3-user-role="">مدیر کلینیک</small></span><i class="icon-chevron-down" aria-hidden="true"></i></button><div class="user-dropdown nv3-user-dropdown" data-nv3-user-menu="" role="menu"><button class="nv3-user-menu-item is-danger" data-nv3-logout="" type="button"><i class="icon-sign-out" aria-hidden="true"></i><span>خروج از حساب</span></button></div></div></div>
+</div>
+</header>
+<main class="nv3-page" id="main-content"><!-- آمار کارکنان --><div class="stats-grid nv3-responsive-grid nv3-page-block">
+<div class="stat-card"><div class="stat-icon"><i class="icon-briefcase" aria-hidden="true"></i></div><div class="stat-info"><h3 id="totalStaff">۰</h3><p>کل کارکنان</p></div></div>
+<div class="stat-card"><div class="stat-icon"><i class="icon-user" aria-hidden="true"></i></div><div class="stat-info"><h3 id="activeStaff">۰</h3><p>کارکنان فعال</p></div></div>
+<div class="stat-card"><div class="stat-icon"><i class="icon-user-times" aria-hidden="true"></i></div><div class="stat-info"><h3 id="inactiveStaff">۰</h3><p>کارکنان غیرفعال</p></div></div>
+<div class="stat-card"><div class="stat-icon"><i class="icon-people" aria-hidden="true"></i></div><div class="stat-info"><h3 id="receptionistCount">۰</h3><p>منشی‌ها</p></div></div>
+</div><!-- فیلترها --><div class="filter-section nv3-action-panel nv3-page-block">
+<div class="filter-group">
+<label>جستجو</label>
+<input id="filterSearch" placeholder="نام یا تلفن..." type="text"/>
+</div>
+<div class="filter-group">
+<label>نقش</label>
+<select id="filterRole" aria-label="فیلتر نقش">
+<option value="all">همه نقش‌ها</option>
+<option value="receptionist">منشی</option>
+<option value="clinic_admin">مدیر کلینیک</option>
+</select>
+</div>
+<div class="filter-group">
+<label>وضعیت</label>
+<select id="filterStatus" aria-label="فیلتر وضعیت">
+<option value="all">همه</option>
+<option value="active">فعال</option>
+<option value="inactive">غیرفعال</option>
+</select>
+</div>
+<div class="filter-group" style="flex: 0;">
+<button class="btn btn-outline" onclick="clearFilters()" type="button"><i class="icon-refresh" aria-hidden="true"></i> پاک‌سازی</button>
+</div>
+<div class="filter-group" style="flex: 0;">
+<button class="btn btn-primary" onclick="loadStaff()" type="button"><i class="icon-search" aria-hidden="true"></i> جستجو</button>
+</div>
+<div class="filter-group" style="flex: 0;">
+<button class="btn btn-success" onclick="openAddStaffModal()" type="button"><i class="icon-plus" aria-hidden="true"></i> افزودن کارکنان</button>
+</div>
+</div><div class="card nv3-surface nv3-page-block">
+<div class="card-header">
+<h4><i class="icon-briefcase" aria-hidden="true"></i> لیست کارکنان</h4>
+<span style="font-size: 12px; color: #6b7280;">تعداد: <span id="filteredCount">۰</span> مورد</span>
+</div>
+<div class="card-body">
+<div class="nv3-table-scroll"><table class="data-table" id="staffTable">
+<thead>
+<tr>
+<th>شناسه</th>
+<th>نام و نام خانوادگی</th>
+<th>نقش</th>
+<th>تلفن</th>
+<th>ایمیل</th>
+<th>تاریخ استخدام</th>
+<th>وضعیت</th>
+<th>عملیات</th>
+</tr>
+</thead>
+<tbody id="staffTableBody">
+<tr><td class="loading" colspan="8">در حال بارگذاری...</td></tr>
+</tbody>
+</table></div>
+</div>
+</div></main>
+</div>
+</div>
+<div class="modal-overlay" id="staffModal">
+<div class="modal-container">
+<div class="modal-header">
+<h3 id="staffModalTitle">افزودن کارمند جدید</h3>
+<button class="modal-close" onclick="closeModal('staffModal')" type="button"><i class="icon-close" aria-hidden="true"></i><span class="nv3-sr-only">بستن</span></button>
+</div>
+<div class="modal-body">
+<input id="editStaffId" type="hidden"/>
+<div class="form-group"><label>نام کامل</label><input class="form-control" id="fullName" required="" type="text"/ aria-label="full نام"></div>
+<div class="form-group"><label>نام کاربری</label><input class="form-control" id="username" required="" type="text"/ aria-label="نام کاربری"></div>
+<div class="form-group"><label>نقش</label>
+<select class="form-control" id="role" aria-label="نقش">
+<option value="receptionist">منشی</option>
+<option value="clinic_admin">مدیر کلینیک</option>
+</select>
+</div>
+<div class="form-group"><label>شماره تلفن</label><input class="form-control" id="phone" required="" type="tel"/ aria-label="شماره تلفن"></div>
+<div class="form-group"><label>ایمیل</label><input class="form-control" id="email" type="email"/ aria-label="ایمیل"></div>
+<div id="passwordFields">
+<div class="form-group"><label>رمز عبور</label><input class="form-control" id="password" placeholder="********" type="password"/></div>
+</div>
+</div>
+<div class="modal-footer">
+<button class="btn btn-outline" onclick="closeModal('staffModal')" type="button">انصراف</button>
+<button class="btn btn-primary" onclick="saveStaff()" type="button"><i class="icon-check" aria-hidden="true"></i> <span id="submitBtnText">افزودن</span></button>
+</div>
+</div>
+</div><div aria-labelledby="viewStaffTitle" aria-modal="true" class="modal-overlay" id="viewStaffModal" role="dialog">
+<div class="modal-container nv-profile-detail-modal">
+<div class="modal-header">
+<h3 id="viewStaffTitle"><i class="icon-briefcase" aria-hidden="true"></i> جزئیات کارمند</h3>
+<button aria-label="بستن جزئیات کارمند" class="modal-close" onclick="closeModal('viewStaffModal')" type="button"><i class="icon-close" aria-hidden="true"></i><span class="nv3-sr-only">بستن</span></button>
+</div>
+<div class="modal-body"><div class="nv-profile-detail" id="viewStaffContent"></div></div>
+<div class="modal-footer">
+<button class="btn btn-outline" onclick="closeModal('viewStaffModal')" type="button"><i class="icon-close" aria-hidden="true"></i> بستن</button>
+<button class="btn btn-primary" id="viewStaffEditBtn" type="button"><i class="icon-pencil" aria-hidden="true"></i> ویرایش اطلاعات</button>
+</div>
+</div>
+</div><div class="modal-overlay" id="deleteModal">
+<div class="modal-container" style="max-width: 400px;">
+<div class="modal-header">
+<h3><i class="icon-trash" aria-hidden="true"></i> حذف کارکنان</h3>
+<button class="modal-close" onclick="closeModal('deleteModal')" type="button"><i class="icon-close" aria-hidden="true"></i><span class="nv3-sr-only">بستن</span></button>
+</div>
+<div class="modal-body">
+<p>آیا از حذف این کارکنان اطمینان دارید؟</p>
+<p style="font-size: 12px; color: #6b7280; margin-top: 10px;">توجه: این عملیات غیرقابل بازگشت است.</p>
+</div>
+<div class="modal-footer" style="justify-content: center;">
+<button class="btn btn-outline" onclick="closeModal('deleteModal')" type="button">انصراف</button>
+<button class="btn btn-danger" id="confirmDeleteBtn" type="button">حذف</button>
+</div>
+</div>
+</div><script src="/assets/js/noorvista-dashboard-v3.js?v=2.1.93"></script><script src="/assets/js/clinic-manager-single-role-guard-2.1.86.js?v=2.1.86"></script><script src="/js/jquery.min.js"></script><script src="/js/panel-common.js?v=2.1.63"></script><script src="/js/jalali.js"></script><script src="/js/persian-datepicker.js?v=2.1.70"></script><script>
+let allStaff = [];
+const STAFF_API_BASE = '/api/clinic/staff';
+async function getStaff() { return window.apiRequest(STAFF_API_BASE); }
+async function getStaffById(id) { return window.apiRequest(`${STAFF_API_BASE}/${encodeURIComponent(id)}`); }
+async function createStaff(data) { return window.apiRequest(STAFF_API_BASE, 'POST', data); }
+async function updateStaff(id, data) { return window.apiRequest(`${STAFF_API_BASE}/${encodeURIComponent(id)}`, 'PUT', data); }
+async function updateStaffStatus(id, is_active) { return window.apiRequest(`${STAFF_API_BASE}/${encodeURIComponent(id)}/status`, 'PUT', { is_active: !!is_active }); }
+async function deleteStaff(id) { return window.apiRequest(`${STAFF_API_BASE}/${encodeURIComponent(id)}`, 'DELETE'); }
+let deleteStaffId = null;
+
+function normalizeStaff(s = {}) {
+    return {
+        ...s,
+        id: s.id,
+        full_name: s.full_name || s.fullname || s.name || s.display_name || '-',
+        username: s.username || '',
+        role: s.role || 'receptionist',
+        phone: s.phone || s.mobile || '',
+        email: s.email || '',
+        hire_date: s.hire_date || s.created_at || '',
+        is_active: s.is_active === undefined ? true : !!s.is_active
+    };
+}
+
+async function loadStaff() {
+    try {
+        const result = await getStaff();
+        allStaff = Array.isArray(result?.staff) ? result.staff.map(normalizeStaff) : [];
+        updateStats();
+        renderStaffTable(allStaff);
+    } catch(e) {
+        showToast(e.message || 'خطا در بارگذاری کارکنان', 'error');
+    }
+}
+
+function updateStats() {
+    const total = allStaff.length;
+    const active = allStaff.filter(s => !!s.is_active).length;
+    const inactive = total - active;
+    const receptionistCount = allStaff.filter(s => s.role === 'receptionist' || s.role === 'reception').length;
+    const ids = ['totalStaff','activeStaff','inactiveStaff','receptionistCount'];
+    const vals = [total, active, inactive, receptionistCount];
+    ids.forEach((id, i) => { const el = document.getElementById(id); if (el) el.innerHTML = toPersianNumber(vals[i]); });
+}
+
+function roleLabel(role) {
+    if (role === 'receptionist' || role === 'reception') return 'منشی';
+    if (role === 'clinic_admin' || role === 'clinic_manager') return 'مدیر کلینیک';
+    return 'کارمند';
+}
+
+function renderStaffTable(staff) {
+    const tbody = document.getElementById('staffTableBody');
+    if (!tbody) return;
+    const list = Array.isArray(staff) ? staff : [];
+    const count = document.getElementById('filteredCount');
+    if (count) count.textContent = toPersianNumber(list.length);
+    if (!list.length) {
+        tbody.innerHTML = '<tr><td colspan="8" class="empty-state">هیچ کارمندی یافت نشد</td></tr>';
+        return;
+    }
+    tbody.innerHTML = list.map(raw => {
+        const s = normalizeStaff(raw);
+        return `
+        <tr>
+            <td>${toPersianNumber(s.id)}</td>
+            <td><strong>${escapeHtml(s.full_name)}</strong></td>
+            <td>${roleLabel(s.role)}</td>
+            <td>${toPersianNumber(s.phone || '-')}</td>
+            <td>${escapeHtml(s.email || '-')}</td>
+            <td>${s.hire_date ? toJalali(s.hire_date) : '-'}</td>
+            <td><span class="${s.is_active ? 'badge-active' : 'badge-inactive'}">${s.is_active ? 'فعال' : 'غیرفعال'}</span></td>
+            <td class="action-buttons">
+                <button type="button" class="btn btn-sm action-btn view staff-action" data-action="view" data-id="${Number(s.id)}"><i class="icon-eye" aria-hidden="true"></i> مشاهده</button>
+                <button type="button" class="btn btn-sm action-btn edit staff-action" data-action="edit" data-id="${Number(s.id)}"><i class="icon-pencil" aria-hidden="true"></i> ویرایش</button>
+                <button type="button" class="btn btn-sm action-btn status staff-action" data-action="status" data-id="${Number(s.id)}" data-status="${s.is_active ? '0' : '1'}"><i class="icon-power-off" aria-hidden="true"></i> ${s.is_active ? 'غیرفعال' : 'فعال'}</button>
+                <button type="button" class="btn btn-sm action-btn delete staff-action" data-action="delete" data-id="${Number(s.id)}"><i class="icon-trash" aria-hidden="true"></i> حذف</button>
+            </td>
+        </tr>`;
+    }).join('');
+}
+
+function renderStaffDetails(raw) {
+    const s = normalizeStaff(raw);
+    const staffName = s.full_name || 'کارمند';
+    const staffInitial = staffName.trim().slice(0, 1) || 'ک';
+    const staffRole = roleLabel(s.role);
+    document.getElementById('viewStaffContent').innerHTML = `
+        <section class="nv-profile-hero" aria-label="مشخصات اصلی کارمند">
+            <div class="nv-profile-avatar" aria-hidden="true">${escapeHtml(staffInitial)}</div>
+            <div class="nv-profile-copy"><strong>${escapeHtml(staffName)}</strong><span>${staffRole}</span></div>
+            <span class="nv-profile-status ${s.is_active ? 'is-active' : 'is-inactive'}">${s.is_active ? 'فعال' : 'غیرفعال'}</span>
+        </section>
+        <section class="nv-profile-info-grid" aria-label="اطلاعات کارمند">
+            <div class="nv-profile-info-card"><small>نام کاربری</small><strong>${escapeHtml(s.username || '-')}</strong></div>
+            <div class="nv-profile-info-card"><small>سمت سازمانی</small><strong>${staffRole}</strong></div>
+            <div class="nv-profile-info-card"><small>شماره تلفن</small><strong>${toPersianNumber(s.phone || '-')}</strong></div>
+            <div class="nv-profile-info-card"><small>ایمیل</small><strong>${escapeHtml(s.email || '-')}</strong></div>
+            <div class="nv-profile-info-card is-full"><small>تاریخ استخدام</small><strong>${s.hire_date ? toJalali(s.hire_date) : '-'}</strong></div>
+        </section>
+    `;
+}
+
+async function viewStaff(id) {
+    let s = allStaff.find(x => String(x.id) === String(id));
+    if (!s) return showToast('کارمند مورد نظر یافت نشد', 'error');
+    renderStaffDetails(s);
+    document.getElementById('viewStaffEditBtn').onclick = () => { closeModal('viewStaffModal'); openEditStaffModal(id); };
+    openModal('viewStaffModal');
+    try {
+        const result = await getStaffById(id);
+        if (result?.staff) {
+            s = normalizeStaff({ ...s, ...result.staff });
+            allStaff = allStaff.map(item => String(item.id) === String(id) ? s : item);
+            renderStaffDetails(s);
+        }
+    } catch (_) {}
+}
+
+function openAddStaffModal() {
+    ['editStaffId','fullName','username','phone','email','password'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+    document.getElementById('role').value = 'receptionist';
+    document.getElementById('staffModalTitle').textContent = 'افزودن کارمند جدید';
+    document.getElementById('submitBtnText').textContent = 'افزودن';
+    document.getElementById('passwordFields').style.display = 'block';
+    openModal('staffModal');
+}
+
+function openEditStaffModal(id) {
+    const s = allStaff.find(x => String(x.id) === String(id));
+    if (!s) return showToast('کارمند مورد نظر یافت نشد', 'error');
+    const item = normalizeStaff(s);
+    document.getElementById('editStaffId').value = item.id || '';
+    document.getElementById('fullName').value = item.full_name || '';
+    document.getElementById('username').value = item.username || '';
+    document.getElementById('phone').value = item.phone || '';
+    document.getElementById('email').value = item.email || '';
+    document.getElementById('role').value = item.role === 'reception' ? 'receptionist' : item.role;
+    document.getElementById('staffModalTitle').textContent = 'ویرایش کارمند';
+    document.getElementById('submitBtnText').textContent = 'ذخیره تغییرات';
+    document.getElementById('passwordFields').style.display = 'none';
+    openModal('staffModal');
+}
+
+async function openDeleteModal(id) {
+    deleteStaffId = id;
+    const s = allStaff.find(x => String(x.id) === String(id));
+    const ok = window.NOORVISTA?.confirm
+        ? await window.NOORVISTA.confirm({
+            title: 'حذف / غیرفعال‌سازی کارمند',
+            message: `آیا از حذف یا غیرفعال‌سازی ${s ? s.full_name : 'این کارمند'} اطمینان دارید؟`,
+            okText: 'حذف کارمند',
+            danger: true
+        })
+        : confirm('آیا از حذف این کارمند اطمینان دارید؟');
+    if (ok) await confirmDelete();
+}
+
+function clearFilters() {
+    const search1 = document.getElementById('filterSearch');
+    const search2 = document.getElementById('searchInput');
+    if (search1) search1.value = '';
+    if (search2) search2.value = '';
+    const role = document.getElementById('filterRole');
+    const status = document.getElementById('filterStatus');
+    if (role) role.value = 'all';
+    if (status) status.value = 'all';
+    renderStaffTable(allStaff);
+}
+
+function applyStaffFilters() {
+    const q = ((document.getElementById('filterSearch')?.value || document.getElementById('searchInput')?.value || '') + '').trim().toLowerCase();
+    const role = document.getElementById('filterRole')?.value || 'all';
+    const status = document.getElementById('filterStatus')?.value || 'all';
+    const list = allStaff.filter(s => {
+        const hay = `${s.full_name || ''} ${s.username || ''} ${s.phone || ''} ${s.email || ''}`.toLowerCase();
+        const normalizedRole = s.role === 'reception' ? 'receptionist' : s.role;
+        return (!q || hay.includes(q)) && (role === 'all' || normalizedRole === role) && (status === 'all' || (status === 'active' ? !!s.is_active : !s.is_active));
+    });
+    renderStaffTable(list);
+}
+
+function bindStaffFilters() {
+    ['filterSearch','searchInput','filterRole','filterStatus'].forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.addEventListener(id.includes('Role') || id.includes('Status') ? 'change' : 'input', applyStaffFilters);
+    });
+}
+
+async function saveStaff() {
+    const id = document.getElementById('editStaffId').value;
+    const fullName = document.getElementById('fullName').value.trim();
+    const data = {
+        full_name: fullName,
+        fullname: fullName,
+        username: document.getElementById('username').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        role: document.getElementById('role').value
+    };
+    if (!data.full_name || !data.username || !data.phone) {
+        showToast('لطفاً تمام فیلدهای الزامی را پر کنید', 'error');
+        return;
+    }
+    try {
+        if (id) {
+            await updateStaff(id, data);
+            showToast('اطلاعات کارمند به‌روزرسانی شد', 'success');
+        } else {
+            const password = document.getElementById('password').value;
+            if (!password) return showToast('لطفاً رمز عبور را وارد کنید', 'error');
+            data.password = password;
+            await createStaff(data);
+            showToast('کارمند با موفقیت افزوده شد', 'success');
+        }
+        closeModal('staffModal');
+        await loadStaff();
+    } catch(e) {
+        showToast(e.message || 'خطا در ذخیره کارمند', 'error');
+    }
+}
+
+async function toggleStaffStatus(id, newStatus) {
+    try {
+        await updateStaffStatus(id, newStatus);
+        showToast(newStatus ? 'کارمند فعال شد' : 'کارمند غیرفعال شد', 'success');
+        await loadStaff();
+    } catch(e) {
+        showToast(e.message || 'خطا در تغییر وضعیت', 'error');
+    }
+}
+
+async function confirmDelete() {
+    if (!deleteStaffId) return;
+    try {
+        await deleteStaff(deleteStaffId);
+        showToast('کارمند غیرفعال شد', 'success');
+        closeModal('deleteModal');
+        deleteStaffId = null;
+        await loadStaff();
+    } catch(e) {
+        showToast(e.message || 'خطا در حذف کارمند', 'error');
+    }
+}
+
+
+function bindStaffActions() {
+    const tbody = document.getElementById('staffTableBody');
+    if (!tbody || tbody.dataset.actionsBound === '1') return;
+    tbody.dataset.actionsBound = '1';
+    tbody.addEventListener('click', function(event) {
+        const btn = event.target.closest('.staff-action');
+        if (!btn) return;
+        event.preventDefault();
+        event.stopPropagation();
+        const id = btn.dataset.id;
+        const action = btn.dataset.action;
+        if (action === 'view') return viewStaff(id);
+        if (action === 'edit') return openEditStaffModal(id);
+        if (action === 'status') return toggleStaffStatus(id, btn.dataset.status === '1');
+        if (action === 'delete') return openDeleteModal(id);
+    });
+}
+
+window.loadStaff = loadStaff;
+window.viewStaff = viewStaff;
+window.openAddStaffModal = openAddStaffModal;
+window.openEditStaffModal = openEditStaffModal;
+window.openDeleteModal = openDeleteModal;
+window.saveStaff = saveStaff;
+window.toggleStaffStatus = toggleStaffStatus;
+window.clearFilters = clearFilters;
+window.confirmDelete = confirmDelete;
+
+document.addEventListener('DOMContentLoaded', async () => {
+    if (!await initPage()) return;
+    bindStaffFilters();
+    bindStaffActions();
+    const confirmBtn = document.getElementById('confirmDeleteBtn');
+    if (confirmBtn) confirmBtn.onclick = confirmDelete;
+    loadStaff();
+});
+    </script><script src="/assets/js/panel-pretty-selects-global.js?v=2.1.67"></script><script src="/assets/js/nv-uiux-stability-2.1.129.js?v=2.1.158"></script>
+<script defer src="/assets/js/persian-digits-global-2.1.130.js?v=2.1.130"></script>
+<script defer src="/assets/js/nv-public-text-uiux-2.1.131.js?v=3.0.4"></script>
+<script defer src="/assets/js/nv-comprehensive-audit-2.1.146.js?v=2.1.146"></script>
+<script defer src="/assets/js/topbar-footer-hardfix-2.1.154.js?v=2.1.154"></script>
+<script defer src="/assets/js/chatbot-booking-labels-2.1.159.js?v=2.1.160"></script>
+<script defer src="/assets/js/public-mobile-ux-cleanup-2.1.160.js?v=2.1.161"></script>
+<script defer src="/assets/js/public-mobile-topbar-doctor-2.1.162.js?v=2.1.162"></script>
+<script defer src="/assets/js/noorvista-international-uiux.js?v=3.0.0"></script>
+</body>
+</html>

@@ -1,0 +1,897 @@
+
+/* NoorVista 2.1.87 — clinic-manager E2E polish and parity with admin panel */
+.nv3-role-clinic-manager {
+  --nv-cm-border: #cfe3ee;
+  --nv-cm-border-strong: #b8d6e6;
+  --nv-cm-text: #0b3954;
+  --nv-cm-muted: #647f91;
+  --nv-cm-primary: #158fc2;
+  --nv-cm-success: #0ca678;
+}
+
+.nv3-role-clinic-manager .nv3-page {
+  display: grid;
+  gap: 20px;
+}
+
+.nv3-role-clinic-manager .stats-grid,
+.nv3-role-clinic-manager .nv3-responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.nv3-role-clinic-manager .stat-card {
+  min-height: 108px;
+  padding: 18px 20px;
+  border: 1px solid var(--nv-cm-border);
+  border-radius: 22px;
+  background: linear-gradient(145deg, #fff, #f7fcff);
+  box-shadow: 0 14px 34px rgba(11, 57, 84, .07);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  overflow: hidden;
+}
+
+.nv3-role-clinic-manager .stat-icon,
+.nv3-role-clinic-manager .nv-sms-stat__icon,
+.nv3-role-clinic-manager .nv-admin-stat-icon {
+  width: 52px !important;
+  height: 52px !important;
+  min-width: 52px !important;
+  flex: 0 0 52px !important;
+  border-radius: 17px !important;
+  display: inline-grid !important;
+  place-items: center !important;
+  background: linear-gradient(135deg, #1d9bd0, #0b78a5) !important;
+  color: #fff !important;
+  box-shadow: 0 12px 28px rgba(21, 143, 194, .22) !important;
+}
+
+.nv3-role-clinic-manager .stat-icon i,
+.nv3-role-clinic-manager .nv-sms-stat__icon i,
+.nv3-role-clinic-manager .nv-admin-stat-icon i {
+  font-size: 23px !important;
+  line-height: 1 !important;
+}
+
+.nv3-role-clinic-manager .stat-info,
+.nv3-role-clinic-manager .stat-info * {
+  min-width: 0;
+}
+
+.nv3-role-clinic-manager .stat-info h3,
+.nv3-role-clinic-manager .stat-number,
+.nv3-role-clinic-manager .stat-info strong {
+  margin: 0;
+  color: var(--nv-cm-text);
+  font-size: clamp(1.35rem, 2.1vw, 1.85rem);
+  font-weight: 900;
+  line-height: 1.3;
+}
+
+.nv3-role-clinic-manager .stat-info p,
+.nv3-role-clinic-manager .stat-label {
+  margin: 5px 0 0;
+  color: var(--nv-cm-muted);
+  font-size: .86rem;
+  font-weight: 800;
+  line-height: 1.65;
+}
+
+.nv3-role-clinic-manager .nv3-action-panel,
+.nv3-role-clinic-manager .filter-section,
+.nv3-role-clinic-manager .filter-bar,
+.nv3-role-clinic-manager .admin-filters,
+.nv3-role-clinic-manager .search-filters,
+.nv3-role-clinic-manager .nv-sms-filter {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: end !important;
+  gap: 16px !important;
+  padding: 20px !important;
+  border: 1px solid var(--nv-cm-border) !important;
+  border-radius: 22px !important;
+  background: rgba(255, 255, 255, .84) !important;
+  box-shadow: 0 12px 30px rgba(11, 57, 84, .045) !important;
+}
+
+.nv3-role-clinic-manager .filter-group,
+.nv3-role-clinic-manager .nv-sms-field {
+  flex: 1 1 220px !important;
+  min-width: 180px !important;
+  max-width: 360px;
+}
+
+.nv3-role-clinic-manager .filter-group:has(button),
+.nv3-role-clinic-manager .filter-group[style*="flex: 0"],
+.nv3-role-clinic-manager .nv-sms-actions {
+  flex: 0 0 auto !important;
+  min-width: auto !important;
+  max-width: none !important;
+}
+
+.nv3-role-clinic-manager label,
+.nv3-role-clinic-manager .filter-group label,
+.nv3-role-clinic-manager .form-group label,
+.nv3-role-clinic-manager .nv-sms-field label {
+  display: block;
+  margin: 0 0 8px;
+  color: #345a70;
+  font-size: .82rem;
+  font-weight: 850;
+  line-height: 1.5;
+}
+
+.nv3-role-clinic-manager input:not([type="checkbox"]):not([type="radio"]),
+.nv3-role-clinic-manager select,
+.nv3-role-clinic-manager textarea,
+.nv3-role-clinic-manager .form-control,
+.nv3-role-clinic-manager .date-input,
+.nv3-role-clinic-manager .jalali-date-input {
+  width: 100%;
+  min-height: 46px !important;
+  box-sizing: border-box;
+  border: 1px solid var(--nv-cm-border-strong) !important;
+  border-radius: 14px !important;
+  background-color: #fff !important;
+  color: var(--nv-cm-text) !important;
+  font-size: .9rem !important;
+  font-weight: 700 !important;
+  line-height: 1.45 !important;
+  padding: 10px 14px !important;
+  box-shadow: none !important;
+  transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+
+.nv3-role-clinic-manager textarea.form-control,
+.nv3-role-clinic-manager textarea {
+  min-height: 96px !important;
+  resize: vertical;
+}
+
+.nv3-role-clinic-manager input:focus,
+.nv3-role-clinic-manager select:focus,
+.nv3-role-clinic-manager textarea:focus {
+  outline: none;
+  border-color: #1d9bd0 !important;
+  box-shadow: 0 0 0 4px rgba(29, 155, 208, .13) !important;
+}
+
+.nv3-role-clinic-manager .btn,
+.nv3-role-clinic-manager button:not(.nv3-user-menu-trigger):not(.nv3-sidebar-collapse):not(.nv3-sidebar-mobile-close):not(.nv3-mobile-menu):not(.modal-close):not(.nv3-icon-button),
+.nv3-role-clinic-manager a.btn {
+  min-height: 44px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  font-size: .88rem;
+  font-weight: 850;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+.nv3-role-clinic-manager .action-buttons,
+.nv3-role-clinic-manager td.action-buttons,
+.nv3-role-clinic-manager .table-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.nv3-role-clinic-manager .action-icon,
+.nv3-role-clinic-manager .btn-sm,
+.nv3-role-clinic-manager .nv-sms-retry {
+  min-height: 36px !important;
+  padding: 7px 11px !important;
+  border-radius: 11px !important;
+  font-size: .78rem !important;
+}
+
+.nv3-role-clinic-manager .action-icon i,
+.nv3-role-clinic-manager .btn i,
+.nv3-role-clinic-manager button i {
+  font-size: 1rem !important;
+  line-height: 1 !important;
+}
+
+.nv3-role-clinic-manager .card,
+.nv3-role-clinic-manager .nv3-surface {
+  border: 1px solid var(--nv-cm-border) !important;
+  border-radius: 22px !important;
+  overflow: hidden;
+  background: rgba(255,255,255,.92) !important;
+  box-shadow: 0 12px 32px rgba(11, 57, 84, .055) !important;
+}
+
+.nv3-role-clinic-manager .card-header {
+  min-height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 20px !important;
+  border-bottom: 1px solid #e2edf4 !important;
+  background: linear-gradient(90deg, rgba(240,250,255,.92), rgba(255,255,255,.92));
+}
+
+.nv3-role-clinic-manager .data-table th,
+.nv3-role-clinic-manager .data-table td,
+.nv3-role-clinic-manager .nv-sms-table th,
+.nv3-role-clinic-manager .nv-sms-table td {
+  padding: 13px 14px !important;
+  vertical-align: middle !important;
+  font-size: .84rem !important;
+  line-height: 1.75 !important;
+}
+
+.nv3-role-clinic-manager .data-table th,
+.nv3-role-clinic-manager .nv-sms-table th {
+  background: #f3f9fd !important;
+  color: #36566b !important;
+  font-weight: 900 !important;
+  white-space: nowrap;
+}
+
+.nv3-role-clinic-manager .modal-container {
+  max-width: min(760px, calc(100vw - 32px));
+  border-radius: 22px;
+}
+
+.nv3-role-clinic-manager .modal-body {
+  display: grid;
+  gap: 16px;
+}
+
+.nv3-role-clinic-manager .modal-body .form-row,
+.nv3-role-clinic-manager .modal-body .grid,
+.nv3-role-clinic-manager .modal-body .nv-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.nv3-role-clinic-manager .nv-sms-stats {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(150px, 1fr));
+  gap: 14px;
+}
+
+.nv3-role-clinic-manager .nv-sms-stat {
+  min-height: 106px;
+  padding: 16px;
+}
+
+.nv3-role-clinic-manager .persian-datepicker,
+.nv3-role-clinic-manager .pdp-default {
+  font-family: Shabnam, Vazirmatn, Tahoma, Arial, sans-serif !important;
+  z-index: 100050 !important;
+}
+
+@media (max-width: 1200px) {
+  .nv3-role-clinic-manager .stats-grid,
+  .nv3-role-clinic-manager .nv3-responsive-grid,
+  .nv3-role-clinic-manager .nv-sms-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 780px) {
+  .nv3-role-clinic-manager .stats-grid,
+  .nv3-role-clinic-manager .nv3-responsive-grid,
+  .nv3-role-clinic-manager .nv-sms-stats { grid-template-columns: 1fr; }
+  .nv3-role-clinic-manager .nv3-action-panel,
+  .nv3-role-clinic-manager .filter-section,
+  .nv3-role-clinic-manager .filter-bar,
+  .nv3-role-clinic-manager .nv-sms-filter { align-items: stretch !important; }
+  .nv3-role-clinic-manager .filter-group,
+  .nv3-role-clinic-manager .nv-sms-field,
+  .nv3-role-clinic-manager .filter-group:has(button),
+  .nv3-role-clinic-manager .nv-sms-actions { flex: 1 1 100% !important; max-width: none !important; }
+  .nv3-role-clinic-manager .filter-group button,
+  .nv3-role-clinic-manager .nv-sms-actions button { width: 100%; }
+  .nv3-role-clinic-manager .modal-body .form-row,
+  .nv3-role-clinic-manager .modal-body .grid,
+  .nv3-role-clinic-manager .modal-body .nv-form-grid { grid-template-columns: 1fr; }
+}
+
+
+/* NoorVista 2.1.87 — clinic-manager pages aligned with system-admin appointments layout */
+
+/* NoorVista admin appointments page hardening and responsive layout. */
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] {
+  min-width: 320px;
+  overflow-x: hidden;
+  background: #eef4f8;
+  color: #16344d;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] *,
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] *::before,
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] *::after {
+  box-sizing: border-box;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv3-shell {
+  min-height: 100vh;
+  isolation: isolate;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv3-main,
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv3-page,
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv3-page-block,
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .card,
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .table-container {
+  min-width: 0;
+  max-width: 100%;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv3-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  background: rgba(255, 255, 255, 0.98);
+  border-bottom: 1px solid #c8d9e5;
+  backdrop-filter: blur(10px);
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv3-page {
+  width: 100%;
+  padding: clamp(16px, 2vw, 28px);
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv3-brand-copy {
+  min-width: 0;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv3-brand-copy strong {
+  display: block;
+  max-width: 190px;
+  overflow: hidden;
+  color: #ffffff;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv3-brand-copy small {
+  color: #d7edf7;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .stats-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .stat-card,
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-appointments-toolbox,
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .card {
+  border: 1px solid #c9dbe7;
+  box-shadow: 0 10px 30px rgba(29, 67, 91, 0.08);
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .stat-card {
+  min-height: 112px;
+  overflow: hidden;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .stat-info h3,
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .stat-info p,
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .detail-value,
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] td,
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] th {
+  overflow-wrap: anywhere;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-appointments-filter-fields {
+  display: grid;
+  grid-template-columns: minmax(220px, 1.4fr) minmax(180px, 0.8fr) minmax(180px, 0.8fr) auto;
+  gap: 12px;
+  align-items: end;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] input,
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] select,
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] textarea,
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] button,
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .btn {
+  min-height: 44px;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] input:focus-visible,
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] select:focus-visible,
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] textarea:focus-visible,
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] button:focus-visible,
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] a:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 3px;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-appointments-commandbar-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .table-container {
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-gutter: stable;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] table {
+  width: 100%;
+  min-width: 1040px;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #eaf3f8;
+  color: #17364d;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .table-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-width: 220px;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .action-btn {
+  min-height: 38px;
+  padding-inline: 10px;
+  white-space: nowrap;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .modal-overlay {
+  padding: clamp(10px, 3vw, 28px);
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .modal {
+  width: min(920px, 100%);
+  max-height: calc(100dvh - 24px);
+  overflow: hidden;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .modal-body {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .slot-chip {
+  min-width: 72px;
+}
+
+@media (max-width: 1180px) {
+  body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-appointments-filter-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv3-page {
+    padding: 12px;
+  }
+
+  body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .stats-grid,
+  body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-appointments-filter-fields {
+    grid-template-columns: 1fr;
+  }
+
+  body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv3-page-heading p,
+  body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv3-date-box,
+  body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv3-user-copy {
+    display: none;
+  }
+
+  body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-toolbox-head,
+  body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-appointments-commandbar-layout,
+  body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-appointments-list-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-toolbox-tabs,
+  body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-appointments-commandbar-layout .btn {
+    width: 100%;
+  }
+
+  body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .modal-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .modal {
+    width: 100%;
+    max-height: 94dvh;
+    border-radius: 18px 18px 0 0;
+  }
+}
+
+/* NoorVista v2.1.66 — admin appointments list and checkout action polish */
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-appointments-list-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+  align-items: stretch;
+  padding-block: 16px;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-appointments-list-title {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-appointments-sort-panel {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(210px, .75fr) minmax(250px, .9fr) minmax(240px, 1.2fr);
+  align-items: center;
+  gap: 12px 16px;
+  padding: 14px 16px;
+  border: 1px solid #cfe0eb;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #f8fcff 0%, #eef7fb 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .85);
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-sort-field-heading {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-sort-field-icon {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  color: #075985;
+  background: #dff3fb;
+  border: 1px solid #b9e1f1;
+  font-size: 18px;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-sort-field-heading label {
+  display: block;
+  margin: 0;
+  color: #153b54;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1.8;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-sort-field-heading small {
+  display: block;
+  color: #5c7283;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-sort-select-shell {
+  position: relative;
+  min-width: 0;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-sort-preset-select {
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 10px 46px 10px 44px;
+  border: 1px solid #9fc8dc;
+  border-radius: 13px;
+  color: #123a55;
+  background: #fff;
+  box-shadow: 0 6px 16px rgba(25, 77, 106, .08);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.8;
+  cursor: pointer;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-sort-preset-select:hover {
+  border-color: #4fa8cf;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-sort-preset-select:focus-visible {
+  border-color: #087aaa;
+  outline: 3px solid rgba(14, 165, 233, .24);
+  outline-offset: 2px;
+  box-shadow: 0 8px 20px rgba(8, 122, 170, .13);
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-sort-select-leading,
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-sort-select-chevron {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-sort-select-leading {
+  right: 16px;
+  color: #087aaa;
+  font-size: 16px;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-sort-select-chevron {
+  left: 16px;
+  color: #466579;
+  font-size: 13px;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-sort-summary {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 8px 12px;
+  border-inline-start: 3px solid #70bedc;
+  border-radius: 10px;
+  color: #486274;
+  background: rgba(255, 255, 255, .66);
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.8;
+  text-align: right;
+}
+
+#appointmentFormModal #nvWizardSubmit.nv-wizard-submit.is-payment {
+  border-color: #5b21b6 !important;
+  color: #fff !important;
+  background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 55%, #4c1d95 100%) !important;
+  box-shadow: 0 10px 24px rgba(91, 33, 182, .28) !important;
+}
+
+#appointmentFormModal #nvWizardSubmit.nv-wizard-submit.is-payment:hover:not(:disabled) {
+  border-color: #4c1d95 !important;
+  background: linear-gradient(135deg, #6d28d9 0%, #4c1d95 100%) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 13px 28px rgba(76, 29, 149, .34) !important;
+}
+
+#appointmentFormModal #nvWizardSubmit.nv-wizard-submit.is-free {
+  border-color: #047857 !important;
+  color: #fff !important;
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%) !important;
+  box-shadow: 0 10px 24px rgba(4, 120, 87, .24) !important;
+}
+
+#appointmentFormModal #nvWizardSubmit.nv-wizard-submit:disabled {
+  cursor: wait;
+  opacity: .68;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+@media (max-width: 980px) {
+  body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-appointments-sort-panel {
+    grid-template-columns: minmax(210px, .8fr) minmax(250px, 1.2fr);
+  }
+
+  body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-sort-summary {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-appointments-sort-panel {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 12px;
+  }
+
+  body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-sort-summary {
+    grid-column: auto;
+  }
+
+  body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-sort-preset-select {
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #appointmentFormModal #nvWizardSubmit.nv-wizard-submit {
+    transition: none !important;
+  }
+}
+
+
+/* NoorVista 2.1.87 — clinic-manager system-admin parity hotfixes */
+@media (min-width: 1024px) {
+  body.nv3-role-clinic-manager .nv3-sidebar-mobile-close {
+    display: none !important;
+  }
+}
+@media (max-width: 1023px) {
+  body.nv3-role-clinic-manager .nv3-sidebar-mobile-close {
+    display: inline-grid !important;
+  }
+}
+body.nv3-role-clinic-manager .nv3-sidebar-header {
+  overflow: visible;
+}
+body.nv3-role-clinic-manager .nv3-sidebar-collapse {
+  z-index: 3;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-appointments-sort-toolbar {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(210px, .75fr) minmax(250px, .9fr) minmax(240px, 1.2fr);
+  align-items: center;
+  gap: 12px 16px;
+  padding: 14px 16px;
+  border: 1px solid #cfe0eb;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #f8fcff 0%, #eef7fb 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .85);
+}
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-appointments-toolbox,
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-appointments-commandbar,
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .card {
+  overflow: visible;
+}
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-appointments-filter-fields,
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-history-controls {
+  align-items: end;
+}
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-appointments-range-shortcuts button,
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-appointments-day-nav button,
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-toolbox-tabs button {
+  min-height: 40px !important;
+  padding: 8px 12px !important;
+  border-radius: 12px !important;
+  font-size: 12px !important;
+}
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-appointments-primary-actions .btn,
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] #clearAppointmentsFiltersBtn,
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .nv-history-apply {
+  min-height: 44px !important;
+}
+
+body[data-panel-role="clinic-manager"][data-nv-page="notifications"] .nv3-page,
+body[data-panel-role="clinic-manager"][data-nv-page="reports"] .nv3-page {
+  width: 100%;
+  padding: clamp(16px, 2vw, 28px);
+}
+body[data-panel-role="clinic-manager"][data-nv-page="notifications"] .card,
+body[data-panel-role="clinic-manager"][data-nv-page="reports"] .card {
+  border: 1px solid #c9dbe7 !important;
+  border-radius: 22px !important;
+  box-shadow: 0 10px 30px rgba(29, 67, 91, .08) !important;
+  overflow: hidden !important;
+}
+body[data-panel-role="clinic-manager"][data-nv-page="notifications"] .card-header,
+body[data-panel-role="clinic-manager"][data-nv-page="reports"] .card-header {
+  min-height: 72px;
+  padding: 16px 20px !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+body[data-panel-role="clinic-manager"][data-nv-page="notifications"] .toolbar.nv3-action-panel {
+  display: grid !important;
+  grid-template-columns: minmax(240px, 1fr) minmax(170px, 220px) auto;
+  align-items: end !important;
+  gap: 14px !important;
+  min-height: auto !important;
+  padding: 16px !important;
+}
+body[data-panel-role="clinic-manager"][data-nv-page="reports"] .report-filter.nv3-action-panel {
+  display: block !important;
+  min-height: auto !important;
+  padding: 16px !important;
+}
+body[data-panel-role="clinic-manager"][data-nv-page="reports"] .report-filter .form-row {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(180px, 1fr));
+  gap: 14px;
+  align-items: end;
+}
+body[data-panel-role="clinic-manager"][data-nv-page="notifications"] .toolbar.nv3-action-panel .form-group,
+body[data-panel-role="clinic-manager"][data-nv-page="reports"] .report-filter .form-group {
+  min-width: 0 !important;
+  max-width: none !important;
+  margin: 0 !important;
+}
+body[data-panel-role="clinic-manager"][data-nv-page="notifications"] input,
+body[data-panel-role="clinic-manager"][data-nv-page="notifications"] select,
+body[data-panel-role="clinic-manager"][data-nv-page="reports"] input,
+body[data-panel-role="clinic-manager"][data-nv-page="reports"] select {
+  min-height: 46px !important;
+}
+body[data-panel-role="clinic-manager"][data-nv-page="notifications"] .toolbar.nv3-action-panel .btn,
+body[data-panel-role="clinic-manager"][data-nv-page="reports"] .card-header .btn {
+  min-height: 44px !important;
+  padding: 9px 15px !important;
+  border-radius: 13px !important;
+}
+body[data-panel-role="clinic-manager"][data-nv-page="notifications"] .table-actions,
+body[data-panel-role="clinic-manager"][data-nv-page="notifications"] td.table-actions {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  align-items: center !important;
+}
+body[data-panel-role="clinic-manager"][data-nv-page="notifications"] .action-btn {
+  min-height: 36px !important;
+  padding: 7px 11px !important;
+  border-radius: 11px !important;
+  font-size: 12px !important;
+}
+@media (max-width: 900px) {
+  body[data-panel-role="clinic-manager"][data-nv-page="notifications"] .toolbar.nv3-action-panel,
+  body[data-panel-role="clinic-manager"][data-nv-page="reports"] .report-filter .form-row {
+    grid-template-columns: 1fr;
+  }
+  body[data-panel-role="clinic-manager"][data-nv-page="notifications"] .toolbar.nv3-action-panel .btn,
+  body[data-panel-role="clinic-manager"][data-nv-page="reports"] .card-header .btn {
+    width: 100%;
+  }
+  body[data-panel-role="clinic-manager"][data-nv-page="reports"] .card-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  body[data-panel-role="clinic-manager"][data-nv-page="reports"] .card-header > div {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+
+/* NoorVista 2.1.87 — restore SMS log and align calendar triggers */
+.nv3-role-clinic-manager[data-nv-page="sms-log"] .nv-sms-stats {
+  grid-template-columns: repeat(5, minmax(150px, 1fr));
+}
+.nv3-role-clinic-manager .nv-date-field > .nv-date-trigger[data-nv-date-primary="1"] {
+  width: 34px !important;
+  height: 34px !important;
+  min-width: 34px !important;
+  min-height: 34px !important;
+}
+.nv3-role-clinic-manager .nv-date-field > input {
+  padding-left: 52px !important;
+}
+@media (max-width: 780px) {
+  .nv3-role-clinic-manager[data-nv-page="sms-log"] .nv-sms-stats { grid-template-columns: 1fr; }
+}
+
+/* NoorVista 2.1.101: prevent invalid actions on terminal appointments */
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .action-btn:disabled,
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .action-btn.is-disabled {
+  opacity: .58;
+  cursor: not-allowed !important;
+  filter: grayscale(.08);
+  transform: none !important;
+  box-shadow: none !important;
+}
+body[data-panel-role="clinic-manager"][data-nv-page="appointments"] .action-btn.is-disabled {
+  background: #f8fafc !important;
+  color: #64748b !important;
+  border: 1px solid #dbe6ed !important;
+}

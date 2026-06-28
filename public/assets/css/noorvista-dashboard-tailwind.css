@@ -1,0 +1,1955 @@
+*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }:root{--nv3-sidebar-width:292px;--nv3-sidebar-collapsed:92px;--nv3-gutter:24px;--nv3-topbar-height:86px;--nv3-ink:#102f43;--nv3-muted:#64748b;--nv3-line:#dbe6ed;--nv3-bg:#f4f8fb;--nv3-primary:#1489c4;--nv3-primary-dark:#0b5f8c;--nv3-sidebar:#0b3954;--nv3-sidebar-deep:#06283d;--nv3-success:#079669;--nv3-warning:#d97706;--nv3-danger:#dc3358}.nv3-dashboard{margin:0;min-height:100vh;direction:rtl;font-family:Vazir,Shabnam,Tahoma,Arial,sans-serif;color:var(--nv3-ink);background:radial-gradient(circle at 12% 10%,rgba(58,190,242,.11),transparent 28rem),linear-gradient(180deg,#f7fbfd 0,var(--nv3-bg) 100%);overflow-x:hidden}.nv3-dashboard *,.nv3-dashboard :after,.nv3-dashboard :before{box-sizing:border-box}.nv3-dashboard h1,.nv3-dashboard h2,.nv3-dashboard h3,.nv3-dashboard h4,.nv3-dashboard p,.nv3-dashboard ul{margin:0}.nv3-dashboard ul{padding:0;list-style:none}.nv3-dashboard a{color:inherit;text-decoration:none}.nv3-dashboard button,.nv3-dashboard input,.nv3-dashboard select,.nv3-dashboard textarea{font:inherit}.nv3-dashboard button{cursor:pointer}.nv3-dashboard img{max-width:100%}.nv3-dashboard :focus-visible{outline:3px solid rgba(25,159,215,.33);outline-offset:2px}.nv3-dashboard ::-moz-selection{background:#b8e8ff;color:#082b3e}.nv3-dashboard ::selection{background:#b8e8ff;color:#082b3e}.nv3-dashboard,.nv3-dashboard *{scrollbar-width:thin;scrollbar-color:rgba(20,137,196,.55) transparent}.nv3-dashboard ::-webkit-scrollbar,.nv3-dashboard::-webkit-scrollbar{width:7px;height:7px}.nv3-dashboard ::-webkit-scrollbar-track,.nv3-dashboard::-webkit-scrollbar-track{background:transparent}.nv3-dashboard ::-webkit-scrollbar-thumb,.nv3-dashboard::-webkit-scrollbar-thumb{background:linear-gradient(#45c0f5,#12658f);border-radius:999px;border:2px solid transparent;background-clip:padding-box}.nv3-skip-link{position:fixed;z-index:99999;top:-80px;right:24px;padding:10px 18px;border-radius:12px;color:#fff;background:#082b3e;transition:top .2s ease}.nv3-skip-link:focus{top:16px}.nv3-main,.nv3-shell{min-height:100vh}.nv3-main{min-width:0;transition:margin .28s ease}.nv3-sidebar{position:fixed;z-index:1000;inset:0 0 0 auto;width:var(--nv3-sidebar-width);height:100dvh;display:flex;flex-direction:column;color:#e8f6fc;background:radial-gradient(circle at 25% 0,rgba(65,192,245,.22),transparent 18rem),linear-gradient(180deg,#124e70 0,var(--nv3-sidebar) 45%,var(--nv3-sidebar-deep) 100%);border-left:1px solid hsla(0,0%,100%,.08);box-shadow:-18px 0 55px rgba(7,39,59,.15);transition:width .28s ease,transform .28s ease;overflow:hidden}.nv3-sidebar-header{position:relative;padding:18px 16px 14px;flex:0 0 auto}.nv3-brand,.nv3-sidebar-header{display:flex;align-items:center}.nv3-brand{min-width:0;flex:1;gap:12px;padding:11px 12px 11px 42px;border:1px solid hsla(0,0%,100%,.78);border-radius:20px;background:linear-gradient(145deg,#fff,#edf8fc);color:var(--nv3-ink);box-shadow:0 13px 32px rgba(3,31,48,.2)}.nv3-brand-mark{width:45px;height:45px;flex:0 0 45px;display:grid;place-items:center;border-radius:15px;background:linear-gradient(135deg,#24a9df,#0a5f8c);color:#fff;font-weight:900;letter-spacing:-.5px;box-shadow:0 8px 20px rgba(20,137,196,.28)}.nv3-brand-copy{min-width:0;display:block;line-height:1.35}.nv3-brand-copy strong{display:block;font-size:16px;font-weight:900;letter-spacing:.5px;white-space:nowrap}.nv3-brand-copy small{display:block;margin-top:3px;font-size:11px;font-weight:700;color:#1686bd;white-space:nowrap}.nv3-sidebar-collapse,.nv3-sidebar-mobile-close{width:38px;height:38px;flex:0 0 38px;display:inline-grid;place-items:center;border-radius:13px;transition:.2s ease}.nv3-sidebar-collapse{position:absolute;z-index:2;left:6px;top:50%;transform:translateY(-44%);border:1px solid #cfe6f1;color:#0b6f9f;background:#f4fbfe;box-shadow:0 8px 22px rgba(2,48,72,.14)}.nv3-sidebar-collapse:hover{color:#064c71;background:#fff;transform:translateY(-48%);box-shadow:0 10px 25px rgba(2,48,72,.2)}.nv3-sidebar-mobile-close{border:1px solid hsla(0,0%,100%,.18);color:#eaf8ff;background:hsla(0,0%,100%,.1)}.nv3-sidebar-mobile-close:hover{background:hsla(0,0%,100%,.18);transform:translateY(-1px)}.nv3-sidebar-mobile-close{display:none}.nv3-role-chip{margin:0 16px 12px;display:flex;align-items:center;gap:11px;padding:11px 12px;border-radius:17px;background:hsla(0,0%,100%,.09);border:1px solid hsla(0,0%,100%,.09)}.nv3-role-avatar{width:38px;height:38px;flex:0 0 38px;display:grid;place-items:center;border-radius:13px;background:hsla(0,0%,100%,.94);color:#0d668f;font-size:12px;font-weight:900}.nv3-role-copy{min-width:0;line-height:1.4}.nv3-role-copy strong{display:block;max-width:175px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#fff;font-size:13px;font-weight:850}.nv3-role-copy small{display:block;margin-top:2px;color:#aee4f8;font-size:10px;font-weight:650}.nv3-nav{flex:1 1 auto;min-height:0;overflow-y:auto;padding:6px 14px 18px;scroll-behavior:smooth}.nv3-nav ul{display:grid;gap:5px}.nv3-nav-link{position:relative;min-height:48px;display:flex;align-items:center;gap:12px;padding:7px 9px;border-radius:15px;color:#d8eef7;font-size:12.5px;font-weight:750;transition:background .18s ease,color .18s ease,transform .18s ease}.nv3-nav-link:hover{color:#fff;background:hsla(0,0%,100%,.09);transform:translateX(-2px)}.nv3-nav-link.is-active{color:#0c557d;background:linear-gradient(135deg,#fff,#e8f8ff 74%,#fff5cd);box-shadow:0 12px 28px rgba(3,27,42,.24)}.nv3-nav-link.is-active:before{content:"";position:absolute;inset:11px auto 11px 0;width:3px;border-radius:99px;background:#21a6dd}.nv3-nav-icon{width:35px;height:35px;flex:0 0 35px;display:grid;place-items:center;border-radius:12px;background:hsla(0,0%,100%,.1);font-size:15px}.nv3-nav-link.is-active .nv3-nav-icon{color:#fff;background:linear-gradient(135deg,#1ba5dc,#0c608d);box-shadow:0 7px 15px rgba(12,96,141,.23)}.nv3-nav-label{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nv3-sidebar-footer{flex:0 0 auto;display:grid;gap:8px;padding:14px 16px 16px;border-top:1px solid hsla(0,0%,100%,.09);background:rgba(4,27,42,.18)}.nv3-sidebar-logout,.nv3-sidebar-site-link{width:100%;min-height:43px;display:flex;align-items:center;justify-content:center;gap:9px;padding:9px 12px;border-radius:14px;font-size:12px;font-weight:800}.nv3-sidebar-site-link{border:1px solid hsla(0,0%,100%,.12);color:#d8f1fb;background:hsla(0,0%,100%,.07)}.nv3-sidebar-logout{border:1px solid rgba(251,113,133,.27);color:#ffe5ea;background:rgba(190,24,93,.14)}.nv3-sidebar-site-link:hover{background:hsla(0,0%,100%,.13)}.nv3-sidebar-logout:hover{background:rgba(225,29,72,.24)}.nv3-topbar{position:sticky;z-index:700;top:14px;margin:14px var(--nv3-gutter) 0;min-height:var(--nv3-topbar-height);border:1px solid rgba(205,220,229,.92);border-radius:23px;background:hsla(0,0%,100%,.91);backdrop-filter:blur(18px);box-shadow:0 14px 42px rgba(15,55,78,.09)}.nv3-topbar-inner{min-height:var(--nv3-topbar-height);display:flex;align-items:center;justify-content:space-between;gap:18px;padding:13px 16px}.nv3-heading-wrap{min-width:0;display:flex;align-items:center;gap:12px}.nv3-page-heading{min-width:0}.nv3-page-heading h1{max-width:650px;color:#102f43;font-size:clamp(18px,2vw,24px);line-height:1.25;font-weight:950;letter-spacing:-.45px}.nv3-page-heading h1,.nv3-page-heading p{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.nv3-page-heading p{margin-top:5px;max-width:720px;color:#6b8291;font-size:11.5px;font-weight:600}.nv3-topbar-actions{flex:0 0 auto;display:flex;align-items:center;gap:9px}.nv3-mobile-menu{display:none;width:44px;height:44px;border:1px solid #d7e5ec;border-radius:14px;color:#12658f;background:#fff}.nv3-icon-button{position:relative;width:44px;height:44px;flex:0 0 44px;display:inline-grid;place-items:center;border:1px solid #d8e6ed;border-radius:14px;color:#2d586d;background:#fff;box-shadow:0 5px 15px rgba(15,55,78,.05);transition:.18s ease}.nv3-icon-button:hover{color:#0876aa;border-color:#a9dcf1;background:#effaff;transform:translateY(-1px)}.nv3-notification-dot{position:absolute;top:8px;left:8px;width:7px;height:7px;border-radius:50%;background:#f04468;box-shadow:0 0 0 3px #fff}.nv3-date-box{min-width:146px;padding:7px 13px;border:1px solid #e3edf2;border-radius:14px;background:#f7fafc;line-height:1.35;text-align:right}.nv3-date-box small{display:block;color:#94a3b8;font-size:9.5px;font-weight:700}.nv3-date-box strong{display:block;margin-top:2px;color:#3b596b;font-size:10.5px;font-weight:800;white-space:nowrap}.nv3-user-menu{position:relative}.nv3-user-menu-trigger{min-width:185px;max-width:255px;height:52px;display:flex;align-items:center;gap:10px;padding:5px 7px 5px 11px;border:1px solid #d8e6ed;border-radius:16px;color:var(--nv3-ink);background:#fff;box-shadow:0 5px 15px rgba(15,55,78,.05);transition:.18s ease}.nv3-user-menu-trigger:hover{border-color:#a9dcf1;background:#f5fbfe}.nv3-user-avatar{width:39px;height:39px;flex:0 0 39px;display:grid;place-items:center;border-radius:13px;background:linear-gradient(135deg,#21a7de,#0b628f);color:#fff;font-size:11px;font-weight:900;box-shadow:0 7px 16px rgba(13,111,158,.21)}.nv3-user-copy{min-width:0;flex:1;text-align:right;line-height:1.35}.nv3-user-copy strong{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#173b4e;font-size:11.5px;font-weight:850}.nv3-user-copy small{display:block;margin-top:2px;color:#8395a2;font-size:9.5px;font-weight:650}.nv3-user-menu-trigger>i{color:#8ba0ad;font-size:9px}.nv3-user-dropdown{position:absolute;z-index:1100;top:calc(100% + 10px);left:0;width:238px;display:none;padding:7px;border:1px solid #dbe7ed;border-radius:17px;background:#fff;box-shadow:0 22px 55px rgba(8,43,62,.18)}.nv3-user-dropdown.is-open{display:grid;animation:nv3-menu-in .16s ease both}.nv3-user-menu-item{width:100%;min-height:42px;display:flex;align-items:center;gap:10px;padding:9px 11px;border:0;border-radius:11px;color:#31566a;background:transparent;text-align:right;font-size:11.5px;font-weight:750}.nv3-user-menu-item:hover{color:#0d6d9d;background:#effaff}.nv3-user-menu-item.is-danger{color:#cf3152}.nv3-user-menu-item.is-danger:hover{background:#fff0f3}@keyframes nv3-menu-in{0%{opacity:0;transform:translateY(-5px) scale(.98)}to{opacity:1;transform:none}}.nv3-page{width:100%;padding:22px var(--nv3-gutter) 42px}.nv3-page-block+.nv3-page-block{margin-top:20px}.nv3-dashboard .appt-card,.nv3-dashboard .card,.nv3-dashboard .card-modern,.nv3-dashboard .doctors-table-wrapper,.nv3-dashboard .nv-tw-card,.nv3-dashboard .table-container,.nv3-surface{border:1px solid rgba(210,224,232,.92);border-radius:21px;background:hsla(0,0%,100%,.96);box-shadow:0 13px 40px rgba(15,55,78,.075);overflow:hidden}.nv3-dashboard .appt-card-header,.nv3-dashboard .card-header,.nv3-dashboard .card-header-modern{min-height:62px;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 19px;border-bottom:1px solid #e8f0f4;background:linear-gradient(180deg,#fff,#f9fcfd)}.nv3-dashboard .appt-card-header h3,.nv3-dashboard .card-header h3,.nv3-dashboard .card-header h4,.nv3-dashboard .card-header-modern h3,.nv3-dashboard .card-header-modern h4{color:#183c50;font-size:14px;font-weight:900}.nv3-dashboard .appt-card-body,.nv3-dashboard .card-body{padding:18px}.nv3-dashboard .appt-stat-grid,.nv3-dashboard .quick-actions,.nv3-dashboard .stats-grid,.nv3-responsive-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.nv3-dashboard .nv-tw-stat-card,.nv3-dashboard .quick-action-card,.nv3-dashboard .stat-card{position:relative;min-height:112px;display:flex;align-items:center;gap:15px;padding:18px;border:1px solid #dbe7ed;border-radius:20px;background:#fff;box-shadow:0 11px 32px rgba(15,55,78,.065);overflow:hidden;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}.nv3-dashboard .quick-action-card:after,.nv3-dashboard .stat-card:after{content:"";position:absolute;left:-24px;bottom:-34px;width:98px;height:98px;border-radius:50%;background:rgba(25,159,215,.06)}.nv3-dashboard .quick-action-card:hover,.nv3-dashboard .stat-card:hover{transform:translateY(-3px);border-color:#b7ddec;box-shadow:0 18px 45px rgba(15,55,78,.11)}.nv3-dashboard .quick-action-card>i,.nv3-dashboard .stat-card>div:first-child:has(i),.nv3-dashboard .stat-icon{width:52px;height:52px;flex:0 0 52px;display:grid;place-items:center;border-radius:16px;color:#fff!important;background:linear-gradient(135deg,#2baee3,#1675bb)!important;box-shadow:0 9px 20px rgba(22,117,187,.2)}.nv3-dashboard .quick-action-card>i,.nv3-dashboard .stat-card>div:first-child:has(i) i,.nv3-dashboard .stat-icon i{color:#fff!important;font-size:21px!important}.nv3-dashboard .stat-card .value,.nv3-dashboard .stat-number{color:#123b51;font-size:24px;font-weight:950;line-height:1.25}.nv3-dashboard .stat-card .\!value{color:#123b51!important;font-size:24px!important;font-weight:950!important;line-height:1.25!important}.nv3-dashboard .stat-card .label,.nv3-dashboard .stat-label{margin-top:5px;color:#738997;font-size:11px;font-weight:700}.nv3-dashboard .quick-action-card{cursor:pointer;flex-direction:column;justify-content:center;text-align:center}.nv3-dashboard .quick-action-card h4{color:#173b4e;font-size:13px;font-weight:900}.nv3-dashboard .quick-action-card p{margin-top:5px;color:#8799a4;font-size:10px}.nv3-dashboard .welcome-banner{position:relative;min-height:164px;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 30px;border-radius:24px;color:#fff;background:linear-gradient(115deg,#0d4363,#155c86 48%,#1a9bd1);box-shadow:0 18px 48px rgba(12,91,132,.2);overflow:hidden}.nv3-dashboard .welcome-banner:before{content:"";position:absolute;inset:auto auto -115px -45px;width:260px;height:260px;border-radius:50%;border:45px solid hsla(0,0%,100%,.07)}.nv3-dashboard .welcome-stats,.nv3-dashboard .welcome-text{position:relative;z-index:1}.nv3-dashboard .welcome-text h2{color:#fff;font-size:clamp(20px,2.4vw,29px);font-weight:950}.nv3-dashboard .welcome-text p{margin-top:8px;color:#d6f1fb;font-size:12px;font-weight:650}.nv3-dashboard .welcome-stats{display:flex;flex-wrap:wrap;gap:12px}.nv3-dashboard .welcome-stat{min-width:122px;padding:14px 16px;border:1px solid hsla(0,0%,100%,.18);border-radius:16px;background:hsla(0,0%,100%,.09);text-align:center;backdrop-filter:blur(8px)}.nv3-dashboard .welcome-stat .number{color:#fff;font-size:22px;font-weight:950}.nv3-dashboard .welcome-stat .\!number{color:#fff!important;font-size:22px!important;font-weight:950!important}.nv3-dashboard .welcome-stat .label{margin-top:4px;color:#d7eef7;font-size:10px;font-weight:700}.nv3-action-panel,.nv3-dashboard .filter-bar,.nv3-dashboard .filter-section,.nv3-dashboard .report-filter,.nv3-dashboard .slot-filter,.nv3-dashboard .toolbar{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));align-items:end;gap:13px;padding:17px;border:1px solid #dbe7ed;border-radius:20px;background:hsla(0,0%,100%,.96);box-shadow:0 10px 30px rgba(15,55,78,.06)}.nv3-dashboard .filter-group{grid-column:span 3;min-width:0!important;flex:initial!important}.nv3-dashboard .filter-group:has(>.btn),.nv3-dashboard .filter-group:has(>button){grid-column:span 2}.nv3-dashboard .filter-group:has(>.\!btn){grid-column:span 2!important}.nv3-dashboard .appt-form-group label,.nv3-dashboard .filter-group label,.nv3-dashboard .form-group label{display:block;margin:0 0 7px;color:#3e6174;font-size:10.5px;font-weight:850}.nv3-dashboard .filter-group label:empty{display:none}.nv3-dashboard .admin-form-control,.nv3-dashboard .appt-input,.nv3-dashboard .form-control,.nv3-dashboard input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.nv3-dashboard select,.nv3-dashboard textarea{width:100%;min-height:44px;padding:10px 12px;border:1px solid #cfdee6;border-radius:13px;color:#193e52;background:#fff;font-size:12px;line-height:1.5;transition:border-color .17s ease,box-shadow .17s ease,background .17s ease}.nv3-dashboard textarea{min-height:96px;resize:vertical}.nv3-dashboard input::-moz-placeholder,.nv3-dashboard textarea::-moz-placeholder{color:#a0aeba}.nv3-dashboard input::placeholder,.nv3-dashboard textarea::placeholder{color:#a0aeba}.nv3-dashboard .form-control:focus,.nv3-dashboard input:focus,.nv3-dashboard select:focus,.nv3-dashboard textarea:focus{border-color:#42b6e4;background:#fff;outline:0;box-shadow:0 0 0 4px rgba(66,182,228,.13)}.nv3-dashboard input:disabled,.nv3-dashboard select:disabled,.nv3-dashboard textarea:disabled{color:#80919c;background:#f2f6f8;cursor:not-allowed}.nv3-dashboard .admin-form-grid,.nv3-dashboard .appt-form-row,.nv3-dashboard .form-grid,.nv3-dashboard .form-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.nv3-dashboard .admin-form-group,.nv3-dashboard .appt-form-group,.nv3-dashboard .form-group{min-width:0;margin:0 0 14px}.nv3-dashboard .form-row>.form-group{margin-bottom:0}.nv3-dashboard .full-width{grid-column:1/-1}.nv3-dashboard .admin-help-text,.nv3-dashboard .field-hint,.nv3-dashboard .nv-date-help{margin-top:6px;color:#8295a1;font-size:9.5px;line-height:1.8}.nv3-dashboard input[type=checkbox],.nv3-dashboard input[type=radio]{width:17px;height:17px;accent-color:#168bc5}.nv3-dashboard .checkbox-row{display:flex;align-items:center;gap:8px}.nv3-dashboard .action-icon,.nv3-dashboard .action-icon-btn,.nv3-dashboard .appt-btn,.nv3-dashboard .btn,.nv3-dashboard .btn-modern-primary,.nv3-dashboard .btn-sm{min-height:42px;max-width:100%;display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:9px 15px;border:1px solid transparent;border-radius:13px;white-space:nowrap;font-size:11px;font-weight:850;line-height:1.2;transition:transform .16s ease,box-shadow .16s ease,background .16s ease,border-color .16s ease}.nv3-dashboard .\!btn{min-height:42px!important;max-width:100%!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:7px!important;padding:9px 15px!important;border:1px solid transparent!important;border-radius:13px!important;white-space:nowrap!important;font-size:11px!important;font-weight:850!important;line-height:1.2!important;transition:transform .16s ease,box-shadow .16s ease,background .16s ease,border-color .16s ease!important}.nv3-dashboard .action-icon:hover,.nv3-dashboard .appt-btn:hover,.nv3-dashboard .btn-modern-primary:hover,.nv3-dashboard .btn-sm:hover,.nv3-dashboard .btn:hover{transform:translateY(-1px)}.nv3-dashboard .\!btn:hover{transform:translateY(-1px)!important}.nv3-dashboard .appt-btn-primary,.nv3-dashboard .btn-modern-primary,.nv3-dashboard .btn-primary{color:#fff!important;border-color:#1688c2;background:linear-gradient(135deg,#20a8df,#0c6fa5);box-shadow:0 8px 19px rgba(12,111,165,.19)}.nv3-dashboard .btn-success{color:#fff!important;border-color:#079669;background:linear-gradient(135deg,#12b981,#07845f);box-shadow:0 8px 19px rgba(7,150,105,.18)}.nv3-dashboard .action-icon.delete,.nv3-dashboard .btn-danger{color:#fff!important;border-color:#dc3358;background:linear-gradient(135deg,#f04b6c,#c9244a)}.nv3-dashboard .btn-warning{color:#6a3a00!important;border-color:#f5c451;background:#fff3c7}.nv3-dashboard .appt-btn-muted,.nv3-dashboard .appt-btn-secondary,.nv3-dashboard .btn-outline,.nv3-dashboard .btn-secondary{color:#365b6e!important;border-color:#d1e0e8;background:#fff}.nv3-dashboard .btn-outline:hover,.nv3-dashboard .btn-secondary:hover{color:#0d6e9f!important;border-color:#a9dced;background:#effaff}.nv3-dashboard .btn:disabled,.nv3-dashboard button:disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}.nv3-dashboard .\!btn:disabled{opacity:.55!important;cursor:not-allowed!important;transform:none!important;box-shadow:none!important}.nv3-dashboard .action-buttons,.nv3-dashboard .appt-actions,.nv3-dashboard .card-actions,.nv3-dashboard .modal-footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:7px}.nv3-dashboard .action-icon{min-height:34px;padding:7px 10px;border-radius:10px;color:#315b70;border-color:#d9e7ed;background:#f8fbfc;font-size:9.5px}.nv3-dashboard .action-icon.view{color:#146fa1;background:#eef9ff}.nv3-dashboard .action-icon.\!view{color:#146fa1!important;background:#eef9ff!important}.nv3-dashboard .action-icon.edit{color:#a76704;background:#fff8e6}.nv3-dashboard .action-icon.toggle{color:#087f5b;background:#eafaf4}.nv3-dashboard .action-icon.\!toggle{color:#087f5b!important;background:#eafaf4!important}.nv3-dashboard .appt-table-wrap,.nv3-dashboard .doctors-table-wrapper,.nv3-dashboard .table-responsive,.nv3-table-scroll{width:100%;overflow:auto;border-radius:16px}.nv3-dashboard table{width:100%;min-width:720px;border-collapse:separate;border-spacing:0;color:#294f62;background:#fff}.nv3-dashboard table th{position:sticky;top:0;z-index:2;padding:13px 11px;border-bottom:1px solid #dce8ee;color:#496a7b;background:#f3f8fa;text-align:center;font-size:10px;font-weight:900;white-space:nowrap}.nv3-dashboard table td{padding:13px 11px;border-bottom:1px solid #edf2f5;text-align:center;font-size:10.5px;vertical-align:middle}.nv3-dashboard table tbody tr{transition:background .15s ease}.nv3-dashboard table tbody tr:hover{background:#f5fbfe}.nv3-dashboard table tbody tr:last-child td{border-bottom:0}.nv3-dashboard table strong{color:#173b4d}.nv3-dashboard .appt-empty,.nv3-dashboard .empty-state,.nv3-dashboard .nv-empty,.nv3-dashboard .nv-tw-empty,.nv3-dashboard .table-empty-state{padding:35px 18px!important;color:#8296a2;text-align:center;font-size:12px;line-height:2}.nv3-dashboard .badge-status,.nv3-dashboard .role-badge,.nv3-dashboard .status-badge,.nv3-dashboard [class*=status-]{display:inline-flex;align-items:center;justify-content:center;min-height:27px;padding:5px 10px;border-radius:999px;font-size:9px;font-weight:850}.nv3-dashboard .badge-completed,.nv3-dashboard .status-active{color:#087c59;background:#e7f9f2}.nv3-dashboard .badge-cancelled,.nv3-dashboard .status-inactive{color:#c42d4c;background:#fff0f3}.nv3-dashboard .badge-pending{color:#a65d00;background:#fff7dd}.nv3-dashboard .badge-confirmed{color:#126da0;background:#e9f7ff}.nv3-dashboard .pagination{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:7px;padding:17px 0 2px}.nv3-dashboard .page-btn{min-width:36px;height:36px;display:grid;place-items:center;padding:0 10px;border:1px solid #d5e3e9;border-radius:11px;color:#456779;background:#fff;font-size:10px;font-weight:800}.nv3-dashboard .page-btn.active,.nv3-dashboard .page-btn:hover{color:#fff;border-color:#168ac4;background:#168ac4}.nv3-dashboard .page-btn.\!active{color:#fff!important;border-color:#168ac4!important;background:#168ac4!important}.nv3-dashboard .admin-modal-overlay,.nv3-dashboard .modal,.nv3-dashboard .modal-overlay{position:fixed;z-index:3000;inset:0;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(4,28,43,.62);backdrop-filter:blur(7px)}.nv3-dashboard .\!modal{position:fixed!important;z-index:3000!important;inset:0!important;display:none!important;align-items:center!important;justify-content:center!important;padding:20px!important;background:rgba(4,28,43,.62)!important;backdrop-filter:blur(7px)!important}.nv3-dashboard .admin-modal-overlay.show,.nv3-dashboard .modal-overlay.show,.nv3-dashboard .modal.show{display:flex}.nv3-dashboard .\!modal.show{display:flex!important}.nv3-dashboard .admin-modal-container,.nv3-dashboard .modal-container,.nv3-dashboard .modal-content{width:min(100%,660px);max-height:min(90vh,850px);overflow:auto;border:1px solid hsla(0,0%,100%,.8);border-radius:23px;background:#fff;box-shadow:0 30px 100px rgba(3,29,45,.32);animation:nv3-modal-in .2s ease both}@keyframes nv3-modal-in{0%{opacity:0;transform:translateY(12px) scale(.985)}to{opacity:1;transform:none}}.nv3-dashboard .admin-modal-header,.nv3-dashboard .modal-header{position:sticky;z-index:2;top:0;min-height:62px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid #e6eef2;background:hsla(0,0%,100%,.96);backdrop-filter:blur(12px)}.nv3-dashboard .admin-modal-header h3,.nv3-dashboard .modal-header h3{color:#183d51;font-size:14px;font-weight:950}.nv3-dashboard .admin-modal-close,.nv3-dashboard .modal-close{width:36px;height:36px;display:grid;place-items:center;border:1px solid #e1eaee;border-radius:11px;color:#6f8591;background:#f8fafb;font-size:21px}.nv3-dashboard .modal-close:hover{color:#cf3152;border-color:#ffd1da;background:#fff2f4}.nv3-dashboard .admin-modal-body,.nv3-dashboard .modal-body{padding:19px}.nv3-dashboard .admin-modal-footer,.nv3-dashboard .modal-footer{position:sticky;z-index:2;bottom:0;justify-content:flex-end;padding:13px 18px;border-top:1px solid #e6eef2;background:hsla(0,0%,100%,.96);backdrop-filter:blur(12px)}.nv3-dashboard .nvps-select{position:relative;width:100%}.nv3-dashboard .nvps-native{position:absolute!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none!important}.nv3-dashboard .nvps-trigger{width:100%;min-height:44px;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border:1px solid #cfdee6;border-radius:13px;color:#244b5f;background:#fff;text-align:right;font-size:11.5px;font-weight:720;transition:.17s ease}.nv3-dashboard .nvps-select.open .nvps-trigger,.nv3-dashboard .nvps-trigger:focus{border-color:#42b6e4;box-shadow:0 0 0 4px rgba(66,182,228,.13)}.nv3-dashboard .nvps-select.\!open .nvps-trigger{border-color:#42b6e4!important;box-shadow:0 0 0 4px rgba(66,182,228,.13)!important}.nv3-dashboard .nvps-chevron{width:8px;height:8px;flex:0 0 8px;border-left:2px solid #66808f;border-bottom:2px solid #66808f;transform:rotate(-45deg) translateY(-2px);transition:transform .18s ease}.nv3-dashboard .nvps-select.open .nvps-chevron{transform:rotate(135deg) translateY(-2px)}.nv3-dashboard .nvps-select.\!open .nvps-chevron{transform:rotate(135deg) translateY(-2px)!important}.nvps-portal{position:fixed;z-index:99999;max-height:280px;overflow:auto;display:grid;gap:4px;padding:7px;border:1px solid #cfe0e8;border-radius:15px;background:#fff;box-shadow:0 22px 60px rgba(5,39,58,.22)}.nvps-option{width:100%;min-height:39px;display:flex;align-items:center;padding:8px 11px;border:0;border-radius:10px;color:#315568;background:transparent;text-align:right;font-family:Vazir,Shabnam,Tahoma,sans-serif;font-size:11px;font-weight:700}.nvps-option:hover{color:#0c6e9f;background:#edf9ff}.nvps-option.selected{color:#fff;background:linear-gradient(135deg,#21a6dd,#0c6e9f)}.nvps-option.\!selected{color:#fff!important;background:linear-gradient(135deg,#21a6dd,#0c6e9f)!important}.nvps-option.disabled{opacity:.45;cursor:not-allowed}.nvps-option.\!disabled{opacity:.45!important;cursor:not-allowed!important}.nvps-empty{padding:18px;color:#8396a1;text-align:center;font-size:11px}.nv3-dashboard .detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.nv3-dashboard .detail-item{padding:11px 13px;border:1px solid #e1ebef;border-radius:13px;background:#f8fbfc;color:#4b6979;font-size:11px;line-height:1.9}.nv3-dashboard .detail-item strong{color:#173c50}.nv3-dashboard .alert,.nv3-dashboard .selected-slot-banner,.nv3-dashboard .selected-slot-sticky{padding:13px 15px;border:1px solid #bfe3f2;border-radius:14px;color:#155f82;background:#effaff;font-size:11px;line-height:1.9}.nv3-dashboard .chart-container{min-height:280px;padding:14px;border:1px solid #e1ebef;border-radius:16px;background:#fbfdfe}.nv3-dashboard .two-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.nv3-dashboard .nv-patient-skeleton{border-radius:22px;background:linear-gradient(100deg,#edf4f7 20%,#f9fcfd 40%,#edf4f7 60%);background-size:200% 100%;animation:nv3-shimmer 1.4s infinite}@keyframes nv3-shimmer{to{background-position:-200% 0}}.nv3-dashboard #doctorPageContent,.nv3-dashboard #patientPageContent,.nv3-dashboard #secretaryPageContent{min-width:0}.nv3-sidebar-collapsed .nv3-sidebar{width:var(--nv3-sidebar-collapsed)}.nv3-sidebar-collapsed .nv3-main{margin-right:var(--nv3-sidebar-collapsed)}.nv3-sidebar-collapsed .nv3-brand{justify-content:center;padding:8px}.nv3-sidebar-collapsed .nv3-brand-copy,.nv3-sidebar-collapsed .nv3-nav-label,.nv3-sidebar-collapsed .nv3-role-copy{display:none}.nv3-sidebar-collapsed .nv3-sidebar-header{display:grid;justify-items:center;gap:10px}.nv3-sidebar-collapsed .nv3-sidebar-collapse{position:static;transform:none}.nv3-sidebar-collapsed .nv3-sidebar-collapse:hover{transform:translateY(-1px)}.nv3-sidebar-collapsed .nv3-role-chip{justify-content:center;margin-inline:12px;padding-inline:8px}.nv3-sidebar-collapsed .nv3-nav{padding-inline:12px}.nv3-sidebar-collapsed .nv3-nav-link{justify-content:center;padding-inline:8px}.nv3-sidebar-collapsed .nv3-nav-link:hover{transform:none}.nv3-sidebar-collapsed .nv3-sidebar-logout,.nv3-sidebar-collapsed .nv3-sidebar-site-link{padding-inline:8px}@media (min-width:1024px){.nv3-main{margin-right:var(--nv3-sidebar-width)}}@media (max-width:1279px){:root{--nv3-gutter:18px}.nv3-dashboard .appt-stat-grid,.nv3-dashboard .quick-actions,.nv3-dashboard .stats-grid,.nv3-responsive-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.nv3-dashboard .filter-group{grid-column:span 4}.nv3-dashboard .filter-group:has(>.btn),.nv3-dashboard .filter-group:has(>button){grid-column:span 3}.nv3-date-box{display:none}.nv3-dashboard .filter-group:has(>.\!btn){grid-column:span 3!important}}@media (max-width:1023px){:root{--nv3-gutter:14px}.nv3-main{margin-right:0!important}.nv3-sidebar{transform:translateX(105%);width:min(88vw,292px)}.nv3-sidebar.is-open{transform:translateX(0)}.nv3-sidebar-overlay{position:fixed;z-index:990;inset:0;display:none;background:rgba(3,24,38,.56);backdrop-filter:blur(4px)}.nv3-sidebar-overlay.is-open{display:block}.nv3-menu-open{overflow:hidden}.nv3-sidebar-collapse{display:none}.nv3-mobile-menu,.nv3-sidebar-mobile-close{display:inline-grid}.nv3-mobile-menu{place-items:center}.nv3-topbar{top:8px;margin-top:8px}.nv3-topbar-inner{min-height:76px}.nv3-home-button{display:none}}@media (max-width:767px){.nv3-topbar{border-radius:18px}.nv3-topbar-inner{padding:10px 11px;gap:10px}.nv3-page-heading h1{font-size:17px}.nv3-page-heading p{display:none}.nv3-icon-button{width:41px;height:41px;flex-basis:41px}.nv3-user-menu-trigger{min-width:0;width:46px;height:46px;padding:3px;justify-content:center}.nv3-user-copy,.nv3-user-menu-trigger>i{display:none}.nv3-user-dropdown{position:fixed;top:72px;left:14px;right:14px;width:auto}.nv3-page{padding-top:16px;padding-bottom:28px}.nv3-dashboard .appt-stat-grid,.nv3-dashboard .quick-actions,.nv3-dashboard .stats-grid,.nv3-responsive-grid{grid-template-columns:1fr;gap:12px}.nv3-dashboard .quick-action-card,.nv3-dashboard .stat-card{min-height:96px}.nv3-action-panel,.nv3-dashboard .filter-bar,.nv3-dashboard .filter-section,.nv3-dashboard .report-filter,.nv3-dashboard .slot-filter,.nv3-dashboard .toolbar{grid-template-columns:1fr;padding:14px}.nv3-dashboard .filter-group,.nv3-dashboard .filter-group:has(>.btn),.nv3-dashboard .filter-group:has(>button){grid-column:auto}.nv3-dashboard .filter-group:has(>button) label{display:none}.nv3-dashboard .filter-group>.btn,.nv3-dashboard .filter-group>button{width:100%}.nv3-dashboard .admin-form-grid,.nv3-dashboard .appt-form-row,.nv3-dashboard .form-grid,.nv3-dashboard .form-row{grid-template-columns:1fr;gap:0}.nv3-dashboard .detail-grid,.nv3-dashboard .two-columns{grid-template-columns:1fr}.nv3-dashboard .welcome-banner{padding:21px;flex-direction:column;align-items:stretch}.nv3-dashboard .welcome-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.nv3-dashboard .appt-card-header,.nv3-dashboard .card-header,.nv3-dashboard .card-header-modern{align-items:flex-start;flex-direction:column}.nv3-dashboard .card-header .btn,.nv3-dashboard .card-header-modern .btn,.nv3-dashboard .card-header-modern button{width:100%}.nv3-dashboard .admin-modal-overlay,.nv3-dashboard .modal,.nv3-dashboard .modal-overlay{padding:9px;align-items:flex-end}.nv3-dashboard .admin-modal-container,.nv3-dashboard .modal-container,.nv3-dashboard .modal-content{max-height:94dvh;border-radius:22px 22px 12px 12px}.nv3-dashboard .admin-modal-footer,.nv3-dashboard .modal-footer{display:grid;grid-template-columns:1fr 1fr}.nv3-dashboard .admin-modal-footer>*,.nv3-dashboard .modal-footer>*{width:100%}.nv3-dashboard table{min-width:660px}.nv3-dashboard .filter-group:has(>.\!btn){grid-column:auto!important}.nv3-dashboard .card-header .\!btn,.nv3-dashboard .card-header-modern .\!btn,.nv3-dashboard .filter-group>.\!btn{width:100%!important}.nv3-dashboard .\!modal{padding:9px!important;align-items:flex-end!important}}@media (max-width:430px){:root{--nv3-gutter:10px}.nv3-page-heading h1{max-width:170px}.nv3-topbar-actions{gap:6px}.nv3-dashboard .admin-modal-footer,.nv3-dashboard .modal-footer,.nv3-dashboard .welcome-stats{grid-template-columns:1fr}}@media print{.nv3-sidebar,.nv3-sidebar-overlay,.nv3-topbar{display:none!important}.nv3-main{margin:0!important}.nv3-page{padding:0}.nv3-dashboard{background:#fff}.nv3-dashboard .card,.nv3-surface{box-shadow:none}}.tw-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}.tw-fixed{position:fixed}.tw-absolute{position:absolute}.tw-relative{position:relative}.tw-sticky{position:sticky}.tw-bottom-5{bottom:1.25rem}.tw-left-4{left:1rem}.tw-right-3\.5{right:.875rem}.tw-top-1\/2{top:50%}.tw-top-28{top:7rem}.tw-z-\[100\]{z-index:100}.tw-col-span-full{grid-column:1/-1}.tw-mx-auto{margin-left:auto;margin-right:auto}.tw-mb-6{margin-bottom:1.5rem}.tw-ml-1\.5{margin-left:.375rem}.tw-ml-2{margin-left:.5rem}.tw-mt-1{margin-top:.25rem}.tw-mt-2{margin-top:.5rem}.tw-mt-3{margin-top:.75rem}.tw-mt-4{margin-top:1rem}.tw-mt-5{margin-top:1.25rem}.tw-mt-6{margin-top:1.5rem}.tw-line-clamp-2{-webkit-line-clamp:2}.tw-line-clamp-2,.tw-line-clamp-3{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical}.tw-line-clamp-3{-webkit-line-clamp:3}.tw-block{display:block}.tw-flex{display:flex}.tw-inline-flex{display:inline-flex}.tw-grid{display:grid}.tw-hidden{display:none}.tw-h-1\.5{height:.375rem}.tw-h-10{height:2.5rem}.tw-h-12{height:3rem}.tw-h-14{height:3.5rem}.tw-h-16{height:4rem}.tw-h-2{height:.5rem}.tw-h-20{height:5rem}.tw-h-36{height:9rem}.tw-h-64{height:16rem}.tw-h-72{height:18rem}.tw-h-8{height:2rem}.tw-h-9{height:2.25rem}.tw-h-full{height:100%}.tw-max-h-\[65vh\]{max-height:65vh}.tw-min-h-24{min-height:6rem}.tw-min-h-28{min-height:7rem}.tw-w-10{width:2.5rem}.tw-w-12{width:3rem}.tw-w-14{width:3.5rem}.tw-w-16{width:4rem}.tw-w-20{width:5rem}.tw-w-8{width:2rem}.tw-w-9{width:2.25rem}.tw-w-\[min\(92vw\,420px\)\]{width:min(92vw,420px)}.tw-w-full{width:100%}.tw-min-w-0{min-width:0}.tw-max-w-2xl{max-width:42rem}.tw-max-w-lg{max-width:32rem}.tw-max-w-xl{max-width:36rem}.tw-flex-1{flex:1 1 0%}.tw-flex-none{flex:none}.-tw-translate-y-1\/2{--tw-translate-y:-50%}.-tw-translate-y-1\/2,.tw-translate-x-0{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.tw-translate-x-0{--tw-translate-x:0px}.tw-translate-x-full{--tw-translate-x:100%;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.tw-resize-y{resize:vertical}.tw-scroll-mt-28{scroll-margin-top:7rem}.tw-grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.tw-grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.tw-grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.tw-flex-col{flex-direction:column}.tw-flex-col-reverse{flex-direction:column-reverse}.tw-flex-wrap{flex-wrap:wrap}.tw-items-start{align-items:flex-start}.tw-items-center{align-items:center}.tw-justify-end{justify-content:flex-end}.tw-justify-center{justify-content:center}.tw-justify-between{justify-content:space-between}.tw-gap-2{gap:.5rem}.tw-gap-3{gap:.75rem}.tw-gap-4{gap:1rem}.tw-gap-5{gap:1.25rem}.tw-gap-6{gap:1.5rem}.tw-space-y-3>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.75rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.75rem*var(--tw-space-y-reverse))}.tw-space-y-4>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem*var(--tw-space-y-reverse))}.tw-space-y-5>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem*var(--tw-space-y-reverse))}.tw-space-y-6>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem*var(--tw-space-y-reverse))}.tw-overflow-hidden{overflow:hidden}.tw-overflow-y-auto{overflow-y:auto}.tw-truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.tw-whitespace-pre-wrap{white-space:pre-wrap}.tw-rounded-2xl{border-radius:1rem}.tw-rounded-3xl{border-radius:1.5rem}.tw-rounded-full{border-radius:9999px}.tw-rounded-lg{border-radius:.5rem}.tw-rounded-xl{border-radius:.75rem}.tw-border{border-width:1px}.tw-border-0{border-width:0}.tw-border-b{border-bottom-width:1px}.tw-border-t{border-top-width:1px}.tw-border-dashed{border-style:dashed}.tw-border-amber-200{--tw-border-opacity:1;border-color:rgb(253 230 138/var(--tw-border-opacity,1))}.tw-border-emerald-200{--tw-border-opacity:1;border-color:rgb(167 243 208/var(--tw-border-opacity,1))}.tw-border-noor-200{--tw-border-opacity:1;border-color:rgb(184 232 255/var(--tw-border-opacity,1))}.tw-border-rose-200{--tw-border-opacity:1;border-color:rgb(254 205 211/var(--tw-border-opacity,1))}.tw-border-sky-200{--tw-border-opacity:1;border-color:rgb(186 230 253/var(--tw-border-opacity,1))}.tw-border-slate-100{--tw-border-opacity:1;border-color:rgb(241 245 249/var(--tw-border-opacity,1))}.tw-border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240/var(--tw-border-opacity,1))}.tw-bg-amber-50{--tw-bg-opacity:1;background-color:rgb(255 251 235/var(--tw-bg-opacity,1))}.tw-bg-amber-500{--tw-bg-opacity:1;background-color:rgb(245 158 11/var(--tw-bg-opacity,1))}.tw-bg-emerald-50{--tw-bg-opacity:1;background-color:rgb(236 253 245/var(--tw-bg-opacity,1))}.tw-bg-emerald-500{--tw-bg-opacity:1;background-color:rgb(16 185 129/var(--tw-bg-opacity,1))}.tw-bg-noor-50{--tw-bg-opacity:1;background-color:rgb(238 250 255/var(--tw-bg-opacity,1))}.tw-bg-noor-600{--tw-bg-opacity:1;background-color:rgb(17 127 181/var(--tw-bg-opacity,1))}.tw-bg-rose-50{--tw-bg-opacity:1;background-color:rgb(255 241 242/var(--tw-bg-opacity,1))}.tw-bg-rose-500{--tw-bg-opacity:1;background-color:rgb(244 63 94/var(--tw-bg-opacity,1))}.tw-bg-rose-600{--tw-bg-opacity:1;background-color:rgb(225 29 72/var(--tw-bg-opacity,1))}.tw-bg-sky-50{--tw-bg-opacity:1;background-color:rgb(240 249 255/var(--tw-bg-opacity,1))}.tw-bg-sky-500{--tw-bg-opacity:1;background-color:rgb(14 165 233/var(--tw-bg-opacity,1))}.tw-bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249/var(--tw-bg-opacity,1))}.tw-bg-slate-200{--tw-bg-opacity:1;background-color:rgb(226 232 240/var(--tw-bg-opacity,1))}.tw-bg-slate-50{--tw-bg-opacity:1;background-color:rgb(248 250 252/var(--tw-bg-opacity,1))}.tw-bg-transparent{background-color:transparent}.tw-bg-violet-50{--tw-bg-opacity:1;background-color:rgb(245 243 255/var(--tw-bg-opacity,1))}.tw-bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.tw-bg-white\/10{background-color:hsla(0,0%,100%,.1)}.tw-bg-white\/15{background-color:hsla(0,0%,100%,.15)}.tw-bg-white\/20{background-color:hsla(0,0%,100%,.2)}.tw-bg-white\/70{background-color:hsla(0,0%,100%,.7)}.tw-bg-gradient-to-br{background-image:linear-gradient(to bottom right,var(--tw-gradient-stops))}.tw-bg-gradient-to-l{background-image:linear-gradient(to left,var(--tw-gradient-stops))}.tw-from-emerald-900{--tw-gradient-from:#064e3b var(--tw-gradient-from-position);--tw-gradient-to:rgba(6,78,59,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.tw-from-indigo-700{--tw-gradient-from:#4338ca var(--tw-gradient-from-position);--tw-gradient-to:rgba(67,56,202,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.tw-from-indigo-900{--tw-gradient-from:#312e81 var(--tw-gradient-from-position);--tw-gradient-to:rgba(49,46,129,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.tw-from-noor-500{--tw-gradient-from:#199fd7 var(--tw-gradient-from-position);--tw-gradient-to:rgba(25,159,215,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.tw-from-noor-800{--tw-gradient-from:#145574 var(--tw-gradient-from-position);--tw-gradient-to:rgba(20,85,116,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.tw-from-noor-900{--tw-gradient-from:#123f57 var(--tw-gradient-from-position);--tw-gradient-to:rgba(18,63,87,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.tw-from-slate-900{--tw-gradient-from:#0f172a var(--tw-gradient-from-position);--tw-gradient-to:rgba(15,23,42,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.tw-via-indigo-800{--tw-gradient-to:rgba(55,48,163,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),#3730a3 var(--tw-gradient-via-position),var(--tw-gradient-to)}.tw-via-noor-700{--tw-gradient-to:rgba(18,101,143,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),#12658f var(--tw-gradient-via-position),var(--tw-gradient-to)}.tw-via-noor-800{--tw-gradient-to:rgba(20,85,116,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),#145574 var(--tw-gradient-via-position),var(--tw-gradient-to)}.tw-via-noor-900{--tw-gradient-to:rgba(18,63,87,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),#123f57 var(--tw-gradient-via-position),var(--tw-gradient-to)}.tw-via-teal-700{--tw-gradient-to:rgba(15,118,110,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),#0f766e var(--tw-gradient-via-position),var(--tw-gradient-to)}.tw-to-indigo-700{--tw-gradient-to:#4338ca var(--tw-gradient-to-position)}.tw-to-noor-600{--tw-gradient-to:#117fb5 var(--tw-gradient-to-position)}.tw-to-sky-500{--tw-gradient-to:#0ea5e9 var(--tw-gradient-to-position)}.tw-to-violet-600{--tw-gradient-to:#7c3aed var(--tw-gradient-to-position)}.tw-p-3{padding:.75rem}.tw-p-4{padding:1rem}.tw-p-5{padding:1.25rem}.tw-p-6{padding:1.5rem}.tw-p-8{padding:2rem}.tw-px-3{padding-left:.75rem;padding-right:.75rem}.tw-px-4{padding-left:1rem;padding-right:1rem}.tw-px-5{padding-left:1.25rem;padding-right:1.25rem}.tw-py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.tw-py-2{padding-top:.5rem;padding-bottom:.5rem}.tw-py-2\.5{padding-top:.625rem;padding-bottom:.625rem}.tw-py-3{padding-top:.75rem;padding-bottom:.75rem}.tw-pl-12{padding-left:3rem}.tw-pr-10{padding-right:2.5rem}.tw-text-center{text-align:center}.tw-text-2xl{font-size:1.5rem;line-height:2rem}.tw-text-3xl{font-size:1.875rem;line-height:2.25rem}.tw-text-\[11px\]{font-size:11px}.tw-text-base{font-size:1rem;line-height:1.5rem}.tw-text-lg{font-size:1.125rem;line-height:1.75rem}.tw-text-sm{font-size:.875rem;line-height:1.25rem}.tw-text-xl{font-size:1.25rem;line-height:1.75rem}.tw-text-xs{font-size:.75rem;line-height:1rem}.tw-font-black{font-weight:900}.tw-font-bold{font-weight:700}.tw-font-semibold{font-weight:600}.tw-leading-6{line-height:1.5rem}.tw-leading-7{line-height:1.75rem}.tw-leading-8{line-height:2rem}.tw-leading-relaxed{line-height:1.625}.tw-text-amber-700{--tw-text-opacity:1;color:rgb(180 83 9/var(--tw-text-opacity,1))}.tw-text-amber-800{--tw-text-opacity:1;color:rgb(146 64 14/var(--tw-text-opacity,1))}.tw-text-amber-900{--tw-text-opacity:1;color:rgb(120 53 15/var(--tw-text-opacity,1))}.tw-text-current{color:currentColor}.tw-text-emerald-50{--tw-text-opacity:1;color:rgb(236 253 245/var(--tw-text-opacity,1))}.tw-text-emerald-700{--tw-text-opacity:1;color:rgb(4 120 87/var(--tw-text-opacity,1))}.tw-text-emerald-800{--tw-text-opacity:1;color:rgb(6 95 70/var(--tw-text-opacity,1))}.tw-text-emerald-900{--tw-text-opacity:1;color:rgb(6 78 59/var(--tw-text-opacity,1))}.tw-text-noor-700{--tw-text-opacity:1;color:rgb(18 101 143/var(--tw-text-opacity,1))}.tw-text-noor-800{--tw-text-opacity:1;color:rgb(20 85 116/var(--tw-text-opacity,1))}.tw-text-noor-900{--tw-text-opacity:1;color:rgb(18 63 87/var(--tw-text-opacity,1))}.tw-text-rose-600{--tw-text-opacity:1;color:rgb(225 29 72/var(--tw-text-opacity,1))}.tw-text-rose-700{--tw-text-opacity:1;color:rgb(190 18 60/var(--tw-text-opacity,1))}.tw-text-rose-800{--tw-text-opacity:1;color:rgb(159 18 57/var(--tw-text-opacity,1))}.tw-text-rose-900{--tw-text-opacity:1;color:rgb(136 19 55/var(--tw-text-opacity,1))}.tw-text-sky-100{--tw-text-opacity:1;color:rgb(224 242 254/var(--tw-text-opacity,1))}.tw-text-sky-700{--tw-text-opacity:1;color:rgb(3 105 161/var(--tw-text-opacity,1))}.tw-text-sky-800{--tw-text-opacity:1;color:rgb(7 89 133/var(--tw-text-opacity,1))}.tw-text-sky-900{--tw-text-opacity:1;color:rgb(12 74 110/var(--tw-text-opacity,1))}.tw-text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184/var(--tw-text-opacity,1))}.tw-text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139/var(--tw-text-opacity,1))}.tw-text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105/var(--tw-text-opacity,1))}.tw-text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85/var(--tw-text-opacity,1))}.tw-text-slate-800{--tw-text-opacity:1;color:rgb(30 41 59/var(--tw-text-opacity,1))}.tw-text-violet-100{--tw-text-opacity:1;color:rgb(237 233 254/var(--tw-text-opacity,1))}.tw-text-violet-700{--tw-text-opacity:1;color:rgb(109 40 217/var(--tw-text-opacity,1))}.tw-text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.tw-shadow-lg{--tw-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.tw-ring-1{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.tw-ring-white\/20{--tw-ring-color:hsla(0,0%,100%,.2)}.tw-ring-white\/25{--tw-ring-color:hsla(0,0%,100%,.25)}.tw-backdrop-blur{--tw-backdrop-blur:blur(8px);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.tw-transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.tw-transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.hover\:tw-border-noor-200:hover{--tw-border-opacity:1;border-color:rgb(184 232 255/var(--tw-border-opacity,1))}.hover\:tw-bg-noor-50:hover{--tw-bg-opacity:1;background-color:rgb(238 250 255/var(--tw-bg-opacity,1))}.hover\:tw-bg-rose-700:hover{--tw-bg-opacity:1;background-color:rgb(190 18 60/var(--tw-bg-opacity,1))}.hover\:tw-bg-sky-50:hover{--tw-bg-opacity:1;background-color:rgb(240 249 255/var(--tw-bg-opacity,1))}.hover\:tw-bg-white\/20:hover{background-color:hsla(0,0%,100%,.2)}.hover\:tw-bg-white\/70:hover{background-color:hsla(0,0%,100%,.7)}.hover\:tw-text-noor-700:hover{--tw-text-opacity:1;color:rgb(18 101 143/var(--tw-text-opacity,1))}.hover\:tw-underline:hover{text-decoration-line:underline}@media (min-width:640px){.sm\:tw-w-40{width:10rem}.sm\:tw-w-44{width:11rem}.sm\:tw-w-56{width:14rem}.sm\:tw-w-72{width:18rem}.sm\:tw-w-auto{width:auto}.sm\:tw-min-w-44{min-width:11rem}.sm\:tw-grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.sm\:tw-grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.sm\:tw-flex-row{flex-direction:row}.sm\:tw-items-start{align-items:flex-start}.sm\:tw-items-center{align-items:center}.sm\:tw-justify-center{justify-content:center}.sm\:tw-justify-between{justify-content:space-between}.sm\:tw-p-6{padding:1.5rem}.sm\:tw-p-7{padding:1.75rem}.sm\:tw-p-8{padding:2rem}.sm\:tw-text-3xl{font-size:1.875rem;line-height:2.25rem}.sm\:tw-text-4xl{font-size:2.25rem;line-height:2.5rem}}@media (min-width:768px){.md\:tw-block{display:block}.md\:tw-hidden{display:none}.md\:tw-grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.md\:tw-grid-cols-\[auto_minmax\(0\2c 1fr\)_auto\]{grid-template-columns:auto minmax(0,1fr) auto}.md\:tw-flex-row{flex-direction:row}.md\:tw-items-center{align-items:center}.md\:tw-justify-between{justify-content:space-between}}@media (min-width:1024px){.lg\:tw-col-span-2{grid-column:span 2/span 2}.lg\:tw-col-span-3{grid-column:span 3/span 3}.lg\:tw-grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.lg\:tw-grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}}@media (min-width:1280px){.xl\:tw-grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.xl\:tw-grid-cols-\[minmax\(0\2c 1\.7fr\)_minmax\(280px\2c \.8fr\)\]{grid-template-columns:minmax(0,1.7fr) minmax(280px,.8fr)}.xl\:tw-grid-cols-\[minmax\(0\2c 1\.8fr\)_minmax\(300px\2c \.8fr\)\]{grid-template-columns:minmax(0,1.8fr) minmax(300px,.8fr)}.xl\:tw-grid-cols-\[minmax\(0\2c 1\.8fr\)_minmax\(320px\2c \.8fr\)\]{grid-template-columns:minmax(0,1.8fr) minmax(320px,.8fr)}.xl\:tw-grid-cols-\[minmax\(0\2c 2fr\)_minmax\(280px\2c 1fr\)\]{grid-template-columns:minmax(0,2fr) minmax(280px,1fr)}.xl\:tw-grid-cols-\[minmax\(0\2c 2fr\)_minmax\(290px\2c 1fr\)\]{grid-template-columns:minmax(0,2fr) minmax(290px,1fr)}.xl\:tw-grid-cols-\[minmax\(0\2c 2fr\)_minmax\(300px\2c 1fr\)\]{grid-template-columns:minmax(0,2fr) minmax(300px,1fr)}.xl\:tw-items-center{align-items:center}}
+
+/* NoorVista shell refinement: icon consistency and simplified sidebar */
+.nv3-role-chip,.nv3-sidebar-site-link{display:none!important}
+.nv3-sidebar-footer{grid-template-columns:minmax(0,1fr);padding-top:12px}
+.nv3-sidebar-footer .nv3-sidebar-logout{min-height:46px}
+.nv3-sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.modal-close{display:inline-grid;place-items:center}
+.modal-close>i{font-size:17px;line-height:1}
+.nv3-dashboard i[class^="icon-"],.nv3-dashboard i[class*=" icon-"]{display:inline-flex;align-items:center;justify-content:center}
+@media (min-width:1024px){.nv3-nav{padding-top:10px}}
+
+/* ========================================================================
+   NoorVista professional data controls, tables, schedules and Jalali dates
+   ======================================================================== */
+.nv3-dashboard .nv3-page{
+  padding-top:28px;
+}
+.nv3-dashboard .nv3-page-block,
+.nv3-dashboard .card-body,
+.nv3-dashboard .appt-card-body,
+.nv3-dashboard .table-container,
+.nv3-dashboard .doctors-table-wrapper{
+  min-width:0;
+}
+.nv3-dashboard .appt-card-body,
+.nv3-dashboard .card-body{
+  padding:22px;
+}
+.nv3-dashboard .appt-card-header,
+.nv3-dashboard .card-header,
+.nv3-dashboard .card-header-modern{
+  padding-inline:22px;
+}
+.nv3-dashboard .appt-card-header h3,
+.nv3-dashboard .card-header h3,
+.nv3-dashboard .card-header h4{
+  line-height:1.65;
+}
+
+/* Professional table shell */
+.nv3-dashboard .nv3-table-scroll{
+  border:1px solid #e0eaf0;
+  border-radius:18px;
+  background:#fff;
+  box-shadow:0 10px 30px rgba(15,55,78,.055);
+  overflow:auto;
+}
+.nv3-dashboard .nv3-table-scroll table,
+.nv3-dashboard table.nv3-data-table{
+  width:100%;
+  min-width:760px;
+  border-collapse:separate;
+  border-spacing:0;
+  background:#fff;
+}
+.nv3-dashboard .nv3-data-table thead th,
+.nv3-dashboard .appt-table thead th{
+  position:sticky;
+  top:0;
+  z-index:3;
+  padding:14px 12px;
+  border-bottom:1px solid #dbe7ed;
+  color:#426476;
+  background:linear-gradient(180deg,#f8fbfd,#eff6f9);
+  font-size:11px;
+  font-weight:900;
+  line-height:1.5;
+  text-align:center;
+  white-space:nowrap;
+}
+.nv3-dashboard .nv3-data-table tbody td,
+.nv3-dashboard .appt-table tbody td{
+  padding:14px 12px;
+  border-bottom:1px solid #edf2f5;
+  color:#284b5e;
+  font-size:11.5px;
+  font-weight:600;
+  line-height:1.8;
+  text-align:center;
+  vertical-align:middle;
+}
+.nv3-dashboard .nv3-data-table tbody tr,
+.nv3-dashboard .appt-table tbody tr{
+  transition:background .18s ease,box-shadow .18s ease;
+}
+.nv3-dashboard .nv3-data-table tbody tr:hover,
+.nv3-dashboard .appt-table tbody tr:hover{
+  background:#f7fcff;
+  box-shadow:inset -3px 0 0 #22a4da;
+}
+.nv3-dashboard .nv3-data-table tbody tr:last-child td,
+.nv3-dashboard .appt-table tbody tr:last-child td{
+  border-bottom:0;
+}
+.nv3-dashboard .nv3-data-table td strong,
+.nv3-dashboard .appt-table td strong{
+  color:#173d52;
+  font-weight:900;
+}
+.nv3-dashboard .table-empty-state,
+.nv3-dashboard .empty-state,
+.nv3-dashboard .appt-empty{
+  padding:34px 20px!important;
+  color:#78909d!important;
+  text-align:center!important;
+  font-weight:750!important;
+}
+
+/* Unified professional row actions */
+.nv3-dashboard .action-buttons,
+.nv3-dashboard .appt-row-actions,
+.nv3-dashboard td.action-buttons{
+  display:flex!important;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  min-width:210px;
+}
+.nv3-dashboard .nv3-table-action,
+.nv3-dashboard .action-icon,
+.nv3-dashboard .action-btn,
+.nv3-dashboard .appt-row-actions .appt-btn{
+  min-height:36px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:6px!important;
+  padding:8px 11px!important;
+  border:1px solid transparent!important;
+  border-radius:11px!important;
+  box-shadow:none!important;
+  font-size:10px!important;
+  font-weight:900!important;
+  line-height:1.2!important;
+  white-space:nowrap!important;
+  transition:transform .16s ease,box-shadow .16s ease,filter .16s ease!important;
+}
+.nv3-dashboard .nv3-table-action:hover,
+.nv3-dashboard .action-icon:hover,
+.nv3-dashboard .action-btn:hover,
+.nv3-dashboard .appt-row-actions .appt-btn:hover{
+  transform:translateY(-2px)!important;
+  box-shadow:0 8px 17px rgba(20,67,91,.13)!important;
+  filter:saturate(1.06);
+}
+.nv3-dashboard .nv3-table-action i,
+.nv3-dashboard .action-icon i,
+.nv3-dashboard .action-btn i,
+.nv3-dashboard .appt-row-actions .appt-btn i{
+  font-size:13px;
+}
+.nv3-dashboard .nv3-table-action.is-view,
+.nv3-dashboard .action-icon.view,
+.nv3-dashboard .action-btn.view{
+  color:#075f91!important;
+  border-color:#c9eafb!important;
+  background:#ecf9ff!important;
+}
+.nv3-dashboard .nv3-table-action.is-edit,
+.nv3-dashboard .action-icon.edit,
+.nv3-dashboard .action-btn.edit,
+.nv3-dashboard .appt-row-actions .appt-btn-secondary{
+  color:#9a5b02!important;
+  border-color:#f5ddb0!important;
+  background:#fff8e8!important;
+}
+.nv3-dashboard .nv3-table-action.is-confirm,
+.nv3-dashboard .action-btn.confirm,
+.nv3-dashboard .appt-row-actions .appt-btn-success{
+  color:#087753!important;
+  border-color:#bae9d7!important;
+  background:#eafaf4!important;
+}
+.nv3-dashboard .nv3-table-action.is-toggle,
+.nv3-dashboard .action-icon.toggle,
+.nv3-dashboard .appt-row-actions .appt-btn-warning{
+  color:#8a5205!important;
+  border-color:#f1d29d!important;
+  background:#fff5dd!important;
+}
+.nv3-dashboard .nv3-table-action.is-cancel,
+.nv3-dashboard .action-btn.delete,
+.nv3-dashboard .nv3-table-action.is-delete,
+.nv3-dashboard .action-icon.delete,
+.nv3-dashboard .appt-row-actions .appt-btn-danger{
+  color:#b42346!important;
+  border-color:#f4c5d0!important;
+  background:#fff0f3!important;
+}
+.nv3-dashboard .nv3-table-action:disabled,
+.nv3-dashboard .action-btn:disabled,
+.nv3-dashboard .action-icon:disabled{
+  opacity:.45!important;
+  pointer-events:none;
+  transform:none!important;
+}
+
+/* General action rows and controls */
+.nv3-dashboard .appt-actions,
+.nv3-dashboard .form-actions,
+.nv3-dashboard .modal-footer,
+.nv3-dashboard .bulk-actions,
+.nv3-dashboard .toolbar-actions{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:10px;
+  margin-top:20px;
+}
+.nv3-dashboard .appt-actions{
+  padding-top:18px;
+  border-top:1px solid #e6eef2;
+}
+.nv3-dashboard .nv3-control-action,
+.nv3-dashboard .appt-actions .appt-btn,
+.nv3-dashboard .modal-footer .btn{
+  min-height:44px!important;
+  padding:10px 17px!important;
+  border-radius:13px!important;
+  font-size:11.5px!important;
+  font-weight:900!important;
+}
+.nv3-dashboard .filter-bar,
+.nv3-dashboard .filter-section,
+.nv3-dashboard .nv3-action-panel{
+  gap:14px!important;
+  padding:18px!important;
+}
+.nv3-dashboard .filter-group,
+.nv3-dashboard .form-group,
+.nv3-dashboard .appt-filter-field{
+  min-width:0;
+}
+
+/* Advanced schedule page */
+.nv3-dashboard[data-appointment-page="schedules"] .appt-page-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  padding:8px;
+  border:1px solid #dbe7ed;
+  border-radius:17px;
+  background:#fff;
+  box-shadow:0 8px 25px rgba(15,55,78,.05);
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-page-links a{
+  min-height:40px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:8px 15px;
+  border-radius:12px;
+  color:#557383;
+  font-size:11px;
+  font-weight:850;
+  transition:.18s ease;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-page-links a:hover{
+  color:#0b6c9c;
+  background:#edf9ff;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-page-links a.active{
+  color:#fff;
+  background:linear-gradient(135deg,#22a8df,#0b6c9d);
+  box-shadow:0 8px 19px rgba(11,108,157,.21);
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-admin-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  align-items:start;
+  gap:22px;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-card{
+  overflow:visible;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-card-header{
+  border-radius:20px 20px 0 0;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-schedule-form,
+.nv3-dashboard[data-appointment-page="schedules"] .appt-form{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:18px;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-field,
+.nv3-dashboard[data-appointment-page="schedules"] .appt-form>div:not(.appt-actions){
+  min-width:0;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-form-row{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-form-row-triple{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-actions{
+  margin-top:2px;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-form label,
+.nv3-dashboard[data-appointment-page="schedules"] .appt-filter-field>span{
+  display:block;
+  margin-bottom:7px;
+  color:#31586c;
+  font-size:11.5px;
+  font-weight:900;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-form input,
+.nv3-dashboard[data-appointment-page="schedules"] .appt-form select,
+.nv3-dashboard[data-appointment-page="schedules"] .appt-filter-field input,
+.nv3-dashboard[data-appointment-page="schedules"] .appt-filter-field select,
+.nv3-dashboard[data-appointment-page="schedules"] .appt-form .nvps-trigger,
+.nv3-dashboard[data-appointment-page="schedules"] .appt-filter-field .nvps-trigger{
+  width:100%;
+  min-height:48px;
+  border:1px solid #cfe0e8;
+  border-radius:13px;
+  padding:10px 13px;
+  color:#244a5e;
+  background:#fbfdfe;
+  box-shadow:0 5px 14px rgba(17,61,83,.035);
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-form .nvps-trigger,
+.nv3-dashboard[data-appointment-page="schedules"] .appt-filter-field .nvps-trigger{
+  padding-inline:14px 44px!important;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-form input:focus,
+.nv3-dashboard[data-appointment-page="schedules"] .appt-form select:focus,
+.nv3-dashboard[data-appointment-page="schedules"] .appt-form .nvps-select.open .nvps-trigger,
+.nv3-dashboard[data-appointment-page="schedules"] .appt-filter-field .nvps-select.open .nvps-trigger{
+  border-color:#32a9dc;
+  background:#fff;
+  box-shadow:0 0 0 4px rgba(50,169,220,.12);
+  outline:0;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .nv-date-help,
+.nv3-dashboard[data-appointment-page="schedules"] .nv-schedule-mode-hint{
+  display:block;
+  margin-top:6px;
+  color:#7b929e;
+  font-size:10px;
+  line-height:1.8;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .nv-date-field{
+  position:relative;
+  display:block;
+  width:100%;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .nv-date-field .nv3-date-control{
+  padding-left:52px!important;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .nv-date-trigger{
+  left:8px;
+  width:34px;
+  height:34px;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-hidden-time,
+.nv3-dashboard[data-appointment-page="schedules"] .appt-hidden-select{
+  display:none!important;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-time-control-pro{
+  display:grid;
+  grid-template-columns:minmax(120px,150px) minmax(0,1fr);
+  gap:12px 14px;
+  align-items:start;
+  padding:14px;
+  border:1px solid #d7e5ec;
+  border-radius:15px;
+  background:linear-gradient(180deg,#fbfdfe,#f4f9fb);
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-time-manual{
+  grid-row:1 / span 2;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-time-group{
+  display:grid;
+  gap:8px;
+  min-width:0;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-time-group-full{
+  grid-column:1 / -1;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-time-manual-input{
+  min-height:48px!important;
+  text-align:center;
+  direction:ltr;
+  font-size:16px!important;
+  font-weight:900!important;
+  letter-spacing:1px;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-time-section-label{
+  color:#718b98;
+  font-size:10px;
+  font-weight:900;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-time-buttons,
+.nv3-dashboard[data-appointment-page="schedules"] .appt-time-presets,
+.nv3-dashboard[data-appointment-page="schedules"] .appt-period-buttons{
+  display:grid;
+  gap:8px;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-time-buttons{
+  grid-template-columns:repeat(6,minmax(0,1fr));
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-time-presets{
+  grid-template-columns:repeat(4,minmax(0,1fr));
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-period-buttons{
+  grid-template-columns:repeat(6,minmax(0,1fr));
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-time-buttons button,
+.nv3-dashboard[data-appointment-page="schedules"] .appt-time-presets button,
+.nv3-dashboard[data-appointment-page="schedules"] .appt-period-buttons button{
+  min-width:0;
+  min-height:38px;
+  border:1px solid #cfe0e8;
+  border-radius:10px;
+  color:#355d70;
+  background:#fff;
+  font-size:10.5px;
+  font-weight:850;
+  transition:.16s ease;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-time-buttons button:hover,
+.nv3-dashboard[data-appointment-page="schedules"] .appt-time-presets button:hover,
+.nv3-dashboard[data-appointment-page="schedules"] .appt-period-buttons button:hover,
+.nv3-dashboard[data-appointment-page="schedules"] .appt-time-presets button.active,
+.nv3-dashboard[data-appointment-page="schedules"] .appt-period-buttons button.active,
+.nv3-dashboard[data-appointment-page="schedules"] .appt-time-buttons button.active{
+  color:#fff;
+  border-color:#1289c4;
+  background:linear-gradient(135deg,#22a7de,#0c6e9f);
+  box-shadow:0 7px 16px rgba(12,110,159,.18);
+  transform:translateY(-1px);
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-choice-pills{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(115px,1fr));
+  gap:9px;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-choice-pill{
+  min-height:58px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+  gap:3px;
+  padding:10px 12px;
+  border:1px solid #d4e3ea;
+  border-radius:13px;
+  color:#385d6f;
+  background:#fff;
+  text-align:right;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-choice-pill strong{
+  font-size:11px;
+  font-weight:900;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-choice-pill small{
+  color:#7d949f;
+  font-size:9px;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-choice-pill.active{
+  color:#075b87;
+  border-color:#8fd5f2;
+  background:#eaf8ff;
+  box-shadow:0 0 0 3px rgba(33,165,220,.09);
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-filter-card .appt-card-body:first-of-type{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-filter-card .appt-card-body>div[style]{
+  display:none!important;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-filter-field{
+  display:block;
+  min-width:0;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-row-check{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-row-check input{
+  width:17px;
+  height:17px;
+  accent-color:#138fc8;
+}
+/* Jalali date controls */
+.nv3-dashboard .nv-date-field{
+  position:relative;
+  width:100%;
+  min-width:0;
+}
+.nv3-dashboard .nv-date-field .nv-jalali-input,
+.nv3-dashboard .nv3-date-control{
+  width:100%;
+  min-height:46px;
+  padding-left:46px!important;
+  direction:ltr!important;
+  text-align:right;
+  letter-spacing:.2px;
+  border:1px solid #cfe0e8!important;
+  border-radius:13px!important;
+  color:#244a5e!important;
+  background:#fbfdfe!important;
+  cursor:pointer;
+}
+.nv3-dashboard .nv-date-trigger{
+  position:absolute;
+  left:5px;
+  top:50%;
+  width:36px;
+  height:36px;
+  display:grid;
+  place-items:center;
+  transform:translateY(-50%);
+  border:0;
+  border-radius:10px;
+  color:#0d75a7;
+  background:#eaf8ff;
+}
+.nv3-dashboard .nv-date-trigger:hover{
+  color:#fff;
+  background:linear-gradient(135deg,#22a6dd,#0b6d9e);
+}
+.nv-jalali-picker{
+  position:absolute;
+  z-index:100000!important;
+  display:none;
+  width:330px;
+  max-width:calc(100vw - 24px);
+  padding:15px;
+  border:1px solid #cfe0e8;
+  border-radius:20px;
+  direction:rtl;
+  color:#244a5e;
+  background:rgba(255,255,255,.98);
+  backdrop-filter:blur(16px);
+  box-shadow:0 24px 65px rgba(5,43,65,.22);
+  font-family:Vazir,Shabnam,Tahoma,Arial,sans-serif;
+}
+.nv-jalali-picker.show{display:block}
+.nv-jalali-picker .nv-jp-head{
+  display:grid;
+  grid-template-columns:42px 1fr 42px;
+  align-items:center;
+  gap:8px;
+  margin-bottom:12px;
+}
+.nv-jalali-picker .nv-jp-head strong{
+  text-align:center;
+  font-size:14px;
+  font-weight:950;
+}
+.nv-jalali-picker .nv-jp-head button{
+  width:40px;
+  height:40px;
+  display:grid;
+  place-items:center;
+  border:1px solid #d6e5ec;
+  border-radius:12px;
+  color:#0b6f9f;
+  background:#f4fbfe;
+}
+.nv-jalali-picker .nv-jp-head button:hover{
+  color:#fff;
+  border-color:#168dc6;
+  background:#168dc6;
+}
+.nv-jalali-picker .nv-jp-week,
+.nv-jalali-picker .nv-jp-days{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:5px;
+  text-align:center;
+}
+.nv-jalali-picker .nv-jp-week{
+  margin-bottom:7px;
+  color:#8298a3;
+  font-size:10px;
+  font-weight:900;
+}
+.nv-jalali-picker .nv-jp-day{
+  aspect-ratio:1;
+  display:grid;
+  place-items:center;
+  border:1px solid transparent;
+  border-radius:11px;
+  color:#34596b;
+  background:transparent;
+  font-size:11px;
+  font-weight:800;
+}
+.nv-jalali-picker .nv-jp-day:hover{
+  color:#0b6c9d;
+  border-color:#bde6f7;
+  background:#eefaff;
+}
+.nv-jalali-picker .nv-jp-day.active{
+  color:#fff;
+  background:linear-gradient(135deg,#24a9df,#0a6797);
+  box-shadow:0 7px 15px rgba(10,103,151,.22);
+}
+.nv-jalali-picker .nv-jp-time{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-top:12px;
+  padding:10px 12px;
+  border:1px solid #e0eaf0;
+  border-radius:13px;
+  background:#f8fbfd;
+}
+.nv-jalali-picker .nv-jp-time label{font-size:11px;font-weight:900}
+.nv-jalali-picker .nv-jp-time input{
+  width:120px;
+  min-height:38px;
+  border:1px solid #cfe0e8;
+  border-radius:10px;
+  text-align:center;
+  background:#fff;
+}
+.nv-jalali-picker .nv-jp-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
+  margin-top:13px;
+  padding-top:13px;
+  border-top:1px solid #e5edf1;
+}
+.nv-jalali-picker .nv-jp-actions button{
+  min-height:39px;
+  border:1px solid #d5e4eb;
+  border-radius:11px;
+  color:#356074;
+  background:#f8fbfc;
+  font-size:10.5px;
+  font-weight:900;
+}
+.nv-jalali-picker .nv-jp-actions button:first-child{
+  color:#075f90;
+  border-color:#bfe4f4;
+  background:#ebf9ff;
+}
+.nv-jalali-picker .nv-jp-actions button:last-child{
+  color:#b42346;
+  border-color:#f3cad3;
+  background:#fff2f4;
+}
+
+/* Prevent text and controls from touching card edges */
+.nv3-dashboard .card>p,
+.nv3-dashboard .appt-card>p,
+.nv3-dashboard .section-description,
+.nv3-dashboard .helper-text,
+.nv3-dashboard .form-help,
+.nv3-dashboard .table-note{
+  margin-inline:18px;
+  line-height:1.9;
+}
+
+@media (max-width:1279px){
+  .nv3-dashboard[data-appointment-page="schedules"] .appt-admin-grid{
+    grid-template-columns:1fr;
+  }
+}
+@media (max-width:767px){
+  .nv3-dashboard .nv3-page{padding-top:18px}
+  .nv3-dashboard .appt-card-body,
+  .nv3-dashboard .card-body{padding:16px}
+  .nv3-dashboard[data-appointment-page="schedules"] .appt-form-row,
+  .nv3-dashboard[data-appointment-page="schedules"] .appt-form-row-triple,
+  .nv3-dashboard[data-appointment-page="schedules"] .appt-filter-card .appt-card-body:first-of-type,
+  .nv3-dashboard[data-appointment-page="schedules"] .appt-time-buttons,
+  .nv3-dashboard[data-appointment-page="schedules"] .appt-time-presets,
+  .nv3-dashboard[data-appointment-page="schedules"] .appt-period-buttons{
+    grid-template-columns:1fr;
+  }
+  .nv3-dashboard[data-appointment-page="schedules"] .appt-time-control-pro{
+    grid-template-columns:1fr;
+  }
+  .nv3-dashboard[data-appointment-page="schedules"] .appt-time-manual,
+  .nv3-dashboard[data-appointment-page="schedules"] .appt-time-group,
+  .nv3-dashboard[data-appointment-page="schedules"] .appt-time-group-full{
+    grid-column:auto;
+    grid-row:auto;
+  }
+  .nv3-dashboard .action-buttons,
+  .nv3-dashboard .appt-row-actions,
+  .nv3-dashboard td.action-buttons{
+    min-width:185px;
+  }
+  .nv3-dashboard .appt-actions>*{
+    flex:1 1 100%;
+    width:100%;
+  }
+}
+
+
+/* ========================================================================
+   Schedule detail refinement — spacing, time grid and bulk table controls
+   ======================================================================== */
+.nv3-dashboard[data-appointment-page="schedules"] .appt-time-manual{
+  margin-top:20px;
+  align-self:start;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-time-presets{
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  align-items:stretch;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-time-grid-label{
+  min-height:38px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px dashed #b9d9e8;
+  border-radius:10px;
+  color:#527588;
+  background:#edf7fb;
+  font-size:10.5px;
+  font-weight:900;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-period-quick{
+  margin-top:10px;
+  padding-top:2px;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-period-buttons{
+  gap:9px;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-bulk-toolbar{
+  margin:18px 22px 16px;
+  padding:16px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  border:1px solid #d9e8ef;
+  border-radius:16px;
+  background:linear-gradient(135deg,#f8fcfe,#eff8fc);
+  box-shadow:0 8px 22px rgba(15,55,78,.045);
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-bulk-copy{
+  min-width:0;
+  display:grid;
+  gap:5px;
+  padding-inline:2px;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-bulk-copy strong{
+  color:#214b60;
+  font-size:12px;
+  font-weight:950;
+  line-height:1.7;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-bulk-copy small{
+  color:#6f8997;
+  font-size:10px;
+  font-weight:650;
+  line-height:1.9;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-bulk-actions{
+  flex:0 0 auto;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:flex-end;
+  gap:9px;
+  margin:0;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-bulk-actions .appt-btn{
+  min-height:40px;
+  padding:9px 14px;
+  border-radius:12px;
+  white-space:nowrap;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-filter-card > .appt-table-wrap,
+.nv3-dashboard[data-appointment-page="schedules"] .appt-card > .appt-table-wrap{
+  width:auto;
+  margin:0 22px 22px;
+  padding:0;
+  border-radius:16px;
+}
+.nv3-dashboard[data-appointment-page="schedules"] .appt-filter-card .appt-card-body:first-of-type{
+  padding-bottom:18px;
+}
+@media (max-width:900px){
+  .nv3-dashboard[data-appointment-page="schedules"] .appt-bulk-toolbar{
+    align-items:stretch;
+    flex-direction:column;
+  }
+  .nv3-dashboard[data-appointment-page="schedules"] .appt-bulk-actions{
+    justify-content:flex-start;
+  }
+}
+@media (max-width:767px){
+  .nv3-dashboard[data-appointment-page="schedules"] .appt-time-manual{
+    margin-top:0;
+  }
+  .nv3-dashboard[data-appointment-page="schedules"] .appt-time-presets{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .nv3-dashboard[data-appointment-page="schedules"] .appt-period-buttons{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+  .nv3-dashboard[data-appointment-page="schedules"] .appt-bulk-toolbar{
+    margin:14px 16px;
+    padding:14px;
+  }
+  .nv3-dashboard[data-appointment-page="schedules"] .appt-bulk-actions{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+  .nv3-dashboard[data-appointment-page="schedules"] .appt-bulk-actions .appt-btn{
+    width:100%;
+  }
+  .nv3-dashboard[data-appointment-page="schedules"] .appt-filter-card > .appt-table-wrap,
+  .nv3-dashboard[data-appointment-page="schedules"] .appt-card > .appt-table-wrap{
+    margin:0 16px 16px;
+  }
+}
+
+
+/* ==========================================================
+   Appointment architecture: unified colored navbar
+   Replaces the duplicated blue hero section on all five pages.
+========================================================== */
+body[data-appointment-page] .nv3-topbar{
+  overflow:hidden;
+  border-color:#bfe6f2;
+  background:
+    radial-gradient(circle at 8% 0,rgba(34,197,238,.16),transparent 18rem),
+    linear-gradient(110deg,rgba(255,255,255,.98) 0%,#f2fbff 42%,#dff5fb 100%);
+  box-shadow:0 16px 44px rgba(11,95,140,.12);
+}
+body[data-appointment-page] .nv3-topbar:before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:4px;
+  background:linear-gradient(90deg,#0e7490,#22a6dd 55%,#5eead4);
+}
+body[data-appointment-page] .nv3-topbar-inner{
+  position:relative;
+  z-index:1;
+}
+body[data-appointment-page] .nv3-heading-wrap{
+  gap:11px;
+}
+body[data-appointment-page] .nv-appt-topbar-icon{
+  width:48px;
+  height:48px;
+  flex:0 0 48px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,255,255,.88);
+  border-radius:16px;
+  color:#fff;
+  background:linear-gradient(135deg,#1599cf,#0b688f);
+  box-shadow:0 10px 24px rgba(11,104,143,.23);
+  font-size:18px;
+}
+body[data-appointment-page] .nv3-page-heading h1{
+  color:#123f57;
+}
+body[data-appointment-page] .nv3-page-heading p{
+  color:#55798c;
+}
+body[data-appointment-page] .nv3-date-box,
+body[data-appointment-page] .nv3-icon-button,
+body[data-appointment-page] .nv3-user-menu-trigger{
+  border-color:#c7e4ee;
+  background:rgba(255,255,255,.82);
+}
+body[data-appointment-page] .nv3-date-box:hover,
+body[data-appointment-page] .nv3-icon-button:hover,
+body[data-appointment-page] .nv3-user-menu-trigger:hover{
+  border-color:#8fd0e6;
+  background:#fff;
+}
+body[data-appointment-page] .nv3-page{
+  padding-top:22px;
+}
+@media(max-width:767px){
+  body[data-appointment-page] .nv-appt-topbar-icon{
+    width:42px;
+    height:42px;
+    flex-basis:42px;
+    border-radius:14px;
+    font-size:16px;
+  }
+}
+
+
+/* ==========================================================
+   NOORVISTA unified page navbar — all dashboard roles/pages
+   One visual language for admin, clinic manager, doctor,
+   secretary and patient panels.
+========================================================== */
+.nv3-dashboard .nv3-topbar{
+  position:sticky;
+  isolation:isolate;
+  overflow:visible;
+  min-height:92px;
+  border-color:#bfe6f2;
+  border-radius:24px;
+  background:
+    radial-gradient(circle at 7% -35%,rgba(34,197,238,.22),transparent 19rem),
+    radial-gradient(circle at 92% 135%,rgba(94,234,212,.18),transparent 18rem),
+    linear-gradient(110deg,rgba(255,255,255,.99) 0%,#f2fbff 48%,#dff5fb 100%);
+  box-shadow:0 16px 44px rgba(11,95,140,.12);
+}
+.nv3-dashboard .nv3-topbar:before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:0 0 auto 0;
+  height:4px;
+  border-radius:24px 24px 0 0;
+  background:linear-gradient(90deg,#0e7490,#22a6dd 54%,#5eead4);
+}
+.nv3-dashboard .nv3-topbar-inner{
+  min-height:92px;
+  position:relative;
+  z-index:1;
+  padding:14px 17px;
+}
+.nv3-dashboard .nv3-heading-wrap{
+  gap:12px;
+}
+.nv3-dashboard .nv-page-topbar-icon,
+.nv3-dashboard .nv-appt-topbar-icon{
+  width:48px;
+  height:48px;
+  flex:0 0 48px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,255,255,.92);
+  border-radius:16px;
+  color:#fff;
+  background:linear-gradient(135deg,#1599cf,#0b688f);
+  box-shadow:0 10px 24px rgba(11,104,143,.23),inset 0 1px 0 rgba(255,255,255,.26);
+  font-size:18px;
+}
+.nv3-dashboard .nv-page-topbar-icon i,
+.nv3-dashboard .nv-appt-topbar-icon i{
+  line-height:1;
+}
+.nv3-dashboard .nv3-page-heading h1{
+  color:#123f57;
+  font-size:clamp(19px,2vw,25px);
+}
+.nv3-dashboard .nv3-page-heading p{
+  color:#55798c;
+  font-size:11.5px;
+}
+.nv3-dashboard .nv3-date-box,
+.nv3-dashboard .nv3-icon-button,
+.nv3-dashboard .nv3-user-menu-trigger{
+  border-color:#c7e4ee;
+  background:rgba(255,255,255,.84);
+  box-shadow:0 7px 18px rgba(15,86,119,.055);
+}
+.nv3-dashboard .nv3-date-box:hover,
+.nv3-dashboard .nv3-icon-button:hover,
+.nv3-dashboard .nv3-user-menu-trigger:hover{
+  border-color:#8fd0e6;
+  background:#fff;
+}
+.nv3-dashboard .nv3-user-dropdown{
+  z-index:1200;
+}
+@media(max-width:767px){
+  .nv3-dashboard .nv3-topbar{
+    min-height:80px;
+    border-radius:20px;
+  }
+  .nv3-dashboard .nv3-topbar:before{
+    border-radius:20px 20px 0 0;
+  }
+  .nv3-dashboard .nv3-topbar-inner{
+    min-height:80px;
+    padding:11px 12px;
+  }
+  .nv3-dashboard .nv-page-topbar-icon,
+  .nv3-dashboard .nv-appt-topbar-icon{
+    width:42px;
+    height:42px;
+    flex-basis:42px;
+    border-radius:14px;
+    font-size:16px;
+  }
+  .nv3-dashboard .nv3-heading-wrap{
+    gap:9px;
+  }
+}
+@media(max-width:520px){
+  .nv3-dashboard .nv-page-topbar-icon,
+  .nv3-dashboard .nv-appt-topbar-icon{
+    width:38px;
+    height:38px;
+    flex-basis:38px;
+    border-radius:12px;
+    font-size:15px;
+  }
+}
+
+
+/* ==========================================================
+   NOORVISTA topbar frame normalization
+   The accent line lives inside the inner frame so it never
+   crosses rounded corners while user dropdowns can overflow.
+========================================================== */
+body.nv3-dashboard .nv3-topbar,
+body.nv3-dashboard[data-appointment-page] .nv3-topbar{
+  overflow:visible;
+  background-clip:padding-box;
+}
+body.nv3-dashboard .nv3-topbar::before,
+body.nv3-dashboard[data-appointment-page] .nv3-topbar::before{
+  content:none!important;
+  display:none!important;
+}
+body.nv3-dashboard .nv3-topbar-inner{
+  position:relative;
+  overflow:visible;
+  border-radius:inherit;
+}
+body.nv3-dashboard .nv3-topbar-inner::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  top:0;
+  right:1px;
+  left:1px;
+  height:4px;
+  border-radius:22px 22px 5px 5px;
+  background:linear-gradient(90deg,#0e7490,#22a6dd 54%,#5eead4);
+  pointer-events:none;
+}
+body.nv3-dashboard .nv3-heading-wrap,
+body.nv3-dashboard .nv3-topbar-actions{
+  position:relative;
+  z-index:1;
+}
+@media(max-width:767px){
+  body.nv3-dashboard .nv3-topbar-inner::before{
+    right:1px;
+    left:1px;
+    border-radius:18px 18px 4px 4px;
+  }
+}
+
+
+/* ==========================================================
+   Appointment slots — aligned Jalali date filter fields
+   Keeps label, calendar hint, input and trigger in one component.
+========================================================== */
+body.nv3-dashboard[data-appointment-page="slots"] .appt-filter-field{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  gap:7px 10px;
+  min-width:0;
+  margin:0;
+}
+body.nv3-dashboard[data-appointment-page="slots"] .appt-filter-field>span{
+  grid-column:1;
+  display:block;
+  margin:0;
+  color:#31586c;
+  font-size:11.5px;
+  font-weight:900;
+  line-height:1.6;
+}
+body.nv3-dashboard[data-appointment-page="slots"] .appt-filter-field>small{
+  grid-column:2;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:24px;
+  margin:0;
+  padding:3px 8px;
+  border:1px solid #cce9f5;
+  border-radius:999px;
+  color:#0b719f;
+  background:#edf9ff;
+  font-size:9px;
+  font-weight:850;
+  line-height:1;
+  white-space:nowrap;
+}
+body.nv3-dashboard[data-appointment-page="slots"] .appt-filter-field>.nv-date-field,
+body.nv3-dashboard[data-appointment-page="slots"] .appt-filter-field>.nvps-select,
+body.nv3-dashboard[data-appointment-page="slots"] .appt-filter-field>input,
+body.nv3-dashboard[data-appointment-page="slots"] .appt-filter-field>select{
+  grid-column:1/-1;
+  width:100%;
+  min-width:0;
+}
+body.nv3-dashboard[data-appointment-page="slots"] .appt-filter-field .nv-date-field{
+  position:relative;
+  display:block;
+  width:100%;
+  min-width:0;
+}
+body.nv3-dashboard[data-appointment-page="slots"] .appt-filter-field .nv3-date-control{
+  width:100%;
+  min-height:48px;
+  padding:10px 14px 10px 52px!important;
+  border:1px solid #cfe0e8!important;
+  border-radius:13px!important;
+  color:#244a5e!important;
+  background:#fbfdfe!important;
+  box-shadow:0 5px 14px rgba(17,61,83,.035);
+}
+body.nv3-dashboard[data-appointment-page="slots"] .appt-filter-field .nv-date-trigger{
+  position:absolute;
+  left:7px;
+  top:50%;
+  width:36px;
+  height:36px;
+  transform:translateY(-50%);
+  margin:0;
+}
+body.nv3-dashboard[data-appointment-page="slots"] .appt-filter-field .nv3-date-control:focus{
+  border-color:#32a9dc!important;
+  background:#fff!important;
+  box-shadow:0 0 0 4px rgba(50,169,220,.12)!important;
+  outline:0;
+}
+@media(max-width:767px){
+  body.nv3-dashboard[data-appointment-page="slots"] .appt-filter-field{
+    gap:6px 8px;
+  }
+  body.nv3-dashboard[data-appointment-page="slots"] .appt-filter-field>small{
+    min-height:22px;
+    padding-inline:7px;
+  }
+}
+
+
+/* ==========================================================
+   Appointment slot date controls + topbar user menu stability
+========================================================== */
+body.nv3-dashboard[data-appointment-page="slots"] .appt-filter-field{
+  grid-template-columns:minmax(0,1fr);
+  gap:7px;
+}
+body.nv3-dashboard[data-appointment-page="slots"] .appt-filter-field>span{
+  grid-column:1;
+}
+body.nv3-dashboard[data-appointment-page="slots"] .appt-filter-field>small{
+  display:none!important;
+}
+body.nv3-dashboard[data-appointment-page="slots"] .appt-filter-field>.nv-date-field{
+  grid-column:1;
+}
+body.nv3-dashboard .nv-date-field>.nv-date-trigger~.nv-date-trigger,
+body.nv3-dashboard .appt-filter-field>.nv-date-trigger{
+  display:none!important;
+}
+body.nv3-dashboard .nv-date-trigger i+i{
+  display:none!important;
+}
+body.nv3-dashboard .nv3-topbar,
+body.nv3-dashboard .nv3-topbar-inner,
+body.nv3-dashboard .nv3-topbar-actions,
+body.nv3-dashboard .nv3-user-menu{
+  overflow:visible!important;
+}
+body.nv3-dashboard .nv3-topbar{
+  z-index:900;
+}
+body.nv3-dashboard .nv3-topbar-actions,
+body.nv3-dashboard .nv3-user-menu{
+  position:relative;
+  z-index:30;
+}
+body.nv3-dashboard .nv3-user-dropdown{
+  z-index:5000!important;
+}
+
+
+/* ==========================================================
+   Single Jalali calendar icon — final duplicate-proof rule
+========================================================== */
+body.nv3-dashboard .nv-date-trigger{
+  background-color:#eaf8ff!important;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%230d75a7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4.5' width='18' height='16' rx='2'/%3E%3Cpath d='M16 2.5v4M8 2.5v4M3 9h18'/%3E%3Cpath d='M7 13h2M11 13h2M15 13h2M7 17h2M11 17h2M15 17h2'/%3E%3C/svg%3E")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:18px 18px!important;
+  font-size:0!important;
+  line-height:0!important;
+  overflow:hidden!important;
+}
+body.nv3-dashboard .nv-date-trigger>*{
+  display:none!important;
+}
+body.nv3-dashboard .nv-date-field>.nv-date-trigger:not(:first-of-type),
+body.nv3-dashboard .appt-filter-field>.nv-date-trigger{
+  display:none!important;
+}
+body.nv3-dashboard .nv-date-trigger:hover{
+  background-color:#168dc6!important;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4.5' width='18' height='16' rx='2'/%3E%3Cpath d='M16 2.5v4M8 2.5v4M3 9h18'/%3E%3Cpath d='M7 13h2M11 13h2M15 13h2M7 17h2M11 17h2M15 17h2'/%3E%3C/svg%3E")!important;
+}
+
+
+/* ==========================================================
+   Jalali date trigger — strict single-icon rendering
+========================================================== */
+body.nv3-dashboard .nv-date-trigger{
+  display:grid!important;
+  place-items:center!important;
+  background-image:none!important;
+  font-size:0!important;
+  line-height:0!important;
+}
+body.nv3-dashboard .nv-date-trigger>*{
+  display:none!important;
+}
+body.nv3-dashboard .nv-date-trigger::before{
+  content:""!important;
+  display:block!important;
+  width:18px!important;
+  height:18px!important;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%230d75a7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4.5' width='18' height='16' rx='2'/%3E%3Cpath d='M16 2.5v4M8 2.5v4M3 9h18'/%3E%3Cpath d='M7 13h2M11 13h2M15 13h2M7 17h2M11 17h2M15 17h2'/%3E%3C/svg%3E") center/18px 18px no-repeat!important;
+}
+body.nv3-dashboard .nv-date-trigger::after{
+  content:none!important;
+  display:none!important;
+}
+body.nv3-dashboard .nv-date-field>.nv-date-trigger{
+  display:none!important;
+}
+body.nv3-dashboard .nv-date-field>.nv-date-trigger[data-nv-date-primary="1"],
+body.nv3-dashboard .nv-date-field>.nv-date-trigger:only-of-type{
+  display:grid!important;
+}
+body.nv3-dashboard .nv-date-trigger:hover::before{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4.5' width='18' height='16' rx='2'/%3E%3Cpath d='M16 2.5v4M8 2.5v4M3 9h18'/%3E%3Cpath d='M7 13h2M11 13h2M15 13h2M7 17h2M11 17h2M15 17h2'/%3E%3C/svg%3E")!important;
+}
+
+
+/* =========================================================
+   Appointments: day navigation + patient history workspace
+========================================================= */
+.nv3-dashboard .nv-appointments-commandbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  padding:14px 16px;
+  border:1px solid #dce8ee;
+  border-radius:20px;
+  background:linear-gradient(135deg,rgba(255,255,255,.98),rgba(239,250,255,.96));
+  box-shadow:0 12px 32px rgba(15,55,78,.07);
+}
+.nv3-dashboard .nv-appointments-day-nav,
+.nv3-dashboard .nv-appointments-primary-actions{
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
+.nv3-dashboard .nv-day-nav-btn,
+.nv3-dashboard .nv-day-current-btn{
+  min-height:44px;
+  border:1px solid #cfe1ea;
+  border-radius:14px;
+  color:#234f65;
+  background:#fff;
+  font-weight:900;
+  transition:.18s ease;
+}
+.nv3-dashboard .nv-day-nav-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:10px 15px;
+  font-size:11.5px;
+}
+.nv3-dashboard .nv-day-current-btn{
+  min-width:155px;
+  display:grid;
+  grid-template-columns:auto 1fr;
+  grid-template-rows:auto auto;
+  align-items:center;
+  column-gap:9px;
+  padding:7px 14px;
+  text-align:right;
+}
+.nv3-dashboard .nv-day-current-btn i{grid-row:1/3;color:#0d7cab;font-size:17px}
+.nv3-dashboard .nv-day-current-btn span{font-size:12px;color:#173f54}
+.nv3-dashboard .nv-day-current-btn small{font-size:9px;color:#78909d;font-weight:700}
+.nv3-dashboard .nv-day-nav-btn:hover,
+.nv3-dashboard .nv-day-current-btn:hover{
+  color:#075e8b;
+  border-color:#8fd6f2;
+  background:#edf9ff;
+  transform:translateY(-1px);
+  box-shadow:0 8px 18px rgba(15,102,146,.11);
+}
+.nv3-dashboard .nv-appointments-primary-actions .btn{
+  min-height:44px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding-inline:17px;
+  white-space:nowrap;
+}
+.nv3-dashboard .nv-appointments-tools-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.2fr) minmax(360px,.8fr);
+  gap:20px;
+  align-items:start;
+}
+.nv3-dashboard .nv-appointments-filter-card,
+.nv3-dashboard .nv-patient-history-card{
+  min-width:0;
+  padding:20px;
+  border:1px solid #dce8ee;
+  border-radius:21px;
+  background:#fff;
+  box-shadow:0 12px 34px rgba(15,55,78,.065);
+}
+.nv3-dashboard .nv-appointments-filter-card{
+  display:block!important;
+}
+.nv3-dashboard .nv-tool-card-heading{
+  display:flex;
+  align-items:flex-start;
+  gap:11px;
+  margin-bottom:18px;
+  padding-bottom:14px;
+  border-bottom:1px solid #e6eef2;
+}
+.nv3-dashboard .nv-tool-card-icon{
+  width:42px;
+  height:42px;
+  flex:0 0 42px;
+  display:grid;
+  place-items:center;
+  border-radius:13px;
+  color:#fff;
+  background:linear-gradient(135deg,#24a7dc,#0b6a99);
+  box-shadow:0 8px 18px rgba(11,106,153,.2);
+}
+.nv3-dashboard .nv-tool-card-icon.is-history{
+  background:linear-gradient(135deg,#16a085,#08775f);
+  box-shadow:0 8px 18px rgba(8,119,95,.18);
+}
+.nv3-dashboard .nv-tool-card-heading h2{
+  color:#163e53;
+  font-size:15px;
+  line-height:1.5;
+  font-weight:950;
+}
+.nv3-dashboard .nv-tool-card-heading p{
+  margin-top:4px;
+  color:#718996;
+  font-size:10.5px;
+  line-height:1.8;
+  font-weight:650;
+}
+.nv3-dashboard .nv-appointments-filter-fields{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  align-items:end;
+}
+.nv3-dashboard .nv-appointments-filter-fields .filter-group,
+.nv3-dashboard .nv-history-controls .filter-group{
+  min-width:0;
+}
+.nv3-dashboard .nv-appointments-filter-fields label,
+.nv3-dashboard .nv-history-controls label{
+  display:block;
+  margin-bottom:7px;
+  color:#31586c;
+  font-size:11px;
+  font-weight:900;
+}
+.nv3-dashboard .nv-appointments-filter-fields input,
+.nv3-dashboard .nv-appointments-filter-fields select,
+.nv3-dashboard .nv-history-controls input,
+.nv3-dashboard .nv-history-controls select,
+.nv3-dashboard .nv-appointments-filter-fields .nvps-trigger,
+.nv3-dashboard .nv-history-controls .nvps-trigger{
+  width:100%;
+  min-height:45px;
+  border:1px solid #cfe0e8!important;
+  border-radius:13px!important;
+  color:#244a5e!important;
+  background:#fbfdfe!important;
+}
+.nv3-dashboard .nv-filter-clear-action{
+  display:flex;
+  align-items:flex-end;
+}
+.nv3-dashboard .nv-filter-clear-action .btn{
+  width:100%;
+  min-height:45px;
+}
+.nv3-dashboard .nv-history-controls{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(145px,.55fr);
+  gap:13px;
+  align-items:end;
+}
+.nv3-dashboard .nv-history-custom-dates{
+  grid-column:1/-1;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:13px;
+}
+.nv3-dashboard .nv-history-custom-dates[hidden]{display:none!important}
+.nv3-dashboard .nv-history-apply{
+  grid-column:1/-1;
+  min-height:44px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+.nv3-dashboard .nv-history-summary{
+  display:grid;
+  grid-template-columns:110px minmax(0,1fr);
+  gap:14px;
+  align-items:center;
+  margin-top:17px;
+  padding:14px;
+  border:1px solid #dcebe6;
+  border-radius:16px;
+  background:linear-gradient(135deg,#f5fffb,#eef9f6);
+}
+.nv3-dashboard .nv-history-count{
+  min-height:82px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  border-radius:14px;
+  color:#fff;
+  background:linear-gradient(135deg,#159979,#08715b);
+  box-shadow:0 9px 22px rgba(8,113,91,.2);
+}
+.nv3-dashboard .nv-history-count strong{font-size:24px;font-weight:950;line-height:1}
+.nv3-dashboard .nv-history-count span{margin-top:7px;font-size:9.5px;font-weight:750}
+.nv3-dashboard .nv-history-summary-copy p{
+  color:#4d6b61;
+  font-size:10.5px;
+  line-height:1.9;
+  font-weight:750;
+}
+.nv3-dashboard .nv-history-breakdown{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:9px;
+}
+.nv3-dashboard .nv-history-chip{
+  padding:5px 8px;
+  border-radius:999px;
+  font-size:9px;
+  font-weight:850;
+  background:#fff;
+  border:1px solid #dce8ee;
+  color:#526d7a;
+}
+.nv3-dashboard .nv-history-chip.is-completed,.nv3-dashboard .nv-history-chip.is-confirmed{color:#087554;border-color:#bde8d8;background:#effaf6}
+.nv3-dashboard .nv-history-chip.is-pending{color:#9a5b02;border-color:#f1d7a8;background:#fff8e9}
+.nv3-dashboard .nv-history-chip.is-cancelled{color:#b42346;border-color:#f2c8d2;background:#fff2f4}
+.nv3-dashboard .nv-history-recent{
+  display:grid;
+  gap:8px;
+  margin-top:13px;
+}
+.nv3-dashboard .nv-history-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:10px 12px;
+  border:1px solid #e4edf1;
+  border-radius:13px;
+  background:#fbfdfe;
+}
+.nv3-dashboard .nv-history-row>div{min-width:0}
+.nv3-dashboard .nv-history-row strong{
+  display:block;
+  overflow:hidden;
+  color:#244c60;
+  font-size:10.5px;
+  font-weight:900;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.nv3-dashboard .nv-history-row span{
+  display:block;
+  margin-top:3px;
+  color:#7b919c;
+  font-size:9.5px;
+}
+.nv3-dashboard .nv-history-status{
+  flex:0 0 auto;
+  padding:5px 8px;
+  border-radius:999px;
+  font-size:8.5px!important;
+  font-weight:900;
+  background:#edf5f8;
+}
+.nv3-dashboard .nv-history-status.is-confirmed,.nv3-dashboard .nv-history-status.is-completed{color:#087554;background:#eaf8f3}
+.nv3-dashboard .nv-history-status.is-pending{color:#9a5b02;background:#fff4d9}
+.nv3-dashboard .nv-history-status.is-cancelled{color:#b42346;background:#fff0f3}
+.nv3-dashboard .nv-history-empty{
+  padding:15px;
+  border:1px dashed #cddde5;
+  border-radius:13px;
+  color:#7b919c;
+  background:#f9fcfd;
+  text-align:center;
+  font-size:10px;
+  font-weight:750;
+}
+@media (max-width:1199px){
+  .nv3-dashboard .nv-appointments-tools-grid{grid-template-columns:1fr}
+}
+@media (max-width:767px){
+  .nv3-dashboard .nv-appointments-commandbar{align-items:stretch;flex-direction:column}
+  .nv3-dashboard .nv-appointments-day-nav{display:grid;grid-template-columns:1fr minmax(130px,1.2fr) 1fr}
+  .nv3-dashboard .nv-day-nav-btn{padding-inline:8px}
+  .nv3-dashboard .nv-day-current-btn{min-width:0}
+  .nv3-dashboard .nv-appointments-primary-actions{display:grid;grid-template-columns:1fr 1fr}
+  .nv3-dashboard .nv-appointments-primary-actions .btn{width:100%}
+  .nv3-dashboard .nv-appointments-filter-fields,
+  .nv3-dashboard .nv-history-controls,
+  .nv3-dashboard .nv-history-custom-dates{grid-template-columns:1fr}
+  .nv3-dashboard .nv-history-summary{grid-template-columns:1fr}
+  .nv3-dashboard .nv-history-count{min-height:72px}
+}
+
+/* NoorVista 2.1.52 — prevent long financial values from escaping dashboard cards */
+.nv3-dashboard .stat-card,
+.nv3-dashboard .stat-info,
+.nv3-dashboard .nv-tw-stat-card,
+.nv3-dashboard .nv-tw-stat-card > div,
+.nv3-dashboard .welcome-stat,
+.nv3-dashboard .nv-pa-summary-copy {
+  min-width: 0;
+}
+.nv3-dashboard .stat-number,
+.nv3-dashboard .stat-info > h3,
+.nv3-dashboard .nv-live-metric,
+.nv3-dashboard .nv-tw-stat-card > div > strong,
+.nv3-dashboard .nv-pa-fee-value,
+.nv3-dashboard .nv-pa-summary-value {
+  max-width: 100%;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.035em;
+  line-height: 1.25;
+}
+
+/* ==========================================================
+   NoorVista Persian calendar viewport + header refinement v2.1.68
+========================================================== */
+.nv-jalali-picker,
+.persian-datepicker {
+  position: fixed !important;
+  width: 340px;
+  max-width: calc(100vw - 24px) !important;
+  max-height: calc(100dvh - 24px) !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  border: 1px solid #b9ddeb !important;
+  border-radius: 22px !important;
+  background: rgba(255,255,255,.985) !important;
+  box-shadow: 0 24px 72px rgba(15,55,78,.24), 0 2px 10px rgba(15,55,78,.08) !important;
+  transform-origin: center top;
+}
+.nv-jalali-picker[data-placement="top"],
+.persian-datepicker[data-placement="top"] { transform-origin: center bottom; }
+.nv-jalali-picker.is-measuring { visibility: hidden !important; pointer-events: none !important; }
+.nv-jalali-picker.show { animation: nvCalendarReveal .14s ease-out both; }
+@keyframes nvCalendarReveal {
+  from { opacity: 0; transform: translateY(4px) scale(.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.nv-jalali-picker[data-placement="top"].show {
+  animation-name: nvCalendarRevealTop;
+}
+@keyframes nvCalendarRevealTop {
+  from { opacity: 0; transform: translateY(-4px) scale(.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.nv-jalali-picker .nv-jp-head,
+.persian-datepicker .nv-jp-head {
+  display: grid !important;
+  grid-template-columns: 42px minmax(0,1fr) 42px !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin-bottom: 12px !important;
+}
+.nv-jalali-picker .nv-jp-period,
+.persian-datepicker .nv-jp-period {
+  display: grid;
+  min-width: 0;
+  gap: 7px;
+}
+.nv-jalali-picker .nv-jp-period-label,
+.persian-datepicker .nv-jp-period-label {
+  display: block;
+  min-width: 0;
+  color: #075985;
+  font-size: 14px;
+  font-weight: 950;
+  line-height: 1.45;
+  text-align: center;
+  white-space: nowrap;
+  overflow: visible;
+}
+.nv-jalali-picker .nv-jp-selects,
+.persian-datepicker .nv-jp-selects {
+  display: grid !important;
+  grid-template-columns: minmax(126px,1.35fr) minmax(86px,.8fr) !important;
+  gap: 7px !important;
+  min-width: 0;
+}
+.nv-jalali-picker .nv-calendar-listbox-trigger,
+.persian-datepicker .nv-calendar-listbox-trigger {
+  height: 40px !important;
+  min-height: 40px !important;
+  padding-inline: 1.8rem !important;
+  font-size: 12.5px !important;
+  border-radius: 13px !important;
+}
+.nv-jalali-picker .nv-calendar-listbox-value,
+.persian-datepicker .nv-calendar-listbox-value {
+  overflow: visible !important;
+  text-overflow: clip !important;
+  white-space: nowrap !important;
+}
+.nv-jalali-picker .nv-calendar-listbox-menu,
+.persian-datepicker .nv-calendar-listbox-menu {
+  top: calc(100% + 7px);
+  bottom: auto;
+  z-index: 100500 !important;
+}
+.nv-jalali-picker .nv-calendar-listbox.open-up .nv-calendar-listbox-menu,
+.persian-datepicker .nv-calendar-listbox.open-up .nv-calendar-listbox-menu {
+  top: auto !important;
+  bottom: calc(100% + 7px) !important;
+}
+.nv-jalali-picker .nv-jp-head > button,
+.persian-datepicker .nv-jp-head > button {
+  width: 42px !important;
+  min-width: 42px !important;
+  height: 42px !important;
+  min-height: 42px !important;
+  display: grid !important;
+  place-items: center !important;
+  padding: 0 !important;
+  border: 1px solid #cde7f2 !important;
+  border-radius: 13px !important;
+  color: #075985 !important;
+  background: linear-gradient(180deg,#f8fdff,#eaf8ff) !important;
+  font-size: 18px !important;
+}
+.nv-jalali-picker .nv-jp-head > button:hover,
+.nv-jalali-picker .nv-jp-head > button:focus-visible,
+.persian-datepicker .nv-jp-head > button:hover,
+.persian-datepicker .nv-jp-head > button:focus-visible {
+  color: #fff !important;
+  border-color: #168dc6 !important;
+  background: #168dc6 !important;
+  box-shadow: 0 0 0 4px rgba(22,141,198,.15) !important;
+  outline: none !important;
+}
+.nv-jalali-picker::-webkit-scrollbar,
+.persian-datepicker::-webkit-scrollbar { width: 7px; }
+.nv-jalali-picker::-webkit-scrollbar-thumb,
+.persian-datepicker::-webkit-scrollbar-thumb { background: #bae6fd; border-radius: 999px; }
+@media (max-width: 520px) {
+  .nv-jalali-picker,
+  .persian-datepicker {
+    position: fixed !important;
+    width: min(340px,calc(100vw - 24px)) !important;
+    min-width: 0 !important;
+    right: auto !important;
+    bottom: auto !important;
+    padding: 12px !important;
+  }
+  .nv-jalali-picker .nv-jp-head,
+  .persian-datepicker .nv-jp-head {
+    grid-template-columns: 40px minmax(0,1fr) 40px !important;
+    gap: 6px !important;
+  }
+  .nv-jalali-picker .nv-jp-selects,
+  .persian-datepicker .nv-jp-selects {
+    grid-template-columns: minmax(112px,1.3fr) minmax(78px,.8fr) !important;
+    gap: 5px !important;
+  }
+  .nv-jalali-picker .nv-calendar-listbox-trigger,
+  .persian-datepicker .nv-calendar-listbox-trigger {
+    padding-inline: 1.55rem !important;
+    font-size: 12px !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nv-jalali-picker.show { animation: none !important; }
+}
+
+/* ==========================================================
+   NoorVista compact Persian calendar refinement v2.1.69
+   Compact single-row header, fixed day cells and viewport-safe sizing.
+========================================================== */
+.nv-jalali-picker,
+.persian-datepicker {
+  width: 320px !important;
+  max-width: calc(100vw - 20px) !important;
+  padding: 12px !important;
+  border-radius: 18px !important;
+  overflow-x: hidden !important;
+}
+
+.nv-jalali-picker .nv-jp-head,
+.persian-datepicker .nv-jp-head {
+  position: relative;
+  display: grid !important;
+  grid-template-columns: 40px minmax(0, 1fr) 40px !important;
+  align-items: center !important;
+  gap: 7px !important;
+  margin: 0 0 9px !important;
+  padding: 0 !important;
+}
+
+.nv-jalali-picker .nv-jp-period-label.tw-sr-only,
+.persian-datepicker .nv-jp-period-label.tw-sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.nv-jalali-picker .nv-jp-selects,
+.persian-datepicker .nv-jp-selects {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.2fr) minmax(88px, .8fr) !important;
+  align-items: center !important;
+  gap: 6px !important;
+  min-width: 0 !important;
+}
+
+.nv-jalali-picker .nv-calendar-listbox-trigger,
+.persian-datepicker .nv-calendar-listbox-trigger {
+  width: 100% !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  padding-inline: 30px 12px !important;
+  border-radius: 12px !important;
+  font-size: 12.5px !important;
+  line-height: 1 !important;
+}
+
+.nv-jalali-picker .nv-jp-head > button,
+.persian-datepicker .nv-jp-head > button {
+  width: 40px !important;
+  min-width: 40px !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  border-radius: 12px !important;
+  line-height: 1 !important;
+}
+
+.nv-jalali-picker .nv-jp-week,
+.nv-jalali-picker .nv-jp-days,
+.persian-datepicker .nv-jp-week,
+.persian-datepicker .nv-jp-days {
+  display: grid !important;
+  grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+  gap: 3px !important;
+  direction: rtl !important;
+}
+
+.nv-jalali-picker .nv-jp-week,
+.persian-datepicker .nv-jp-week {
+  margin: 0 0 4px !important;
+}
+
+.nv-jalali-picker .nv-jp-week > span,
+.persian-datepicker .nv-jp-week > span {
+  display: grid !important;
+  place-items: center !important;
+  min-width: 0 !important;
+  height: 24px !important;
+  min-height: 24px !important;
+  padding: 0 !important;
+  color: #64748b !important;
+  font-size: 11.5px !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+}
+
+.nv-jalali-picker .nv-jp-days,
+.persian-datepicker .nv-jp-days {
+  grid-auto-rows: 38px !important;
+}
+
+.nv-jalali-picker .nv-jp-days > span,
+.persian-datepicker .nv-jp-days > span,
+.nv-jalali-picker .nv-jp-day,
+.persian-datepicker .nv-jp-day {
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 38px !important;
+  min-height: 38px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: 10px !important;
+  line-height: 1 !important;
+}
+
+.nv-jalali-picker .nv-jp-day,
+.persian-datepicker .nv-jp-day {
+  display: grid !important;
+  place-items: center !important;
+  border: 1px solid transparent !important;
+  background: transparent !important;
+  color: #334155 !important;
+  font-family: inherit !important;
+  font-size: 13px !important;
+  font-weight: 850 !important;
+  cursor: pointer !important;
+}
+
+.nv-jalali-picker .nv-jp-day:hover,
+.nv-jalali-picker .nv-jp-day:focus-visible,
+.persian-datepicker .nv-jp-day:hover,
+.persian-datepicker .nv-jp-day:focus-visible {
+  border-color: #7dd3fc !important;
+  background: #eaf8ff !important;
+  color: #075985 !important;
+  outline: none !important;
+}
+
+.nv-jalali-picker .nv-jp-day.today:not(.active),
+.persian-datepicker .nv-jp-day.today:not(.active) {
+  border-color: #bae6fd !important;
+  background: #f0f9ff !important;
+  color: #0369a1 !important;
+}
+
+.nv-jalali-picker .nv-jp-day.active,
+.persian-datepicker .nv-jp-day.active {
+  border-color: #0284c7 !important;
+  background: linear-gradient(135deg, #0ea5e9, #0878ad) !important;
+  color: #fff !important;
+  box-shadow: 0 6px 14px rgba(2, 132, 199, .22) !important;
+}
+
+.nv-jalali-picker .nv-jp-actions,
+.persian-datepicker .nv-jp-actions {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 8px !important;
+  margin-top: 9px !important;
+  padding-top: 9px !important;
+  border-top: 1px solid #e2e8f0 !important;
+}
+
+.nv-jalali-picker .nv-jp-actions button,
+.persian-datepicker .nv-jp-actions button {
+  min-height: 40px !important;
+  padding: 0 10px !important;
+  border: 1px solid #bae6fd !important;
+  border-radius: 11px !important;
+  background: #f0f9ff !important;
+  color: #075985 !important;
+  font-family: inherit !important;
+  font-size: 12px !important;
+  font-weight: 900 !important;
+  cursor: pointer !important;
+}
+
+.nv-jalali-picker .nv-jp-actions button:last-child,
+.persian-datepicker .nv-jp-actions button:last-child {
+  border-color: #fecdd3 !important;
+  background: #fff1f2 !important;
+  color: #be123c !important;
+}
+
+@media (max-width: 420px) {
+  .nv-jalali-picker,
+  .persian-datepicker {
+    width: calc(100vw - 16px) !important;
+    max-width: calc(100vw - 16px) !important;
+    padding: 10px !important;
+    border-radius: 16px !important;
+  }
+
+  .nv-jalali-picker .nv-jp-head,
+  .persian-datepicker .nv-jp-head {
+    grid-template-columns: 38px minmax(0, 1fr) 38px !important;
+    gap: 5px !important;
+  }
+
+  .nv-jalali-picker .nv-jp-head > button,
+  .persian-datepicker .nv-jp-head > button {
+    width: 38px !important;
+    min-width: 38px !important;
+    height: 38px !important;
+    min-height: 38px !important;
+  }
+
+  .nv-jalali-picker .nv-jp-selects,
+  .persian-datepicker .nv-jp-selects {
+    grid-template-columns: minmax(0, 1.15fr) minmax(78px, .85fr) !important;
+    gap: 5px !important;
+  }
+
+  .nv-jalali-picker .nv-calendar-listbox-trigger,
+  .persian-datepicker .nv-calendar-listbox-trigger {
+    height: 38px !important;
+    min-height: 38px !important;
+    padding-inline: 26px 9px !important;
+    font-size: 12px !important;
+  }
+
+  .nv-jalali-picker .nv-jp-days,
+  .persian-datepicker .nv-jp-days {
+    grid-auto-rows: 36px !important;
+  }
+
+  .nv-jalali-picker .nv-jp-days > span,
+  .persian-datepicker .nv-jp-days > span,
+  .nv-jalali-picker .nv-jp-day,
+  .persian-datepicker .nv-jp-day {
+    height: 36px !important;
+    min-height: 36px !important;
+  }
+}

@@ -1,0 +1,404 @@
+/* =========================================================
+   NOORVISTA Unified Panel Sidebar - Metallic Navy Theme
+   فقط رنگ و ظاهر Sidebar همه پنل‌ها را یکسان می‌کند.
+   به layout، main-content، table، card، form، modal، API و JS دست نمی‌زند.
+========================================================= */
+
+:root {
+  --nv-sidebar-force-bg-top: #111827;
+  --nv-sidebar-force-bg-mid: #0f2f4a;
+  --nv-sidebar-force-bg-bottom: #020617;
+  --nv-sidebar-force-accent: #38bdf8;
+  --nv-sidebar-force-accent-dark: #0ea5e9;
+  --nv-sidebar-force-gold: #f8d77a;
+  --nv-sidebar-force-text: rgba(241, 245, 249, .94);
+  --nv-sidebar-force-muted: rgba(203, 213, 225, .78);
+}
+
+/*
+  Metallic Navy:
+  - سورمه‌ای عمیق و حرفه‌ای
+  - هایلایت آبی یخی برای حس پزشکی/اعتماد
+  - خط طلایی ظریف برای جذابیت و لوکس بودن
+*/
+
+html body .sidebar.sidebar {
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.08), transparent 18%),
+    radial-gradient(circle at 10% 0%, rgba(56,189,248,.20), transparent 33%),
+    radial-gradient(circle at 95% 10%, rgba(248,215,122,.12), transparent 24%),
+    linear-gradient(180deg, var(--nv-sidebar-force-bg-top) 0%, var(--nv-sidebar-force-bg-mid) 48%, var(--nv-sidebar-force-bg-bottom) 100%) !important;
+  border-left: 1px solid rgba(148, 163, 184, .22) !important;
+  box-shadow:
+    -12px 0 34px rgba(2, 6, 23, .22),
+    inset 1px 0 0 rgba(255,255,255,.08) !important;
+  overflow-x: hidden !important;
+}
+
+/* subtle metallic layer */
+html body .sidebar.sidebar::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  background:
+    linear-gradient(115deg, transparent 0%, rgba(255,255,255,.055) 28%, transparent 44%),
+    repeating-linear-gradient(135deg, rgba(255,255,255,.025) 0 1px, transparent 1px 8px) !important;
+  opacity: .75 !important;
+}
+
+/* keep sidebar content above metallic layer */
+html body .sidebar.sidebar > * {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Header/logo */
+html body .sidebar.sidebar > .sidebar-header,
+html body.system-admin-panel .sidebar.sidebar > .sidebar-header,
+html body.clinic-manager-page .sidebar.sidebar > .sidebar-header,
+html body.nv-admin-page .sidebar.sidebar > .sidebar-header,
+html body.nv-clinic-manager-page .sidebar.sidebar > .sidebar-header {
+  position: relative !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  min-height: 84px !important;
+  height: auto !important;
+  padding: 26px 20px 22px !important;
+  margin: 0 0 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  border-bottom: 1px solid rgba(226, 232, 240, .13) !important;
+  background: transparent !important;
+}
+
+html body .sidebar.sidebar > .sidebar-header::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: -1px !important;
+  right: 18px !important;
+  left: 18px !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, rgba(248,215,122,.65), rgba(56,189,248,.5), transparent) !important;
+}
+
+html body .sidebar.sidebar > .sidebar-header > .sidebar-logo,
+html body .sidebar.sidebar > .sidebar-header > a.sidebar-logo,
+html body.system-admin-panel .sidebar.sidebar > .sidebar-header > .sidebar-logo,
+html body.clinic-manager-page .sidebar.sidebar > .sidebar-header > .sidebar-logo {
+  width: auto !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  display: inline-block !important;
+  text-align: center !important;
+  transform: none !important;
+  position: static !important;
+  right: auto !important;
+  left: auto !important;
+  color: #ffffff !important;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: #ffffff !important;
+  font-size: 27px !important;
+  font-weight: 950 !important;
+  line-height: 1.2 !important;
+  letter-spacing: .2px !important;
+  text-transform: uppercase !important;
+  text-shadow: 0 2px 18px rgba(56,189,248,.22) !important;
+}
+
+html body .sidebar.sidebar > .sidebar-header > .sidebar-logo span,
+html body .sidebar.sidebar > .sidebar-header > a.sidebar-logo span,
+html body.system-admin-panel .sidebar.sidebar > .sidebar-header > .sidebar-logo span,
+html body.clinic-manager-page .sidebar.sidebar > .sidebar-header > .sidebar-logo span {
+  color: var(--nv-sidebar-force-gold) !important;
+  -webkit-text-fill-color: var(--nv-sidebar-force-gold) !important;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+}
+
+/* Toggle */
+html body .sidebar.sidebar > .sidebar-header .sidebar-toggle,
+html body .sidebar.sidebar > .sidebar-header .nv-sidebar-toggle,
+html body .sidebar.sidebar .sidebar-toggle,
+html body .sidebar.sidebar .nv-sidebar-toggle {
+  position: absolute !important;
+  left: 14px !important;
+  right: auto !important;
+  background: rgba(15, 23, 42, .42) !important;
+  border: 1px solid rgba(226, 232, 240, .18) !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 18px rgba(2,6,23,.18) !important;
+}
+
+/* Remove experimental profile if any remained */
+html body .sidebar.sidebar .nv-sidebar-profile {
+  display: none !important;
+}
+
+/* Nav container */
+html body .sidebar.sidebar .sidebar-nav,
+html body.system-admin-panel .sidebar.sidebar .sidebar-nav,
+html body.clinic-manager-page .sidebar.sidebar .sidebar-nav {
+  width: 100% !important;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: grid !important;
+  gap: 7px !important;
+}
+
+html body .sidebar.sidebar .nav-item,
+html body.system-admin-panel .sidebar.sidebar .nav-item,
+html body.clinic-manager-page .sidebar.sidebar .nav-item {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Nav links */
+html body .sidebar.sidebar .nav-link.nav-link,
+html body.system-admin-panel .sidebar.sidebar .nav-link.nav-link,
+html body.clinic-manager-page .sidebar.sidebar .nav-link.nav-link {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 46px !important;
+  height: auto !important;
+  padding: 10px 12px !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+  border-radius: 15px !important;
+  border: 1px solid transparent !important;
+  background: transparent !important;
+  color: var(--nv-sidebar-force-text) !important;
+  text-decoration: none !important;
+  font-size: 13.5px !important;
+  font-weight: 850 !important;
+  line-height: 1.4 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  transform: none !important;
+  transition: background .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease !important;
+}
+
+html body .sidebar.sidebar .nav-link.nav-link i,
+html body.system-admin-panel .sidebar.sidebar .nav-link.nav-link i,
+html body.clinic-manager-page .sidebar.sidebar .nav-link.nav-link i {
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  margin: 0 !important;
+  border-radius: 11px !important;
+  display: grid !important;
+  place-items: center !important;
+  background: rgba(255, 255, 255, .10) !important;
+  color: #bae6fd !important;
+  font-style: normal !important;
+  font-size: 14px !important;
+  line-height: 1 !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.12) !important;
+}
+
+html body .sidebar.sidebar .nav-link.nav-link span,
+html body.system-admin-panel .sidebar.sidebar .nav-link.nav-link span,
+html body.clinic-manager-page .sidebar.sidebar .nav-link.nav-link span {
+  display: inline-block !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+html body .sidebar.sidebar .nav-link.nav-link:hover,
+html body.system-admin-panel .sidebar.sidebar .nav-link.nav-link:hover,
+html body.clinic-manager-page .sidebar.sidebar .nav-link.nav-link:hover {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, .105) !important;
+  border-color: rgba(186, 230, 253, .18) !important;
+  transform: none !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08) !important;
+}
+
+/* Active item: bright, readable, professional */
+html body .sidebar.sidebar .nav-link.nav-link.active,
+html body.system-admin-panel .sidebar.sidebar .nav-link.nav-link.active,
+html body.clinic-manager-page .sidebar.sidebar .nav-link.nav-link.active {
+  color: #07192f !important;
+  background:
+    linear-gradient(135deg, #ffffff 0%, #e0f2fe 54%, #fef3c7 100%) !important;
+  border-color: rgba(255, 255, 255, .78) !important;
+  box-shadow:
+    0 12px 28px rgba(56, 189, 248, .20),
+    inset 0 1px 0 rgba(255,255,255,.86) !important;
+}
+
+html body .sidebar.sidebar .nav-link.nav-link.active i,
+html body.system-admin-panel .sidebar.sidebar .nav-link.nav-link.active i,
+html body.clinic-manager-page .sidebar.sidebar .nav-link.nav-link.active i {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #0369a1, #0f172a) !important;
+  box-shadow: 0 8px 16px rgba(15,23,42,.22) !important;
+}
+
+/* Complete icon fallback map */
+html body .sidebar.sidebar i::before { display: inline-block; }
+
+html body .sidebar.sidebar .icon-dashboard::before,
+html body .sidebar.sidebar .oi-dashboard::before { content: "" !important; }
+
+html body .sidebar.sidebar .icon-users::before,
+html body .sidebar.sidebar .icon-user::before,
+html body .sidebar.sidebar .oi-people::before { content: "" !important; }
+
+html body .sidebar.sidebar .icon-user-md::before,
+html body .sidebar.sidebar .icon-doctor::before,
+html body .sidebar.sidebar .oi-medical-cross::before { content: "" !important; }
+
+html body .sidebar.sidebar .icon-clock::before,
+html body .sidebar.sidebar .icon-schedule::before,
+html body .sidebar.sidebar .oi-clock::before,
+html body .sidebar.sidebar .oi-timer::before { content: "" !important; }
+
+html body .sidebar.sidebar .icon-patients::before,
+html body .sidebar.sidebar .icon-patient::before,
+html body .sidebar.sidebar .oi-person::before { content: "" !important; }
+
+html body .sidebar.sidebar .icon-calendar::before,
+html body .sidebar.sidebar .icon-appointments::before,
+html body .sidebar.sidebar .oi-calendar::before { content: "▦" !important; }
+
+html body .sidebar.sidebar .icon-briefcase::before,
+html body .sidebar.sidebar .icon-staff::before,
+html body .sidebar.sidebar .oi-briefcase::before { content: "▣" !important; }
+
+html body .sidebar.sidebar .icon-credit-card::before,
+html body .sidebar.sidebar .icon-money::before,
+html body .sidebar.sidebar .oi-credit-card::before { content: "﷼" !important; }
+
+html body .sidebar.sidebar .icon-comments::before,
+html body .sidebar.sidebar .icon-faq::before,
+html body .sidebar.sidebar .oi-question-mark::before { content: "?" !important; }
+
+html body .sidebar.sidebar .icon-bell::before,
+html body .sidebar.sidebar .icon-notification::before,
+html body .sidebar.sidebar .oi-bell::before { content: "●" !important; }
+
+html body .sidebar.sidebar .icon-cog::before,
+html body .sidebar.sidebar .icon-settings::before,
+html body .sidebar.sidebar .oi-cog::before { content: "" !important; }
+
+html body .sidebar.sidebar .icon-database::before,
+html body .sidebar.sidebar .icon-backup::before,
+html body .sidebar.sidebar .oi-data-transfer-upload::before { content: "↻" !important; }
+
+html body .sidebar.sidebar .icon-chart::before,
+html body .sidebar.sidebar .icon-bar-chart::before,
+html body .sidebar.sidebar .icon-report::before,
+html body .sidebar.sidebar .oi-bar-chart::before { content: "▥" !important; }
+
+html body .sidebar.sidebar .icon-center::before,
+html body .sidebar.sidebar .icon-hospital::before { content: "" !important; }
+
+html body .sidebar.sidebar .icon-service::before,
+html body .sidebar.sidebar .icon-services::before { content: "" !important; }
+
+html body .sidebar.sidebar .icon-slot::before,
+html body .sidebar.sidebar .icon-capacity::before { content: "◷" !important; }
+
+/* Collapsed support */
+html body.sidebar-collapsed .sidebar.sidebar > .sidebar-header,
+html body.nv-sidebar-collapsed .sidebar.sidebar > .sidebar-header {
+  min-height: 58px !important;
+  padding: 14px 8px !important;
+}
+
+html body.sidebar-collapsed .sidebar.sidebar > .sidebar-header > .sidebar-logo,
+html body.nv-sidebar-collapsed .sidebar.sidebar > .sidebar-header > .sidebar-logo {
+  font-size: 0 !important;
+}
+
+html body.sidebar-collapsed .sidebar.sidebar > .sidebar-header > .sidebar-logo::before,
+html body.nv-sidebar-collapsed .sidebar.sidebar > .sidebar-header > .sidebar-logo::before {
+  content: "NV";
+  display: block;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 950;
+  text-align: center;
+}
+
+html body.sidebar-collapsed .sidebar.sidebar .nav-link.nav-link,
+html body.nv-sidebar-collapsed .sidebar.sidebar .nav-link.nav-link {
+  justify-content: center !important;
+  gap: 0 !important;
+  padding: 9px !important;
+}
+
+html body.sidebar-collapsed .sidebar.sidebar .nav-link.nav-link span,
+html body.nv-sidebar-collapsed .sidebar.sidebar .nav-link.nav-link span {
+  display: none !important;
+}
+
+
+
+
+
+/* =========================================================
+   Sidebar internal scroll without affecting main-content
+   اصلاح نسخه قبلی: sticky حذف شد تا بالای main-content فضای خالی ایجاد نشود.
+========================================================= */
+
+@media (min-width: 769px) {
+  html body .sidebar.sidebar {
+    /* position را عمداً تغییر نمی‌دهیم تا layout اصلی پنل خراب نشود */
+    height: 100vh !important;
+    height: 100dvh !important;
+    max-height: 100vh !important;
+    max-height: 100dvh !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    overscroll-behavior: contain !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: rgba(248,215,122,.55) rgba(255,255,255,.08) !important;
+  }
+
+  html body .sidebar.sidebar::-webkit-scrollbar {
+    width: 7px !important;
+  }
+
+  html body .sidebar.sidebar::-webkit-scrollbar-track {
+    background: rgba(255,255,255,.06) !important;
+    border-radius: 999px !important;
+  }
+
+  html body .sidebar.sidebar::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgba(248,215,122,.72), rgba(56,189,248,.55)) !important;
+    border-radius: 999px !important;
+  }
+
+  html body .sidebar.sidebar .sidebar-nav {
+    padding-bottom: 22px !important;
+  }
+
+  html body .sidebar.sidebar .nav-link.nav-link.active {
+    scroll-margin-top: 96px !important;
+    scroll-margin-bottom: 28px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  html body .sidebar.sidebar {
+    max-height: 100dvh !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    overscroll-behavior: contain !important;
+  }
+}

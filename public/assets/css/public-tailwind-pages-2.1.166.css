@@ -1,0 +1,446 @@
+
+/* NoorVista 2.1.166 — Public pages Tailwind-style remaster
+   Content-preserving layer: no HTML content is deleted; only layout/visuals are normalized.
+   Scoped to public pages and common public selectors. */
+
+:root {
+  --nv-ink: #0f2338;
+  --nv-muted: #64748b;
+  --nv-soft: #f0fbff;
+  --nv-card: rgba(255,255,255,.94);
+  --nv-primary: #0891b2;
+  --nv-primary-2: #0ea5e9;
+  --nv-primary-dark: #075985;
+  --nv-accent: #14b8a6;
+  --nv-warning: #f59e0b;
+  --nv-line: rgba(125,211,252,.58);
+  --nv-line-soft: rgba(186,230,253,.66);
+  --nv-shadow: 0 24px 70px rgba(15,23,42,.085);
+  --nv-shadow-sm: 0 12px 32px rgba(15,23,42,.07);
+  --nv-radius-lg: 32px;
+  --nv-radius-md: 24px;
+  --nv-radius-sm: 18px;
+  --nv-container: 1180px;
+}
+
+html { scroll-behavior: smooth; }
+
+body:not([data-panel-role]) {
+  color: var(--nv-ink);
+  background:
+    radial-gradient(circle at 13% 5%, rgba(45, 212, 191, .12), transparent 27%),
+    radial-gradient(circle at 88% 6%, rgba(56, 189, 248, .13), transparent 30%),
+    linear-gradient(180deg, #f6fdff 0%, #ffffff 45%, #f8fcff 100%) !important;
+  font-family: Vazir, Shabnam, Tahoma, Arial, sans-serif !important;
+  text-rendering: optimizeLegibility;
+}
+
+body:not([data-panel-role]) .container,
+body:not([data-panel-role]) .nav-inner,
+body:not([data-panel-role]) .topbar-inner {
+  max-width: var(--nv-container) !important;
+  margin-inline: auto !important;
+}
+
+/* Header/topbar — stable, not flickery */
+body:not([data-panel-role]) .topbar {
+  background: linear-gradient(135deg, #062f43, #082f49) !important;
+  color: #e0f7ff !important;
+  border: 0 !important;
+}
+
+body:not([data-panel-role]) .topbar .topbar-info > *,
+body:not([data-panel-role]) .topbar .socials a {
+  transition: none !important;
+}
+
+body:not([data-panel-role]) .topbar .topbar-info {
+  gap: 18px !important;
+}
+
+body:not([data-panel-role]) .topbar .topbar-info > span,
+body:not([data-panel-role]) .topbar .topbar-info > a {
+  border-radius: 999px !important;
+  text-decoration: none !important;
+}
+
+body:not([data-panel-role]) .navbar {
+  background: rgba(255,255,255,.88) !important;
+  backdrop-filter: blur(18px) saturate(1.05) !important;
+  border-bottom: 1px solid rgba(186,230,253,.75) !important;
+  box-shadow: 0 12px 38px rgba(15,23,42,.055) !important;
+  z-index: 900 !important;
+}
+
+body:not([data-panel-role]) .navbar .brand {
+  min-width: 0 !important;
+}
+
+body:not([data-panel-role]) .brand-logo,
+body:not([data-panel-role]) .brand-logo-image {
+  box-shadow: 0 14px 34px rgba(8,145,178,.18) !important;
+}
+
+body:not([data-panel-role]) .nav-links a,
+body:not([data-panel-role]) .nav-menu a {
+  color: #20364d !important;
+  font-weight: 850 !important;
+  border-radius: 999px !important;
+  transition: background .18s ease, color .18s ease, transform .18s ease !important;
+}
+
+body:not([data-panel-role]) .nav-links a:hover,
+body:not([data-panel-role]) .nav-menu a:hover,
+body:not([data-panel-role]) .nav-links a.active,
+body:not([data-panel-role]) .nav-menu a.active {
+  background: #e0f7ff !important;
+  color: #075985 !important;
+}
+
+body:not([data-panel-role]) .btn,
+body:not([data-panel-role]) button,
+body:not([data-panel-role]) .nav-actions a,
+body:not([data-panel-role]) .hero-actions a,
+body:not([data-panel-role]) .hero-actions button {
+  border-radius: 999px !important;
+}
+
+body:not([data-panel-role]) .btn-primary,
+body:not([data-panel-role]) .primary-btn,
+body:not([data-panel-role]) .appointment-btn,
+body:not([data-panel-role]) [data-open-appointment],
+body:not([data-panel-role]) .open-booking,
+body:not([data-panel-role]) .open-appointment {
+  background: linear-gradient(135deg, #06b6d4, #0891b2) !important;
+  color: #fff !important;
+  border: 0 !important;
+  box-shadow: 0 18px 38px rgba(8,145,178,.22) !important;
+}
+
+/* Hero — cleaner desktop and mobile */
+body:not([data-panel-role]) .hero,
+body:not([data-panel-role]) .hero-section,
+body:not([data-panel-role]) .noorvista-hero,
+body:not([data-panel-role]) .nv-hero {
+  position: relative !important;
+  overflow: hidden !important;
+  background:
+    linear-gradient(rgba(14,165,233,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14,165,233,.045) 1px, transparent 1px),
+    radial-gradient(circle at 16% 24%, rgba(45,212,191,.16), transparent 34%),
+    radial-gradient(circle at 86% 10%, rgba(56,189,248,.18), transparent 35%),
+    linear-gradient(180deg, #effbff 0%, #ffffff 90%) !important;
+  background-size: 44px 44px, 44px 44px, auto, auto, auto !important;
+}
+
+body:not([data-panel-role]) .hero .container,
+body:not([data-panel-role]) .hero-content,
+body:not([data-panel-role]) .hero-inner {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+body:not([data-panel-role]) .eyebrow,
+body:not([data-panel-role]) .section-badge,
+body:not([data-panel-role]) .hero-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  min-height: 36px !important;
+  padding: 7px 14px !important;
+  border-radius: 999px !important;
+  background: rgba(255,255,255,.90) !important;
+  border: 1px solid rgba(125,211,252,.72) !important;
+  color: var(--nv-primary-dark) !important;
+  font-weight: 900 !important;
+  box-shadow: 0 10px 28px rgba(8,145,178,.08) !important;
+}
+
+body:not([data-panel-role]) .hero h1,
+body:not([data-panel-role]) .hero-title,
+body:not([data-panel-role]) .hero-content h1 {
+  color: #0f2338 !important;
+  font-weight: 950 !important;
+  letter-spacing: -1.4px !important;
+  line-height: 1.22 !important;
+  max-width: 760px !important;
+}
+
+body:not([data-panel-role]) .hero p,
+body:not([data-panel-role]) .hero-subtitle,
+body:not([data-panel-role]) .hero-content p {
+  color: #475569 !important;
+  font-weight: 650 !important;
+  line-height: 2.15 !important;
+  max-width: 720px !important;
+}
+
+body:not([data-panel-role]) .hero-actions {
+  gap: 12px !important;
+  align-items: center !important;
+}
+
+/* Cards & sections */
+body:not([data-panel-role]) .section {
+  padding-block: clamp(54px, 7vw, 92px) !important;
+}
+
+body:not([data-panel-role]) .section-head,
+body:not([data-panel-role]) .section-header {
+  max-width: 780px !important;
+  margin-inline: auto !important;
+  text-align: center !important;
+  margin-bottom: clamp(24px, 4vw, 42px) !important;
+}
+
+body:not([data-panel-role]) .section-head h2,
+body:not([data-panel-role]) .section-header h2,
+body:not([data-panel-role]) .section-title {
+  color: #0f2338 !important;
+  font-weight: 950 !important;
+  letter-spacing: -.8px !important;
+}
+
+body:not([data-panel-role]) .section-head p,
+body:not([data-panel-role]) .section-header p,
+body:not([data-panel-role]) .section-subtitle {
+  color: var(--nv-muted) !important;
+  line-height: 2.05 !important;
+  font-weight: 650 !important;
+}
+
+body:not([data-panel-role]) .service-card,
+body:not([data-panel-role]) .feature-card,
+body:not([data-panel-role]) .blog-card,
+body:not([data-panel-role]) .doctor-card,
+body:not([data-panel-role]) .faq-card,
+body:not([data-panel-role]) .contact-quick-card,
+body:not([data-panel-role]) .home-location-copy,
+body:not([data-panel-role]) .home-location-map-card,
+body:not([data-panel-role]) .quick-item,
+body:not([data-panel-role]) .guide-card,
+body:not([data-panel-role]) .stat-card {
+  border-radius: var(--nv-radius-md) !important;
+  border: 1px solid var(--nv-line-soft) !important;
+  background: var(--nv-card) !important;
+  box-shadow: var(--nv-shadow-sm) !important;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease !important;
+}
+
+@media (hover: hover) {
+  body:not([data-panel-role]) .service-card:hover,
+  body:not([data-panel-role]) .feature-card:hover,
+  body:not([data-panel-role]) .blog-card:hover,
+  body:not([data-panel-role]) .doctor-card:hover,
+  body:not([data-panel-role]) .guide-card:hover {
+    transform: translateY(-4px) !important;
+    border-color: rgba(45,212,191,.68) !important;
+    box-shadow: var(--nv-shadow) !important;
+  }
+}
+
+body:not([data-panel-role]) .services-grid,
+body:not([data-panel-role]) .features-grid,
+body:not([data-panel-role]) .blog-grid,
+body:not([data-panel-role]) .doctors-grid,
+body:not([data-panel-role]) .trust-row {
+  gap: clamp(16px, 2.4vw, 26px) !important;
+}
+
+/* Contact/location */
+body:not([data-panel-role]) .home-location-grid,
+body:not([data-panel-role]) .contact-layout,
+body:not([data-panel-role]) .contact-grid {
+  gap: clamp(20px, 3vw, 32px) !important;
+  align-items: stretch !important;
+}
+
+body:not([data-panel-role]) .home-location-details,
+body:not([data-panel-role]) .contact-quick-card {
+  border-radius: var(--nv-radius-md) !important;
+}
+
+body:not([data-panel-role]) .home-location-details .nv-visit-row,
+body:not([data-panel-role]) .contact-quick-card .quick-item {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Footer */
+body:not([data-panel-role]) .footer {
+  background:
+    radial-gradient(circle at 18% 0%, rgba(14,165,233,.16), transparent 34%),
+    linear-gradient(135deg, #071525, #0b1c2f 60%, #082f49) !important;
+  color: #e5eef7 !important;
+}
+
+body:not([data-panel-role]) .footer h3,
+body:not([data-panel-role]) .footer strong {
+  color: #ffffff !important;
+  font-weight: 900 !important;
+}
+
+body:not([data-panel-role]) .footer a {
+  color: #dbeafe !important;
+  text-decoration: none !important;
+}
+
+body:not([data-panel-role]) .footer .contact-list {
+  gap: 10px !important;
+}
+
+body:not([data-panel-role]) .footer .nv-contact-label {
+  color: #7dd3fc !important;
+  font-weight: 850 !important;
+}
+
+body:not([data-panel-role]) .footer .nv-contact-value,
+body:not([data-panel-role]) .footer .nv-contact-main,
+body:not([data-panel-role]) .footer .nv-contact-main * {
+  font-weight: 700 !important;
+}
+
+/* Chatbot/floating actions */
+body:not([data-panel-role]) .floating-actions,
+body:not([data-panel-role]) .site-actions,
+body:not([data-panel-role]) .nv-floating-actions {
+  z-index: 850 !important;
+}
+
+body:not([data-panel-role]) .chatbot-widget,
+body:not([data-panel-role]) .chatbot-panel,
+body:not([data-panel-role]) #chatbotPanel {
+  border-radius: 28px !important;
+  box-shadow: 0 28px 84px rgba(15,23,42,.22) !important;
+}
+
+/* Booking modal */
+body:not([data-panel-role]) .nv-public-booking__panel {
+  border-radius: clamp(24px, 3vw, 36px) !important;
+  box-shadow: 0 32px 90px rgba(15,23,42,.26) !important;
+}
+
+body:not([data-panel-role]) .nv-public-booking__progress-item {
+  border-radius: 16px !important;
+}
+
+/* Mobile */
+@media (max-width: 720px) {
+  body:not([data-panel-role]) {
+    padding-bottom: calc(94px + env(safe-area-inset-bottom, 0px)) !important;
+    overflow-x: hidden !important;
+  }
+
+  body:not([data-panel-role]) .container,
+  body:not([data-panel-role]) .nav-inner,
+  body:not([data-panel-role]) .topbar-inner {
+    width: min(100%, 100vw) !important;
+    padding-inline: 14px !important;
+  }
+
+  body:not([data-panel-role]) .topbar.nv-mobile-topbar-v2 {
+    height: 40px !important;
+    min-height: 40px !important;
+    overflow: hidden !important;
+  }
+
+  body:not([data-panel-role]) .topbar .nv-mobile-topbar-v2-inner,
+  body:not([data-panel-role]) .topbar .container.nv-mobile-topbar-v2-inner {
+    grid-template-columns: minmax(38px, 1fr) auto minmax(88px, 1fr) !important;
+    grid-template-areas: "call socials location" !important;
+    padding-inline: 10px !important;
+  }
+
+  body:not([data-panel-role]) .navbar {
+    min-height: 52px !important;
+  }
+
+  body:not([data-panel-role]) .navbar .container,
+  body:not([data-panel-role]) .navbar .nav-inner {
+    min-height: 52px !important;
+    height: 52px !important;
+    padding-block: 4px !important;
+  }
+
+  body:not([data-panel-role]) .mobile-toggle {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 14px !important;
+  }
+
+  body:not([data-panel-role]) .nav-actions a,
+  body:not([data-panel-role]) .nav-actions button {
+    height: 36px !important;
+    min-height: 36px !important;
+    font-size: 12px !important;
+  }
+
+  body:not([data-panel-role]) .hero,
+  body:not([data-panel-role]) .hero-section,
+  body:not([data-panel-role]) .noorvista-hero,
+  body:not([data-panel-role]) .nv-hero {
+    padding-block: 20px 42px !important;
+  }
+
+  body:not([data-panel-role]) .hero h1,
+  body:not([data-panel-role]) .hero-title,
+  body:not([data-panel-role]) .hero-content h1 {
+    font-size: clamp(28px, 8.5vw, 38px) !important;
+    line-height: 1.35 !important;
+    letter-spacing: -.7px !important;
+    text-align: center !important;
+  }
+
+  body:not([data-panel-role]) .hero p,
+  body:not([data-panel-role]) .hero-subtitle,
+  body:not([data-panel-role]) .hero-content p {
+    font-size: 13px !important;
+    line-height: 2.1 !important;
+    text-align: center !important;
+    margin-inline: auto !important;
+  }
+
+  body:not([data-panel-role]) .hero-actions {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    width: 100% !important;
+    margin-top: 18px !important;
+  }
+
+  body:not([data-panel-role]) .hero-actions > * {
+    width: 100% !important;
+    min-height: 44px !important;
+  }
+
+  body:not([data-panel-role]) .hero-actions .open-chat,
+  body:not([data-panel-role]) .hero-actions [data-open-chat],
+  body:not([data-panel-role]) .hero-actions .chatbot-trigger {
+    display: none !important;
+  }
+
+  body:not([data-panel-role]) .section {
+    padding-block: 42px !important;
+  }
+
+  body:not([data-panel-role]) .services-grid,
+  body:not([data-panel-role]) .features-grid,
+  body:not([data-panel-role]) .blog-grid,
+  body:not([data-panel-role]) .doctors-grid,
+  body:not([data-panel-role]) .trust-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  body:not([data-panel-role]) .service-card,
+  body:not([data-panel-role]) .feature-card,
+  body:not([data-panel-role]) .blog-card,
+  body:not([data-panel-role]) .doctor-card,
+  body:not([data-panel-role]) .home-location-copy,
+  body:not([data-panel-role]) .home-location-map-card {
+    border-radius: 24px !important;
+  }
+
+  body:not([data-panel-role]) .footer {
+    padding-bottom: calc(98px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+}

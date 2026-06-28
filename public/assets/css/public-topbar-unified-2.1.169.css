@@ -1,0 +1,4 @@
+/* Compatibility shell. Final rules are in nv-public-final-cleanup-3.0.5.css */
+body:not([data-panel-role]) .topbar .topbar-info,
+body:not([data-panel-role]) .topbar .socials,
+body:not([data-panel-role]) .topbar .nv-topbar169{display:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important}

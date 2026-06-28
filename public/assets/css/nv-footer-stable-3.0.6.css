@@ -1,0 +1,136 @@
+/* NoorVista 3.0.6 — stable footer contact block
+   The previous footer contact-list was being rewritten by multiple runtime scripts.
+   This block is final, isolated and not touched by digit/text observers. */
+
+body:not([data-panel-role]) .footer .contact-list,
+body:not([data-panel-role]) .footer .footer-socials.compact-socials {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+body:not([data-panel-role]) .nv-footer306-info,
+body:not([data-panel-role]) .nv-footer306-info * {
+  box-sizing: border-box !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+body:not([data-panel-role]) .nv-footer306-info {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 14px !important;
+  margin-top: 8px !important;
+  direction: rtl !important;
+  color: #d9edf8 !important;
+  min-height: 174px !important;
+}
+
+body:not([data-panel-role]) .nv-footer306-row {
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+  width: 100% !important;
+  min-height: 28px !important;
+  line-height: 1.9 !important;
+  color: #d9edf8 !important;
+}
+
+body:not([data-panel-role]) .nv-footer306-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  margin-top: 5px !important;
+  color: #9fe8ff !important;
+  line-height: 0 !important;
+}
+
+body:not([data-panel-role]) .nv-footer306-icon svg {
+  display: block !important;
+  width: 18px !important;
+  height: 18px !important;
+  fill: currentColor !important;
+}
+
+body:not([data-panel-role]) .nv-footer306-copy {
+  min-width: 0 !important;
+  display: block !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  line-height: 1.9 !important;
+  color: #d9edf8 !important;
+}
+
+body:not([data-panel-role]) .nv-footer306-copy strong {
+  color: #f8fbff !important;
+  font-weight: 900 !important;
+}
+
+body:not([data-panel-role]) .nv-footer306-address-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 5px !important;
+}
+
+body:not([data-panel-role]) .nv-footer306-address-line {
+  display: block !important;
+}
+
+body:not([data-panel-role]) .nv-footer306-phone {
+  color: #d9edf8 !important;
+  text-decoration: none !important;
+  direction: rtl !important;
+  unicode-bidi: plaintext !important;
+}
+
+body:not([data-panel-role]) .nv-footer306-socials {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+  margin-top: 8px !important;
+  min-height: 38px !important;
+  direction: ltr !important;
+}
+
+body:not([data-panel-role]) .nv-footer306-social {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 12px !important;
+  background: rgba(255,255,255,.08) !important;
+  border: 1px solid rgba(125,211,252,.16) !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+  line-height: 0 !important;
+}
+
+body:not([data-panel-role]) .nv-footer306-social img {
+  display: block !important;
+  width: 24px !important;
+  height: 24px !important;
+  object-fit: contain !important;
+}
+
+@media (max-width: 720px) {
+  body:not([data-panel-role]) .nv-footer306-info {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  body:not([data-panel-role]) .nv-footer306-row {
+    justify-content: center !important;
+  }
+
+  body:not([data-panel-role]) .nv-footer306-socials {
+    justify-content: center !important;
+  }
+}

@@ -1,0 +1,141 @@
+/* NoorVista appointments table sorting - v2.1.41 */
+.nv-appointments-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+}
+
+.nv-appointments-list-title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+}
+
+.nv-appointments-list-title h4 {
+  margin: 0;
+}
+
+.nv-appointments-result-count {
+  color: #64748b;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.nv-appointments-sort-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 7px 9px;
+  min-width: min(100%, 430px);
+}
+
+.nv-appointments-sort-toolbar > label {
+  color: #475569;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.nv-sort-preset-select {
+  min-width: 178px;
+  min-height: 38px;
+  padding: 7px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: #fff;
+  color: #0f172a;
+  font: inherit;
+  font-size: 12px;
+  direction: rtl;
+  cursor: pointer;
+}
+
+.nv-sort-preset-select:focus-visible {
+  outline: 3px solid rgba(14, 165, 233, .2);
+  border-color: #0284c7;
+}
+
+.nv-sort-summary {
+  flex: 1 1 100%;
+  color: #64748b;
+  font-size: 11px;
+  line-height: 1.7;
+  text-align: left;
+}
+
+#appointmentsTable thead th.nv-sortable-column {
+  padding: 0;
+}
+
+.nv-table-sort {
+  width: 100%;
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 8px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: inherit;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color .16s ease, color .16s ease;
+}
+
+.nv-table-sort:hover {
+  background: rgba(14, 165, 233, .08);
+  color: #0369a1;
+}
+
+.nv-table-sort:focus-visible {
+  position: relative;
+  z-index: 1;
+  outline: 3px solid rgba(14, 165, 233, .25);
+  outline-offset: -3px;
+}
+
+.nv-table-sort.is-active {
+  background: rgba(14, 165, 233, .12);
+  color: #075985;
+}
+
+.nv-sort-indicator {
+  min-width: 14px;
+  color: #94a3b8;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.nv-table-sort.is-active .nv-sort-indicator {
+  color: #0284c7;
+}
+
+@media (max-width: 760px) {
+  .nv-appointments-list-header,
+  .nv-appointments-sort-toolbar {
+    align-items: stretch;
+  }
+
+  .nv-appointments-sort-toolbar {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .nv-sort-preset-select {
+    flex: 1 1 190px;
+    width: 100%;
+  }
+
+  .nv-sort-summary {
+    text-align: right;
+  }
+}

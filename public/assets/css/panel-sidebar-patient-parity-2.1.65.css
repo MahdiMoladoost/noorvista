@@ -1,0 +1,349 @@
+/*
+ * NoorVista 2.1.65
+ * Patient-sidebar visual parity for system admin, clinic manager, doctor and secretary.
+ * Scope is intentionally limited to pages carrying nv3-sidebar-patient-parity.
+ */
+
+body.nv3-sidebar-patient-parity .nv3-sidebar {
+  border-left-color: rgba(255, 255, 255, 0.12);
+  background:
+    radial-gradient(circle at 72% -4%, rgba(56, 189, 248, 0.26), transparent 15rem),
+    linear-gradient(180deg, #0d4c6c 0%, #0a3c58 48%, #072d43 100%);
+  box-shadow: -14px 0 38px rgba(7, 39, 59, 0.18);
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+body.nv3-sidebar-patient-parity .nv3-sidebar-header {
+  align-items: center;
+  gap: 8px;
+  padding: 18px 14px 12px;
+}
+
+body.nv3-sidebar-patient-parity .nv3-brand {
+  min-height: 64px;
+  gap: 11px;
+  padding: 8px 9px 8px 44px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 18px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.055);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+}
+
+body.nv3-sidebar-patient-parity .nv3-brand:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.09);
+  transform: translateY(-1px);
+}
+
+body.nv3-sidebar-patient-parity .nv3-brand-mark {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+  color: #fff;
+  background: linear-gradient(145deg, #28a9de, #0a6a98);
+  box-shadow: 0 9px 20px rgba(0, 35, 54, 0.25);
+  font-size: 19px;
+}
+
+body.nv3-sidebar-patient-parity .nv3-brand-mark i {
+  line-height: 1;
+}
+
+body.nv3-sidebar-patient-parity .nv3-brand-copy {
+  min-width: 0;
+  line-height: 1.5;
+}
+
+body.nv3-sidebar-patient-parity .nv3-brand-copy strong {
+  display: block;
+  max-width: 176px;
+  overflow: hidden;
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: 900;
+  line-height: 1.5;
+  letter-spacing: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body.nv3-sidebar-patient-parity .nv3-brand-copy small {
+  display: block;
+  margin-top: 1px;
+  color: #bfe9fb;
+  font-size: 11.5px;
+  font-weight: 800;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+body.nv3-sidebar-patient-parity .nv3-sidebar button {
+  min-height: 44px;
+}
+
+body.nv3-sidebar-patient-parity .nv3-sidebar-collapse {
+  left: 5px;
+  width: 36px;
+  height: 36px;
+  border-color: rgba(255, 255, 255, 0.14);
+  color: #eaf8ff;
+  background: rgba(4, 36, 53, 0.72);
+  box-shadow: 0 8px 18px rgba(0, 25, 39, 0.22);
+}
+
+body.nv3-sidebar-patient-parity .nv3-sidebar-collapse:hover {
+  color: #fff;
+  background: rgba(6, 52, 76, 0.94);
+}
+
+body.nv3-sidebar-patient-parity .nv3-nav {
+  padding: 8px 13px 18px;
+}
+
+body.nv3-sidebar-patient-parity .nv3-nav ul {
+  gap: 6px;
+}
+
+body.nv3-sidebar-patient-parity .nv3-nav-link {
+  min-height: 49px;
+  padding: 7px 10px;
+  border: 1px solid transparent;
+  border-radius: 15px;
+  color: #d9eff8;
+  font-size: 13px;
+}
+
+body.nv3-sidebar-patient-parity .nv3-nav-link:hover {
+  border-color: rgba(255, 255, 255, 0.09);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+body.nv3-sidebar-patient-parity .nv3-nav-link.is-active,
+body.nv3-sidebar-patient-parity .nv3-nav-link[aria-current="page"] {
+  border-color: rgba(207, 232, 243, 0.95);
+  color: #0c557d;
+  background: #f8fdff;
+  box-shadow: 0 10px 24px rgba(2, 27, 43, 0.20);
+}
+
+body.nv3-sidebar-patient-parity .nv3-nav-link.is-active::before,
+body.nv3-sidebar-patient-parity .nv3-nav-link[aria-current="page"]::before {
+  inset: 10px auto 10px 0;
+  width: 4px;
+  background: #159ed5;
+}
+
+body.nv3-sidebar-patient-parity .nv3-nav-icon {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.09);
+}
+
+body.nv3-sidebar-patient-parity .nv3-nav-link.is-active .nv3-nav-icon,
+body.nv3-sidebar-patient-parity .nv3-nav-link[aria-current="page"] .nv3-nav-icon {
+  color: #fff;
+  background: linear-gradient(135deg, #1ba5dc, #0c608d);
+}
+
+body.nv3-sidebar-patient-parity .nv3-sidebar-footer {
+  padding: 14px;
+  background: rgba(2, 23, 36, 0.22);
+}
+
+body.nv3-sidebar-patient-parity .nv3-sidebar .nv3-sidebar-logout {
+  min-height: 48px;
+  border-radius: 15px;
+}
+
+body.nv3-sidebar-patient-parity .nv3-sidebar,
+body.nv3-sidebar-patient-parity .nv3-nav {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(154, 221, 246, 0.72) rgba(2, 30, 45, 0.16);
+}
+
+body.nv3-sidebar-patient-parity .nv3-sidebar::-webkit-scrollbar,
+body.nv3-sidebar-patient-parity .nv3-nav::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+body.nv3-sidebar-patient-parity .nv3-sidebar::-webkit-scrollbar-track,
+body.nv3-sidebar-patient-parity .nv3-nav::-webkit-scrollbar-track {
+  margin-block: 10px;
+  border-radius: 999px;
+  background: rgba(2, 30, 45, 0.16);
+}
+
+body.nv3-sidebar-patient-parity .nv3-sidebar::-webkit-scrollbar-thumb,
+body.nv3-sidebar-patient-parity .nv3-nav::-webkit-scrollbar-thumb {
+  min-height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(177, 231, 250, 0.88), rgba(80, 181, 221, 0.80));
+  background-clip: padding-box;
+}
+
+body.nv3-sidebar-patient-parity .nv3-sidebar::-webkit-scrollbar-thumb:hover,
+body.nv3-sidebar-patient-parity .nv3-nav::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(217, 246, 255, 0.96), rgba(91, 198, 236, 0.92));
+}
+
+@media (min-width: 1024px) {
+  html.nv3-sidebar-collapsed body.nv3-sidebar-patient-parity .nv3-brand {
+    min-height: 58px;
+    justify-content: center;
+    padding: 7px !important;
+  }
+
+  html.nv3-sidebar-collapsed body.nv3-sidebar-patient-parity .nv3-brand:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  body.nv3-sidebar-patient-parity .nv3-sidebar-header {
+    padding-top: max(18px, env(safe-area-inset-top));
+  }
+
+  body.nv3-sidebar-patient-parity .nv3-sidebar-mobile-close {
+    width: 40px;
+    height: 40px;
+    border-color: rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.nv3-sidebar-patient-parity .nv3-brand,
+  body.nv3-sidebar-patient-parity .nv3-nav-link,
+  body.nv3-sidebar-patient-parity .nv3-sidebar-collapse {
+    transition: none;
+  }
+}
+
+
+
+/* NoorVista 2.1.136 — generic Sadra brand mark */
+.brand-logo.brand-logo-image,
+.nv3-brand-logo-image,
+.nv-brand-logo-image {
+  display: inline-grid !important;
+  place-items: center !important;
+  overflow: hidden !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: transparent !important;
+}
+.brand-logo.brand-logo-image img,
+.nv3-brand-logo-image img,
+.nv-brand-logo-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+.brand-logo.brand-logo-image {
+  width: 56px !important;
+  height: 56px !important;
+}
+.nv3-brand-logo-image {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+}
+.footer-bottom.nv-footer-centered {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+}
+.footer-bottom.nv-footer-centered a {
+  color: #bae6fd !important;
+  font-weight: 900 !important;
+}
+.nv-address-lines {
+  display: grid !important;
+  gap: 8px !important;
+}
+.nv-address-line {
+  display: block !important;
+  line-height: 2 !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+}
+.nv-address-label {
+  display: inline !important;
+  font-weight: 950 !important;
+  margin-inline-end: 4px !important;
+}
+.nv-address-text {
+  display: inline !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+}
+.home-location-details > span,
+.home-location-details > a {
+  display: grid !important;
+  grid-template-columns: auto 1fr !important;
+  gap: 8px 10px !important;
+  align-items: center !important;
+  text-align: right !important;
+}
+.home-location-details .nv-info-label {
+  color: #075985 !important;
+  font-weight: 950 !important;
+}
+
+
+
+/* NoorVista 2.1.143 — doctor modal single scroll + username visibility */
+body[data-nv-page="doctors"] #doctorModal.modal-overlay,
+body[data-nv-page="doctors"] #doctorModal.show,
+body[data-nv-page="doctors"] #doctorModal {
+  overflow: hidden !important;
+  align-items: center !important;
+}
+
+body[data-nv-page="doctors"] #doctorModal .modal-container {
+  max-height: min(88vh, 760px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+body[data-nv-page="doctors"] #doctorModal .modal-header,
+body[data-nv-page="doctors"] #doctorModal .modal-footer {
+  flex: 0 0 auto !important;
+}
+
+body[data-nv-page="doctors"] #doctorModal .modal-body {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  scrollbar-gutter: stable !important;
+}
+
+body[data-nv-page="doctors"] #doctorModal #username {
+  direction: ltr !important;
+  text-align: left !important;
+  unicode-bidi: plaintext !important;
+  background-color: #fff !important;
+}
+
+body[data-nv-page="doctors"] #doctorModal #username::placeholder {
+  direction: rtl !important;
+  text-align: right !important;
+}

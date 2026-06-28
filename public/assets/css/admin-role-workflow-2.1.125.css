@@ -1,0 +1,29 @@
+
+/* NoorVista 2.1.125 — role-first user workflow and clean admin modals */
+.nv-role-flow { display: grid; gap: 22px; }
+.nv-flow-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-bottom: 4px; }
+.nv-flow-step { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border: 1px solid #dbeafe; background: linear-gradient(180deg,#f8fbff,#fff); border-radius: 18px; color: #334155; font-weight: 900; }
+.nv-flow-step i { width: 28px; height: 28px; display:grid; place-items:center; border-radius: 11px; background:#e0f2fe; color:#0284c7; }
+.nv-flow-section { border: 1px solid #e2e8f0; border-radius: 22px; padding: 18px; background: #fff; box-shadow: 0 14px 36px rgba(15,23,42,.05); }
+.nv-flow-section-title { display:flex; align-items:center; gap:10px; margin:0 0 16px; font-weight:950; color:#0f172a; }
+.nv-flow-section-title i { color:#0284c7; }
+.nv-user-modal-grid, .nv-role-grid { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px 20px; align-items:start; }
+.nv-user-modal-grid .form-group, .nv-role-grid .form-group { margin:0; display:grid; gap:8px; }
+.nv-user-modal-grid .form-group.is-full, .nv-role-grid .form-group.is-full { grid-column: 1 / -1; }
+.nv-user-modal-grid label, .nv-role-grid label, .nv-address-admin-card label { font-size: 13px; font-weight: 950; color:#334155; }
+.nv-user-modal-grid input, .nv-user-modal-grid select, .nv-user-modal-grid textarea, .nv-role-grid input, .nv-role-grid select, .nv-role-grid textarea { min-height: 48px; border-radius: 15px; }
+.nv-role-profile-panel { display:none; }
+.nv-role-profile-panel.is-active { display:block; }
+.nv-role-hint { margin: 4px 0 0; color:#64748b; font-size: 12.5px; line-height: 1.8; }
+.nv-modal-help-card { padding: 13px 15px; border-radius: 16px; background:#f0f9ff; color:#075985; border:1px solid #bae6fd; font-weight:800; line-height:1.8; }
+#doctorModal .modal-container, #addUserModal .modal-container, #editUserModal .modal-container { max-width: min(920px, calc(100vw - 36px)); border-radius: 24px; overflow:hidden; }
+#doctorModal .modal-body, #addUserModal .modal-body, #editUserModal .modal-body { padding: 22px 30px; max-height: min(72vh, 720px); overflow:auto; }
+#doctorModal .modal-footer, #addUserModal .modal-footer, #editUserModal .modal-footer { gap: 12px; padding: 16px 24px; border-top:1px solid #e2e8f0; }
+#doctorModal .form-row { display:grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px 20px; margin-bottom: 18px; }
+#doctorModal .form-group { margin:0; display:grid; gap:8px; }
+#doctorModal textarea.form-control { min-height: 96px; resize: vertical; }
+.nv-address-admin-grid { display:grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; margin: 14px 0 18px; }
+.nv-address-admin-card { border:1px solid #dbeafe; border-radius:20px; padding:16px; background:#f8fbff; display:grid; gap:12px; }
+.nv-address-admin-head { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.nv-address-admin-head strong { color:#0f172a; font-weight:950; }
+@media (max-width: 720px) { .nv-flow-steps, .nv-user-modal-grid, .nv-role-grid, #doctorModal .form-row, .nv-address-admin-grid { grid-template-columns: 1fr; } #doctorModal .modal-body, #addUserModal .modal-body, #editUserModal .modal-body { padding: 18px; } }

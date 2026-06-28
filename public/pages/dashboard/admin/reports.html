@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa">
+<head>
+<meta content="noindex,nofollow,noarchive" name="robots"/>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>گزارش‌ها | NOORVISTA</title>
+<meta content="#0b3954" name="theme-color"/><link href="/css/local-fonts.css" rel="stylesheet"/><link href="/css/open-iconic-bootstrap.min.css" rel="stylesheet"/><link href="/css/ionicons.min.css" rel="stylesheet"/><link href="/css/icomoon.css" rel="stylesheet"/><link href="/assets/css/noorvista-dashboard-tailwind.css?v=2.1.70" rel="stylesheet"/><link href="/assets/css/calendar-select-tailwind-2.1.32.css?v=2.1.70" rel="stylesheet"/>
+<link href="/assets/css/admin-ui-2.1.13.css" rel="stylesheet"/><link href="/css/persian-datepicker.css?v=2.1.70" rel="stylesheet"/> <script src="/assets/js/auth-cookie-client.js"></script>
+<link href="/assets/css/admin-modal-system-2.1.14.css" rel="stylesheet"/>
+<link href="/assets/css/panel-sidebar-patient-parity-2.1.65.css?v=2.1.65" rel="stylesheet"/>
+
+<link href="/assets/css/panel-pretty-selects-global.css?v=2.1.67" rel="stylesheet"/>
+<link href="/assets/css/panel-form-controls-pro-2.1.67.css?v=2.1.67" rel="stylesheet"/>
+<link href="/assets/css/nv-uiux-stability-2.1.129.css?v=2.1.157" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/css/persian-digits-global-2.1.130.css?v=2.1.130">
+<link href="/assets/css/nv-uiux-stability-2.1.131.css?v=2.1.131" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/css/nv-comprehensive-audit-2.1.146.css?v=2.1.146"/>
+<link rel="stylesheet" href="/assets/css/topbar-footer-hardfix-2.1.154.css?v=2.1.154"/>
+<link rel="stylesheet" href="/assets/css/footer-visit-info-refine-2.1.156.css?v=2.1.156"/>
+<link rel="stylesheet" href="/assets/css/chatbot-booking-labels-2.1.159.css?v=2.1.160"/>
+<link rel="stylesheet" href="/assets/css/public-mobile-ux-cleanup-2.1.160.css?v=2.1.161"/>
+<link rel="stylesheet" href="/assets/css/public-mobile-topbar-doctor-2.1.162.css?v=2.1.162"/>
+<link rel="stylesheet" href="/assets/css/noorvista-international-uiux.css?v=3.0.0"/>
+</head>
+<body class="nv3-dashboard nv3-role-admin nv3-sidebar-patient-parity" data-nv-page="reports" data-panel-role="admin">
+<a class="nv3-skip-link" href="#main-content">رفتن به محتوای اصلی</a>
+<div class="nv3-shell">
+<div class="nv3-sidebar-overlay" data-nv3-sidebar-overlay=""></div>
+<aside aria-label="منوی مدیر سیستم" class="sidebar nv3-sidebar" data-nv3-sidebar="">
+<div class="nv3-sidebar-header">
+<a aria-label="داشبورد سامانه کلینیک" class="nv3-brand" href="index.html">
+<span class="nv3-brand-mark nv3-brand-logo-image" aria-hidden="true"><img src="/assets/brand/sadra-clinic-mark.svg" alt=""/></span>
+<span class="nv3-brand-copy"><strong>سامانه کلینیک</strong><small>در حال بارگذاری...</small></span>
+</a>
+<button aria-label="جمع کردن منوی کناری" class="nv3-sidebar-collapse" data-nv3-sidebar-collapse="" title="جمع کردن منوی کناری" type="button"><i aria-hidden="true" class="icon-chevron-right"></i></button>
+<button aria-label="بستن منو" class="nv3-sidebar-mobile-close" data-nv3-sidebar-close="" type="button"><i aria-hidden="true" class="icon-close"></i></button>
+</div>
+<nav aria-label="دسترسی‌های پنل" class="nv3-nav"><ul><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="index.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-dashboard"></i></span><span class="nv3-nav-label">داشبورد</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="users.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-users"></i></span><span class="nv3-nav-label">کاربران</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="doctors.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-user-md"></i></span><span class="nv3-nav-label">پزشکان</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="schedule.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-clock-o"></i></span><span class="nv3-nav-label">برنامه کاری پزشکان</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="patients.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-people"></i></span><span class="nv3-nav-label">بیماران</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="appointments.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-calendar"></i></span><span class="nv3-nav-label">نوبت‌ها</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="staff.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-briefcase"></i></span><span class="nv3-nav-label">کارکنان</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="payments.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-credit-card"></i></span><span class="nv3-nav-label">امور مالی</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="medical-centers.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-medkit"></i></span><span class="nv3-nav-label">مراکز درمانی</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="services-management.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-list"></i></span><span class="nv3-nav-label">خدمات کلینیک</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="faqs.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-comments"></i></span><span class="nv3-nav-label">پرسش‌های پرتکرار</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="notifications.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-bell"></i></span><span class="nv3-nav-label">اعلان‌ها</span></a></li><li class="nv3-nav-item"><a aria-current="page" class="nav-link nv3-nav-link is-active" href="reports.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-bar-chart"></i></span><span class="nv3-nav-label">گزارش‌ها</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="visitor-analytics.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-bar-chart"></i></span><span class="nv3-nav-label">بازدیدکنندگان سایت</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="logs.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-file-text"></i></span><span class="nv3-nav-label">رویدادهای سیستم</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="settings.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-cog"></i></span><span class="nv3-nav-label">تنظیمات سامانه</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="backup.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-database"></i></span><span class="nv3-nav-label">پشتیبان‌گیری</span></a></li></ul></nav>
+<div class="nv3-sidebar-footer"><button class="nv3-sidebar-logout" data-nv3-logout="" type="button"><i aria-hidden="true" class="icon-sign-out"></i><span class="nv3-nav-label">خروج امن</span></button></div>
+</aside>
+<div class="main-content nv3-main">
+<header class="top-header nv3-topbar">
+<div class="nv3-topbar-inner">
+<div class="nv3-heading-wrap"><button aria-label="باز کردن منو" class="nv3-mobile-menu" data-nv3-sidebar-open="" type="button"><i aria-hidden="true" class="icon-menu"></i></button><div class="nv3-page-heading"><h1>گزارش‌ها</h1><p>تحلیل عملکرد و شاخص‌های کلیدی سامانه</p></div></div>
+<div class="nv3-topbar-actions"><a aria-label="صفحه اصلی" class="nv3-icon-button nv3-home-button" href="/" title="صفحه اصلی"><i aria-hidden="true" class="icon-home"></i></a><div class="nv3-date-box"><small>امروز</small><strong data-nv3-today="">—</strong></div><a aria-label="اعلان‌ها" class="nv3-icon-button" href="notifications.html" title="اعلان‌ها"><i aria-hidden="true" class="icon-bell"></i><span aria-hidden="true" class="nv3-notification-dot"></span></a><div class="nv3-user-menu"><button aria-expanded="false" aria-haspopup="true" class="user-menu-trigger nv3-user-menu-trigger" data-nv3-user-menu-toggle="" type="button"><span class="user-avatar nv3-user-avatar" data-fallback="مد" data-nv3-user-avatar="">مد</span><span class="nv3-user-copy"><strong class="user-name" data-nv3-user-name="">مدیر سیستم</strong><small data-nv3-user-role="">مدیر سیستم</small></span><i aria-hidden="true" class="icon-chevron-down"></i></button><div class="user-dropdown nv3-user-dropdown" data-nv3-user-menu="" role="menu"><a class="nv3-user-menu-item" href="account.html"><i aria-hidden="true" class="icon-user"></i><span>اطلاعات حساب و حساب کاربری</span></a><a class="nv3-user-menu-item" href="account.html#password"><i aria-hidden="true" class="icon-lock"></i><span>تغییر رمز عبور</span></a><button class="nv3-user-menu-item is-danger" data-nv3-logout="" type="button"><i aria-hidden="true" class="icon-sign-out"></i><span>خروج از حساب</span></button></div></div></div>
+</div>
+</header>
+<main class="nv3-page" id="main-content"><div class="card nv3-surface nv3-page-block">
+<div class="card-header">
+<h4><i aria-hidden="true" class="icon-bar-chart"></i> گزارش مالی</h4>
+<div>
+<button class="btn btn-success btn-sm" onclick="exportToExcel()"><i aria-hidden="true" class="icon-download"></i> دریافت فایل اکسل (Excel)</button>
+<button class="btn btn-primary btn-sm" onclick="generateReport()"><i aria-hidden="true" class="icon-search"></i> نمایش گزارش</button>
+</div>
+</div>
+<div class="card-body">
+<div class="report-filter nv3-action-panel">
+<div class="form-row">
+<div class="form-group">
+<label for="startDate">از تاریخ</label>
+<input autocomplete="off" class="form-control date-input jalali-date-input" id="startDate" placeholder="۱۴۰۳/۰۱/۰۱" type="text"/>
+</div>
+<div class="form-group">
+<label for="endDate">تا تاریخ</label>
+<input autocomplete="off" class="form-control date-input jalali-date-input" id="endDate" placeholder="۱۴۰۳/۱۲/۲۹" type="text"/>
+</div>
+<div class="form-group">
+<label for="reportType">نوع گزارش</label>
+<select aria-label="گزارش نوع" class="form-control" id="reportType">
+<option value="financial">گزارش مالی</option>
+<option value="appointments">گزارش نوبت‌ها</option>
+<option value="doctors">گزارش پزشکان</option>
+<option value="patients">گزارش بیماران</option>
+</select>
+</div>
+</div>
+</div>
+<div id="reportResult"></div>
+</div>
+</div></main>
+</div>
+</div>
+<script src="/assets/js/noorvista-dashboard-v3.js?v=2.1.93"></script><script src="/assets/js/admin-ui-2.1.6.js"></script><script src="/js/jquery.min.js"></script><script src="/js/panel-common.js?v=2.1.63"></script><script src="/js/jalali.js"></script><script>
+        // =============================
+        // Jalali helpers required before persian-datepicker.js
+        // =============================
+        (function () {
+            function pad2(num) { return String(num).padStart(2, '0'); }
+
+            function normalizeDigits(value) {
+                return String(value || '')
+                    .replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d))
+                    .replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+            }
+
+            function makeDateArray(y, m, d) {
+                const arr = [Number(y), Number(m), Number(d)];
+                arr.year = arr[0];
+                arr.month = arr[1];
+                arr.day = arr[2];
+                return arr;
+            }
+
+            function gregorianToJalaliFallback(gy, gm, gd) {
+                gy = Number(gy); gm = Number(gm); gd = Number(gd);
+                const gdm = [0,31,59,90,120,151,181,212,243,273,304,334];
+                let jy = gy <= 1600 ? 0 : 979;
+                gy -= gy <= 1600 ? 621 : 1600;
+                const gy2 = gm > 2 ? gy + 1 : gy;
+                let days = 365 * gy + Math.floor((gy2 + 3) / 4) - Math.floor((gy2 + 99) / 100) + Math.floor((gy2 + 399) / 400) - 80 + gd + gdm[gm - 1];
+                jy += 33 * Math.floor(days / 12053);
+                days %= 12053;
+                jy += 4 * Math.floor(days / 1461);
+                days %= 1461;
+                if (days > 365) {
+                    jy += Math.floor((days - 1) / 365);
+                    days = (days - 1) % 365;
+                }
+                const jm = days < 186 ? 1 + Math.floor(days / 31) : 7 + Math.floor((days - 186) / 30);
+                const jd = 1 + (days < 186 ? days % 31 : (days - 186) % 30);
+                return makeDateArray(jy, jm, jd);
+            }
+
+            function jalaliToGregorianFallback(jy, jm, jd) {
+                jy = Number(jy); jm = Number(jm); jd = Number(jd);
+                let gy = jy <= 979 ? 621 : 1600;
+                jy -= jy <= 979 ? 0 : 979;
+                let days = 365 * jy + Math.floor(jy / 33) * 8 + Math.floor(((jy % 33) + 3) / 4) + 78 + jd + (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
+                gy += 400 * Math.floor(days / 146097);
+                days %= 146097;
+                if (days > 36524) {
+                    gy += 100 * Math.floor(--days / 36524);
+                    days %= 36524;
+                    if (days >= 365) days++;
+                }
+                gy += 4 * Math.floor(days / 1461);
+                days %= 1461;
+                if (days > 365) {
+                    gy += Math.floor((days - 1) / 365);
+                    days = (days - 1) % 365;
+                }
+                let gd = days + 1;
+                const monthDays = [0,31,((gy % 4 === 0 && gy % 100 !== 0) || (gy % 400 === 0)) ? 29 : 28,31,30,31,30,31,31,30,31,30,31];
+                let gm = 1;
+                while (gm <= 12 && gd > monthDays[gm]) {
+                    gd -= monthDays[gm];
+                    gm++;
+                }
+                return makeDateArray(gy, gm, gd);
+            }
+
+            {
+                window.gregorianToJalali = gregorianToJalaliFallback;
+            }
+
+            {
+                window.jalaliToGregorian = function (jalaliDate) {
+                    const normalized = normalizeDigits(jalaliDate).replace(/-/g, '/');
+                    const parts = normalized.split('/').map(Number);
+                    if (parts.length !== 3 || parts.some(Number.isNaN)) return '';
+                    const g = jalaliToGregorianFallback(parts[0], parts[1], parts[2]);
+                    return `${g[0]}-${pad2(g[1])}-${pad2(g[2])}`;
+                };
+            }
+
+            {
+                window.toJalali = function (gregorianDate) {
+                    if (!gregorianDate) return '';
+                    const datePart = String(gregorianDate).slice(0, 10);
+                    const parts = datePart.split('-').map(Number);
+                    if (parts.length !== 3 || parts.some(Number.isNaN)) return gregorianDate;
+                    const j = gregorianToJalaliFallback(parts[0], parts[1], parts[2]);
+                    const jy = j?.year ?? j?.jy ?? j?.[0];
+                    const jm = j?.month ?? j?.jm ?? j?.[1];
+                    const jd = j?.day ?? j?.jd ?? j?.[2];
+                    if (![jy, jm, jd].every(Number.isFinite)) return '';
+                    return `${jy}/${pad2(jm)}/${pad2(jd)}`;
+                };
+            }
+        })();
+    </script><script src="/js/persian-datepicker.js?v=2.1.70"></script><script>
+        let currentReportData = null;
+function getAuthHeaders() {
+            return { 'Content-Type': 'application/json', Accept: 'application/json' };
+        }
+
+        if (typeof window.showToast !== 'function') {
+            window.showToast = function (message, type = 'info') {
+                const colors = { success: '#059669', error: '#dc2626', warning: '#d97706', info: '#1f2937' };
+                const toast = document.createElement('div');
+                toast.style.cssText = `position:fixed;bottom:20px;left:20px;background:${colors[type] || colors.info};color:white;padding:12px 20px;border-radius:8px;z-index:4000;box-shadow:0 8px 20px rgba(0,0,0,.15);font-size:13px;`;
+                toast.textContent = message;
+                document.body.appendChild(toast);
+                setTimeout(() => toast.remove(), 3000);
+            };
+        }
+
+        if (typeof window.escapeHtml !== 'function') {
+            window.escapeHtml = function (value) {
+                return String(value ?? '')
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;')
+                    .replace(/'/g, '&#039;');
+            };
+        }
+
+        if (typeof window.toPersianNumber !== 'function') {
+            window.toPersianNumber = function (value) {
+                if (value === null || value === undefined) return '';
+                return String(value).replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[Number(d)]);
+            };
+        }
+
+        if (typeof window.formatPrice !== 'function') {
+            window.formatPrice = function (value) {
+                const amount = Number(value) || 0;
+                return `${toPersianNumber(amount.toLocaleString('en-US'))} تومان`;
+            };
+        }
+
+        async function initReportsPage() {
+            if (window.SadraPanel?.initPage) {
+                return window.SadraPanel.initPage({ panelRole: 'admin' });
+            }
+            const response = await fetch('/api/auth/me', {
+                credentials: 'same-origin',
+                cache: 'no-store',
+                headers: { Accept: 'application/json' }
+            });
+            const result = await response.json().catch(() => ({}));
+            if (!response.ok || !result.success || !result.user) {
+                if (window.SadraPanel?.redirectToLogin) {
+                    window.SadraPanel.redirectToLogin(result.message || 'نشست معتبر نیست.');
+                } else {
+                    window.location.replace('/login');
+                }
+                return false;
+            }
+            localStorage.setItem('user', JSON.stringify(result.user));
+            return true;
+        }
+
+        async function fetchJson(url) {
+            const response = await fetch(url, { credentials: 'same-origin', cache: 'no-store', headers: getAuthHeaders() });
+            const data = await response.json().catch(() => ({}));
+            if (!response.ok || data.success === false) {
+                const err = new Error(data.message || `خطای سرور: ${response.status}`);
+                err.status = response.status;
+                throw err;
+            }
+            return data;
+        }
+
+        async function tryFetchJson(url) {
+            try {
+                return await fetchJson(url);
+            } catch (error) {
+                if ([404, 405, 500].includes(error.status)) {
+                    console.warn('Skipping report endpoint:', url, error.message);
+                    return null;
+                }
+                throw error;
+            }
+        }
+
+        function inRange(date, start, end) {
+            const value = String(date || '').slice(0, 10);
+            if (!value) return false;
+            return (!start || value >= start) && (!end || value <= end);
+        }
+
+        async function getAppointmentsList(start, end) {
+            const endpoints = [
+                `/api/clinic/appointments?start_date=${encodeURIComponent(start)}&end_date=${encodeURIComponent(end)}`,
+                `/api/clinic/appointments/today`,
+                `/api/clinic/appointments/pending`
+            ];
+            const map = new Map();
+            for (const endpoint of endpoints) {
+                const result = await tryFetchJson(endpoint);
+                (result?.appointments || []).forEach(app => {
+                    const id = app.id ?? `${app.appointment_date}-${app.appointment_time}-${app.patient_name}`;
+                    if (!start || inRange(app.appointment_date || app.date, start, end)) {
+                        map.set(String(id), app);
+                    }
+                });
+            }
+            return [...map.values()];
+        }
+
+        async function getFinancialReport(start, end) {
+            const direct = await tryFetchJson(`/api/clinic/reports/financial?start_date=${encodeURIComponent(start)}&end_date=${encodeURIComponent(end)}`);
+            if (direct) return direct;
+
+            const appointments = await getAppointmentsList(start, end);
+            const byDate = new Map();
+            let totalRevenue = 0;
+            appointments.forEach(app => {
+                const date = String(app.appointment_date || app.date || '').slice(0, 10);
+                const amount = Number(app.amount || app.price || app.fee || 0) || 0;
+                if (!date) return;
+                const row = byDate.get(date) || { date, count: 0, revenue: 0 };
+                row.count += 1;
+                row.revenue += amount;
+                totalRevenue += amount;
+                byDate.set(date, row);
+            });
+
+            return {
+                success: true,
+                total_appointments: appointments.length,
+                total_revenue: totalRevenue,
+                average_payment: appointments.length ? Math.round(totalRevenue / appointments.length) : 0,
+                daily_data: [...byDate.values()].sort((a, b) => a.date.localeCompare(b.date))
+            };
+        }
+
+        async function getAppointmentsReport(start, end) {
+            const direct = await tryFetchJson(`/api/clinic/reports/appointments?start_date=${encodeURIComponent(start)}&end_date=${encodeURIComponent(end)}`);
+            if (direct) return direct;
+
+            const appointments = await getAppointmentsList(start, end);
+            return {
+                success: true,
+                total: appointments.length,
+                confirmed: appointments.filter(a => a.status === 'confirmed').length,
+                pending: appointments.filter(a => !a.status || a.status === 'pending').length,
+                appointments
+            };
+        }
+
+        async function getDoctorsReport(start, end) {
+            const direct = await tryFetchJson(`/api/clinic/reports/doctors?start_date=${encodeURIComponent(start)}&end_date=${encodeURIComponent(end)}`);
+            if (direct) return direct;
+
+            const doctorsResult = await tryFetchJson('/api/clinic/doctors');
+            const appointments = await getAppointmentsList(start, end);
+            const doctors = (doctorsResult?.doctors || []).map(doc => {
+                const name = doc.full_name || doc.name || doc.username || doc.doctor_name || '-';
+                const doctorApps = appointments.filter(app => String(app.doctor_id || '') === String(doc.id || '') || app.doctor_name === name);
+                return {
+                    ...doc,
+                    full_name: name,
+                    specialty: doc.specialty || doc.specialization || 'عمومی',
+                    appointment_count: doctorApps.length,
+                    total_revenue: doctorApps.reduce((sum, app) => sum + (Number(app.amount || app.price || app.fee || 0) || 0), 0),
+                    is_active: doc.is_active !== false && doc.is_active !== 0
+                };
+            });
+
+            return {
+                success: true,
+                total_doctors: doctors.length,
+                active_doctors: doctors.filter(d => d.is_active).length,
+                doctors
+            };
+        }
+
+        async function getPatientsReport(start, end) {
+            const direct = await tryFetchJson(`/api/clinic/reports/patients?start_date=${encodeURIComponent(start)}&end_date=${encodeURIComponent(end)}`);
+            if (direct) return direct;
+
+            const patientsResult = await tryFetchJson('/api/clinic/patients');
+            const appointments = await getAppointmentsList(start, end);
+            const patients = (patientsResult?.patients || []).map(patient => {
+                const name = patient.full_name || patient.name || patient.username || patient.patient_name || '-';
+                const patientApps = appointments.filter(app => String(app.patient_id || '') === String(patient.id || '') || app.patient_name === name);
+                const lastVisit = patientApps.map(app => String(app.appointment_date || '').slice(0, 10)).sort().pop() || '';
+                return {
+                    ...patient,
+                    full_name: name,
+                    phone: patient.phone || patient.mobile || patient.patient_phone || '-',
+                    appointment_count: patientApps.length,
+                    last_visit: lastVisit
+                };
+            });
+
+            return {
+                success: true,
+                total_patients: patients.length,
+                total_appointments: appointments.length,
+                patients
+            };
+        }
+
+        async function generateReport() {
+            const startDate = document.getElementById('startDate').value;
+            const endDate = document.getElementById('endDate').value;
+            const reportType = document.getElementById('reportType').value;
+            const resultDiv = document.getElementById('reportResult');
+
+            if (!startDate || !endDate) {
+                showToast('لطفاً بازه زمانی را انتخاب کنید', 'error');
+                return;
+            }
+
+            const gregorianStart = jalaliToGregorian(startDate);
+            const gregorianEnd = jalaliToGregorian(endDate);
+            if (!gregorianStart || !gregorianEnd) {
+                showToast('فرمت تاریخ نامعتبر است', 'error');
+                return;
+            }
+
+            resultDiv.innerHTML = '<div class="empty-state">در حال بارگذاری...</div>';
+
+            try {
+                let result;
+                if (reportType === 'financial') {
+                    result = await getFinancialReport(gregorianStart, gregorianEnd);
+                    renderFinancialReport(result);
+                } else if (reportType === 'appointments') {
+                    result = await getAppointmentsReport(gregorianStart, gregorianEnd);
+                    renderAppointmentsReport(result);
+                } else if (reportType === 'doctors') {
+                    result = await getDoctorsReport(gregorianStart, gregorianEnd);
+                    renderDoctorsReport(result);
+                } else if (reportType === 'patients') {
+                    result = await getPatientsReport(gregorianStart, gregorianEnd);
+                    renderPatientsReport(result);
+                }
+                currentReportData = result;
+            } catch (error) {
+                console.error('Generate report error:', error);
+                resultDiv.innerHTML = '<div class="empty-state">خطا در دریافت گزارش</div>';
+                showToast(error.message || 'خطا در دریافت گزارش', 'error');
+            }
+        }
+
+        function renderFinancialReport(data) {
+            const resultDiv = document.getElementById('reportResult');
+            resultDiv.innerHTML = `
+                <div class="stats-grid">
+                    <div class="stat-card"><div class="stat-icon"><i class="icon-calendar" aria-hidden="true"></i></div><div class="stat-info"><h3>${toPersianNumber(data.total_appointments || 0)}</h3><p>کل نوبت‌ها</p></div></div>
+                    <div class="stat-card"><div class="stat-icon"><i class="icon-credit-card" aria-hidden="true"></i></div><div class="stat-info"><h3>${formatPrice(data.total_revenue || 0)}</h3><p>کل درآمد</p></div></div>
+                    <div class="stat-card"><div class="stat-icon"><i class="icon-calculator" aria-hidden="true"></i></div><div class="stat-info"><h3>${formatPrice(data.average_payment || 0)}</h3><p>میانگین هر نوبت</p></div></div>
+                </div>
+                ${data.daily_data?.length ? `
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead><tr><th>تاریخ</th><th>تعداد نوبت</th><th>درآمد</th></tr></thead>
+                        <tbody>${data.daily_data.map(d => `<tr><td>${toPersianNumber(toJalali(d.date))}</td><td>${toPersianNumber(d.count)}</td><td>${formatPrice(d.revenue)}</td></tr>`).join('')}</tbody>
+                    </table>
+                </div>` : '<div class="empty-state">هیچ داده‌ای یافت نشد</div>'}
+            `;
+        }
+
+        function renderAppointmentsReport(data) {
+            const resultDiv = document.getElementById('reportResult');
+            resultDiv.innerHTML = `
+                <div class="stats-grid">
+                    <div class="stat-card"><div class="stat-icon"><i class="icon-calendar" aria-hidden="true"></i></div><div class="stat-info"><h3>${toPersianNumber(data.total || 0)}</h3><p>کل نوبت‌ها</p></div></div>
+                    <div class="stat-card"><div class="stat-icon"><i class="icon-check" aria-hidden="true"></i></div><div class="stat-info"><h3>${toPersianNumber(data.confirmed || 0)}</h3><p>تأیید شده</p></div></div>
+                    <div class="stat-card"><div class="stat-icon"><i class="icon-clock-o" aria-hidden="true"></i></div><div class="stat-info"><h3>${toPersianNumber(data.pending || 0)}</h3><p>در انتظار</p></div></div>
+                </div>
+                ${data.appointments?.length ? `
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead><tr><th>تاریخ</th><th>بیمار</th><th>پزشک</th><th>ساعت</th><th>وضعیت</th></tr></thead>
+                        <tbody>${data.appointments.map(a => `<tr><td>${toPersianNumber(toJalali(a.appointment_date || a.date))}</td><td>${escapeHtml(a.patient_name || '-')}</td><td>${escapeHtml(a.doctor_name || '-')}</td><td>${toPersianNumber(String(a.appointment_time || a.start_time || '-').slice(0, 5))}</td><td>${getStatusText(a.status)}</td></tr>`).join('')}</tbody>
+                    </table>
+                </div>` : '<div class="empty-state">هیچ نوبتی یافت نشد</div>'}
+            `;
+        }
+
+        function renderDoctorsReport(data) {
+            const resultDiv = document.getElementById('reportResult');
+            resultDiv.innerHTML = `
+                <div class="stats-grid">
+                    <div class="stat-card"><div class="stat-icon"><i class="icon-user-md" aria-hidden="true"></i></div><div class="stat-info"><h3>${toPersianNumber(data.total_doctors || 0)}</h3><p>کل پزشکان</p></div></div>
+                    <div class="stat-card"><div class="stat-icon"><i class="icon-check" aria-hidden="true"></i></div><div class="stat-info"><h3>${toPersianNumber(data.active_doctors || 0)}</h3><p>پزشکان فعال</p></div></div>
+                </div>
+                ${data.doctors?.length ? `
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead><tr><th>نام پزشک</th><th>تخصص</th><th>تعداد نوبت</th><th>درآمد</th><th>وضعیت</th></tr></thead>
+                        <tbody>${data.doctors.map(d => `<tr><td>${escapeHtml(d.full_name || '-')}</td><td>${escapeHtml(d.specialty || '-')}</td><td>${toPersianNumber(d.appointment_count || 0)}</td><td>${formatPrice(d.total_revenue || 0)}</td><td>${d.is_active ? 'فعال' : 'غیرفعال'}</td></tr>`).join('')}</tbody>
+                    </table>
+                </div>` : '<div class="empty-state">هیچ داده‌ای یافت نشد</div>'}
+            `;
+        }
+
+        function renderPatientsReport(data) {
+            const resultDiv = document.getElementById('reportResult');
+            resultDiv.innerHTML = `
+                <div class="stats-grid">
+                    <div class="stat-card"><div class="stat-icon"><i class="icon-users" aria-hidden="true"></i></div><div class="stat-info"><h3>${toPersianNumber(data.total_patients || 0)}</h3><p>کل بیماران</p></div></div>
+                    <div class="stat-card"><div class="stat-icon"><i class="icon-calendar" aria-hidden="true"></i></div><div class="stat-info"><h3>${toPersianNumber(data.total_appointments || 0)}</h3><p>کل نوبت‌ها</p></div></div>
+                </div>
+                ${data.patients?.length ? `
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead><tr><th>نام بیمار</th><th>تلفن</th><th>تعداد نوبت</th><th>آخرین مراجعه</th></tr></thead>
+                        <tbody>${data.patients.map(p => `<tr><td>${escapeHtml(p.full_name || '-')}</td><td>${escapeHtml(p.phone || '-')}</td><td>${toPersianNumber(p.appointment_count || 0)}</td><td>${p.last_visit ? toPersianNumber(toJalali(p.last_visit)) : '-'}</td></tr>`).join('')}</tbody>
+                    </table>
+                </div>` : '<div class="empty-state">هیچ داده‌ای یافت نشد</div>'}
+            `;
+        }
+
+        function getStatusText(status) {
+            return ({ pending: 'در انتظار', confirmed: 'تأیید شده', completed: 'انجام شده', cancelled: 'لغو شده' })[status] || status || '-';
+        }
+
+        function exportToExcel() {
+            if (!currentReportData) {
+                showToast('ابتدا گزارش را نمایش دهید', 'warning');
+                return;
+            }
+
+            const blob = new Blob([JSON.stringify(currentReportData, null, 2)], { type: 'application/json;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `noorvista-report-${new Date().toISOString().slice(0, 10)}.json`;
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+            URL.revokeObjectURL(url);
+        }
+
+        window.generateReport = generateReport;
+        window.exportToExcel = exportToExcel;
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            if (!await initReportsPage()) return;
+
+            const today = new Date();
+            const firstDay = new Date(today.getFullYear(), today.getMonth(), 1);
+            document.getElementById('startDate').value = toJalali(firstDay.toISOString().slice(0, 10));
+            document.getElementById('endDate').value = toJalali(today.toISOString().slice(0, 10));
+        });
+    </script><script src="/assets/js/panel-pretty-selects-global.js?v=2.1.67"></script><script src="/assets/js/admin-modal-system-2.1.15.js"></script>
+<script src="/assets/js/nv-uiux-stability-2.1.129.js?v=2.1.158"></script>
+<script defer src="/assets/js/persian-digits-global-2.1.130.js?v=2.1.130"></script>
+<script defer src="/assets/js/nv-public-text-uiux-2.1.131.js?v=3.0.4"></script>
+<script defer src="/assets/js/nv-comprehensive-audit-2.1.146.js?v=2.1.146"></script>
+<script defer src="/assets/js/topbar-footer-hardfix-2.1.154.js?v=2.1.154"></script>
+<script defer src="/assets/js/chatbot-booking-labels-2.1.159.js?v=2.1.160"></script>
+<script defer src="/assets/js/public-mobile-ux-cleanup-2.1.160.js?v=2.1.161"></script>
+<script defer src="/assets/js/public-mobile-topbar-doctor-2.1.162.js?v=2.1.162"></script>
+<script defer src="/assets/js/noorvista-international-uiux.js?v=3.0.0"></script>
+</body>
+</html>

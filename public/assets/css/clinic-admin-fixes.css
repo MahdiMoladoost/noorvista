@@ -1,0 +1,229 @@
+/* ==========================================================
+   NoorVista Clinic Admin Fixes v2
+   افزونه ظاهری سازگار با panel-common.css بدون حذف قابلیت‌ها
+   ========================================================== */
+:root {
+    --clinic-primary: #2f89fc;
+    --clinic-secondary: #2cbcbc;
+    --clinic-dark: #0f172a;
+    --clinic-card-radius: 16px;
+    --clinic-shadow: 0 10px 24px rgba(15, 23, 42, 0.07);
+}
+
+body {
+    font-family: 'Vazir', Tahoma, Arial, sans-serif !important;
+    background: linear-gradient(135deg, #f0f7ff 0%, #eef6ff 45%, #f8fafc 100%) !important;
+}
+
+.sidebar {
+    background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%) !important;
+    box-shadow: 0 20px 35px rgba(15, 23, 42, 0.16) !important;
+}
+
+.sidebar-logo { letter-spacing: .2px; }
+.sidebar-logo span { color: #78d5ef !important; }
+
+.nav-link {
+    border-radius: 12px !important;
+    margin: 2px 12px !important;
+    color: rgba(255,255,255,.76) !important;
+}
+.nav-link:hover,
+.nav-link.active {
+    background: linear-gradient(135deg, rgba(47,137,252,.95), rgba(44,188,188,.95)) !important;
+    color: #fff !important;
+    border-right: 0 !important;
+}
+.nav-link i { min-width: 22px; text-align: center; }
+
+/* fallback برای آیکون زمان‌بندی در صورتی که فونت آیکون آن را نداشته باشد */
+.icon-clock:before,
+.icon-schedule:before {
+    content: "" !important;
+    font-family: Tahoma, Arial, sans-serif !important;
+    font-style: normal !important;
+}
+
+.top-header,
+.card,
+.card-modern,
+.stat-card,
+.quick-action-card,
+.filter-section,
+.filter-bar,
+.report-filter,
+.doctors-table-wrapper {
+    border-radius: var(--clinic-card-radius) !important;
+    box-shadow: var(--clinic-shadow) !important;
+    border: 1px solid rgba(226,232,240,.9) !important;
+}
+
+.card-header,
+.card-header-modern {
+    background: linear-gradient(135deg, #ffffff, #f8fbff) !important;
+    border-bottom: 1px solid #e5e7eb !important;
+}
+
+.data-table,
+.doctors-table,
+.data-table-modern {
+    border-collapse: collapse !important;
+    width: 100% !important;
+}
+.data-table th,
+.data-table td,
+.doctors-table th,
+.doctors-table td,
+.data-table-modern th,
+.data-table-modern td {
+    text-align: center !important;
+    vertical-align: middle !important;
+    border: 1px solid #e5e7eb !important;
+}
+.data-table th,
+.doctors-table th,
+.data-table-modern th {
+    background: #f8fafc !important;
+    color: #1e293b !important;
+    font-weight: 800 !important;
+}
+
+.btn,
+.action-btn,
+.action-icon,
+.action-icon-btn,
+.btn-modern-primary {
+    font-family: 'Vazir', Tahoma, Arial, sans-serif !important;
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease !important;
+}
+.btn:hover,
+.action-btn:hover,
+.action-icon:hover,
+.action-icon-btn:hover,
+.btn-modern-primary:hover {
+    transform: translateY(-1px);
+}
+
+input, select, textarea, button { font-family: 'Vazir', Tahoma, Arial, sans-serif !important; }
+input[type="text"].jalali-date-input,
+input.date-input,
+.jalali-date-input {
+    direction: rtl;
+    cursor: pointer;
+}
+
+.persian-datepicker { z-index: 20000 !important; }
+
+.toast-notification,
+.clinic-toast {
+    direction: rtl;
+    font-family: 'Vazir', Tahoma, Arial, sans-serif !important;
+}
+
+.empty-state,
+.loading,
+.table-empty-state {
+    text-align: center !important;
+    color: #94a3b8 !important;
+    padding: 38px 16px !important;
+}
+
+.price-container { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.price-number { font-weight: 800; color: #1e293b; }
+.price-words { font-size: 10px; color: #64748b; }
+
+@media (max-width: 992px) {
+    .sidebar { right: -280px !important; }
+    .sidebar.show { right: 0 !important; }
+    .main-content { margin-right: 0 !important; }
+}
+
+/* ==========================================================
+   Clinic Admin Stability Hotfix v6 - modals, forms, menu icons
+   ========================================================== */
+html body.modal-open { overflow: hidden !important; }
+.modal-overlay,
+.modal {
+    align-items: flex-start !important;
+    justify-content: center !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    padding: 28px 14px !important;
+    box-sizing: border-box !important;
+}
+.modal-overlay.show,
+.modal.show {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+.modal-container,
+.modal-content,
+.appointment-modal-container {
+    width: min(94vw, 760px) !important;
+    max-width: min(94vw, 760px) !important;
+    max-height: calc(100vh - 56px) !important;
+    margin: auto 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+.modal-container.modal-sm,
+.modal-content.modal-sm { width: min(94vw, 460px) !important; max-width: min(94vw, 460px) !important; }
+.modal-container.modal-md,
+.modal-content.modal-md { width: min(94vw, 620px) !important; max-width: min(94vw, 620px) !important; }
+.modal-container.modal-lg,
+.modal-content.modal-lg { width: min(94vw, 860px) !important; max-width: min(94vw, 860px) !important; }
+.modal-header,
+.modal-footer,
+.appointment-modal-header,
+.appointment-modal-footer {
+    flex: 0 0 auto !important;
+}
+.modal-body,
+.appointment-modal-body {
+    flex: 1 1 auto !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    max-height: none !important;
+    min-height: 0 !important;
+    box-sizing: border-box !important;
+}
+.modal-container input,
+.modal-container select,
+.modal-container textarea,
+.modal-content input,
+.modal-content select,
+.modal-content textarea,
+.appointment-modal-container input,
+.appointment-modal-container select,
+.appointment-modal-container textarea {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+}
+.form-row,
+.form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+.form-group { min-width: 0 !important; }
+.icon-question-circle:before { content: "؟" !important; font-family: 'Vazir', Tahoma, Arial, sans-serif !important; font-weight: 900 !important; }
+@media (max-width: 720px) {
+    .modal-overlay,
+    .modal { padding: 12px 8px !important; }
+    .modal-container,
+    .modal-content,
+    .appointment-modal-container {
+        width: 96vw !important;
+        max-width: 96vw !important;
+        max-height: calc(100vh - 24px) !important;
+    }
+    .form-row,
+    .form-grid { grid-template-columns: 1fr !important; }
+    .modal-footer { justify-content: stretch !important; }
+    .modal-footer .btn,
+    .modal-footer button { flex: 1 1 auto !important; justify-content: center !important; }
+}
+

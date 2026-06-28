@@ -1,0 +1,100 @@
+
+/* NoorVista 2.1.154 — hard rewrite for public topbar icons and footer weights */
+
+/* Topbar icons are now CSS pseudo-elements so later JS text replacement cannot remove them */
+.topbar .topbar-info {
+  display: flex !important;
+  align-items: center !important;
+  gap: 18px !important;
+  flex-wrap: wrap !important;
+}
+.topbar .topbar-info > span,
+.topbar .topbar-info > a.topbar-phone {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  white-space: nowrap !important;
+  text-decoration: none !important;
+  color: inherit !important;
+  line-height: 1.8 !important;
+  min-height: 28px !important;
+}
+.topbar .topbar-info .nv-inline-icon,
+.topbar .topbar-info .nv-topbar-icon-wrap,
+.topbar .topbar-info .nv-topbar-svg {
+  display: none !important;
+}
+
+/* fallback by data attribute and child order */
+.topbar .topbar-info > span::before,
+.topbar .topbar-info > a.topbar-phone::before {
+  content: "" !important;
+  width: 17px !important;
+  height: 17px !important;
+  min-width: 17px !important;
+  display: inline-block !important;
+  flex: 0 0 17px !important;
+  background-color: currentColor !important;
+  opacity: .96 !important;
+  -webkit-mask-position: center !important;
+  mask-position: center !important;
+  -webkit-mask-repeat: no-repeat !important;
+  mask-repeat: no-repeat !important;
+  -webkit-mask-size: contain !important;
+  mask-size: contain !important;
+}
+
+/* location */
+.topbar .topbar-info > span[data-topbar-item="location"]::before,
+.topbar .topbar-info > span:nth-child(1)::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z'/%3E%3C/svg%3E") !important;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z'/%3E%3C/svg%3E") !important;
+}
+
+/* clock */
+.topbar .topbar-info > span[data-topbar-item="clock"]::before,
+.topbar .topbar-info > span:nth-child(2)::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M12 2a10 10 0 1 0 .01 0ZM13 7h-2v6l5 3 1-1.73-4-2.27V7Z'/%3E%3C/svg%3E") !important;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M12 2a10 10 0 1 0 .01 0ZM13 7h-2v6l5 3 1-1.73-4-2.27V7Z'/%3E%3C/svg%3E") !important;
+}
+
+/* phone */
+.topbar .topbar-info > a.topbar-phone::before,
+.topbar .topbar-info > a[data-topbar-item="phone"]::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.49a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.19 2.2Z'/%3E%3C/svg%3E") !important;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.49a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.19 2.2Z'/%3E%3C/svg%3E") !important;
+}
+
+/* Do not show icon if the item itself is hidden */
+.topbar .topbar-info > [hidden],
+.topbar .topbar-info > .nv-empty-config-hidden {
+  display: none !important;
+}
+
+/* Footer: keep phone weight same as other clinic info */
+.footer .contact-list .nv-contact-main,
+.footer .contact-list .nv-contact-main strong,
+.footer .contact-list .nv-footer-phone .nv-contact-main,
+.footer .contact-list .nv-footer-phone .nv-contact-main strong,
+.footer .contact-list .nv-footer-phone a {
+  font-weight: 800 !important;
+}
+.footer .contact-list .nv-footer-phone .nv-contact-main {
+  color: #e5eef7 !important;
+}
+.footer .contact-list .nv-address-label,
+.footer .contact-list .nv-footer-hours strong,
+.footer .contact-list .nv-footer-phone strong {
+  color: #22d3ee !important;
+}
+.footer .contact-list .nv-address-label::after,
+.footer .contact-list .nv-footer-hours strong::after,
+.footer .contact-list .nv-footer-phone strong::after {
+  content: " " !important;
+}
+
+
+/* 2.1.165 disable pseudo topbar icons: SVG / final remaster owns icons */
+.topbar .topbar-info > span::before,
+.topbar .topbar-info > a.topbar-phone::before,
+.topbar .topbar-info > a[data-topbar-item="phone"]::before { content: none !important; display: none !important; }

@@ -1,0 +1,298 @@
+
+/* NoorVista 2.1.167 — final topbar, booking choices, chatbot booking handoff */
+
+/* Desktop topbar: right contact, left social; no pills/no flicker */
+@media (min-width: 721px) {
+  body:not([data-panel-role]) .topbar {
+    min-height: 52px !important;
+    height: 52px !important;
+    background: linear-gradient(135deg, #062f43, #082f49) !important;
+    border: 0 !important;
+    box-shadow: 0 8px 22px rgba(15,23,42,.13) !important;
+    overflow: hidden !important;
+  }
+
+  body:not([data-panel-role]) .topbar .container,
+  body:not([data-panel-role]) .topbar-inner {
+    height: 52px !important;
+    min-height: 52px !important;
+    display: grid !important;
+    grid-template-columns: minmax(120px, 1fr) minmax(0, auto) !important;
+    grid-template-areas: "socials info" !important;
+    align-items: center !important;
+    gap: 22px !important;
+    padding-block: 0 !important;
+    direction: ltr !important;
+  }
+
+  body:not([data-panel-role]) .topbar-info {
+    grid-area: info !important;
+    direction: rtl !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 20px !important;
+    min-width: 0 !important;
+    width: auto !important;
+    flex-wrap: nowrap !important;
+  }
+
+  body:not([data-panel-role]) .topbar-info > span,
+  body:not([data-panel-role]) .topbar-info > a,
+  body:not([data-panel-role]) .topbar-info > [data-topbar-item] {
+    height: 32px !important;
+    min-height: 32px !important;
+    max-width: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 7px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: #e0f7ff !important;
+    font-size: 13px !important;
+    font-weight: 850 !important;
+    line-height: 1 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+  }
+
+  body:not([data-panel-role]) .topbar-info > span::before,
+  body:not([data-panel-role]) .topbar-info > a::before,
+  body:not([data-panel-role]) .topbar-info > [data-topbar-item]::before {
+    display: none !important;
+    content: none !important;
+  }
+
+  body:not([data-panel-role]) .topbar-info .nv-topbar-icon-wrap,
+  body:not([data-panel-role]) .topbar-info .nv-topbar-svg,
+  body:not([data-panel-role]) .topbar-info .nv-inline-icon {
+    width: 16px !important;
+    height: 16px !important;
+    min-width: 16px !important;
+    display: inline-grid !important;
+    color: #7dd3fc !important;
+    fill: currentColor !important;
+  }
+
+  body:not([data-panel-role]) .topbar-info .nv-topbar-text {
+    display: inline-block !important;
+    color: #e0f7ff !important;
+    max-width: 260px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  body:not([data-panel-role]) .topbar .socials,
+  body:not([data-panel-role]) .topbar .nv-mobile-social-center {
+    grid-area: socials !important;
+    justify-self: start !important;
+    width: auto !important;
+    height: 32px !important;
+    min-height: 32px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 9px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: 0 !important;
+    direction: rtl !important;
+  }
+
+  body:not([data-panel-role]) .topbar .socials a.social-link:not([hidden]) {
+    width: 30px !important;
+    height: 30px !important;
+    min-width: 30px !important;
+    display: inline-grid !important;
+    place-items: center !important;
+    border-radius: 12px !important;
+    background: rgba(255,255,255,.11) !important;
+    border: 1px solid rgba(186,230,253,.20) !important;
+    box-shadow: none !important;
+  }
+
+  body:not([data-panel-role]) .topbar .socials img {
+    width: 19px !important;
+    height: 19px !important;
+  }
+
+  body:not([data-panel-role]) .topbar .nv-mobile-call-action {
+    display: none !important;
+  }
+}
+
+/* Mobile topbar: right address, center messengers, left call icon only */
+@media (max-width: 720px) {
+  body:not([data-panel-role]) .topbar.nv-mobile-topbar-v2,
+  body:not([data-panel-role]) .topbar {
+    height: 42px !important;
+    min-height: 42px !important;
+    background: linear-gradient(135deg, #062f43, #082f49) !important;
+    border: 0 !important;
+    overflow: hidden !important;
+  }
+
+  body:not([data-panel-role]) .topbar .nv-mobile-topbar-v2-inner,
+  body:not([data-panel-role]) .topbar .container,
+  body:not([data-panel-role]) .topbar-inner {
+    height: 42px !important;
+    min-height: 42px !important;
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 10px !important;
+    display: grid !important;
+    grid-template-columns: 36px minmax(72px, auto) minmax(96px, 1fr) !important;
+    grid-template-areas: "call socials location" !important;
+    align-items: center !important;
+    gap: 8px !important;
+    direction: ltr !important;
+  }
+
+  body:not([data-panel-role]) .topbar .topbar-info {
+    grid-area: location !important;
+    direction: rtl !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    min-width: 0 !important;
+    width: auto !important;
+    overflow: hidden !important;
+  }
+
+  body:not([data-panel-role]) .topbar .topbar-info > *:not(.nv-mobile-location-item),
+  body:not([data-panel-role]) .topbar .topbar-info [data-topbar-item="phone"],
+  body:not([data-panel-role]) .topbar .topbar-info a.topbar-phone,
+  body:not([data-panel-role]) .topbar .topbar-info [data-topbar-item="clock"],
+  body:not([data-panel-role]) .topbar .nv-mobile-topbar-actions {
+    display: none !important;
+  }
+
+  body:not([data-panel-role]) .topbar .nv-mobile-location-item {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: 28px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    color: #e0f7ff !important;
+    font-size: 11px !important;
+    font-weight: 850 !important;
+    overflow: hidden !important;
+  }
+
+  body:not([data-panel-role]) .topbar .nv-mobile-location-item::before {
+    display: none !important;
+    content: none !important;
+  }
+
+  body:not([data-panel-role]) .topbar .nv-mobile-location-item .nv-topbar-icon-wrap,
+  body:not([data-panel-role]) .topbar .nv-mobile-location-item .nv-topbar-svg {
+    width: 15px !important;
+    height: 15px !important;
+    min-width: 15px !important;
+    color: #7dd3fc !important;
+    fill: currentColor !important;
+  }
+
+  body:not([data-panel-role]) .topbar .nv-mobile-location-item .nv-topbar-text {
+    max-width: 118px !important;
+    min-width: 0 !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  body:not([data-panel-role]) .topbar .nv-mobile-social-center,
+  body:not([data-panel-role]) .topbar .socials {
+    grid-area: socials !important;
+    justify-self: center !important;
+    width: auto !important;
+    height: 28px !important;
+    min-height: 28px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 5px !important;
+  }
+
+  body:not([data-panel-role]) .topbar .socials a.social-link:not([hidden]) {
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    border-radius: 9px !important;
+    background: rgba(255,255,255,.10) !important;
+    border: 1px solid rgba(186,230,253,.18) !important;
+    box-shadow: none !important;
+  }
+
+  body:not([data-panel-role]) .topbar .socials img {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  body:not([data-panel-role]) .topbar .nv-mobile-call-action {
+    grid-area: call !important;
+    justify-self: start !important;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    display: inline-grid !important;
+    place-items: center !important;
+    border: 0 !important;
+    background: transparent !important;
+    color: #e0f7ff !important;
+    text-decoration: none !important;
+  }
+
+  body:not([data-panel-role]) .topbar .nv-mobile-call-action::before {
+    display: none !important;
+    content: none !important;
+  }
+
+  body:not([data-panel-role]) .topbar .nv-mobile-call-svg {
+    width: 17px !important;
+    height: 17px !important;
+    fill: currentColor !important;
+  }
+}
+
+/* Booking modal: choice cards should not look like huge pills */
+body:not([data-panel-role]) .nv-booking-choice,
+body:not([data-panel-role]) .nv-booking-time {
+  border-radius: 24px !important;
+  min-height: 112px !important;
+}
+
+body:not([data-panel-role]) .nv-booking-choice__meta .nv-booking-pill,
+body:not([data-panel-role]) .nv-booking-pill {
+  border-radius: 12px !important;
+}
+
+body:not([data-panel-role]) .nv-booking-choice {
+  padding: 18px 20px !important;
+  align-items: center !important;
+}
+
+body:not([data-panel-role]) .nv-booking-choice h4,
+body:not([data-panel-role]) .nv-booking-choice strong {
+  line-height: 1.9 !important;
+}
+
+/* Desktop must never show the mobile doctor image card */
+@media (min-width: 721px) {
+  body:not([data-panel-role]) .nv-mobile-doctor-glass {
+    display: none !important;
+  }
+}

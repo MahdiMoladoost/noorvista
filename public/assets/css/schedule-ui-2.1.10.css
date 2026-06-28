@@ -1,0 +1,84 @@
+@charset "UTF-8";
+/* NoorVista 2.1.10 — advanced schedule consistency */
+
+body[data-appointment-page="schedules"] .nv-appt-tabs {
+  margin: 0;
+}
+
+body[data-appointment-page="schedules"] .appt-admin-grid > .appt-card:first-child .appt-card-body {
+  display: flex;
+  justify-content: center;
+}
+
+body[data-appointment-page="schedules"] .appt-schedule-form {
+  width: min(100%, 1120px);
+  margin-inline: auto;
+}
+
+body[data-appointment-page="schedules"] .appt-schedule-form .appt-form-row,
+body[data-appointment-page="schedules"] .appt-schedule-form .appt-form-row-triple {
+  width: 100%;
+  margin-inline: auto;
+  align-items: start;
+}
+
+body[data-appointment-page="schedules"] .appt-schedule-form .appt-form-row-single {
+  grid-template-columns: minmax(280px, 520px) !important;
+  justify-content: center;
+}
+
+body[data-appointment-page="schedules"] .appt-schedule-form .appt-actions {
+  justify-content: center;
+}
+
+body[data-appointment-page="schedules"] .nv-schedule-field-disabled {
+  opacity: .78;
+}
+
+body[data-appointment-page="schedules"] .nv-schedule-field-disabled label {
+  color: #64748b !important;
+}
+
+body[data-appointment-page="schedules"] .nv-schedule-field-disabled input:disabled,
+body[data-appointment-page="schedules"] .nv-schedule-field-disabled select:disabled,
+body[data-appointment-page="schedules"] .appt-choice-pills.is-disabled {
+  cursor: not-allowed;
+}
+
+body[data-appointment-page="schedules"] .appt-choice-pills.is-disabled {
+  opacity: .74;
+}
+
+body[data-appointment-page="schedules"] .appt-choice-pills.is-disabled .appt-choice-pill,
+body[data-appointment-page="schedules"] .appt-choice-pill:disabled {
+  cursor: not-allowed !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+body[data-appointment-page="schedules"] .appt-choice-pills.is-disabled .appt-choice-pill:not(.active) {
+  border-color: #e2e8f0;
+  color: #64748b;
+  background: #f8fafc;
+}
+
+body[data-appointment-page="schedules"] .appt-choice-pills.is-disabled .appt-choice-pill.active {
+  border-color: #94a3b8;
+  color: #334155;
+  background: #e2e8f0;
+}
+
+body[data-appointment-page="schedules"] .nv-schedule-field-disabled .nv-date-field,
+body[data-appointment-page="schedules"] .nv-schedule-field-disabled input:disabled {
+  background: #f8fafc !important;
+}
+
+@media (max-width: 767px) {
+  body[data-appointment-page="schedules"] .appt-schedule-form .appt-form-row-single {
+    grid-template-columns: 1fr !important;
+  }
+
+  body[data-appointment-page="schedules"] .appt-schedule-form .appt-actions {
+    justify-content: stretch;
+  }
+}

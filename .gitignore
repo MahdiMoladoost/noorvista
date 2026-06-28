@@ -1,0 +1,44 @@
+# Dependencies and build output
+node_modules/
+dist/
+coverage/
+.nyc_output/
+.cache/
+
+# Environment and local secrets
+.env
+.env.*
+!.env.example
+
+# Logs, backups and temporary files
+logs/
+backups/
+*.log
+*.bak
+*.backup
+*.tmp
+*.temp
+*.swp
+*.swo
+*.orig
+*.rej
+*~
+.DS_Store
+Thumbs.db
+
+# Generated archives and local patches
+*.zip
+*.7z
+*.rar
+*.tar
+*.tgz
+*.tar.gz
+*.patch
+
+# Runtime uploads: preserve directory structure only
+public/uploads/consents/*
+public/uploads/medical-records/*
+public/uploads/patient-documents/*
+public/uploads/public/*
+public/uploads/temp/*
+!public/uploads/**/.gitkeep

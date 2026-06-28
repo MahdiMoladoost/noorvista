@@ -1,0 +1,2524 @@
+/* NoorVista 2.1.126: restore floating reservation/consultation buttons; hero CTA overlap is handled in UI hotfix. */
+.nv-address-lines { display: inline-flex; flex-direction: column; gap: 4px; vertical-align: middle; }
+.nv-address-line { display: inline-flex; align-items: flex-start; gap: 7px; line-height: 1.8; }
+.nv-address-label { color: #0891b2; font-weight: 950; white-space: nowrap; }
+.nv-address-text { color: inherit; }
+
+/* Compact public floating actions, similar to high-traffic websites */
+.global-page-actions {
+  display: none !important;
+}
+
+.floating-actions {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 160;
+  display: grid;
+  gap: 9px;
+  width: auto;
+  direction: rtl;
+  pointer-events: none;
+}
+
+.floating-action-btn,
+.chatbot-fab {
+  pointer-events: auto;
+  position: relative;
+  min-width: 124px !important;
+  width: auto !important;
+  min-height: 44px !important;
+  height: 44px !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  padding: 0 13px 0 15px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  font-family: inherit;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, .14) !important;
+  isolation: isolate;
+}
+
+.floating-action-btn::before,
+.chatbot-fab::before,
+.floating-action-btn::after,
+.chatbot-fab::after {
+  display: none !important;
+}
+
+.floating-action-icon {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,.24);
+  font-size: 14px;
+  line-height: 1;
+}
+
+.floating-action-text,
+.chatbot-fab-label {
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 950;
+  line-height: 1;
+}
+
+.floating-booking {
+  color: #fff !important;
+  background: linear-gradient(135deg, #0891b2, #0e7490) !important;
+  animation: softBookingPulse 2.8s ease-in-out infinite;
+}
+
+.floating-consult,
+.chatbot-fab {
+  color: #111827 !important;
+  background: linear-gradient(135deg, #facc15, #f97316) !important;
+  animation: softConsultPulse 2.8s ease-in-out infinite;
+  animation-delay: 1.4s;
+}
+
+.floating-action-btn:hover,
+.chatbot-fab:hover {
+  transform: translateY(-2px);
+  filter: saturate(1.06);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, .18) !important;
+}
+
+.floating-action-btn:active,
+.chatbot-fab:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, .14) !important;
+}
+
+.chatbot-icon,
+.chatbot-fab img {
+  display: none !important;
+}
+
+@keyframes softBookingPulse {
+  0%, 100% { box-shadow: 0 8px 22px rgba(15,23,42,.14), 0 0 0 0 rgba(8,145,178,.22); }
+  50% { box-shadow: 0 10px 24px rgba(15,23,42,.16), 0 0 0 8px rgba(8,145,178,0); }
+}
+
+@keyframes softConsultPulse {
+  0%, 100% { box-shadow: 0 8px 22px rgba(15,23,42,.14), 0 0 0 0 rgba(250,204,21,.26); }
+  50% { box-shadow: 0 10px 24px rgba(15,23,42,.16), 0 0 0 8px rgba(250,204,21,0); }
+}
+
+/* Shared online consultation panel */
+.chatbot-panel {
+  position: fixed;
+  right: 166px;
+  bottom: 22px;
+  width: min(390px, calc(100vw - 32px));
+  height: min(560px, calc(100vh - 76px));
+  background: #fff;
+  border: 1px solid #bae6fd;
+  border-radius: 24px;
+  box-shadow: 0 24px 64px rgba(15,23,42,.20);
+  z-index: 180;
+  display: none;
+  overflow: hidden;
+  direction: rtl;
+}
+
+.chatbot-panel.open {
+  display: flex;
+  flex-direction: column;
+}
+
+.chatbot-header {
+  padding: 15px;
+  background: linear-gradient(135deg, #075985, #0891b2);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chatbot-header-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chatbot-header-avatar {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: #fff;
+  color: #075985;
+}
+
+.chatbot-header small {
+  display: block;
+  opacity: .85;
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+#closeChatbot {
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 11px;
+  background: rgba(255,255,255,.16);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.chatbot-messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background: #f8fbff;
+}
+
+.bot-message,
+.user-message {
+  max-width: 88%;
+  padding: 11px 13px;
+  border-radius: 17px;
+  margin-bottom: 10px;
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.bot-message {
+  background: #fff;
+  color: #334155;
+  border: 1px solid #dbeafe;
+}
+
+.user-message {
+  margin-right: auto;
+  background: #0891b2;
+  color: #fff;
+}
+
+.chatbot-form {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid #e0f2fe;
+}
+
+.chatbot-form input {
+  flex: 1;
+  min-height: 42px;
+  border: 1px solid #cbd5e1;
+  border-radius: 15px;
+  padding: 0 12px;
+  font-family: inherit;
+}
+
+.chatbot-form button {
+  width: 44px;
+  border: 0;
+  border-radius: 15px;
+  background: #0891b2;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Booking modal */
+.booking-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15,23,42,.54);
+  z-index: 210;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  direction: rtl;
+}
+
+.booking-modal.open {
+  display: flex !important;
+}
+
+.modal-content {
+  width: min(520px, 100%);
+  background: #fff;
+  border-radius: 28px;
+  padding: 24px;
+  position: relative;
+  box-shadow: 0 24px 64px rgba(0,0,0,.22);
+}
+
+.modal-close {
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 11px;
+  background: #f1f5f9;
+  cursor: pointer;
+}
+
+.chat-question {
+  color: #0f172a;
+  font-weight: 900;
+  font-size: 18px;
+  text-align: center;
+}
+
+.day-buttons,
+.time-buttons {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.day-buttons button,
+.time-buttons button {
+  min-height: 44px;
+  border-radius: 15px;
+  border: 1px solid #bae6fd;
+  background: #f8fbff;
+  color: #075985;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.modal-step input,
+.modal-step select {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid #cbd5e1;
+  border-radius: 15px;
+  padding: 0 12px;
+  margin-bottom: 10px;
+  font-family: inherit;
+}
+
+.modal-submit-btn {
+  width: 100%;
+  min-height: 46px;
+  border: 0;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #06b6d4, #0891b2);
+  color: #fff;
+  font-family: inherit;
+  font-weight: 950;
+  cursor: pointer;
+}
+
+/* Header consistency patch for public pages */
+.navbar,
+.contact-nav {
+  min-height: 82px;
+  background: rgba(255,255,255,.96) !important;
+  border-bottom: 1px solid #dbeafe !important;
+  backdrop-filter: blur(14px);
+}
+
+.nav-inner,
+.contact-nav .container {
+  min-height: 82px;
+}
+
+.brand strong,
+.contact-nav .brand strong {
+  color: #0f172a;
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.brand small,
+.contact-nav .brand small {
+  color: #64748b;
+  font-weight: 800;
+}
+
+.menu a,
+.contact-nav .menu a {
+  font-weight: 900;
+}
+
+@media (max-width: 720px) {
+  .floating-actions {
+    right: 14px;
+    bottom: 14px;
+    gap: 8px;
+  }
+
+  .floating-action-btn,
+  .chatbot-fab {
+    min-width: 112px !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    padding: 0 10px !important;
+  }
+
+  .floating-action-icon {
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+  }
+
+  .floating-action-text,
+  .chatbot-fab-label {
+    font-size: 12px;
+  }
+
+  .chatbot-panel {
+    right: 12px;
+    bottom: 114px;
+    width: calc(100vw - 24px);
+    height: min(520px, calc(100vh - 136px));
+  }
+}
+
+
+/* =========================================================
+   FIX: Mobile floating buttons alignment
+   در موبایل دکمه‌های رزرو نوبت و مشاوره آنلاین کنار هم، وسط صفحه و با اندازه طبیعی نمایش داده شوند.
+========================================================= */
+
+@media (max-width: 720px) {
+  .floating-actions {
+    right: auto !important;
+    left: 50% !important;
+    bottom: 14px !important;
+    transform: translateX(-50%) !important;
+    width: auto !important;
+    max-width: calc(100vw - 24px) !important;
+    display: flex !important;
+    flex-direction: row-reverse !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    pointer-events: none !important;
+  }
+
+  .floating-action-btn,
+  .chatbot-fab {
+    width: auto !important;
+    min-width: 118px !important;
+    max-width: 150px !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    padding: 0 12px !important;
+    border-radius: 999px !important;
+    flex: 0 0 auto !important;
+    gap: 6px !important;
+    pointer-events: auto !important;
+  }
+
+  .floating-action-icon {
+    width: 22px !important;
+    height: 22px !important;
+    min-width: 22px !important;
+    font-size: 12px !important;
+  }
+
+  .floating-action-text,
+  .chatbot-fab-label {
+    font-size: 12px !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+  }
+
+  .chatbot-panel {
+    right: 12px !important;
+    left: 12px !important;
+    bottom: 70px !important;
+    width: auto !important;
+    height: min(520px, calc(100vh - 92px)) !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .floating-actions {
+    gap: 8px !important;
+  }
+
+  .floating-action-btn,
+  .chatbot-fab {
+    min-width: 108px !important;
+    padding: 0 10px !important;
+  }
+
+  .floating-action-text,
+  .chatbot-fab-label {
+    font-size: 11.5px !important;
+  }
+}
+
+/* NoorVista 2.1.110 - standout booking CTA inside chatbot answers */
+.chat-action-row {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 4px 0 12px !important;
+  display: flex !important;
+  justify-content: flex-start !important;
+}
+
+.chat-action-btn.nav-booking {
+  width: 100% !important;
+  min-height: 48px !important;
+  border: 0 !important;
+  border-radius: 16px !important;
+  padding: 12px 16px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  font-family: inherit !important;
+  font-size: 14px !important;
+  font-weight: 950 !important;
+  line-height: 1.25 !important;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #f97316 0%, #ec4899 52%, #7c3aed 100%) !important;
+  box-shadow: 0 14px 28px rgba(236, 72, 153, .28), 0 0 0 1px rgba(255, 255, 255, .45) inset !important;
+  cursor: pointer !important;
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease !important;
+  animation: chatBookingCtaPulse 2.2s ease-in-out infinite !important;
+}
+
+.chat-action-btn.nav-booking::before {
+  content: "";
+  width: 26px;
+  height: 26px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .22);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .24) inset;
+  font-size: 14px;
+  flex: 0 0 auto;
+}
+
+.chat-action-btn.nav-booking::after {
+  content: "←";
+  width: 22px;
+  height: 22px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, .16);
+  font-size: 15px;
+  line-height: 1;
+  flex: 0 0 auto;
+}
+
+.chat-action-btn.nav-booking:hover,
+.chat-action-btn.nav-booking:focus-visible {
+  transform: translateY(-2px) scale(1.01) !important;
+  filter: saturate(1.08) brightness(1.02) !important;
+  box-shadow: 0 18px 34px rgba(236, 72, 153, .34), 0 0 0 4px rgba(249, 115, 22, .13) !important;
+  outline: none !important;
+}
+
+.chat-action-btn.nav-booking:active {
+  transform: translateY(0) scale(.99) !important;
+}
+
+@keyframes chatBookingCtaPulse {
+  0%, 100% { box-shadow: 0 14px 28px rgba(236,72,153,.28), 0 0 0 0 rgba(249,115,22,.26), 0 0 0 1px rgba(255,255,255,.45) inset; }
+  50% { box-shadow: 0 16px 32px rgba(236,72,153,.32), 0 0 0 9px rgba(249,115,22,0), 0 0 0 1px rgba(255,255,255,.45) inset; }
+}
+
+
+/* NoorVista 2.1.111 - premium accessible chatbot UI */
+body.chatbot-open { overflow: hidden; }
+body.chatbot-open::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 15, 25, .42);
+  backdrop-filter: blur(5px);
+  z-index: 170;
+}
+
+.chatbot-panel {
+  right: 18px !important;
+  bottom: 18px !important;
+  width: min(430px, calc(100vw - 32px)) !important;
+  height: min(680px, calc(100vh - 44px)) !important;
+  border: 1px solid rgba(186, 230, 253, .9) !important;
+  border-radius: 30px !important;
+  box-shadow: 0 30px 90px rgba(6, 30, 46, .28) !important;
+  background: #ffffff !important;
+}
+
+.chatbot-panel.open {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.chatbot-header {
+  position: relative;
+  z-index: 1;
+  padding: 18px 18px 16px !important;
+  background:
+    radial-gradient(circle at top right, rgba(255,255,255,.18), transparent 9rem),
+    linear-gradient(135deg, #0a6b95, #0ea5c6) !important;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+
+.chatbot-header::after {
+  content: "پاسخ ساده و خوانا برای بیماران چشمی";
+  position: absolute;
+  inset-inline-start: 18px;
+  bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.14);
+  color: rgba(255,255,255,.92);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: -.1px;
+}
+
+.chatbot-header-main { gap: 12px !important; }
+.chatbot-header-main strong {
+  display: block;
+  font-size: 1.12rem;
+  font-weight: 950;
+  line-height: 1.45;
+}
+
+.chatbot-header small {
+  margin-top: 5px !important;
+  font-size: 12.5px !important;
+  line-height: 1.75 !important;
+  opacity: .96 !important;
+}
+
+.chatbot-header-avatar {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 16px !important;
+  background: rgba(255,255,255,.96) !important;
+  box-shadow: 0 8px 22px rgba(4, 22, 35, .18);
+  font-size: 20px;
+}
+
+#closeChatbot {
+  width: 42px !important;
+  height: 42px !important;
+  border-radius: 14px !important;
+  background: rgba(255,255,255,.15) !important;
+  font-size: 26px !important;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.12);
+}
+
+#closeChatbot:hover,
+#closeChatbot:focus-visible {
+  background: rgba(255,255,255,.24) !important;
+  outline: 0;
+}
+
+.chatbot-messages {
+  flex: 1 1 auto;
+  padding: 22px 16px 18px !important;
+  overflow-y: auto;
+  background:
+    radial-gradient(circle at top right, rgba(191, 219, 254, .22), transparent 18rem),
+    linear-gradient(180deg, #f7fbff 0%, #f5f9fc 54%, #fbfdff 100%) !important;
+  scrollbar-width: thin;
+}
+
+.chatbot-messages::-webkit-scrollbar { width: 10px; }
+.chatbot-messages::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(14, 165, 198, .25);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.bot-message,
+.user-message {
+  max-width: 94% !important;
+  margin-bottom: 12px !important;
+  padding: 14px 15px !important;
+  border-radius: 21px !important;
+  font-size: 15.5px !important;
+  line-height: 2.05 !important;
+  letter-spacing: -.05px;
+  white-space: pre-line;
+}
+
+.bot-message {
+  background: #ffffff !important;
+  color: #243847 !important;
+  border: 1px solid #d8e9f4 !important;
+  box-shadow: 0 12px 24px rgba(14, 44, 64, .06);
+}
+
+.bot-message.is-welcome {
+  border-color: #bfe5f7 !important;
+  background: linear-gradient(180deg, #ffffff, #f7fcff) !important;
+}
+
+.bot-message.is-typing {
+  color: #4b6476 !important;
+  background: #f2f8fb !important;
+}
+
+.user-message {
+  margin-right: auto !important;
+  margin-left: 0 !important;
+  background: linear-gradient(135deg, #0b8db3, #0a6b95) !important;
+  color: #ffffff !important;
+  box-shadow: 0 12px 24px rgba(10, 107, 149, .2);
+}
+
+.chatbot-message-text { white-space: pre-line; }
+
+.chatbot-quick-prompts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 14px;
+}
+
+.chatbot-chip {
+  min-height: 38px;
+  padding: 8px 12px;
+  border: 1px solid #cfe7f1;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #0c5f81;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 850;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(14, 44, 64, .05);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.chatbot-chip:hover,
+.chatbot-chip:focus-visible {
+  border-color: #7dd3fc;
+  box-shadow: 0 10px 18px rgba(14, 44, 64, .08);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.chatbot-form {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  gap: 10px !important;
+  padding: 12px 14px calc(12px + env(safe-area-inset-bottom, 0px)) !important;
+  background: linear-gradient(180deg, rgba(255,255,255,.8), #ffffff 28%) !important;
+  border-top: 1px solid #d9ebf4 !important;
+  box-shadow: 0 -10px 26px rgba(7, 36, 55, .05);
+}
+
+.chatbot-form input {
+  min-height: 54px !important;
+  border: 1px solid #bcd3df !important;
+  border-radius: 18px !important;
+  padding: 0 15px !important;
+  background: #fafdff !important;
+  color: #123247;
+  font-size: 16px !important;
+  line-height: 1.4;
+}
+
+.chatbot-form input::placeholder { color: #7a8f9f; }
+.chatbot-form input:focus {
+  border-color: #38bdf8 !important;
+  outline: 4px solid rgba(56, 189, 248, .16);
+  background: #ffffff !important;
+}
+
+.chatbot-form button {
+  width: 54px !important;
+  min-width: 54px !important;
+  border-radius: 18px !important;
+  background: linear-gradient(135deg, #0ea5c6, #0a6b95) !important;
+  box-shadow: 0 12px 24px rgba(10, 107, 149, .22);
+  font-size: 18px;
+}
+
+.chatbot-form button:hover,
+.chatbot-form button:focus-visible {
+  filter: saturate(1.06);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.chat-action-row {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding-inline: 0 !important;
+}
+
+.chat-action-btn.nav-booking {
+  min-height: 52px !important;
+  border-radius: 18px !important;
+  font-size: 14.5px !important;
+  line-height: 1.4 !important;
+}
+
+@media (max-width: 720px) {
+  .chatbot-panel {
+    right: 8px !important;
+    left: 8px !important;
+    bottom: 8px !important;
+    width: auto !important;
+    height: min(88svh, 760px) !important;
+    border-radius: 28px !important;
+  }
+
+  .chatbot-header {
+    padding: max(16px, env(safe-area-inset-top, 0px)) 14px 14px !important;
+  }
+
+  .chatbot-header::after {
+    inset-inline-start: 14px;
+    bottom: 8px;
+    font-size: 10.5px;
+    padding: 4px 9px;
+  }
+
+  .chatbot-header-main strong { font-size: 1.02rem; }
+  .chatbot-header small { font-size: 12px !important; }
+
+  .chatbot-messages {
+    padding: 18px 12px 14px !important;
+  }
+
+  .bot-message,
+  .user-message {
+    max-width: 100% !important;
+    font-size: 15px !important;
+    line-height: 2 !important;
+    padding: 13px 14px !important;
+  }
+
+  .chatbot-quick-prompts {
+    margin-top: 8px;
+    gap: 7px;
+  }
+
+  .chatbot-chip {
+    min-height: 36px;
+    font-size: 12.5px;
+    padding: 7px 11px;
+  }
+
+  .chatbot-form {
+    padding: 10px 10px calc(10px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  .chatbot-form input {
+    min-height: 52px !important;
+    font-size: 16px !important;
+  }
+
+  .chatbot-form button {
+    width: 52px !important;
+    min-width: 52px !important;
+  }
+
+  .chat-action-btn.nav-booking {
+    min-height: 50px !important;
+    font-size: 14px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .chatbot-header-avatar { width: 44px !important; height: 44px !important; }
+  #closeChatbot { width: 40px !important; height: 40px !important; }
+  .chatbot-chip { width: auto; max-width: 100%; }
+}
+
+
+/* NoorVista 2.1.112 - fix chatbot header layout and replace avatar with clean chat icon */
+.chatbot-header::after { content: none !important; display: none !important; }
+.chatbot-header {
+  min-height: 108px !important;
+  padding: 18px 18px 16px !important;
+  align-items: center !important;
+}
+.chatbot-header-main {
+  min-width: 0 !important;
+  flex: 1 1 auto !important;
+}
+.chatbot-header-main > div { min-width: 0; }
+.chatbot-header-avatar {
+  display: inline-grid !important;
+  place-items: center !important;
+  overflow: hidden !important;
+}
+.chatbot-header-avatar--icon svg,
+.chatbot-header-avatar svg {
+  width: 28px !important;
+  height: 28px !important;
+  display: block !important;
+  fill: #0a789c !important;
+}
+.chatbot-header-main img.chatbot-header-avatar { display: none !important; }
+.chatbot-header-main strong,
+.chatbot-header-main small {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 720px) {
+  .chatbot-header {
+    min-height: 102px !important;
+    padding: 16px 14px 14px !important;
+  }
+  .chatbot-header-main {
+    gap: 10px !important;
+  }
+  .chatbot-header-avatar {
+    width: 46px !important;
+    height: 46px !important;
+    flex: 0 0 46px !important;
+  }
+  .chatbot-header-avatar--icon svg,
+  .chatbot-header-avatar svg {
+    width: 26px !important;
+    height: 26px !important;
+  }
+}
+
+
+/* NoorVista 2.1.113 - public pages final QA: mobile chatbot fit + reliable buttons */
+.chatbot-panel.open {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.chatbot-panel,
+.chatbot-panel * { box-sizing: border-box; }
+
+.chatbot-header {
+  min-height: 86px !important;
+  padding: 14px 14px !important;
+  gap: 10px !important;
+}
+
+.chatbot-header-main {
+  width: 100% !important;
+  min-width: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.chatbot-header-avatar {
+  width: 44px !important;
+  height: 44px !important;
+  flex: 0 0 44px !important;
+  border-radius: 15px !important;
+  background: rgba(255, 255, 255, .96) !important;
+  box-shadow: 0 8px 18px rgba(4, 22, 35, .16) !important;
+}
+
+.chatbot-header-avatar--icon svg,
+.chatbot-header-avatar svg {
+  width: 25px !important;
+  height: 25px !important;
+  display: block !important;
+  fill: #0b789c !important;
+}
+
+.chatbot-header-main img.chatbot-header-avatar { display: none !important; }
+.chatbot-header-main > div { min-width: 0 !important; flex: 1 1 auto !important; }
+.chatbot-header-main strong {
+  font-size: 1rem !important;
+  line-height: 1.55 !important;
+  white-space: normal !important;
+}
+.chatbot-header-main small {
+  font-size: 11.5px !important;
+  line-height: 1.65 !important;
+  white-space: normal !important;
+}
+#closeChatbot {
+  width: 40px !important;
+  height: 40px !important;
+  flex: 0 0 40px !important;
+}
+
+/* Service icons must not depend on emoji fonts. */
+.gateway-icon,
+.service-index-icon,
+.service-detail-icon {
+  position: relative !important;
+  color: #0a789c !important;
+  font-size: 0 !important;
+  overflow: hidden !important;
+}
+.gateway-icon svg,
+.service-index-icon svg,
+.service-detail-icon svg {
+  width: 34px !important;
+  height: 34px !important;
+  display: block !important;
+  stroke: currentColor !important;
+  fill: none !important;
+  stroke-width: 1.9 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+.gateway-icon::before,
+.service-index-icon::before,
+.service-detail-icon::before {
+  content: "";
+  width: 34px;
+  height: 34px;
+  display: block;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M12 5C6.4 5 2.3 10.1 1.5 11.2a1.3 1.3 0 0 0 0 1.6C2.3 13.9 6.4 19 12 19s9.7-5.1 10.5-6.2a1.3 1.3 0 0 0 0-1.6C21.7 10.1 17.6 5 12 5Zm0 11.2A4.2 4.2 0 1 1 12 7.8a4.2 4.2 0 0 1 0 8.4Zm0-1.9a2.3 2.3 0 1 0 0-4.6 2.3 2.3 0 0 0 0 4.6Z'/%3E%3C/svg%3E") center/contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M12 5C6.4 5 2.3 10.1 1.5 11.2a1.3 1.3 0 0 0 0 1.6C2.3 13.9 6.4 19 12 19s9.7-5.1 10.5-6.2a1.3 1.3 0 0 0 0-1.6C21.7 10.1 17.6 5 12 5Zm0 11.2A4.2 4.2 0 1 1 12 7.8a4.2 4.2 0 0 1 0 8.4Zm0-1.9a2.3 2.3 0 1 0 0-4.6 2.3 2.3 0 0 0 0 4.6Z'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+.gateway-beauty .gateway-icon::before,
+.beauty-index .service-index-icon::before {
+  -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M12 2.5 13.9 8l5.6 2-5.6 2L12 17.5 10.1 12l-5.6-2 5.6-2L12 2.5Zm6 12 1 2.8 2.8 1-2.8 1-1 2.7-1-2.7-2.8-1 2.8-1 1-2.8ZM5.5 14 6.6 17l3 1.1-3 1.1-1.1 3-1.1-3-3-1.1 3-1.1 1.1-3Z'/%3E%3C/svg%3E") center/contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M12 2.5 13.9 8l5.6 2-5.6 2L12 17.5 10.1 12l-5.6-2 5.6-2L12 2.5Zm6 12 1 2.8 2.8 1-2.8 1-1 2.7-1-2.7-2.8-1 2.8-1 1-2.8ZM5.5 14 6.6 17l3 1.1-3 1.1-1.1 3-1.1-3-3-1.1 3-1.1 1.1-3Z'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+
+@media (max-width: 720px) {
+  html.chatbot-lock,
+  body.chatbot-open {
+    overflow: hidden !important;
+    overscroll-behavior: none !important;
+  }
+
+  body.chatbot-open::after { display: none !important; }
+
+  body.chatbot-open .floating-actions {
+    display: none !important;
+  }
+
+  .chatbot-panel {
+    position: fixed !important;
+    inset: 0 !important;
+    right: 0 !important;
+    left: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    width: 100dvw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    max-width: none !important;
+    max-height: none !important;
+    border-radius: 0 !important;
+    border: 0 !important;
+    z-index: 250000 !important;
+    box-shadow: none !important;
+  }
+
+  .chatbot-header {
+    min-height: 78px !important;
+    padding: calc(10px + env(safe-area-inset-top, 0px)) 12px 10px !important;
+    border-radius: 0 !important;
+  }
+
+  .chatbot-header-main {
+    gap: 9px !important;
+  }
+
+  .chatbot-header-avatar {
+    width: 40px !important;
+    height: 40px !important;
+    flex-basis: 40px !important;
+    border-radius: 14px !important;
+  }
+
+  .chatbot-header-avatar--icon svg,
+  .chatbot-header-avatar svg {
+    width: 23px !important;
+    height: 23px !important;
+  }
+
+  .chatbot-header-main strong {
+    font-size: .98rem !important;
+  }
+
+  .chatbot-header-main small {
+    font-size: 11px !important;
+    line-height: 1.55 !important;
+  }
+
+  #closeChatbot {
+    width: 38px !important;
+    height: 38px !important;
+    flex-basis: 38px !important;
+    border-radius: 13px !important;
+  }
+
+  .chatbot-messages {
+    min-height: 0 !important;
+    flex: 1 1 auto !important;
+    padding: 14px 12px 12px !important;
+  }
+
+  .bot-message,
+  .user-message {
+    max-width: 96% !important;
+    font-size: 14.5px !important;
+    line-height: 1.95 !important;
+    padding: 12px 13px !important;
+  }
+
+  .chatbot-form {
+    flex: 0 0 auto !important;
+    padding: 10px 10px calc(10px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  .chatbot-form input {
+    min-height: 50px !important;
+    border-radius: 16px !important;
+  }
+
+  .chatbot-form button {
+    width: 50px !important;
+    min-width: 50px !important;
+    height: 50px !important;
+    border-radius: 16px !important;
+  }
+}
+
+
+/* NoorVista 2.1.126 — final floating actions restore and overlap-safe placement */
+.floating-actions[data-nv-floating-actions="2.1.126"],
+.floating-actions {
+  position: fixed !important;
+  right: 22px !important;
+  left: auto !important;
+  bottom: 22px !important;
+  z-index: 9998 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  width: auto !important;
+  transform: none !important;
+  pointer-events: none !important;
+  direction: rtl !important;
+}
+
+.floating-actions .floating-action-btn {
+  pointer-events: auto !important;
+  min-width: 132px !important;
+  height: 46px !important;
+  min-height: 46px !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  padding: 0 14px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  font-family: inherit !important;
+  font-weight: 950 !important;
+  font-size: 13px !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  box-shadow: 0 12px 26px rgba(15, 23, 42, .16) !important;
+}
+
+.floating-actions .floating-booking {
+  color: #fff !important;
+  background: linear-gradient(135deg, #0891b2, #0e7490) !important;
+}
+
+.floating-actions .floating-consult {
+  color: #111827 !important;
+  background: linear-gradient(135deg, #facc15, #f97316) !important;
+}
+
+.floating-actions .floating-action-icon {
+  width: 26px !important;
+  height: 26px !important;
+  min-width: 26px !important;
+  display: grid !important;
+  place-items: center !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, .24) !important;
+  color: currentColor !important;
+}
+
+.floating-actions .nv-action-icon {
+  width: 16px !important;
+  height: 16px !important;
+  margin: 0 !important;
+}
+
+.hero .hero-actions {
+  position: relative !important;
+  z-index: 2 !important;
+  gap: 14px !important;
+  flex-wrap: wrap !important;
+}
+
+.hero .hero-content {
+  padding-bottom: clamp(26px, 5vw, 72px) !important;
+}
+
+body { padding-bottom: env(safe-area-inset-bottom, 0px); }
+
+@media (max-width: 720px) {
+  .floating-actions[data-nv-floating-actions="2.1.126"],
+  .floating-actions {
+    right: 50% !important;
+    left: auto !important;
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px)) !important;
+    transform: translateX(50%) !important;
+    width: min(94vw, 360px) !important;
+    max-width: calc(100vw - 24px) !important;
+    flex-direction: row-reverse !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    padding: 0 !important;
+  }
+
+  .floating-actions .floating-action-btn {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    max-width: 172px !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    padding: 0 10px !important;
+    font-size: 12px !important;
+  }
+
+  .chatbot-panel {
+    right: 12px !important;
+    left: 12px !important;
+    bottom: 68px !important;
+    width: auto !important;
+    height: min(520px, calc(100vh - 92px)) !important;
+  }
+
+  .hero .hero-actions {
+    margin-bottom: 72px !important;
+  }
+}
+
+
+
+/* NoorVista 2.1.132 — hard hide floating buttons while chatbot panel is open */
+body.chatbot-open .floating-actions,
+body.chatbot-open .nv-floating-actions,
+body.chatbot-open .site-floating-actions,
+body.chatbot-open [data-floating-actions],
+body.chatbot-open .site-actions,
+html.chatbot-lock .floating-actions,
+html.chatbot-lock .nv-floating-actions,
+html.chatbot-lock .site-floating-actions,
+html.chatbot-lock [data-floating-actions],
+html.chatbot-lock .site-actions {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+body.chatbot-open .chatbot-panel.open,
+html.chatbot-lock .chatbot-panel.open {
+  z-index: 2147483000 !important;
+}
+
+
+
+/* NoorVista 2.1.133 — footer/contact/social/visitor hard UI fix */
+
+/* Keep social icons visible as actual icon tiles even if dynamic link is empty */
+.social-link {
+  position: relative !important;
+  overflow: hidden !important;
+}
+.social-link img {
+  display: none !important;
+}
+.social-link::before {
+  content: "" !important;
+  width: 23px !important;
+  height: 23px !important;
+  display: block !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: drop-shadow(0 2px 4px rgba(15,23,42,.18));
+}
+.social-link.whatsapp::before { background-image: url("/assets/icons/social_media/whatsapp.webp") !important; }
+.social-link.telegram::before { background-image: url("/assets/icons/social_media/telegram.webp") !important; }
+.social-link.instagram::before { background-image: url("/assets/icons/social_media/instagram.webp") !important; }
+.social-link.rubika::before { background-image: url("/assets/icons/social_media/rubika.webp") !important; }
+.social-link.bale::before { background-image: url("/assets/icons/social_media/bale.webp") !important; }
+.social-link.eitaa::before { background-image: url("/assets/icons/social_media/eitaa.webp") !important; }
+.social-link.gap::before { background-image: url("/assets/icons/social_media/gap.webp") !important; }
+.social-link.igap::before { background-image: url("/assets/icons/social_media/igap.webp") !important; }
+.social-link.soroush::before { background-image: url("/assets/icons/social_media/soroush.webp") !important; }
+.social-link.nava::before { background-image: url("/assets/icons/social_media/nava.webp") !important; }
+.social-link.is-empty-social { opacity: .82 !important; cursor: default !important; }
+
+/* Footer addresses: readable labels, no glued words, no old wording */
+.footer .contact-list,
+.footer .contact-list ul {
+  display: grid !important;
+  gap: 13px !important;
+  margin: 14px 0 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+.footer .contact-list li {
+  display: grid !important;
+  grid-template-columns: 28px minmax(0,1fr) !important;
+  align-items: start !important;
+  gap: 10px !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  line-height: 1.9 !important;
+  color: #e5eef7 !important;
+}
+.footer .contact-list li > span:first-child {
+  width: 28px !important;
+  min-width: 28px !important;
+  height: 28px !important;
+  display: grid !important;
+  place-items: center !important;
+  margin-top: 2px !important;
+  color: #bae6fd !important;
+  background: transparent !important;
+}
+.footer .nv-address-lines {
+  display: grid !important;
+  gap: 9px !important;
+  width: 100% !important;
+}
+.footer .nv-address-line {
+  display: block !important;
+  padding: 0 0 9px !important;
+  border-bottom: 1px dashed rgba(186,230,253,.18) !important;
+  line-height: 1.9 !important;
+}
+.footer .nv-address-line:last-child {
+  border-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+.footer .nv-address-label {
+  display: block !important;
+  width: auto !important;
+  margin: 0 0 2px !important;
+  color: #22d3ee !important;
+  font-weight: 950 !important;
+  font-size: 13px !important;
+  line-height: 1.8 !important;
+  white-space: nowrap !important;
+}
+.footer .nv-address-label::after {
+  content: ":" !important;
+  margin-inline-start: 3px !important;
+}
+.footer .nv-address-text {
+  display: block !important;
+  color: #f8fafc !important;
+  font-weight: 850 !important;
+  font-size: 14px !important;
+  line-height: 2 !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+}
+.footer .contact-list a[href^="tel:"] {
+  color: #e0f2fe !important;
+  text-align: right !important;
+  direction: rtl !important;
+  unicode-bidi: plaintext !important;
+}
+
+/* Contact page: quick clinic info must stay as a proper card, not a narrow vertical strip */
+.contact-hero-grid {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 420px) !important;
+  gap: 34px !important;
+  align-items: center !important;
+}
+.contact-quick-card {
+  width: 100% !important;
+  max-width: 430px !important;
+  min-width: 0 !important;
+  align-self: center !important;
+  justify-self: start !important;
+  overflow: visible !important;
+}
+.contact-quick-card h2 {
+  text-align: center !important;
+  margin-bottom: 20px !important;
+}
+.quick-item {
+  display: grid !important;
+  grid-template-columns: 56px minmax(0,1fr) !important;
+  align-items: center !important;
+  gap: 14px !important;
+  min-height: 82px !important;
+  padding: 16px 18px !important;
+  overflow: hidden !important;
+}
+.quick-item > span:first-child {
+  grid-column: 1 !important;
+  width: 48px !important;
+  min-width: 48px !important;
+  height: 48px !important;
+  display: grid !important;
+  place-items: center !important;
+  border-radius: 16px !important;
+  background: #e0f2fe !important;
+  color: #075985 !important;
+  font-size: 22px !important;
+}
+.quick-item > span:first-child .nv-inline-icon {
+  width: 23px !important;
+  height: 23px !important;
+  display: block !important;
+  background: currentColor !important;
+}
+.quick-item > div {
+  grid-column: 2 !important;
+  min-width: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+  text-align: right !important;
+  line-height: 1.8 !important;
+}
+.quick-item strong {
+  display: block !important;
+  margin: 0 !important;
+  color: #075985 !important;
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+}
+.quick-item small,
+.quick-item a {
+  display: block !important;
+  color: #334155 !important;
+  font-size: 14px !important;
+  line-height: 1.85 !important;
+  font-weight: 850 !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  text-align: right !important;
+}
+.quick-item a[dir="ltr"],
+.quick-item small[dir="ltr"] {
+  direction: rtl !important;
+  unicode-bidi: plaintext !important;
+}
+@media (max-width: 980px) {
+  .contact-hero-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .contact-quick-card {
+    max-width: 560px !important;
+    justify-self: center !important;
+  }
+}
+@media (max-width: 640px) {
+  .contact-quick-card {
+    max-width: 100% !important;
+    padding: 20px !important;
+    border-radius: 28px !important;
+  }
+  .quick-item {
+    grid-template-columns: 46px minmax(0,1fr) !important;
+    min-height: 74px !important;
+    padding: 13px 14px !important;
+  }
+  .quick-item > span:first-child {
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+  }
+}
+
+/* Visitor analytics: no cramped scroll-cards; show cards as clear dashboard blocks */
+[data-nv-page="visitor-analytics"] .card-body {
+  overflow: visible !important;
+}
+[data-nv-page="visitor-analytics"] .nv-visitor-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(150px, 1fr)) !important;
+  gap: 16px !important;
+  margin: 0 0 24px !important;
+}
+[data-nv-page="visitor-analytics"] .nv-visitor-card {
+  overflow: visible !important;
+  min-width: 0 !important;
+}
+[data-nv-page="visitor-analytics"] .nv-visitor-sections {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(320px, 1fr)) !important;
+  gap: 18px !important;
+  align-items: start !important;
+}
+[data-nv-page="visitor-analytics"] .nv-visitor-card:has(#pagesTable),
+[data-nv-page="visitor-analytics"] .nv-visitor-card:has(#recentTable) {
+  grid-column: 1 / -1 !important;
+}
+[data-nv-page="visitor-analytics"] .nv-mini-table {
+  width: 100% !important;
+  table-layout: fixed !important;
+  border-collapse: separate !important;
+  border-spacing: 0 8px !important;
+}
+[data-nv-page="visitor-analytics"] .nv-mini-table th,
+[data-nv-page="visitor-analytics"] .nv-mini-table td {
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+  line-height: 1.75 !important;
+  vertical-align: middle !important;
+}
+[data-nv-page="visitor-analytics"] #recentTable th,
+[data-nv-page="visitor-analytics"] #recentTable td,
+[data-nv-page="visitor-analytics"] #pagesTable th,
+[data-nv-page="visitor-analytics"] #pagesTable td {
+  font-size: 12.5px !important;
+  padding: 10px 8px !important;
+}
+@media (max-width: 1180px) {
+  [data-nv-page="visitor-analytics"] .nv-visitor-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  [data-nv-page="visitor-analytics"] .nv-visitor-sections {
+    grid-template-columns: 1fr !important;
+  }
+}
+@media (max-width: 640px) {
+  [data-nv-page="visitor-analytics"] .nv-visitor-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
+
+/* NoorVista 2.1.134 — public defaults, mobile menu/login, chatbot booking UX */
+.nv-empty-config-hidden,
+.social-link[hidden],
+.social-link.is-hidden {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+@media (max-width: 720px) {
+  .chatbot-panel.open,
+  body.chatbot-open .chatbot-panel,
+  html.chatbot-lock .chatbot-panel {
+    position: fixed !important;
+    inset: 0 !important;
+    right: 0 !important;
+    left: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    width: 100dvw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    max-width: none !important;
+    max-height: none !important;
+    border-radius: 0 !important;
+    border: 0 !important;
+    z-index: 2147483000 !important;
+  }
+  .chatbot-header {
+    padding-top: calc(12px + env(safe-area-inset-top, 0px)) !important;
+    border-radius: 0 !important;
+  }
+  .chatbot-messages {
+    max-height: none !important;
+  }
+
+  /* public mobile header: menu and login must be reachable */
+  .mobile-toggle,
+  .nv-mobile-toggle,
+  .nav-toggle,
+  .menu-toggle {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    position: relative !important;
+    z-index: 1200 !important;
+  }
+  .nav-actions,
+  .navbar-actions,
+  .header-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+  .nav-actions .login-btn,
+  .nav-actions a[href*="login"],
+  .navbar-actions .login-btn,
+  .navbar-actions a[href*="login"],
+  .header-actions .login-btn,
+  .header-actions a[href*="login"],
+  a[href="/login"],
+  a[href="/login.html"] {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    min-height: 40px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+  }
+  .menu.open,
+  .menu.is-open,
+  .nav-menu.open,
+  .nav-menu.is-open {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+
+
+/* NoorVista 2.1.135 — contact page layout recovery + strict social visibility */
+.social-link {
+  display: none !important;
+}
+.social-link.nv-social-visible {
+  display: inline-grid !important;
+}
+.social-link[hidden],
+.social-link.is-hidden,
+.social-link.is-empty-social {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+body:has(.contact-hero) .contact-hero {
+  min-height: auto !important;
+  padding: 72px 0 66px !important;
+}
+body:has(.contact-hero) .contact-hero .container,
+body:has(.contact-section) .contact-section .container {
+  width: min(1180px, calc(100% - 48px)) !important;
+  max-width: 1180px !important;
+  margin-inline: auto !important;
+}
+body:has(.contact-hero) .contact-hero-grid {
+  display: grid !important;
+  grid-template-columns: minmax(380px, 460px) minmax(0, 1fr) !important;
+  gap: 46px !important;
+  align-items: center !important;
+  direction: ltr !important;
+}
+body:has(.contact-hero) .contact-quick-card {
+  direction: rtl !important;
+  width: 100% !important;
+  max-width: 460px !important;
+  min-width: 380px !important;
+  justify-self: stretch !important;
+  align-self: start !important;
+  padding: 28px !important;
+  border-radius: 34px !important;
+}
+body:has(.contact-hero) .contact-hero-copy {
+  direction: rtl !important;
+  justify-self: end !important;
+  width: 100% !important;
+  max-width: 720px !important;
+  text-align: right !important;
+}
+body:has(.contact-hero) .contact-hero-copy h1 {
+  font-size: clamp(36px, 4.4vw, 58px) !important;
+  line-height: 1.35 !important;
+  margin-bottom: 18px !important;
+}
+body:has(.contact-hero) .contact-hero-copy p {
+  font-size: 17px !important;
+  line-height: 2.05 !important;
+  max-width: 760px !important;
+}
+body:has(.contact-hero) .contact-quick-card h2 {
+  font-size: 23px !important;
+  text-align: center !important;
+  margin: 0 0 20px !important;
+}
+body:has(.contact-hero) .contact-quick-card .quick-item {
+  display: grid !important;
+  grid-template-columns: 54px minmax(0, 1fr) !important;
+  gap: 14px !important;
+  align-items: center !important;
+  width: 100% !important;
+  min-height: 82px !important;
+  padding: 16px 18px !important;
+  margin-bottom: 12px !important;
+  border-radius: 20px !important;
+  background: #f8fbff !important;
+  border: 1px solid #e0f2fe !important;
+  overflow: visible !important;
+}
+body:has(.contact-hero) .contact-quick-card .quick-item > span:first-child {
+  grid-column: 1 !important;
+  width: 46px !important;
+  min-width: 46px !important;
+  height: 46px !important;
+  border-radius: 16px !important;
+  display: grid !important;
+  place-items: center !important;
+  background: #e0f2fe !important;
+  color: #075985 !important;
+  margin: 0 !important;
+}
+body:has(.contact-hero) .contact-quick-card .quick-item > span:first-child .nv-inline-icon {
+  width: 22px !important;
+  height: 22px !important;
+}
+body:has(.contact-hero) .contact-quick-card .quick-item > div {
+  grid-column: 2 !important;
+  min-width: 0 !important;
+  width: 100% !important;
+  display: block !important;
+  text-align: right !important;
+}
+body:has(.contact-hero) .contact-quick-card .quick-item strong {
+  display: block !important;
+  margin: 0 0 4px !important;
+  color: #075985 !important;
+  font-size: 15px !important;
+  line-height: 1.65 !important;
+}
+body:has(.contact-hero) .contact-quick-card .quick-item small,
+body:has(.contact-hero) .contact-quick-card .quick-item a {
+  display: block !important;
+  color: #334155 !important;
+  font-weight: 850 !important;
+  font-size: 14px !important;
+  line-height: 1.9 !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+  text-align: right !important;
+  max-width: 100% !important;
+}
+body:has(.contact-hero) .contact-quick-card .nv-address-lines,
+body:has(.contact-hero) .contact-quick-card .nv-address-line,
+body:has(.contact-hero) .contact-quick-card .nv-address-text {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  line-height: 1.9 !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+}
+body:has(.contact-hero) .contact-quick-card .nv-address-line {
+  padding-bottom: 8px !important;
+  margin-bottom: 8px !important;
+  border-bottom: 1px dashed rgba(8,145,178,.12) !important;
+}
+body:has(.contact-hero) .contact-quick-card .nv-address-line:last-child {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  border-bottom: 0 !important;
+}
+body:has(.contact-hero) .contact-quick-card .nv-address-label {
+  display: block !important;
+  width: auto !important;
+  color: #0891b2 !important;
+  font-weight: 950 !important;
+  margin-bottom: 2px !important;
+}
+@media (max-width: 980px) {
+  body:has(.contact-hero) .contact-hero-grid {
+    grid-template-columns: 1fr !important;
+    direction: rtl !important;
+    gap: 28px !important;
+  }
+  body:has(.contact-hero) .contact-quick-card {
+    min-width: 0 !important;
+    max-width: 620px !important;
+    justify-self: center !important;
+    order: 2 !important;
+  }
+  body:has(.contact-hero) .contact-hero-copy {
+    order: 1 !important;
+    justify-self: center !important;
+    text-align: center !important;
+  }
+  body:has(.contact-hero) .contact-hero-copy p {
+    text-align: center !important;
+    text-align-last: center !important;
+  }
+}
+@media (max-width: 640px) {
+  body:has(.contact-hero) .contact-hero .container,
+  body:has(.contact-section) .contact-section .container {
+    width: min(100% - 24px, 100%) !important;
+  }
+  body:has(.contact-hero) .contact-hero {
+    padding: 46px 0 42px !important;
+  }
+  body:has(.contact-hero) .contact-quick-card {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 18px !important;
+    border-radius: 26px !important;
+  }
+  body:has(.contact-hero) .contact-quick-card .quick-item {
+    grid-template-columns: 46px minmax(0, 1fr) !important;
+    min-height: 74px !important;
+    padding: 13px 14px !important;
+  }
+}
+
+
+
+/* NoorVista 2.1.136 — generic Sadra brand mark */
+.brand-logo.brand-logo-image,
+.nv3-brand-logo-image,
+.nv-brand-logo-image {
+  display: inline-grid !important;
+  place-items: center !important;
+  overflow: hidden !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: transparent !important;
+}
+.brand-logo.brand-logo-image img,
+.nv3-brand-logo-image img,
+.nv-brand-logo-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+.brand-logo.brand-logo-image {
+  width: 56px !important;
+  height: 56px !important;
+}
+.nv3-brand-logo-image {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+}
+.footer-bottom.nv-footer-centered {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+}
+.footer-bottom.nv-footer-centered a {
+  color: #bae6fd !important;
+  font-weight: 900 !important;
+}
+.nv-address-lines {
+  display: grid !important;
+  gap: 8px !important;
+}
+.nv-address-line {
+  display: block !important;
+  line-height: 2 !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+}
+.nv-address-label {
+  display: inline !important;
+  font-weight: 950 !important;
+  margin-inline-end: 4px !important;
+}
+.nv-address-text {
+  display: inline !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+}
+.home-location-details > span,
+.home-location-details > a {
+  display: grid !important;
+  grid-template-columns: auto 1fr !important;
+  gap: 8px 10px !important;
+  align-items: center !important;
+  text-align: right !important;
+}
+.home-location-details .nv-info-label {
+  color: #075985 !important;
+  font-weight: 950 !important;
+}
+
+
+/* NoorVista 2.1.136 — strict public config display */
+.social-link{display:none!important}
+.social-link.nv-social-visible{display:inline-grid!important}
+.social-link[hidden],.social-link.is-hidden,.social-link.is-empty-social{display:none!important;visibility:hidden!important;pointer-events:none!important}
+.footer-bottom:empty{display:none!important}
+
+
+
+/* NoorVista 2.1.137 — address/layout/hero recovery */
+
+/* Address rendering: two clean rows, no nested boxes, no glued text */
+.nv-address-lines {
+  display: grid !important;
+  gap: 8px !important;
+  width: 100% !important;
+}
+.nv-address-line {
+  display: block !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  line-height: 2 !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+}
+.nv-address-label {
+  display: inline !important;
+  color: #0891b2 !important;
+  font-weight: 950 !important;
+  white-space: nowrap !important;
+  margin-inline-end: 6px !important;
+}
+.nv-address-text {
+  display: inline !important;
+  color: inherit !important;
+  font-weight: 850 !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+}
+
+/* Home visit information card: rebuilt, clean, labeled rows */
+.home-location-grid {
+  align-items: stretch !important;
+}
+.home-location-copy {
+  display: flex !important;
+  flex-direction: column !important;
+}
+.home-location-details {
+  display: grid !important;
+  gap: 12px !important;
+  margin-top: 14px !important;
+}
+.home-location-details .nv-visit-row {
+  display: grid !important;
+  grid-template-columns: 42px minmax(0, 1fr) !important;
+  align-items: center !important;
+  gap: 12px !important;
+  min-height: 64px !important;
+  padding: 14px 16px !important;
+  border-radius: 18px !important;
+  border: 1px solid #dbeafe !important;
+  background: linear-gradient(180deg, #ffffff, #f8fbff) !important;
+  color: #334155 !important;
+  text-decoration: none !important;
+}
+.home-location-details .nv-visit-row > .nv-inline-icon {
+  width: 42px !important;
+  height: 42px !important;
+  display: grid !important;
+  place-items: center !important;
+  border-radius: 14px !important;
+  background: #e0f2fe !important;
+  color: #075985 !important;
+}
+.home-location-details .nv-visit-row > div {
+  min-width: 0 !important;
+  display: grid !important;
+  gap: 3px !important;
+}
+.home-location-details .nv-info-label {
+  color: #075985 !important;
+  font-weight: 950 !important;
+  line-height: 1.7 !important;
+}
+.home-location-details .nv-info-value {
+  color: #334155 !important;
+  font-weight: 850 !important;
+  line-height: 1.85 !important;
+}
+.home-location-details .nv-address-holder {
+  min-width: 0 !important;
+}
+.home-location-details .nv-address-line {
+  line-height: 1.9 !important;
+}
+
+/* Button below map, not inside information card */
+.home-location-map-card {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 14px !important;
+}
+.home-location-map-card .map-open-link,
+.contact-map-panel .map-open-link {
+  width: fit-content !important;
+  margin: 16px auto 0 !important;
+  align-self: center !important;
+}
+
+/* Contact quick card: address card without nested borders */
+.contact-quick-card .quick-item {
+  border: 1px solid #dbeafe !important;
+  background: linear-gradient(180deg, #ffffff, #f8fbff) !important;
+  overflow: visible !important;
+}
+.contact-quick-card .nv-address-lines,
+.contact-quick-card .nv-address-line {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.contact-quick-card .nv-address-line + .nv-address-line {
+  margin-top: 7px !important;
+}
+
+/* Hero layout: image must not cover text */
+.hero-grid {
+  grid-template-columns: minmax(430px, .9fr) minmax(0, 1.1fr) !important;
+  grid-template-areas: "visual content" !important;
+  gap: 72px !important;
+  align-items: center !important;
+  direction: ltr !important;
+}
+.hero-content {
+  grid-area: content !important;
+  direction: rtl !important;
+  position: relative !important;
+  z-index: 5 !important;
+  min-width: 0 !important;
+}
+.visual {
+  grid-area: visual !important;
+  width: min(100%, 560px) !important;
+  max-width: 560px !important;
+  justify-self: start !important;
+  position: relative !important;
+  z-index: 1 !important;
+  min-height: 500px !important;
+  pointer-events: none !important;
+}
+.photo-main {
+  width: 70% !important;
+  height: 350px !important;
+  right: 8px !important;
+  top: 72px !important;
+}
+.photo-small {
+  width: 45% !important;
+  height: 215px !important;
+  left: 0 !important;
+  top: 0 !important;
+}
+.photo-bottom {
+  width: 48% !important;
+  height: 205px !important;
+  left: 24px !important;
+  bottom: 24px !important;
+}
+.hero .eyebrow {
+  max-width: 100% !important;
+  white-space: nowrap !important;
+}
+.hero h1,
+.hero h2 {
+  max-width: 100% !important;
+  white-space: nowrap !important;
+  overflow-wrap: normal !important;
+  word-break: keep-all !important;
+  font-size: clamp(34px, 4.2vw, 58px) !important;
+}
+.trust-row {
+  max-width: 820px !important;
+  grid-template-columns: repeat(3, minmax(190px, 1fr)) !important;
+  gap: 14px !important;
+}
+.trust-card {
+  min-height: 112px !important;
+  padding: 20px 16px !important;
+  text-align: center !important;
+}
+.trust-card strong {
+  white-space: nowrap !important;
+  font-size: clamp(18px, 1.55vw, 22px) !important;
+  line-height: 1.45 !important;
+}
+.trust-card small {
+  white-space: nowrap !important;
+  font-size: 13px !important;
+  line-height: 1.7 !important;
+}
+@media (max-width: 1080px) {
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    grid-template-areas: "content" "visual" !important;
+    gap: 36px !important;
+    direction: rtl !important;
+  }
+  .visual {
+    justify-self: center !important;
+    max-width: 620px !important;
+  }
+}
+@media (max-width: 760px) {
+  .hero h1,
+  .hero h2 {
+    white-space: normal !important;
+    font-size: clamp(29px, 8vw, 42px) !important;
+  }
+  .hero .eyebrow {
+    white-space: normal !important;
+  }
+  .trust-row {
+    grid-template-columns: 1fr !important;
+  }
+  .trust-card strong,
+  .trust-card small {
+    white-space: normal !important;
+  }
+  .visual {
+    min-height: 420px !important;
+  }
+}
+
+
+
+/* NoorVista 2.1.138 — remove duplicate money words + clean contact/footer info */
+
+/* Only one amount-to-words helper should remain */
+.nv-money-helper {
+  display: none !important;
+}
+
+/* Universal clean address rows: no extra nested borders/pills */
+.nv-address-lines {
+  display: grid !important;
+  gap: 7px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+.nv-address-line {
+  display: block !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  line-height: 2 !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+}
+.nv-address-label {
+  display: inline !important;
+  width: auto !important;
+  padding: 0 !important;
+  margin: 0 0 0 6px !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #0891b2 !important;
+  font-weight: 950 !important;
+  white-space: nowrap !important;
+}
+.nv-address-text {
+  display: inline !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: inherit !important;
+  font-weight: 850 !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+}
+
+/* Home/contact visit info: remove nested borders around address labels and address content */
+.home-location-details .nv-address-lines,
+.home-location-details .nv-address-line,
+.home-location-details .nv-address-label,
+.home-location-details .nv-address-text,
+.contact-quick-card .nv-address-lines,
+.contact-quick-card .nv-address-line,
+.contact-quick-card .nv-address-label,
+.contact-quick-card .nv-address-text,
+.contact-map-panel .nv-address-lines,
+.contact-map-panel .nv-address-line,
+.contact-map-panel .nv-address-label,
+.contact-map-panel .nv-address-text {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.home-location-details .nv-visit-address,
+.contact-quick-card .quick-item {
+  overflow: visible !important;
+}
+
+.contact-quick-card .quick-item {
+  border: 0 !important;
+  background: #f8fbff !important;
+  box-shadow: inset 0 0 0 1px rgba(224,242,254,.75) !important;
+}
+
+/* Footer clinic info rewrite */
+.footer .contact-list {
+  display: grid !important;
+  gap: 12px !important;
+  margin: 14px 0 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+.footer .contact-list li,
+.footer .contact-list .nv-footer-contact-row {
+  display: grid !important;
+  grid-template-columns: 28px minmax(0, 1fr) !important;
+  gap: 10px !important;
+  align-items: start !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #e5eef7 !important;
+  line-height: 2 !important;
+}
+.footer .contact-list .nv-contact-icon,
+.footer .contact-list li > span:first-child {
+  width: 28px !important;
+  min-width: 28px !important;
+  height: 28px !important;
+  margin-top: 2px !important;
+  display: grid !important;
+  place-items: center !important;
+  color: #bae6fd !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+.footer .contact-list .nv-contact-main {
+  min-width: 0 !important;
+  display: block !important;
+  color: #e5eef7 !important;
+  text-align: right !important;
+  line-height: 2 !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  text-decoration: none !important;
+}
+.footer .contact-list .nv-contact-main strong {
+  color: #22d3ee !important;
+  font-weight: 950 !important;
+  margin-inline-end: 4px !important;
+}
+.footer .contact-list .nv-address-lines {
+  gap: 6px !important;
+}
+.footer .contact-list .nv-address-line {
+  display: block !important;
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 2 !important;
+}
+.footer .contact-list .nv-address-label {
+  color: #22d3ee !important;
+  font-size: 14px !important;
+}
+.footer .contact-list .nv-address-text {
+  color: #f8fafc !important;
+  font-size: 14px !important;
+}
+
+
+
+/* NoorVista 2.1.149 — footer address rows + public topbar restore */
+.topbar-info {
+  display: flex !important;
+  align-items: center !important;
+  gap: 18px !important;
+  flex-wrap: wrap !important;
+}
+.topbar-info > span,
+.topbar-info > a {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  color: inherit !important;
+  white-space: nowrap !important;
+  text-decoration: none !important;
+  min-height: 28px !important;
+}
+.topbar-info > span[hidden],
+.topbar-info > a[hidden],
+.topbar-info .nv-empty-config-hidden {
+  display: none !important;
+}
+.topbar-info .nv-inline-icon {
+  flex: 0 0 auto !important;
+}
+
+.footer .contact-list .nv-footer-address {
+  display: grid !important;
+  grid-template-columns: 28px minmax(0, 1fr) !important;
+  gap: 10px !important;
+  align-items: start !important;
+}
+.footer .contact-list .nv-footer-address + .nv-footer-address {
+  margin-top: 6px !important;
+}
+.footer .contact-list .nv-footer-address .nv-contact-main,
+.footer .contact-list .nv-footer-address .nv-address-line {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  line-height: 2.05 !important;
+}
+.footer .contact-list .nv-address-label {
+  display: inline !important;
+  color: #22d3ee !important;
+  font-weight: 950 !important;
+  margin-left: 0 !important;
+  margin-inline-end: 0 !important;
+}
+.footer .contact-list .nv-address-text {
+  display: inline !important;
+  color: #f8fafc !important;
+  font-weight: 850 !important;
+}
+.footer .contact-list .nv-footer-hours .nv-contact-main,
+.footer .contact-list .nv-footer-phone .nv-contact-main {
+  display: block !important;
+  line-height: 2 !important;
+}
+
+
+
+/* NoorVista 2.1.151 — topbar icons + patient pages polish */
+.topbar-info .nv-inline-icon,
+.topbar .topbar-info .nv-inline-icon {
+  display: inline-block !important;
+  width: 17px !important;
+  height: 17px !important;
+  min-width: 17px !important;
+  flex: 0 0 17px !important;
+  margin-inline-end: 7px !important;
+  background: currentColor !important;
+  color: inherit !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  vertical-align: -3px !important;
+  -webkit-mask: var(--nv-icon-svg) center / contain no-repeat !important;
+  mask: var(--nv-icon-svg) center / contain no-repeat !important;
+}
+.topbar-info > span,
+.topbar-info > a {
+  gap: 6px !important;
+  align-items: center !important;
+}
+.topbar-info > span::before,
+.topbar-info > a::before {
+  display: none !important;
+}
+
+body[data-patient-page="appointments"] .nv-pa-page {
+  display: grid !important;
+  gap: 24px !important;
+}
+body[data-patient-page="appointments"] .nv-pa-hero-card {
+  overflow: hidden !important;
+  border-radius: 30px !important;
+  background: linear-gradient(135deg, #0f172a, #0369a1, #0891b2) !important;
+  color: #fff !important;
+  padding: 28px !important;
+  box-shadow: 0 24px 60px rgba(8,145,178,.18) !important;
+}
+body[data-patient-page="appointments"] .nv-pa-hero-card .nv-pa-kicker {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 7px 12px !important;
+  border-radius: 999px !important;
+  background: rgba(255,255,255,.14) !important;
+  font-size: 12px !important;
+  font-weight: 900 !important;
+}
+body[data-patient-page="appointments"] .nv-pa-hero-card h2 {
+  margin: 16px 0 10px !important;
+  font-size: clamp(24px, 3vw, 34px) !important;
+  line-height: 1.55 !important;
+  color: #fff !important;
+}
+body[data-patient-page="appointments"] .nv-pa-hero-card p {
+  max-width: 720px !important;
+  line-height: 2 !important;
+  color: #e0f2fe !important;
+  margin: 0 !important;
+}
+body[data-patient-page="appointments"] .nv-pa-hero-actions {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+  align-items: center !important;
+  margin-top: 18px !important;
+}
+body[data-patient-page="appointments"] .nv-pa-book-button,
+.nv-patient-booking-button,
+a[href*="appointments.html#book"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  min-height: 44px !important;
+  padding: 0 18px !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: linear-gradient(135deg, #06b6d4, #10b981) !important;
+  color: #fff !important;
+  font-size: 14px !important;
+  font-weight: 950 !important;
+  text-decoration: none !important;
+  box-shadow: 0 16px 32px rgba(6,182,212,.22) !important;
+  cursor: pointer !important;
+}
+body[data-patient-page="appointments"] .nv-pa-book-button:hover,
+.nv-patient-booking-button:hover,
+a[href*="appointments.html#book"]:hover {
+  transform: translateY(-1px) !important;
+}
+body[data-patient-page="appointments"] .nv-pa-appointments-table-only {
+  border-radius: 28px !important;
+  border: 1px solid #dbeafe !important;
+  background: #fff !important;
+  box-shadow: 0 20px 45px rgba(15,23,42,.07) !important;
+  overflow: hidden !important;
+}
+body[data-patient-page="appointments"] .nv-pa-list-head {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 18px !important;
+  padding: 20px 22px !important;
+  background: linear-gradient(180deg, #f8fbff, #effafe) !important;
+  border-bottom: 1px solid #dbeafe !important;
+}
+body[data-patient-page="appointments"] .nv-pa-list-head h2 {
+  margin: 0 !important;
+  font-size: 22px !important;
+}
+body[data-patient-page="appointments"] .nv-pa-list-head p {
+  margin: 5px 0 0 !important;
+  color: #64748b !important;
+  font-size: 13px !important;
+}
+body[data-patient-page="appointments"] .nv-pa-list-tools {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+}
+body[data-patient-page="appointments"] .nv-pa-search {
+  min-width: min(260px, 100%) !important;
+}
+body[data-patient-page="appointments"] .nv-pa-list-body {
+  padding: 18px !important;
+}
+body[data-patient-page="appointments"] .nv-tw-table-wrap {
+  border-radius: 20px !important;
+  border: 1px solid #e2e8f0 !important;
+  overflow: auto !important;
+}
+body[data-patient-page="appointments"] .nv-tw-table thead th {
+  background: #f8fafc !important;
+  color: #075985 !important;
+  font-weight: 950 !important;
+  white-space: nowrap !important;
+}
+body[data-patient-page="appointments"] .nv-tw-table td {
+  vertical-align: middle !important;
+}
+@media (max-width: 900px) {
+  body[data-patient-page="appointments"] .nv-pa-list-head {
+    align-items: stretch !important;
+    flex-direction: column !important;
+  }
+  body[data-patient-page="appointments"] .nv-pa-list-tools {
+    justify-content: stretch !important;
+  }
+  body[data-patient-page="appointments"] .nv-pa-list-tools > * {
+    width: 100% !important;
+  }
+}
+
+
+
+/* NoorVista 2.1.153 — stable topbar SVG icons */
+.topbar-info > span,
+.topbar-info > a,
+.topbar .topbar-info > span,
+.topbar .topbar-info > a {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  white-space: nowrap !important;
+  text-decoration: none !important;
+}
+.topbar-info .nv-topbar-icon-wrap {
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  display: inline-grid !important;
+  place-items: center !important;
+  flex: 0 0 18px !important;
+  color: currentColor !important;
+}
+.topbar-info .nv-topbar-svg {
+  width: 18px !important;
+  height: 18px !important;
+  display: block !important;
+  fill: currentColor !important;
+  stroke: none !important;
+  opacity: .95 !important;
+}
+.topbar-info .nv-topbar-text {
+  display: inline-block !important;
+  line-height: 1.8 !important;
+}
+.topbar-info [data-topbar-item][hidden],
+.topbar-info .nv-empty-config-hidden {
+  display: none !important;
+}

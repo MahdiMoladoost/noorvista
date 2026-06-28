@@ -1,0 +1,372 @@
+/*
+ * NoorVista 2.1.5 — Admin visual consistency patch
+ * هدف: چیدمان پایدار راست‌به‌چپ، فرم‌های منظم، آیکون‌های صحیح،
+ * انتخاب یکتای منوی کناری و فارسی‌سازی رابط مدیر سیستم.
+ */
+
+body.nv3-dashboard.nv3-role-admin{
+  --nv-admin-control-height:46px;
+  --nv-admin-radius:14px;
+  --nv-admin-gap:14px;
+}
+
+/* Top bar: keep the accent line inside the rounded frame. */
+body.nv3-dashboard.nv3-role-admin .nv3-topbar{
+  overflow:visible!important;
+  background-clip:padding-box!important;
+}
+body.nv3-dashboard.nv3-role-admin .nv3-topbar::before{display:none!important;content:none!important}
+body.nv3-dashboard.nv3-role-admin .nv3-topbar-inner::before{
+  top:0!important;
+  right:16px!important;
+  left:16px!important;
+  height:3px!important;
+  border-radius:0 0 999px 999px!important;
+  background:linear-gradient(90deg,#0e7490,#22a6dd 54%,#5eead4)!important;
+  box-shadow:none!important;
+}
+
+/* Sidebar: exactly one selected item. Old .active classes must not look selected. */
+body.nv3-dashboard.nv3-role-admin .nv3-nav-link.active:not(.is-active){
+  color:#d8eef7!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+body.nv3-dashboard.nv3-role-admin .nv3-nav-link.active:not(.is-active)::before{display:none!important}
+body.nv3-dashboard.nv3-role-admin .nv3-nav-link.active:not(.is-active) .nv3-nav-icon{
+  color:inherit!important;
+  background:rgba(255,255,255,.1)!important;
+  box-shadow:none!important;
+}
+body.nv3-dashboard.nv3-role-admin .nv3-nav-link.is-active{
+  outline:1px solid rgba(255,255,255,.55);
+}
+
+/* Shared form controls */
+body.nv3-dashboard.nv3-role-admin :is(input:not([type="checkbox"]):not([type="radio"]),select,textarea,.nvps-trigger){
+  min-height:var(--nv-admin-control-height)!important;
+  border:1px solid #cbdde6!important;
+  border-radius:var(--nv-admin-radius)!important;
+  color:#244b60!important;
+  background:#fbfdfe!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9)!important;
+  transition:border-color .18s ease,box-shadow .18s ease,background .18s ease!important;
+}
+body.nv3-dashboard.nv3-role-admin :is(input:not([type="checkbox"]):not([type="radio"]),select,textarea,.nvps-trigger):focus{
+  border-color:#38a9d7!important;
+  background:#fff!important;
+  box-shadow:0 0 0 4px rgba(34,166,221,.13)!important;
+  outline:none!important;
+}
+body.nv3-dashboard.nv3-role-admin textarea{padding-top:12px!important;line-height:1.9!important;resize:vertical}
+body.nv3-dashboard.nv3-role-admin .filter-group>label,
+body.nv3-dashboard.nv3-role-admin .form-group>label{
+  display:block!important;
+  min-height:20px;
+  margin:0 0 7px!important;
+  color:#31586b!important;
+  font-size:11.5px!important;
+  line-height:1.7!important;
+  font-weight:900!important;
+}
+
+/* Unified search/filter panels */
+body.nv3-dashboard.nv3-role-admin :is(.filter-section,.filter-bar,.toolbar,.report-filter).nv3-action-panel{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  align-items:end!important;
+  gap:var(--nv-admin-gap)!important;
+  padding:20px!important;
+  border:1px solid #d7e5ec!important;
+  border-radius:20px!important;
+  background:linear-gradient(180deg,#fff,#f9fcfd)!important;
+  box-shadow:0 10px 30px rgba(15,55,78,.055)!important;
+}
+body.nv3-dashboard.nv3-role-admin :is(.filter-section,.filter-bar,.toolbar,.report-filter).nv3-action-panel>.filter-group,
+body.nv3-dashboard.nv3-role-admin :is(.filter-section,.filter-bar,.toolbar,.report-filter).nv3-action-panel>.form-group{
+  width:100%!important;
+  margin:0!important;
+  min-width:0!important;
+}
+body.nv3-dashboard.nv3-role-admin :is(.filter-section,.filter-bar,.toolbar,.report-filter).nv3-action-panel :is(input,select,.nvps-trigger){
+  width:100%!important;
+}
+body.nv3-dashboard.nv3-role-admin .nv-admin-filter-actions{
+  grid-column:1/-1!important;
+  display:flex!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:10px!important;
+  margin-top:2px!important;
+  padding-top:14px!important;
+  border-top:1px solid #e4edf2!important;
+}
+body.nv3-dashboard.nv3-role-admin .nv-admin-filter-actions .btn,
+body.nv3-dashboard.nv3-role-admin .nv-admin-filter-actions button{
+  min-width:132px!important;
+  min-height:44px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:8px!important;
+  margin:0!important;
+  padding:9px 16px!important;
+  border-radius:13px!important;
+  white-space:nowrap!important;
+}
+body.nv3-dashboard.nv3-role-admin .nv-admin-filter-actions .is-create{order:-30}
+body.nv3-dashboard.nv3-role-admin .nv-admin-filter-actions .is-search{order:-20}
+body.nv3-dashboard.nv3-role-admin .nv-admin-filter-actions .is-neutral{order:-10}
+body.nv3-dashboard.nv3-role-admin .nv-admin-filter-actions .is-danger{margin-inline-start:auto!important}
+
+/* Inputs with icons and Jalali date controls */
+body.nv3-dashboard.nv3-role-admin .nv-input-icon-wrap,
+body.nv3-dashboard.nv3-role-admin .nv-date-field{
+  position:relative!important;
+  display:block!important;
+  width:100%!important;
+}
+body.nv3-dashboard.nv3-role-admin .nv-input-icon-wrap>i{
+  position:absolute!important;
+  z-index:2!important;
+  top:50%!important;
+  right:14px!important;
+  transform:translateY(-50%)!important;
+  color:#1889bb!important;
+  font-size:16px!important;
+  pointer-events:none!important;
+}
+body.nv3-dashboard.nv3-role-admin .nv-input-icon-wrap>input{padding-right:44px!important}
+body.nv3-dashboard.nv3-role-admin .nv-date-field>input{
+  width:100%!important;
+  padding-right:14px!important;
+  padding-left:52px!important;
+}
+body.nv3-dashboard.nv3-role-admin .nv-date-field>.nv-date-trigger,
+body.nv3-dashboard.nv3-role-admin button.nv-date-trigger{
+  position:absolute!important;
+  z-index:3!important;
+  top:50%!important;
+  left:6px!important;
+  right:auto!important;
+  width:36px!important;
+  height:36px!important;
+  min-height:36px!important;
+  margin:0!important;
+  padding:0!important;
+  transform:translateY(-50%)!important;
+  border:0!important;
+  border-radius:10px!important;
+  background-color:#e9f7fd!important;
+  box-shadow:none!important;
+}
+body.nv3-dashboard.nv3-role-admin .nv-date-field>.nv-date-trigger:hover{
+  background-color:#168dc6!important;
+  transform:translateY(-50%)!important;
+}
+
+/* Card headers and action alignment */
+body.nv3-dashboard.nv3-role-admin .card-header{
+  min-height:64px;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:14px!important;
+}
+body.nv3-dashboard.nv3-role-admin .card-header>div{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  gap:9px!important;
+}
+body.nv3-dashboard.nv3-role-admin .card-actions{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:10px!important;
+  margin-top:18px!important;
+  padding-top:16px!important;
+  border-top:1px solid #e5edf2!important;
+}
+
+/* FAQ page */
+body.nv3-dashboard[data-nv-page="faqs"] .toolbar{
+  grid-template-columns:minmax(0,1fr) auto!important;
+}
+body.nv3-dashboard[data-nv-page="faqs"] .toolbar .nv-faq-search{min-width:0!important}
+body.nv3-dashboard[data-nv-page="faqs"] .toolbar .nv-admin-filter-actions{
+  grid-column:auto!important;
+  align-self:end!important;
+  padding:0!important;
+  margin:0!important;
+  border:0!important;
+}
+body.nv3-dashboard[data-nv-page="faqs"] .toolbar .nv-admin-filter-actions button{min-width:160px!important}
+
+/* Notification page */
+body.nv3-dashboard[data-nv-page="notifications"] .toolbar{
+  grid-template-columns:minmax(260px,2fr) minmax(180px,1fr)!important;
+}
+body.nv3-dashboard[data-nv-page="notifications"] .toolbar .nv-admin-filter-actions{
+  grid-column:1/-1!important;
+}
+
+/* Reports */
+body.nv3-dashboard[data-nv-page="reports"] .report-filter .form-row{
+  grid-column:1/-1!important;
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:14px!important;
+  width:100%!important;
+}
+body.nv3-dashboard[data-nv-page="reports"] .report-filter .nv-admin-filter-actions{grid-column:1/-1!important}
+
+/* Logs */
+body.nv3-dashboard[data-nv-page="logs"] .filter-bar{
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+}
+body.nv3-dashboard[data-nv-page="logs"] .nv-admin-filter-actions .is-danger{margin-inline-start:auto!important}
+
+/* Staff and finance: primary/secondary actions belong to their own row. */
+body.nv3-dashboard[data-nv-page="staff"] .filter-section,
+body.nv3-dashboard[data-nv-page="payments"] .filter-bar,
+body.nv3-dashboard[data-nv-page="doctors"] .filter-section{
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+}
+
+/* Settings page */
+body.nv3-dashboard[data-nv-page="settings"] .settings-grid{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:20px!important;
+  align-items:start!important;
+}
+body.nv3-dashboard[data-nv-page="settings"] .settings-grid>.card:last-child{grid-column:1/-1!important}
+body.nv3-dashboard[data-nv-page="settings"] .card-body{padding:22px!important}
+body.nv3-dashboard[data-nv-page="settings"] .form-grid,
+body.nv3-dashboard[data-nv-page="settings"] .form-row{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:14px!important;
+}
+body.nv3-dashboard[data-nv-page="settings"] .form-group{margin:0 0 14px!important}
+body.nv3-dashboard[data-nv-page="settings"] .secret-note{
+  margin:0 0 18px!important;
+  padding:12px 14px!important;
+  border:1px solid #cde7f2!important;
+  border-radius:14px!important;
+  color:#315c70!important;
+  background:#f1faff!important;
+  line-height:1.9!important;
+}
+body.nv3-dashboard[data-nv-page="settings"] .help-text{
+  margin-top:7px!important;
+  color:#718897!important;
+  font-size:10.5px!important;
+  line-height:1.8!important;
+}
+body.nv3-dashboard[data-nv-page="settings"] .test-box{
+  margin-top:20px!important;
+  padding:18px!important;
+  border:1px dashed #bcdbe8!important;
+  border-radius:17px!important;
+  background:#f8fcfe!important;
+}
+
+/* Backup page */
+body.nv3-dashboard[data-nv-page="backup"] .backup-card{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.7fr) minmax(260px,.65fr)!important;
+  align-items:stretch!important;
+  gap:18px!important;
+  padding:20px!important;
+  border:1px solid #d6e6ed!important;
+  border-radius:22px!important;
+  background:linear-gradient(135deg,#fff,#f2fbff)!important;
+  box-shadow:0 12px 34px rgba(15,55,78,.065)!important;
+}
+body.nv3-dashboard[data-nv-page="backup"] .backup-info{
+  padding:4px 2px!important;
+}
+body.nv3-dashboard[data-nv-page="backup"] .backup-info h4{
+  display:flex!important;
+  align-items:center!important;
+  gap:9px!important;
+  margin:0 0 10px!important;
+  color:#173f54!important;
+}
+body.nv3-dashboard[data-nv-page="backup"] .backup-info p{
+  color:#557181!important;
+  font-size:12px!important;
+  line-height:2!important;
+}
+body.nv3-dashboard[data-nv-page="backup"] .backup-actions{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  padding:18px!important;
+  border:1px solid #dce9ef!important;
+  border-radius:18px!important;
+  background:#fff!important;
+}
+body.nv3-dashboard[data-nv-page="backup"] .btn-backup{
+  width:100%!important;
+  min-height:48px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:9px!important;
+  padding:10px 16px!important;
+  border:1px solid #d6e0e6!important;
+  border-radius:14px!important;
+  color:#6c7f89!important;
+  background:#f3f6f8!important;
+  font-weight:900!important;
+  cursor:not-allowed!important;
+}
+
+/* Normalize inline English code terms when intentionally retained. */
+body.nv3-dashboard.nv3-role-admin code{
+  direction:ltr;
+  unicode-bidi:isolate;
+  display:inline-block;
+  padding:2px 7px;
+  border-radius:7px;
+  color:#075985;
+  background:#eaf7fd;
+  font-family:Consolas,monospace;
+}
+
+@media (max-width:1100px){
+  body.nv3-dashboard.nv3-role-admin :is(.filter-section,.filter-bar,.toolbar,.report-filter).nv3-action-panel,
+  body.nv3-dashboard[data-nv-page="logs"] .filter-bar,
+  body.nv3-dashboard[data-nv-page="staff"] .filter-section,
+  body.nv3-dashboard[data-nv-page="payments"] .filter-bar,
+  body.nv3-dashboard[data-nv-page="doctors"] .filter-section{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  body.nv3-dashboard[data-nv-page="settings"] .settings-grid{grid-template-columns:1fr!important}
+  body.nv3-dashboard[data-nv-page="settings"] .settings-grid>.card:last-child{grid-column:auto!important}
+  body.nv3-dashboard[data-nv-page="backup"] .backup-card{grid-template-columns:1fr!important}
+}
+@media (max-width:720px){
+  body.nv3-dashboard.nv3-role-admin .nv3-topbar-inner::before{right:10px!important;left:10px!important}
+  body.nv3-dashboard.nv3-role-admin :is(.filter-section,.filter-bar,.toolbar,.report-filter).nv3-action-panel,
+  body.nv3-dashboard[data-nv-page="notifications"] .toolbar,
+  body.nv3-dashboard[data-nv-page="logs"] .filter-bar,
+  body.nv3-dashboard[data-nv-page="staff"] .filter-section,
+  body.nv3-dashboard[data-nv-page="payments"] .filter-bar,
+  body.nv3-dashboard[data-nv-page="doctors"] .filter-section{
+    grid-template-columns:1fr!important;
+    padding:16px!important;
+  }
+  body.nv3-dashboard[data-nv-page="reports"] .report-filter .form-row,
+  body.nv3-dashboard[data-nv-page="settings"] .form-grid,
+  body.nv3-dashboard[data-nv-page="settings"] .form-row{grid-template-columns:1fr!important}
+  body.nv3-dashboard.nv3-role-admin .nv-admin-filter-actions{display:grid!important;grid-template-columns:1fr!important}
+  body.nv3-dashboard.nv3-role-admin .nv-admin-filter-actions button{width:100%!important;min-width:0!important}
+  body.nv3-dashboard[data-nv-page="faqs"] .toolbar{grid-template-columns:1fr!important}
+  body.nv3-dashboard[data-nv-page="faqs"] .toolbar .nv-admin-filter-actions{grid-column:1!important}
+}

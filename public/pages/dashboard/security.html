@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>امنیت حساب | Sadra</title>
+  <link rel="stylesheet" href="/css/local-fonts.css">
+  <link rel="stylesheet" href="/assets/css/security-settings.css">
+  <script src="/assets/js/auth-cookie-client.js"></script>
+
+<link href="/assets/css/panel-pretty-selects-global.css?v=2.1.67" rel="stylesheet"/>
+<link href="/assets/css/panel-form-controls-pro-2.1.67.css?v=2.1.67" rel="stylesheet"/>
+<link href="/assets/css/nv-uiux-stability-2.1.129.css?v=2.1.157" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/css/persian-digits-global-2.1.130.css?v=2.1.130">
+<link href="/assets/css/nv-uiux-stability-2.1.131.css?v=2.1.131" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/css/nv-comprehensive-audit-2.1.146.css?v=2.1.146"/>
+<link rel="stylesheet" href="/assets/css/topbar-footer-hardfix-2.1.154.css?v=2.1.154"/>
+<link rel="stylesheet" href="/assets/css/footer-visit-info-refine-2.1.156.css?v=2.1.156"/>
+<link rel="stylesheet" href="/assets/css/chatbot-booking-labels-2.1.159.css?v=2.1.160"/>
+<link rel="stylesheet" href="/assets/css/public-mobile-ux-cleanup-2.1.160.css?v=2.1.161"/>
+<link rel="stylesheet" href="/assets/css/public-mobile-topbar-doctor-2.1.162.css?v=2.1.162"/>
+<link rel="stylesheet" href="/assets/css/noorvista-international-uiux.css?v=3.0.0"/>
+</head>
+<body>
+  <header class="security-header">
+    <a href="/dashboard" aria-label="بازگشت به پنل">← بازگشت به پنل</a>
+    <h1>امنیت حساب</h1>
+    <button type="button" id="logoutBtn">خروج امن</button>
+  </header>
+  <main class="security-layout">
+    <section class="security-card" aria-labelledby="mfaHeading">
+      <h2 id="mfaHeading">احراز هویت دومرحله‌ای</h2>
+      <p id="mfaStatus" role="status">در حال دریافت وضعیت…</p>
+      <div id="mfaSetup" hidden>
+        <button type="button" id="startMfaBtn">شروع راه‌اندازی</button>
+        <div id="mfaSecretBox" hidden>
+          <label for="mfaSecret">کلید برنامه Authenticator</label>
+          <input id="mfaSecret" dir="ltr" readonly>
+          <p>کلید را در Google Authenticator، Microsoft Authenticator یا برنامه سازگار ثبت کنید.</p>
+          <label for="mfaCode">کد شش‌رقمی</label>
+          <input id="mfaCode" inputmode="numeric" autocomplete="one-time-code" maxlength="6">
+          <button type="button" id="enableMfaBtn">تأیید و فعال‌سازی</button>
+        </div>
+      </div>
+      <form id="disableMfaForm" hidden>
+        <h3>غیرفعال‌سازی</h3>
+        <p id="disableMfaHelp">برای غیرفعال‌سازی، رمز عبور و کد دومرحله‌ای را وارد کنید.</p>
+        <label for="disablePassword">رمز عبور</label>
+        <input id="disablePassword" type="password" autocomplete="current-password">
+        <label for="disableCode">کد دومرحله‌ای یا بازیابی</label>
+        <input id="disableCode" autocomplete="one-time-code">
+        <button type="submit">غیرفعال‌سازی 2FA</button>
+      </form>
+      <div id="recoveryCodes" class="recovery" hidden aria-live="polite"></div>
+      <p id="mfaError" class="error" role="alert"></p>
+    </section>
+
+    <section class="security-card" aria-labelledby="sessionsHeading">
+      <div class="card-title-row">
+        <h2 id="sessionsHeading">نشست‌های فعال</h2>
+        <button type="button" id="revokeOthersBtn">خروج از همه دستگاه‌های دیگر</button>
+      </div>
+      <p>نشست‌های ناشناس را فوراً لغو کنید و سپس رمز عبور خود را تغییر دهید.</p>
+      <div id="sessions" class="session-list" aria-live="polite">در حال دریافت نشست‌ها…</div>
+      <p id="sessionsError" class="error" role="alert"></p>
+    </section>
+  </main>
+  <script src="/assets/js/security-settings.js"></script>
+<script src="/assets/js/panel-pretty-selects-global.js?v=2.1.67"></script>
+<script src="/assets/js/nv-uiux-stability-2.1.129.js?v=2.1.158"></script>
+<script defer src="/assets/js/persian-digits-global-2.1.130.js?v=2.1.130"></script>
+<script defer src="/assets/js/nv-public-text-uiux-2.1.131.js?v=3.0.4"></script>
+<script defer src="/assets/js/nv-comprehensive-audit-2.1.146.js?v=2.1.146"></script>
+<script defer src="/assets/js/topbar-footer-hardfix-2.1.154.js?v=2.1.154"></script>
+<script defer src="/assets/js/chatbot-booking-labels-2.1.159.js?v=2.1.160"></script>
+<script defer src="/assets/js/public-mobile-ux-cleanup-2.1.160.js?v=2.1.161"></script>
+<script defer src="/assets/js/public-mobile-topbar-doctor-2.1.162.js?v=2.1.162"></script>
+<script defer src="/assets/js/noorvista-international-uiux.js?v=3.0.0"></script>
+</body>
+</html>

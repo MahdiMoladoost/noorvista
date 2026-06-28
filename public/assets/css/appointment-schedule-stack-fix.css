@@ -1,0 +1,51 @@
+/* =========================================================
+   NOORVISTA Schedule Page Stack Layout Fix
+   فرم تعریف برنامه و جدول زمان‌بندی پزشکان در schedule.html زیر هم نمایش داده شوند.
+========================================================= */
+
+body[data-appointment-page="schedules"] .appt-admin-grid {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 22px !important;
+  align-items: stretch !important;
+}
+
+body[data-appointment-page="schedules"] .appt-admin-grid > .appt-card {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+/* فرم دیگر sticky نباشد تا هنگام اسکرول و کار با جدول مزاحم نشود */
+body[data-appointment-page="schedules"] .appt-admin-grid > .appt-card:first-child,
+body[data-appointment-page="schedules"] .appt-card:first-of-type {
+  position: relative !important;
+  top: auto !important;
+  order: 1 !important;
+}
+
+body[data-appointment-page="schedules"] .appt-admin-grid > .appt-card:nth-child(2) {
+  order: 2 !important;
+}
+
+/* جدول تمام عرض را استفاده کند */
+body[data-appointment-page="schedules"] .appt-table-wrap {
+  width: 100% !important;
+}
+
+/* فرم همچنان حرفه‌ای و خوانا بماند */
+body[data-appointment-page="schedules"] #scheduleForm {
+  width: 100% !important;
+}
+
+@media (min-width: 1100px) {
+  body[data-appointment-page="schedules"] #scheduleForm .appt-form-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 760px) {
+  body[data-appointment-page="schedules"] .appt-admin-grid {
+    gap: 16px !important;
+  }
+}

@@ -1,0 +1,296 @@
+
+/* NoorVista 2.1.129 — UI/UX stability, spacing, price helper, contact/map polish */
+:root{--nv-safe-bottom:112px;--nv-line:#d7ebf7;--nv-soft:#f7fcff;--nv-ink:#0f2742;--nv-blue:#0ea5c4;}
+
+/* keep floating actions, but prevent content overlap */
+.nv-floating-actions,.floating-actions,.site-floating-actions,[data-floating-actions],.site-actions{position:fixed!important;right:22px!important;bottom:24px!important;z-index:9998!important;display:flex!important;flex-direction:column!important;gap:12px!important;align-items:flex-end!important;pointer-events:auto!important;}
+body{padding-bottom:env(safe-area-inset-bottom,0)}
+@media(max-width:720px){.nv-floating-actions,.floating-actions,.site-floating-actions,[data-floating-actions],.site-actions{right:50%!important;transform:translateX(50%)!important;bottom:14px!important;flex-direction:row!important;align-items:center!important;justify-content:center!important;width:max-content!important;max-width:calc(100vw - 24px)!important}.nv-hero,.hero-section,.hero-wrap,.noorvista-hero{padding-bottom:96px!important}.nv-hero-cta,.hero-actions,.hero-cta{margin-bottom:18px!important}}
+
+/* hero CTA spacing: reserve in hero was removed; keep consult/services centered and away from floating buttons */
+.hero-actions,.nv-hero-cta,.hero-cta{display:flex!important;gap:14px!important;align-items:center!important;justify-content:center!important;flex-wrap:wrap!important;margin-top:26px!important}
+.hero-actions .open-booking,.nv-hero-cta .open-booking,.hero-cta .open-booking{display:none!important}
+
+/* uniform panel spacing */
+.nv3-page{padding-top:18px!important}.nv3-page-block,.nv3-surface,.nv3-action-panel,.card,.filter-section,.filter-bar{margin-bottom:24px!important}.nv3-action-panel,.filter-section,.filter-bar{padding:22px!important;gap:18px!important}.filter-group{min-width:210px!important}.filter-group label{margin-bottom:8px!important;display:block!important}.action-buttons{display:flex!important;gap:8px!important;align-items:center!important;justify-content:flex-start!important;flex-wrap:wrap!important}.btn-sm,.action-icon,.btn{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:7px!important;white-space:nowrap!important}
+.nv3-table-scroll{overflow-x:auto!important;padding-bottom:6px}.data-table th,.data-table td,.doctors-table th,.doctors-table td{vertical-align:middle!important;line-height:1.8!important;white-space:nowrap!important}.data-table td:nth-child(2),.doctors-table td:nth-child(2){white-space:normal!important;min-width:140px!important}.data-table td,.doctors-table td{font-size:13px!important}.role-badge,.status-badge{white-space:nowrap!important}
+
+/* Modal polish */
+.modal-container{max-width:min(920px,calc(100vw - 34px))!important;max-height:calc(100vh - 42px)!important;border-radius:24px!important}.modal-header{min-height:70px!important;padding:18px 28px!important;border-bottom:1px solid var(--nv-line)!important}.modal-body{padding:24px 30px!important;max-height:calc(100vh - 190px)!important;overflow:auto!important}.modal-footer{padding:16px 28px!important;border-top:1px solid var(--nv-line)!important;gap:12px!important}.form-group{margin-bottom:18px!important}.form-control,input,select,textarea{line-height:1.8!important}.form-control::placeholder,input::placeholder,textarea::placeholder{color:#94a3b8!important}.nv-user-modal-grid,.nv-role-grid{gap:18px!important}.nv-flow-section{margin-bottom:22px!important;padding:20px!important;border-radius:22px!important}.nv-flow-steps{gap:12px!important;flex-wrap:wrap!important}.nv-flow-step{min-height:48px!important;padding:10px 16px!important;line-height:1.5!important}
+
+/* SMS log and templates: prevent cramped cards / wrapped labels */
+body[data-nv-page="sms-log"] .stats-grid,body[data-nv-page="sms-templates"] .stats-grid{gap:18px!important;margin-bottom:28px!important}body[data-nv-page="sms-log"] .stat-card,body[data-nv-page="sms-templates"] .stat-card{min-height:116px!important;padding:22px!important;align-items:center!important}body[data-nv-page="sms-log"] .filter-section,body[data-nv-page="sms-log"] .filter-bar{padding:24px!important;row-gap:18px!important}body[data-nv-page="sms-log"] .filter-group{min-width:220px!important}body[data-nv-page="sms-log"] .btn,body[data-nv-page="sms-log"] .btn-sm{min-height:44px!important;padding-inline:18px!important}body[data-nv-page="sms-templates"] textarea{min-height:150px!important;line-height:2!important;resize:vertical!important}body[data-nv-page="sms-templates"] .template-token,body[data-nv-page="sms-templates"] code{direction:ltr!important;unicode-bidi:plaintext!important;display:inline-flex!important;align-items:center!important;line-height:1.7!important;margin:2px 4px!important;padding:3px 7px!important;border-radius:8px!important;background:#eef8ff!important;color:#075985!important}
+
+/* Contact page: readable cards, no ugly wrapping */
+.contact-hero-grid{grid-template-columns:minmax(0,1fr) minmax(360px,.78fr)!important;gap:34px!important}.contact-quick-card{max-width:560px!important;margin-inline:auto!important}.quick-item{display:grid!important;grid-template-columns:54px minmax(0,1fr)!important;gap:14px!important;align-items:center!important;padding:18px!important}.quick-item span{width:48px!important;height:48px!important}.quick-item strong{font-size:14px!important;line-height:1.7!important}.quick-item small,.quick-item a{display:block!important;font-size:14px!important;line-height:1.95!important;word-break:normal!important;overflow-wrap:anywhere!important;color:#334155!important}.contact-hero h1,.map-head h2{letter-spacing:-.4px!important}.contact-hero p,.map-head p{line-height:2.1!important}.neshan-map-shell,.real-map-frame{min-height:460px!important}.contact-map-panel{padding:34px!important}.map-open-link{white-space:nowrap!important}
+@media(max-width:980px){.contact-hero-grid{grid-template-columns:1fr!important}.contact-quick-card{max-width:100%!important}}
+@media(max-width:720px){.quick-item{grid-template-columns:46px minmax(0,1fr)!important;padding:14px!important}.contact-map-panel,.contact-quick-card{padding:18px!important}.neshan-map-shell,.real-map-frame{min-height:360px!important}.contact-hero h1{font-size:clamp(30px,9vw,42px)!important}}
+
+/* Doctor profile view modal */
+.nv-profile-hero{display:grid!important;grid-template-columns:74px minmax(0,1fr) auto!important;gap:16px!important;align-items:center!important;padding:18px!important;border-radius:22px!important;background:linear-gradient(135deg,#effbff,#fff)!important;border:1px solid var(--nv-line)!important}.nv-profile-avatar{width:74px!important;height:74px!important;border-radius:22px!important;display:grid!important;place-items:center!important;background:#e0f7ff!important;color:#075985!important;font-weight:900!important;font-size:28px!important}.nv-profile-copy strong{font-size:20px!important;line-height:1.8!important}.nv-profile-copy span{display:block!important;color:#64748b!important;font-weight:800!important;line-height:1.8!important}.nv-profile-info-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px!important;margin-top:16px!important}.nv-profile-info-card{padding:16px!important;border:1px solid #e0f2fe!important;border-radius:18px!important;background:#fff!important}.nv-profile-info-card small{display:block!important;color:#64748b!important;font-weight:800!important;margin-bottom:7px!important}.nv-profile-info-card strong{font-size:15px!important;line-height:1.8!important;color:#0f2742!important;overflow-wrap:anywhere!important}.nv-profile-bio{margin-top:16px!important;padding:18px!important;border-radius:18px!important;background:#f8fbff!important;border:1px solid #e0f2fe!important}.nv-profile-bio p{line-height:2.1!important;white-space:pre-wrap!important;margin:8px 0 0!important;color:#334155!important}@media(max-width:640px){.nv-profile-hero{grid-template-columns:58px 1fr!important}.nv-profile-status{grid-column:1/-1!important}.nv-profile-info-grid{grid-template-columns:1fr!important}}
+
+/* English digits for technical/numeric values */
+[dir="ltr"], input[type="tel"], input[inputmode="numeric"], .nv-en-digits, .data-table td, .doctors-table td{font-variant-numeric:tabular-nums!important}.nv-money-helper{margin-top:7px!important;display:flex!important;align-items:center!important;gap:8px!important;color:#64748b!important;font-size:12px!important;font-weight:800!important;line-height:1.7!important}.nv-money-helper strong{color:#075985!important}.nv-money-wrap{position:relative!important}.nv-money-wrap input{padding-left:72px!important}.nv-money-unit{position:absolute!important;left:14px!important;top:50%!important;transform:translateY(-50%)!important;color:#0e7490!important;font-size:12px!important;font-weight:900!important;pointer-events:none!important;background:#eefaff!important;border:1px solid #bae6fd!important;border-radius:999px!important;padding:2px 8px!important}
+
+/* public quick boxes: avoid huge wrapped fonts */
+.hero-feature-card,.hero-card,.nv-feature-card{line-height:1.8!important}.hero-feature-card h3,.hero-card h3,.nv-feature-card h3{font-size:clamp(18px,2.1vw,26px)!important;line-height:1.45!important;letter-spacing:-.3px!important}.hero-feature-card p,.hero-card p,.nv-feature-card p{font-size:14px!important;line-height:1.85!important}
+
+.nv-map-preview-panel{grid-column:1/-1!important;margin-top:14px!important}.nv-map-preview-frame{width:100%!important;height:360px!important;border-radius:22px!important;overflow:hidden!important;border:1px solid #bae6fd!important;background:#e0f2fe!important;margin-top:14px!important}.nv-map-preview-frame iframe{width:100%!important;height:100%!important;border:0!important;display:block!important}.nv-map-preview-actions{display:flex!important;gap:12px!important;justify-content:center!important;flex-wrap:wrap!important;margin-top:14px!important}.is-disabled{opacity:.55!important;cursor:not-allowed!important}
+
+
+/* NoorVista 2.1.129 — final contact/footer wrapping and Persian digit polish */
+html[lang="fa"], body { font-feature-settings: "ss01" 1; }
+
+/* Contact page quick cards: the icon span must not affect inner address/number spans */
+.contact-quick-card{overflow:visible!important;}
+.contact-quick-card .quick-item{
+  display:grid!important;
+  grid-template-columns:58px minmax(0,1fr)!important;
+  align-items:start!important;
+  gap:14px!important;
+  min-height:auto!important;
+  overflow:hidden!important;
+}
+.contact-quick-card .quick-item > span:first-child,
+.quick-item > span:first-child:has(.nv-inline-icon){
+  width:48px!important;
+  height:48px!important;
+  min-width:48px!important;
+  flex:0 0 48px!important;
+  display:grid!important;
+  place-items:center!important;
+  border-radius:17px!important;
+  background:#e0f2fe!important;
+}
+.contact-quick-card .quick-item > div{min-width:0!important;width:100%!important;display:block!important;}
+.contact-quick-card .quick-item strong{display:block!important;margin:0 0 6px!important;font-size:14px!important;line-height:1.7!important;color:#075985!important;}
+.contact-quick-card .quick-item small,
+.contact-quick-card .quick-item a{display:block!important;width:100%!important;max-width:100%!important;line-height:1.9!important;font-size:14px!important;text-align:right!important;white-space:normal!important;overflow-wrap:break-word!important;word-break:normal!important;}
+.contact-quick-card .quick-item [dir="ltr"]{direction:rtl!important;text-align:right!important;unicode-bidi:normal!important;}
+
+/* Reset nested address spans that were accidentally styled like icons */
+.contact-quick-card .quick-item .nv-address-lines,
+.contact-quick-card .quick-item .nv-address-line,
+.contact-quick-card .quick-item .nv-address-label,
+.contact-quick-card .quick-item .nv-address-text,
+.footer .contact-list .nv-address-lines,
+.footer .contact-list .nv-address-line,
+.footer .contact-list .nv-address-label,
+.footer .contact-list .nv-address-text,
+.home-location-details .nv-address-lines,
+.home-location-details .nv-address-line,
+.home-location-details .nv-address-label,
+.home-location-details .nv-address-text{
+  width:auto!important;
+  height:auto!important;
+  min-width:0!important;
+  min-height:0!important;
+  display:block!important;
+  place-items:normal!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  padding:0!important;
+  margin:0!important;
+  color:inherit!important;
+  font-size:inherit!important;
+  line-height:inherit!important;
+}
+.nv-address-lines{display:grid!important;gap:8px!important;width:100%!important;min-width:0!important;}
+.nv-address-line{display:grid!important;gap:2px!important;min-width:0!important;line-height:1.8!important;}
+.nv-address-label{font-weight:950!important;color:#075985!important;font-size:.88em!important;}
+.nv-address-text{font-weight:850!important;color:#334155!important;overflow-wrap:break-word!important;word-break:normal!important;}
+
+/* Footer: clean multi-address layout */
+.footer .contact-list{display:grid!important;gap:12px!important;margin:0!important;padding:0!important;list-style:none!important;}
+.footer .contact-list li{display:grid!important;grid-template-columns:30px minmax(0,1fr)!important;align-items:start!important;gap:10px!important;line-height:1.9!important;min-width:0!important;}
+.footer .contact-list li > span:first-child{width:28px!important;height:28px!important;display:grid!important;place-items:center!important;align-self:start!important;margin-top:2px!important;}
+.footer .contact-list li > span:last-child,
+.footer .contact-list li > a{min-width:0!important;max-width:100%!important;white-space:normal!important;overflow-wrap:break-word!important;word-break:normal!important;text-align:right!important;}
+.footer .contact-list a[href^="tel:"]{direction:rtl!important;unicode-bidi:normal!important;}
+.footer .footer-socials{display:flex!important;flex-wrap:wrap!important;gap:8px!important;margin-top:14px!important;align-items:center!important;}
+.footer .footer-grid{align-items:start!important;}
+
+/* Public contact cards: keep text inside their own boxes */
+.contact-hero-copy{min-width:0!important;}
+.contact-hero .container{max-width:1180px!important;}
+@media (min-width:981px){
+  .contact-hero-grid{grid-template-columns:minmax(0,1.25fr) minmax(320px,430px)!important;gap:46px!important;}
+}
+@media (max-width:720px){
+  .contact-quick-card .quick-item{grid-template-columns:46px minmax(0,1fr)!important;}
+  .contact-quick-card .quick-item > span:first-child{width:42px!important;height:42px!important;min-width:42px!important;}
+  .footer .contact-list li{grid-template-columns:26px minmax(0,1fr)!important;}
+}
+
+/* Persian display digits; keep tabular alignment */
+body, .data-table, .doctors-table, .footer, .topbar, .contact-quick-card{font-variant-numeric:tabular-nums!important;}
+
+
+/* NoorVista 2.1.129 — contact/footer address readability + map picker + money unit fix */
+.nv-money-unit{display:none!important}
+.nv-money-wrap input{padding-left:14px!important;padding-right:14px!important}
+.contact-quick-card{overflow:visible!important}
+.contact-quick-card .quick-item{display:grid!important;grid-template-columns:minmax(0,1fr) 52px!important;align-items:start!important;gap:14px!important;min-height:96px!important;padding:18px!important;overflow:hidden!important}
+.contact-quick-card .quick-item>span:first-child,.contact-quick-card .quick-item>.quick-icon{grid-column:2!important;grid-row:1 / span 2!important;width:48px!important;height:48px!important;min-width:48px!important;border-radius:16px!important;display:grid!important;place-items:center!important;position:static!important;float:none!important}
+.contact-quick-card .quick-item strong{grid-column:1!important;display:block!important;margin:0 0 5px!important;font-size:15px!important;line-height:1.75!important;white-space:normal!important;color:#075985!important;text-align:right!important}
+.contact-quick-card .quick-item small,.contact-quick-card .quick-item a{grid-column:1!important;display:block!important;font-size:14px!important;line-height:1.95!important;white-space:normal!important;word-break:normal!important;overflow-wrap:anywhere!important;text-align:right!important;color:#334155!important}
+.contact-quick-card .quick-item .nv-address-lines,.site-footer .nv-address-lines,.footer .nv-address-lines{display:grid!important;gap:8px!important;width:100%!important;height:auto!important;background:none!important;border:0!important;padding:0!important;margin:0!important;color:inherit!important;box-shadow:none!important}
+.contact-quick-card .quick-item .nv-address-line,.site-footer .nv-address-line,.footer .nv-address-line{display:grid!important;gap:3px!important;width:auto!important;height:auto!important;background:none!important;border:0!important;padding:0!important;margin:0!important;place-items:initial!important;color:inherit!important;border-radius:0!important;box-shadow:none!important}
+.contact-quick-card .quick-item .nv-address-label,.site-footer .nv-address-label,.footer .nv-address-label{display:block!important;width:auto!important;height:auto!important;background:none!important;border:0!important;padding:0!important;margin:0!important;color:#0891b2!important;font-weight:950!important;font-size:13px!important;line-height:1.6!important}
+.contact-quick-card .quick-item .nv-address-text,.site-footer .nv-address-text,.footer .nv-address-text{display:block!important;width:auto!important;height:auto!important;background:none!important;border:0!important;padding:0!important;margin:0!important;color:#334155!important;font-weight:800!important;font-size:13.5px!important;line-height:1.9!important;white-space:normal!important;word-break:normal!important;overflow-wrap:anywhere!important}
+.site-footer .nv-address-text,.footer .nv-address-text{color:#cbd5e1!important}.site-footer .nv-address-label,.footer .nv-address-label{color:#22d3ee!important}
+.nv-settings-map-picker{margin-top:14px;padding:18px;border:1px solid #bae6fd;border-radius:22px;background:#f8fcff;box-shadow:0 12px 36px rgba(8,145,178,.08)}
+.nv-settings-map-picker__head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;flex-wrap:wrap}.nv-settings-map-picker__head strong{font-size:16px;color:#075985}.nv-settings-map-picker__head small{font-weight:700;color:#64748b;line-height:1.8}.nv-settings-map-picker__map{height:360px;border-radius:18px;overflow:hidden;border:1px solid #d7eef8;background:#e0f2fe;direction:ltr}.nv-settings-map-picker__fallback{display:grid;place-items:center;height:100%;text-align:center;color:#075985;font-weight:900;line-height:2;padding:24px}.nv-settings-map-picker__meta{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;flex-wrap:wrap;color:#475569;font-size:13px;font-weight:800}.nv-settings-map-picker__coords{direction:ltr;background:#fff;border:1px solid #e2e8f0;border-radius:999px;padding:8px 12px}.nv-settings-map-picker .btn-sm{min-height:38px;border-radius:999px;padding:8px 14px;font-weight:900}
+@media(max-width:720px){.contact-quick-card .quick-item{grid-template-columns:minmax(0,1fr) 44px!important;padding:14px!important;min-height:84px!important}.contact-quick-card .quick-item>span:first-child{width:42px!important;height:42px!important;min-width:42px!important}.nv-settings-map-picker__map{height:300px}}
+
+
+
+/* NoorVista 2.1.138 — remove duplicate money words + clean contact/footer info */
+
+/* Only one amount-to-words helper should remain */
+.nv-money-helper {
+  display: none !important;
+}
+
+/* Universal clean address rows: no extra nested borders/pills */
+.nv-address-lines {
+  display: grid !important;
+  gap: 7px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+.nv-address-line {
+  display: block !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  line-height: 2 !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+}
+.nv-address-label {
+  display: inline !important;
+  width: auto !important;
+  padding: 0 !important;
+  margin: 0 0 0 6px !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #0891b2 !important;
+  font-weight: 950 !important;
+  white-space: nowrap !important;
+}
+.nv-address-text {
+  display: inline !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: inherit !important;
+  font-weight: 850 !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+}
+
+/* Home/contact visit info: remove nested borders around address labels and address content */
+.home-location-details .nv-address-lines,
+.home-location-details .nv-address-line,
+.home-location-details .nv-address-label,
+.home-location-details .nv-address-text,
+.contact-quick-card .nv-address-lines,
+.contact-quick-card .nv-address-line,
+.contact-quick-card .nv-address-label,
+.contact-quick-card .nv-address-text,
+.contact-map-panel .nv-address-lines,
+.contact-map-panel .nv-address-line,
+.contact-map-panel .nv-address-label,
+.contact-map-panel .nv-address-text {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.home-location-details .nv-visit-address,
+.contact-quick-card .quick-item {
+  overflow: visible !important;
+}
+
+.contact-quick-card .quick-item {
+  border: 0 !important;
+  background: #f8fbff !important;
+  box-shadow: inset 0 0 0 1px rgba(224,242,254,.75) !important;
+}
+
+/* Footer clinic info rewrite */
+.footer .contact-list {
+  display: grid !important;
+  gap: 12px !important;
+  margin: 14px 0 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+.footer .contact-list li,
+.footer .contact-list .nv-footer-contact-row {
+  display: grid !important;
+  grid-template-columns: 28px minmax(0, 1fr) !important;
+  gap: 10px !important;
+  align-items: start !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #e5eef7 !important;
+  line-height: 2 !important;
+}
+.footer .contact-list .nv-contact-icon,
+.footer .contact-list li > span:first-child {
+  width: 28px !important;
+  min-width: 28px !important;
+  height: 28px !important;
+  margin-top: 2px !important;
+  display: grid !important;
+  place-items: center !important;
+  color: #bae6fd !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+.footer .contact-list .nv-contact-main {
+  min-width: 0 !important;
+  display: block !important;
+  color: #e5eef7 !important;
+  text-align: right !important;
+  line-height: 2 !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  text-decoration: none !important;
+}
+.footer .contact-list .nv-contact-main strong {
+  color: #22d3ee !important;
+  font-weight: 950 !important;
+  margin-inline-end: 4px !important;
+}
+.footer .contact-list .nv-address-lines {
+  gap: 6px !important;
+}
+.footer .contact-list .nv-address-line {
+  display: block !important;
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 2 !important;
+}
+.footer .contact-list .nv-address-label {
+  color: #22d3ee !important;
+  font-size: 14px !important;
+}
+.footer .contact-list .nv-address-text {
+  color: #f8fafc !important;
+  font-size: 14px !important;
+}

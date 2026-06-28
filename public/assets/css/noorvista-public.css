@@ -1,0 +1,168 @@
+/* NoorVista public-site finishing layer */
+:root {
+    --nv-primary: #0ea5e9;
+    --nv-primary-dark: #0369a1;
+    --nv-accent: #14b8a6;
+    --nv-navy: #0f172a;
+    --nv-muted: #64748b;
+    --nv-soft: #eef7ff;
+    --nv-border: #dbeafe;
+}
+
+html[dir="rtl"] body,
+body {
+    direction: rtl;
+    text-align: right;
+    font-family: Shabnam, Vazir, Tahoma, Arial, sans-serif;
+}
+
+.navbar-brand,
+.ftco-navbar-light .navbar-brand {
+    font-weight: 900;
+    letter-spacing: -.5px;
+}
+
+.navbar-brand span {
+    color: var(--nv-primary) !important;
+}
+
+.btn.btn-primary,
+.btn-primary,
+.appointment-form .btn-primary {
+    background: linear-gradient(135deg, var(--nv-primary), var(--nv-accent)) !important;
+    border-color: transparent !important;
+    box-shadow: 0 12px 28px rgba(14, 165, 233, .24);
+}
+
+.btn.btn-outline-primary {
+    border-color: var(--nv-primary);
+    color: var(--nv-primary);
+}
+
+.btn.btn-outline-primary:hover {
+    background: var(--nv-primary);
+    color: #fff;
+}
+
+.ftco-intro .color-1,
+.ftco-intro .color-2,
+.ftco-intro .color-3 {
+    background: linear-gradient(135deg, #0284c7, #0f766e) !important;
+}
+
+.noorvista-hero {
+    position: relative;
+    padding: 130px 0 80px;
+    background: linear-gradient(135deg, rgba(14, 165, 233, .14), rgba(20, 184, 166, .12)), url('../images/bg_1.webp') center/cover no-repeat;
+    overflow: hidden;
+}
+
+.noorvista-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, .52);
+}
+
+.noorvista-hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.noorvista-hero h1,
+.noorvista-hero p,
+.noorvista-hero a {
+    color: #fff;
+}
+
+.noorvista-section-title {
+    max-width: 820px;
+    margin: 0 auto 42px;
+    text-align: center;
+}
+
+.noorvista-section-title h2 {
+    color: var(--nv-navy);
+    font-weight: 900;
+}
+
+.nv-card {
+    height: 100%;
+    background: #fff;
+    border: 1px solid #e5edf7;
+    border-radius: 24px;
+    padding: 26px;
+    box-shadow: 0 14px 40px rgba(15, 23, 42, .06);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.nv-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 50px rgba(15, 23, 42, .10);
+}
+
+.nv-card-icon {
+    width: 54px;
+    height: 54px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    margin-bottom: 16px;
+    background: var(--nv-soft);
+    color: var(--nv-primary-dark);
+    font-size: 24px;
+}
+
+.nv-muted { color: var(--nv-muted); }
+
+.nv-status {
+    display: none;
+    margin: 12px 0 0;
+    padding: 12px 14px;
+    border-radius: 14px;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.nv-status.is-visible { display: block; }
+.nv-status.success { background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
+.nv-status.error { background: #fef2f2; color: #b91c1c; border: 1px solid #fecaca; }
+.nv-status.info { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+
+.noorvista-cta {
+    background: linear-gradient(135deg, #0f172a, #075985);
+    border-radius: 30px;
+    padding: 42px 32px;
+    color: #fff;
+    box-shadow: 0 20px 60px rgba(15, 23, 42, .2);
+}
+
+.noorvista-cta p,
+.noorvista-cta h2 { color: #fff; }
+
+.noorvista-contact-box {
+    border: 1px solid var(--nv-border);
+    border-radius: 22px;
+    padding: 22px;
+    background: #fff;
+    height: 100%;
+}
+
+.noorvista-contact-box span.icon {
+    color: var(--nv-primary-dark);
+}
+
+.form-control,
+select.form-control,
+textarea.form-control {
+    border-radius: 14px;
+}
+
+footer a[href="#"] { pointer-events: none; opacity: .72; }
+
+@media (max-width: 767px) {
+    .noorvista-hero { padding: 105px 0 58px; }
+    .noorvista-hero h1 { font-size: 2.1rem !important; }
+    .noorvista-cta { padding: 28px 20px; }
+}

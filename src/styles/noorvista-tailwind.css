@@ -1,0 +1,1379 @@
+@charset "UTF-8";
+
+/*
+  NoorVista Tailwind entry point
+  --------------------------------
+  This file is intentionally non-destructive:
+  - Tailwind preflight/base reset is disabled in tailwind.config.js.
+  - Tailwind base is emitted only to initialize utility CSS variables; preflight remains disabled.
+  - Utilities are prefixed with tw- to avoid Bootstrap/legacy CSS collisions.
+
+  Build output:
+  public/assets/css/noorvista-tailwind.css
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .noor-tw-scope {
+    direction: rtl;
+    font-family: Vazir, Shabnam, Tahoma, Arial, sans-serif;
+    color: #123047;
+  }
+
+  .noor-tw-card {
+    @apply tw-rounded-noor tw-border tw-border-clinic-line tw-bg-white tw-shadow-noor-soft;
+  }
+
+  .noor-tw-card-header {
+    @apply tw-flex tw-items-center tw-justify-between tw-gap-3 tw-border-b tw-border-clinic-line tw-px-5 tw-py-4;
+  }
+
+  .noor-tw-card-body {
+    @apply tw-p-5;
+  }
+
+  .noor-tw-btn-primary {
+    @apply tw-inline-flex tw-items-center tw-justify-center tw-gap-2 tw-rounded-xl tw-bg-noor-600 tw-px-4 tw-py-2.5 tw-text-sm tw-font-semibold tw-text-white tw-shadow-noor-soft tw-transition hover:tw-bg-noor-700 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-noor-300 focus:tw-ring-offset-2 disabled:tw-cursor-not-allowed disabled:tw-opacity-60;
+  }
+
+  .noor-tw-btn-secondary {
+    @apply tw-inline-flex tw-items-center tw-justify-center tw-gap-2 tw-rounded-xl tw-border tw-border-clinic-line tw-bg-white tw-px-4 tw-py-2.5 tw-text-sm tw-font-semibold tw-text-clinic-ink tw-transition hover:tw-bg-clinic-soft focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-noor-200 focus:tw-ring-offset-2 disabled:tw-cursor-not-allowed disabled:tw-opacity-60;
+  }
+
+  .noor-tw-input {
+    @apply tw-block tw-w-full tw-rounded-xl tw-border tw-border-clinic-line tw-bg-white tw-px-3.5 tw-py-2.5 tw-text-sm tw-text-clinic-ink tw-transition placeholder:tw-text-slate-400 focus:tw-border-noor-500 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-noor-100 disabled:tw-cursor-not-allowed disabled:tw-bg-slate-50 disabled:tw-text-slate-500;
+  }
+
+  .noor-tw-label {
+    @apply tw-mb-1.5 tw-block tw-text-sm tw-font-semibold tw-text-clinic-ink;
+  }
+
+  .noor-tw-badge-success {
+    @apply tw-inline-flex tw-items-center tw-rounded-full tw-bg-green-50 tw-px-2.5 tw-py-1 tw-text-xs tw-font-semibold tw-text-green-700;
+  }
+
+  .noor-tw-badge-warning {
+    @apply tw-inline-flex tw-items-center tw-rounded-full tw-bg-amber-50 tw-px-2.5 tw-py-1 tw-text-xs tw-font-semibold tw-text-amber-700;
+  }
+
+  .noor-tw-badge-danger {
+    @apply tw-inline-flex tw-items-center tw-rounded-full tw-bg-red-50 tw-px-2.5 tw-py-1 tw-text-xs tw-font-semibold tw-text-red-700;
+  }
+}
+
+
+/* Tailwind dashboard shell: scoped so legacy panels remain untouched. */
+@layer components {
+  .nv-tw-dashboard {
+    margin: 0;
+    min-height: 100vh;
+    direction: rtl;
+    font-family: Vazir, Shabnam, Tahoma, Arial, sans-serif;
+    color: #123047;
+    background: #f8fafc;
+  }
+
+  .nv-tw-dashboard *,
+  .nv-tw-dashboard *::before,
+  .nv-tw-dashboard *::after {
+    box-sizing: border-box;
+  }
+
+  .nv-tw-dashboard h1,
+  .nv-tw-dashboard h2,
+  .nv-tw-dashboard h3,
+  .nv-tw-dashboard h4,
+  .nv-tw-dashboard p,
+  .nv-tw-dashboard ul {
+    margin: 0;
+  }
+
+  .nv-tw-dashboard ul {
+    padding: 0;
+    list-style: none;
+  }
+
+  .nv-tw-dashboard a {
+    text-decoration: none;
+  }
+
+  .nv-tw-dashboard button,
+  .nv-tw-dashboard input,
+  .nv-tw-dashboard select,
+  .nv-tw-dashboard textarea {
+    font: inherit;
+  }
+
+  .nv-tw-nav-link {
+    @apply tw-flex tw-items-center tw-gap-3 tw-rounded-2xl tw-px-4 tw-py-3 tw-text-sm tw-font-semibold tw-text-sky-100 tw-transition hover:tw-bg-white/10 hover:tw-text-white focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-white/40;
+  }
+
+  .nv-tw-nav-link.nv-tw-nav-link-active {
+    color: #155d83 !important;
+    background: linear-gradient(135deg, #ffffff 0%, #e7f7ff 100%);
+    box-shadow: 0 12px 30px rgba(4, 35, 52, .18);
+  }
+
+  .nv-tw-nav-link.nv-tw-nav-link-active:hover {
+    color: #123047 !important;
+    background: linear-gradient(135deg, #ffffff 0%, #d9f1ff 100%);
+  }
+
+  .nv-tw-nav-link.nv-tw-nav-link-active > span:not(.nv-tw-nav-icon) {
+    color: inherit !important;
+  }
+
+  .nv-tw-nav-icon {
+    @apply tw-flex tw-h-9 tw-w-9 tw-flex-none tw-items-center tw-justify-center tw-rounded-xl tw-bg-white/10 tw-text-base;
+  }
+
+  .nv-tw-nav-link-active .nv-tw-nav-icon {
+    @apply tw-bg-noor-50 tw-text-noor-700;
+  }
+
+  .nv-tw-icon-btn {
+    @apply tw-inline-flex tw-h-11 tw-w-11 tw-items-center tw-justify-center tw-rounded-2xl tw-border tw-border-slate-200 tw-bg-white tw-text-slate-600 tw-shadow-sm tw-transition hover:tw-border-noor-200 hover:tw-bg-noor-50 hover:tw-text-noor-700 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-noor-200;
+  }
+
+  .nv-tw-card {
+    @apply tw-overflow-hidden tw-rounded-noor tw-border tw-border-slate-200/80 tw-bg-white tw-shadow-noor-soft;
+  }
+
+  .nv-tw-card-header {
+    @apply tw-flex tw-flex-col tw-gap-3 tw-border-b tw-border-slate-100 tw-px-5 tw-py-4 sm:tw-flex-row sm:tw-items-center sm:tw-justify-between;
+  }
+
+  .nv-tw-card-body {
+    @apply tw-p-5;
+  }
+
+  .nv-tw-stat-card {
+    @apply tw-flex tw-items-center tw-gap-4 tw-rounded-noor tw-border tw-border-slate-200/80 tw-bg-white tw-p-5 tw-shadow-noor-soft tw-transition hover:-tw-translate-y-0.5 hover:tw-shadow-noor;
+  }
+
+  .nv-tw-stat-icon {
+    @apply tw-flex tw-h-14 tw-w-14 tw-flex-none tw-items-center tw-justify-center tw-rounded-2xl tw-bg-noor-50 tw-text-xl tw-text-noor-700;
+  }
+
+  .nv-tw-stat-value {
+    @apply tw-text-2xl tw-font-black tw-text-clinic-ink;
+  }
+
+  .nv-tw-stat-label {
+    @apply tw-mt-1 tw-text-sm tw-font-medium tw-text-slate-500;
+  }
+
+  .nv-tw-table-wrap {
+    @apply tw-w-full tw-overflow-x-auto;
+  }
+
+  .nv-tw-table {
+    width: 100%;
+    min-width: 680px;
+    border-collapse: collapse;
+  }
+
+  .nv-tw-table th {
+    @apply tw-whitespace-nowrap tw-bg-slate-50 tw-px-4 tw-py-3 tw-text-right tw-text-xs tw-font-bold tw-text-slate-500;
+  }
+
+  .nv-tw-table td {
+    @apply tw-border-t tw-border-slate-100 tw-px-4 tw-py-4 tw-text-sm tw-text-slate-700;
+  }
+
+  .nv-tw-table tbody tr {
+    @apply tw-transition hover:tw-bg-noor-50/50;
+  }
+
+  .nv-tw-empty {
+    @apply tw-rounded-2xl tw-border tw-border-dashed tw-border-slate-200 tw-bg-slate-50 tw-p-8 tw-text-center tw-text-sm tw-font-medium tw-text-slate-500;
+  }
+
+  .nv-tw-badge {
+    @apply tw-inline-flex tw-items-center tw-whitespace-nowrap tw-rounded-full tw-px-2.5 tw-py-1 tw-text-xs tw-font-bold;
+  }
+
+  .nv-tw-badge-success { @apply tw-bg-emerald-50 tw-text-emerald-700; }
+  .nv-tw-badge-warning { @apply tw-bg-amber-50 tw-text-amber-700; }
+  .nv-tw-badge-danger { @apply tw-bg-rose-50 tw-text-rose-700; }
+  .nv-tw-badge-info { @apply tw-bg-sky-50 tw-text-sky-700; }
+  .nv-tw-badge-muted { @apply tw-bg-slate-100 tw-text-slate-600; }
+
+  .nv-tw-quick-link {
+    @apply tw-flex tw-items-center tw-justify-between tw-gap-3 tw-rounded-2xl tw-border tw-border-slate-200 tw-bg-white tw-p-4 tw-text-sm tw-font-bold tw-text-clinic-ink tw-transition hover:tw-border-noor-200 hover:tw-bg-noor-50 hover:tw-text-noor-800;
+  }
+
+  .nv-tw-quick-link-icon {
+    @apply tw-flex tw-h-10 tw-w-10 tw-items-center tw-justify-center tw-rounded-xl tw-bg-noor-50 tw-text-noor-700;
+  }
+}
+
+/* Patient portal v2 — isolated from legacy panels. */
+@layer components {
+  /*
+    Tailwind utilities such as gradients, transforms, rings and backdrop filters
+    depend on variables initialized by @tailwind base. Preflight is still disabled,
+    so this does not reset the legacy NoorVista pages.
+  */
+  .nv-patient-portal [data-nv-sidebar] {
+    background-color: #155d83;
+    background-image: linear-gradient(180deg, #184e6d 0%, #155d83 48%, #123047 100%);
+  }
+
+  .nv-patient-portal [data-nv-sidebar] > .tw-flex-1 {
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(186, 230, 253, .52) transparent;
+  }
+
+  .nv-patient-portal [data-nv-sidebar] > .tw-flex-1::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  .nv-patient-portal [data-nv-sidebar] > .tw-flex-1::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .nv-patient-portal [data-nv-sidebar] > .tw-flex-1::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: rgba(186, 230, 253, .45);
+  }
+
+  .nv-patient-portal [data-nv-sidebar] > .tw-flex-1::-webkit-scrollbar-thumb:hover {
+    background: rgba(224, 242, 254, .72);
+  }
+
+  .nv-patient-portal *,
+  .nv-patient-portal *::before,
+  .nv-patient-portal *::after {
+    border-width: 0;
+    border-style: solid;
+  }
+
+  .nv-patient-portal button,
+  .nv-patient-portal input,
+  .nv-patient-portal select,
+  .nv-patient-portal textarea {
+    font: inherit;
+  }
+
+  .nv-patient-portal button,
+  .nv-patient-portal select {
+    cursor: pointer;
+  }
+
+  .nv-patient-portal button:disabled,
+  .nv-patient-portal select:disabled {
+    cursor: not-allowed;
+  }
+
+  .nv-patient-portal :focus-visible {
+    outline: 3px solid rgba(45, 169, 230, .35);
+    outline-offset: 2px;
+  }
+
+  .nv-patient-skip-link {
+    @apply tw-fixed tw-right-4 tw-top-3 tw-z-[120] -tw-translate-y-20 tw-rounded-xl tw-bg-clinic-ink tw-px-4 tw-py-2.5 tw-text-sm tw-font-bold tw-text-white tw-shadow-noor tw-transition focus:tw-translate-y-0;
+  }
+
+  .nv-patient-empty {
+    @apply tw-flex tw-min-h-56 tw-flex-col tw-items-center tw-justify-center tw-rounded-2xl tw-border tw-border-dashed tw-border-slate-200 tw-bg-slate-50 tw-p-7 tw-text-center;
+  }
+
+  .nv-patient-action-btn {
+    @apply tw-inline-flex tw-items-center tw-justify-center tw-gap-2 tw-rounded-xl tw-border tw-border-slate-200 tw-bg-white tw-px-3 tw-py-2 tw-text-xs tw-font-bold tw-text-slate-700 tw-transition hover:tw-border-noor-200 hover:tw-bg-noor-50 hover:tw-text-noor-800 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-noor-200;
+  }
+
+  .nv-patient-action-danger {
+    @apply tw-border-rose-200 tw-text-rose-700 hover:tw-border-rose-300 hover:tw-bg-rose-50 hover:tw-text-rose-800 focus:tw-ring-rose-200;
+  }
+
+  .nv-patient-page-btn {
+    @apply tw-inline-flex tw-h-10 tw-min-w-10 tw-items-center tw-justify-center tw-rounded-xl tw-border tw-border-slate-200 tw-bg-white tw-px-3 tw-text-sm tw-font-bold tw-text-slate-600 tw-transition hover:tw-border-noor-200 hover:tw-bg-noor-50 hover:tw-text-noor-800 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-noor-200;
+  }
+
+  .nv-patient-page-btn-active {
+    @apply tw-border-noor-600 tw-bg-noor-600 tw-text-white hover:tw-border-noor-700 hover:tw-bg-noor-700 hover:tw-text-white;
+  }
+
+  .nv-patient-detail-grid {
+    @apply tw-grid tw-gap-4 sm:tw-grid-cols-2;
+  }
+
+  .nv-patient-detail-item {
+    @apply tw-rounded-2xl tw-border tw-border-slate-200 tw-bg-slate-50 tw-p-4;
+  }
+
+  .nv-patient-detail-item > span:first-child {
+    @apply tw-block tw-text-xs tw-font-bold tw-text-slate-400;
+  }
+
+  .nv-patient-detail-item > strong {
+    @apply tw-mt-2 tw-block tw-text-sm tw-font-black tw-leading-7 tw-text-clinic-ink;
+  }
+
+  .nv-patient-modal {
+    @apply tw-fixed tw-inset-0 tw-z-[90] tw-flex tw-items-center tw-justify-center tw-bg-slate-950/55 tw-p-4 tw-backdrop-blur-sm;
+  }
+
+  .nv-patient-modal-panel {
+    @apply tw-w-full tw-max-w-2xl tw-overflow-hidden tw-rounded-noor tw-bg-white tw-shadow-2xl;
+  }
+
+  .nv-patient-password-toggle {
+    @apply tw-absolute tw-left-1.5 tw-top-1/2 tw-flex tw-h-9 tw-w-9 -tw-translate-y-1/2 tw-items-center tw-justify-center tw-rounded-lg tw-border-0 tw-bg-transparent tw-text-slate-400 tw-transition hover:tw-bg-slate-100 hover:tw-text-noor-700;
+  }
+
+  .nv-patient-bottom-nav {
+    @apply tw-fixed tw-inset-x-3 tw-bottom-3 tw-z-40 tw-grid tw-grid-cols-4 tw-rounded-2xl tw-border tw-border-slate-200/80 tw-bg-white/95 tw-p-2 tw-shadow-noor tw-backdrop-blur-xl;
+    padding-bottom: max(.5rem, env(safe-area-inset-bottom));
+  }
+
+  .nv-patient-bottom-link {
+    @apply tw-flex tw-min-w-0 tw-flex-col tw-items-center tw-justify-center tw-gap-1 tw-rounded-xl tw-px-1 tw-py-2 tw-text-[10px] tw-font-bold tw-text-slate-500 tw-transition hover:tw-bg-noor-50 hover:tw-text-noor-700;
+  }
+
+  .nv-patient-bottom-link i {
+    @apply tw-text-base;
+  }
+
+  .nv-patient-bottom-link-active {
+    @apply tw-bg-noor-50 tw-text-noor-800;
+  }
+
+  .nv-patient-skeleton {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.25rem;
+    background: #e2e8f0;
+  }
+
+  .nv-patient-skeleton::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translateX(100%);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.72), transparent);
+    animation: nv-patient-shimmer 1.35s infinite;
+  }
+
+  .nv-patient-spinner {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 9999px;
+    border: 2px solid rgba(255,255,255,.45);
+    border-top-color: currentColor;
+    animation: nv-patient-spin .7s linear infinite;
+  }
+}
+
+
+/* Patient portal interaction polish: primary CTA, selected navigation and accessible custom selects. */
+@layer components {
+  .nv-patient-primary-cta {
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, .35);
+    background: linear-gradient(135deg, #2da9e6 0%, #1689c4 48%, #155d83 100%) !important;
+    box-shadow: 0 14px 34px rgba(7, 65, 99, .34);
+    transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+  }
+
+  .nv-patient-primary-cta:hover {
+    color: #ffffff !important;
+    filter: brightness(1.06);
+    transform: translateY(-2px);
+    box-shadow: 0 18px 40px rgba(7, 65, 99, .42);
+  }
+
+  .nv-patient-primary-cta:focus-visible {
+    outline: 3px solid rgba(255, 255, 255, .58);
+    outline-offset: 3px;
+  }
+
+  .nv-pselect {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .nv-pselect-native {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  .nv-pselect-trigger {
+    display: flex;
+    width: 100%;
+    min-height: 46px;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
+    padding: .68rem .85rem .68rem .65rem;
+    border: 1px solid #dbe7ef;
+    border-radius: .9rem;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbfd 100%);
+    color: #123047;
+    box-shadow: 0 1px 2px rgba(18, 48, 71, .04);
+    text-align: right;
+    transition: border-color .18s ease, box-shadow .18s ease, background .18s ease, transform .18s ease;
+  }
+
+  .nv-pselect-trigger:hover {
+    border-color: #8edbff;
+    background: #ffffff;
+    box-shadow: 0 8px 22px rgba(18, 109, 159, .09);
+  }
+
+  .nv-pselect-trigger:focus-visible,
+  .nv-pselect-open .nv-pselect-trigger {
+    border-color: #2da9e6;
+    background: #ffffff;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(45, 169, 230, .14), 0 10px 28px rgba(18, 109, 159, .10);
+  }
+
+  .nv-pselect-invalid .nv-pselect-trigger {
+    border-color: #fb7185;
+    box-shadow: 0 0 0 4px rgba(251, 113, 133, .12);
+  }
+
+  .nv-pselect-disabled .nv-pselect-trigger,
+  .nv-pselect-trigger:disabled {
+    cursor: not-allowed;
+    border-color: #e2e8f0;
+    background: #f8fafc;
+    color: #94a3b8;
+    box-shadow: none;
+  }
+
+  .nv-pselect-value {
+    min-width: 0;
+    flex: 1;
+    overflow: hidden;
+    color: #123047;
+    font-size: .875rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .nv-pselect-placeholder {
+    color: #94a3b8;
+    font-weight: 500;
+  }
+
+  .nv-pselect-chevron {
+    display: inline-flex;
+    width: 2rem;
+    height: 2rem;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: .65rem;
+    background: #eef9ff;
+    color: #126d9f;
+    font-size: .72rem;
+    transition: transform .18s ease, background .18s ease;
+  }
+
+  .nv-pselect-open .nv-pselect-chevron {
+    background: #d9f1ff;
+    transform: rotate(180deg);
+  }
+
+  .nv-pselect-profile .nv-pselect-trigger {
+    padding-right: 2.7rem;
+  }
+
+  .nv-pselect-compact .nv-pselect-trigger {
+    min-height: 42px;
+    justify-content: center;
+    padding: .55rem .65rem;
+    text-align: center;
+  }
+
+  .nv-pselect-compact .nv-pselect-value {
+    text-align: center;
+  }
+
+  .nv-pselect-portal {
+    position: fixed;
+    z-index: 180;
+    overflow: auto;
+    overscroll-behavior: contain;
+    padding: .55rem;
+    border: 1px solid rgba(186, 230, 253, .95);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, .98);
+    box-shadow: 0 24px 70px rgba(18, 48, 71, .22), 0 8px 22px rgba(18, 48, 71, .10);
+    backdrop-filter: blur(14px);
+    animation: nv-pselect-enter .16s ease-out both;
+  }
+
+  .nv-pselect-portal-up {
+    transform-origin: bottom center;
+  }
+
+  .nv-pselect-search {
+    position: sticky;
+    top: -.55rem;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    margin: -.1rem -.1rem .45rem;
+    padding: .55rem;
+    border-bottom: 1px solid #edf2f7;
+    background: rgba(255, 255, 255, .96);
+    backdrop-filter: blur(10px);
+  }
+
+  .nv-pselect-search > i {
+    color: #1689c4;
+  }
+
+  .nv-pselect-search input {
+    width: 100%;
+    min-width: 0;
+    border: 1px solid #dbe7ef;
+    border-radius: .75rem;
+    background: #f8fbfd;
+    padding: .58rem .75rem;
+    color: #123047;
+    font-size: .82rem;
+    outline: none;
+  }
+
+  .nv-pselect-search input:focus {
+    border-color: #2da9e6;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(45, 169, 230, .12);
+  }
+
+  .nv-pselect-options {
+    display: grid;
+    gap: .28rem;
+  }
+
+  .nv-pselect-option {
+    display: flex;
+    width: 100%;
+    min-height: 42px;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
+    padding: .62rem .72rem;
+    border: 0;
+    border-radius: .78rem;
+    background: transparent;
+    color: #334155;
+    text-align: right;
+    transition: background .14s ease, color .14s ease, transform .14s ease;
+  }
+
+  .nv-pselect-option:hover,
+  .nv-pselect-option:focus-visible {
+    background: #eef9ff;
+    color: #0f5f8a;
+    outline: none;
+    transform: translateX(-2px);
+  }
+
+  .nv-pselect-option[aria-selected="true"] {
+    background: linear-gradient(135deg, #e7f7ff 0%, #d9f1ff 100%);
+    color: #0d5d87;
+    font-weight: 800;
+    box-shadow: inset 0 0 0 1px rgba(45, 169, 230, .20);
+  }
+
+  .nv-pselect-option:disabled {
+    cursor: not-allowed;
+    color: #b6c2cf;
+    background: transparent;
+    transform: none;
+  }
+
+  .nv-pselect-option-label {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .nv-pselect-option-check {
+    display: inline-flex;
+    width: 1.75rem;
+    height: 1.75rem;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: .55rem;
+    background: transparent;
+    color: transparent;
+    font-size: .72rem;
+  }
+
+  .nv-pselect-option[aria-selected="true"] .nv-pselect-option-check {
+    background: #1689c4;
+    color: #ffffff;
+  }
+
+  .nv-pselect-empty {
+    display: flex;
+    min-height: 92px;
+    align-items: center;
+    justify-content: center;
+    gap: .6rem;
+    color: #64748b;
+    font-size: .82rem;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .nv-pselect-portal {
+    scrollbar-width: thin;
+    scrollbar-color: #7ac8eb transparent;
+  }
+
+  .nv-pselect-portal::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .nv-pselect-portal::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .nv-pselect-portal::-webkit-scrollbar-thumb {
+    border: 1px solid transparent;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #7ac8eb, #1689c4);
+    background-clip: padding-box;
+  }
+}
+
+@keyframes nv-pselect-enter {
+  from { opacity: 0; transform: translateY(-6px) scale(.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+
+/* Patient profile refinement, slim scrollbars and the native NoorVista Jalali picker. */
+@layer components {
+  .nv-profile-card {
+    @apply tw-overflow-visible;
+  }
+
+  .nv-profile-card-intro {
+    @apply tw-flex tw-flex-col tw-gap-4 tw-rounded-t-noor tw-border-b tw-border-slate-100 tw-bg-gradient-to-l tw-from-slate-50 tw-via-white tw-to-noor-50 tw-p-5 sm:tw-flex-row sm:tw-items-center sm:tw-justify-between sm:tw-p-6;
+  }
+
+  .nv-profile-card-intro h2 {
+    @apply tw-mt-2 tw-text-xl tw-font-black tw-text-clinic-ink;
+  }
+
+  .nv-profile-card-intro p {
+    @apply tw-mt-2 tw-max-w-2xl tw-text-sm tw-leading-7 tw-text-slate-500;
+  }
+
+  .nv-profile-card-kicker {
+    @apply tw-inline-flex tw-items-center tw-rounded-full tw-bg-noor-100 tw-px-3 tw-py-1 tw-text-[11px] tw-font-black tw-text-noor-800;
+  }
+
+  .nv-profile-card-icon {
+    @apply tw-flex tw-h-14 tw-w-14 tw-flex-none tw-items-center tw-justify-center tw-rounded-2xl tw-bg-white tw-text-xl tw-text-noor-700 tw-shadow-noor-soft tw-ring-1 tw-ring-noor-100;
+  }
+
+  .nv-profile-section {
+    @apply tw-rounded-noor tw-border tw-p-4 sm:tw-p-5;
+  }
+
+  .nv-profile-section-identity {
+    @apply tw-border-sky-100 tw-bg-gradient-to-l tw-from-sky-50/70 tw-to-white;
+  }
+
+  .nv-profile-section-insurance {
+    @apply tw-border-indigo-100 tw-bg-gradient-to-l tw-from-indigo-50/70 tw-to-white;
+  }
+
+  .nv-profile-section-health {
+    @apply tw-border-emerald-100 tw-bg-gradient-to-l tw-from-emerald-50/60 tw-to-white;
+  }
+
+  .nv-profile-section-emergency {
+    @apply tw-border-rose-100 tw-bg-gradient-to-l tw-from-rose-50/70 tw-to-white;
+  }
+
+  .nv-profile-section-header {
+    @apply tw-flex tw-items-start tw-gap-3 tw-border-b tw-border-slate-200/70 tw-pb-4;
+  }
+
+  .nv-profile-section-header h3 {
+    @apply tw-mt-1 tw-text-base tw-font-black tw-text-clinic-ink;
+  }
+
+  .nv-profile-section-header p {
+    @apply tw-mt-1 tw-text-xs tw-leading-6 tw-text-slate-500;
+  }
+
+  .nv-profile-section-icon {
+    @apply tw-flex tw-h-11 tw-w-11 tw-flex-none tw-items-center tw-justify-center tw-rounded-2xl tw-bg-white tw-text-base tw-text-noor-700 tw-shadow-sm tw-ring-1 tw-ring-slate-200/70;
+  }
+
+  .nv-profile-step {
+    @apply tw-text-[10px] tw-font-black tw-uppercase tw-tracking-wider tw-text-noor-600;
+  }
+
+  .nv-profile-fields {
+    @apply tw-mt-5 tw-grid tw-gap-5 md:tw-grid-cols-2;
+  }
+
+  .nv-profile-field-wide {
+    @apply md:tw-col-span-2;
+  }
+
+  .nv-profile-input-wrap {
+    @apply tw-relative;
+  }
+
+  .nv-profile-input-wrap > i {
+    @apply tw-pointer-events-none tw-absolute tw-right-3.5 tw-top-1/2 tw-z-[1] -tw-translate-y-1/2 tw-text-sm tw-text-slate-400;
+  }
+
+  .nv-profile-input-wrap .nv-profile-input {
+    @apply tw-pr-10;
+  }
+
+  .nv-profile-textarea-wrap > i {
+    @apply tw-top-4 tw-translate-y-0;
+  }
+
+  .nv-profile-help {
+    @apply tw-mt-2 tw-text-[11px] tw-leading-5 tw-text-slate-500;
+  }
+
+  .nv-health-grid {
+    @apply tw-mt-5 tw-grid tw-gap-4 lg:tw-grid-cols-2;
+  }
+
+  .nv-health-field {
+    @apply tw-rounded-2xl tw-border tw-bg-white/85 tw-p-4;
+  }
+
+  .nv-health-field .noor-tw-label {
+    @apply tw-flex tw-items-center tw-gap-2;
+  }
+
+  .nv-health-field-rose { @apply tw-border-rose-100; }
+  .nv-health-field-amber { @apply tw-border-amber-100; }
+  .nv-health-field-sky { @apply tw-border-sky-100; }
+  .nv-health-field-violet { @apply tw-border-violet-100; }
+
+  .nv-health-field-rose .noor-tw-label i { @apply tw-text-rose-600; }
+  .nv-health-field-amber .noor-tw-label i { @apply tw-text-amber-600; }
+  .nv-health-field-sky .noor-tw-label i { @apply tw-text-sky-600; }
+  .nv-health-field-violet .noor-tw-label i { @apply tw-text-violet-600; }
+
+  .nv-profile-savebar {
+    @apply tw-flex tw-flex-col tw-gap-4 tw-rounded-noor tw-border tw-border-noor-100 tw-bg-gradient-to-l tw-from-noor-50 tw-to-white tw-p-4 sm:tw-flex-row sm:tw-items-center sm:tw-justify-between;
+  }
+
+  .nv-profile-savebar strong {
+    @apply tw-block tw-text-sm tw-font-black tw-text-clinic-ink;
+  }
+
+  .nv-profile-savebar p {
+    @apply tw-mt-1 tw-text-xs tw-leading-6 tw-text-slate-500;
+  }
+
+  .nv-profile-save-icon {
+    @apply tw-flex tw-h-10 tw-w-10 tw-flex-none tw-items-center tw-justify-center tw-rounded-xl tw-bg-white tw-text-noor-700 tw-shadow-sm;
+  }
+
+  .nv-jalali-field {
+    @apply tw-relative;
+  }
+
+  .nv-jalali-display {
+    @apply tw-cursor-pointer tw-pl-12;
+  }
+
+  .nv-jalali-trigger {
+    @apply tw-absolute tw-left-1.5 tw-top-1/2 tw-flex tw-h-9 tw-w-9 -tw-translate-y-1/2 tw-items-center tw-justify-center tw-rounded-lg tw-border-0 tw-bg-noor-50 tw-text-noor-700 tw-transition hover:tw-bg-noor-100 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-noor-200;
+  }
+
+  .nv-jalali-modal {
+    @apply tw-fixed tw-inset-0 tw-z-[110] tw-flex tw-items-center tw-justify-center tw-bg-slate-950/60 tw-p-4 tw-backdrop-blur-sm;
+  }
+
+  .nv-jalali-panel {
+    @apply tw-w-full tw-max-w-md tw-overflow-hidden tw-rounded-noor tw-bg-white tw-shadow-2xl;
+  }
+
+  .nv-jalali-header {
+    @apply tw-flex tw-items-start tw-justify-between tw-gap-4 tw-bg-gradient-to-l tw-from-noor-900 tw-to-indigo-800 tw-p-5 tw-text-white;
+  }
+
+  .nv-jalali-header h2 {
+    @apply tw-mt-1 tw-text-lg tw-font-black;
+  }
+
+  .nv-jalali-eyebrow {
+    @apply tw-text-[10px] tw-font-black tw-uppercase tw-tracking-wider tw-text-sky-200;
+  }
+
+  .nv-jalali-close,
+  .nv-jalali-nav {
+    @apply tw-flex tw-h-10 tw-w-10 tw-flex-none tw-items-center tw-justify-center tw-rounded-xl tw-border-0 tw-transition focus:tw-outline-none focus:tw-ring-2;
+  }
+
+  .nv-jalali-close {
+    @apply tw-bg-white/10 tw-text-white hover:tw-bg-white/20 focus:tw-ring-white/40;
+  }
+
+  .nv-jalali-toolbar {
+    @apply tw-flex tw-items-center tw-justify-between tw-gap-3 tw-border-b tw-border-slate-100 tw-p-4;
+  }
+
+  .nv-jalali-nav {
+    @apply tw-bg-slate-100 tw-text-slate-600 hover:tw-bg-noor-50 hover:tw-text-noor-700 focus:tw-ring-noor-200;
+  }
+
+  .nv-jalali-selects {
+    @apply tw-grid tw-flex-1 tw-grid-cols-2 tw-gap-2;
+  }
+
+  .nv-jalali-selects select {
+    @apply tw-w-full tw-rounded-xl tw-border tw-border-slate-200 tw-bg-white tw-px-3 tw-py-2.5 tw-text-center tw-text-sm tw-font-bold tw-text-clinic-ink focus:tw-border-noor-400 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-noor-100;
+  }
+
+  .nv-jalali-weekdays,
+  .nv-jalali-grid {
+    @apply tw-grid tw-grid-cols-7;
+  }
+
+  .nv-jalali-weekdays {
+    @apply tw-px-4 tw-pt-4;
+  }
+
+  .nv-jalali-weekdays span {
+    @apply tw-py-2 tw-text-center tw-text-[11px] tw-font-black tw-text-slate-400;
+  }
+
+  .nv-jalali-grid {
+    @apply tw-gap-1 tw-px-4 tw-pb-4;
+  }
+
+  .nv-jalali-day,
+  .nv-jalali-blank {
+    aspect-ratio: 1;
+  }
+
+  .nv-jalali-day {
+    @apply tw-flex tw-items-center tw-justify-center tw-rounded-xl tw-border-0 tw-bg-transparent tw-text-sm tw-font-bold tw-text-slate-700 tw-transition hover:tw-bg-noor-50 hover:tw-text-noor-800 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-noor-200 disabled:tw-cursor-not-allowed disabled:tw-text-slate-300 disabled:hover:tw-bg-transparent;
+  }
+
+  .nv-jalali-day-today {
+    @apply tw-ring-1 tw-ring-inset tw-ring-noor-300;
+  }
+
+  .nv-jalali-day-selected {
+    @apply tw-bg-noor-600 tw-text-white tw-shadow-sm hover:tw-bg-noor-700 hover:tw-text-white;
+  }
+
+  .nv-jalali-footer {
+    @apply tw-flex tw-items-center tw-justify-between tw-gap-3 tw-border-t tw-border-slate-100 tw-bg-slate-50 tw-p-4;
+  }
+
+  .nv-jalali-text-btn {
+    @apply tw-rounded-xl tw-border-0 tw-bg-transparent tw-px-3 tw-py-2 tw-text-sm tw-font-bold tw-text-noor-700 tw-transition hover:tw-bg-noor-50 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-noor-200;
+  }
+
+  .nv-jalali-clear {
+    @apply tw-text-rose-600 hover:tw-bg-rose-50;
+  }
+
+  .nv-jalali-error {
+    @apply tw-col-span-7 tw-rounded-xl tw-bg-rose-50 tw-p-4 tw-text-center tw-text-sm tw-font-bold tw-text-rose-700;
+  }
+}
+
+/* Scrollbars are scoped to patient pages by a class set on <html> at runtime. */
+.nv-patient-document {
+  scrollbar-width: thin;
+  scrollbar-color: #5fbce9 #edf6fa;
+  scrollbar-gutter: stable;
+}
+
+.nv-patient-document::-webkit-scrollbar,
+.nv-patient-document body::-webkit-scrollbar,
+.nv-patient-document .nv-patient-portal *::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.nv-patient-document::-webkit-scrollbar-track,
+.nv-patient-document body::-webkit-scrollbar-track,
+.nv-patient-document .nv-patient-portal *::-webkit-scrollbar-track {
+  background: #edf6fa;
+  border-radius: 999px;
+}
+
+.nv-patient-document::-webkit-scrollbar-thumb,
+.nv-patient-document body::-webkit-scrollbar-thumb,
+.nv-patient-document .nv-patient-portal *::-webkit-scrollbar-thumb {
+  min-height: 42px;
+  border: 2px solid #edf6fa;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #5fc5ee, #1689c4);
+}
+
+.nv-patient-document::-webkit-scrollbar-thumb:hover,
+.nv-patient-document body::-webkit-scrollbar-thumb:hover,
+.nv-patient-document .nv-patient-portal *::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #2da9e6, #126d9f);
+}
+
+.nv-patient-document .nv-patient-portal * {
+  scrollbar-width: thin;
+  scrollbar-color: #7ac8eb #edf6fa;
+}
+
+@media (max-width: 639px) {
+  .nv-jalali-modal {
+    @apply tw-items-end tw-p-0;
+  }
+
+  .nv-jalali-panel {
+    @apply tw-max-w-none tw-rounded-b-none tw-rounded-t-noor;
+  }
+
+  .nv-profile-section {
+    @apply tw-p-4;
+  }
+}
+
+@keyframes nv-patient-shimmer {
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes nv-patient-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nv-patient-portal *,
+  .nv-patient-portal *::before,
+  .nv-patient-portal *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* Patient desktop sidebar: collapsible, persistent and keyboard accessible. */
+.nv-patient-shell {
+  transition: grid-template-columns 280ms cubic-bezier(.2,.8,.2,1);
+}
+
+.nv-patient-sidebar {
+  transition: width 280ms cubic-bezier(.2,.8,.2,1), transform 280ms cubic-bezier(.2,.8,.2,1);
+}
+
+.nv-patient-sidebar-header {
+  position: relative;
+  gap: 12px;
+}
+
+/* Kept inside the sidebar header so it never overlaps page content. */
+.nv-patient-sidebar-collapse {
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, .2);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .1);
+  color: #fff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08), 0 8px 20px rgba(4, 35, 52, .14);
+  cursor: pointer;
+  transition: transform 180ms ease, color 180ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.nv-patient-sidebar-collapse:hover {
+  transform: translateY(-1px);
+  color: #fff;
+  border-color: rgba(255, 255, 255, .34);
+  background: rgba(255, 255, 255, .18);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12), 0 10px 24px rgba(4, 35, 52, .2);
+}
+
+.nv-patient-sidebar-collapse:active {
+  transform: translateY(0) scale(.97);
+}
+
+.nv-patient-sidebar-collapse:focus-visible {
+  outline: 3px solid rgba(125, 211, 252, .55);
+  outline-offset: 3px;
+}
+
+.nv-patient-sidebar-nav {
+  padding-top: 4px;
+}
+
+.nv-patient-nav-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 8px 16px;
+  color: #bae6fd;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.8;
+  white-space: nowrap;
+}
+
+.nv-patient-nav-heading::after {
+  content: "";
+  height: 1px;
+  flex: 1 1 auto;
+  background: linear-gradient(90deg, rgba(186, 230, 253, 0), rgba(186, 230, 253, .42));
+}
+
+.nv-patient-sidebar-label,
+.nv-patient-nav-label {
+  transition: opacity 150ms ease, visibility 150ms ease;
+}
+
+@media (min-width: 1024px) {
+  .nv-patient-sidebar {
+    overflow: visible !important;
+  }
+
+  .nv-patient-sidebar > .tw-flex-1 {
+    overflow-x: hidden;
+  }
+
+  html.nv-patient-sidebar-collapsed .nv-patient-shell {
+    grid-template-columns: 88px minmax(0, 1fr) !important;
+  }
+
+  html.nv-patient-sidebar-collapsed .nv-patient-sidebar {
+    width: 88px !important;
+  }
+
+  html.nv-patient-sidebar-collapsed .nv-patient-sidebar-header {
+    flex-direction: column;
+    gap: 10px;
+    padding: 14px 12px !important;
+  }
+
+  html.nv-patient-sidebar-collapsed .nv-patient-brand {
+    min-width: 0;
+    justify-content: center;
+    gap: 0 !important;
+    padding: 8px !important;
+  }
+
+  html.nv-patient-sidebar-collapsed .nv-patient-brand > span:first-child {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  html.nv-patient-sidebar-collapsed .nv-patient-sidebar-collapse {
+    width: 44px;
+    height: 38px;
+    border-radius: 13px;
+  }
+
+  html.nv-patient-sidebar-collapsed .nv-patient-sidebar > .tw-flex-1 {
+    padding: 16px 12px !important;
+  }
+
+  html.nv-patient-sidebar-collapsed .nv-patient-sidebar-label,
+  html.nv-patient-sidebar-collapsed .nv-patient-sidebar .nv-patient-nav-label {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+    opacity: 0;
+  }
+
+  html.nv-patient-sidebar-collapsed .nv-tw-nav-link {
+    justify-content: center;
+    gap: 0 !important;
+    padding: 10px !important;
+  }
+
+  html.nv-patient-sidebar-collapsed .nv-tw-nav-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  html.nv-patient-sidebar-collapsed .nv-patient-sidebar-footer {
+    padding: 14px 12px !important;
+  }
+
+  html.nv-patient-sidebar-collapsed .nv-patient-logout {
+    width: 52px !important;
+    min-height: 48px;
+    margin-inline: auto;
+    gap: 0 !important;
+    padding: 10px !important;
+  }
+}
+
+/* ==========================================================
+   NoorVista compact Persian calendar refinement v2.1.69
+   Compact single-row header, fixed day cells and viewport-safe sizing.
+========================================================== */
+.nv-jalali-picker,
+.persian-datepicker {
+  width: 320px !important;
+  max-width: calc(100vw - 20px) !important;
+  padding: 12px !important;
+  border-radius: 18px !important;
+  overflow-x: hidden !important;
+}
+
+.nv-jalali-picker .nv-jp-head,
+.persian-datepicker .nv-jp-head {
+  position: relative;
+  display: grid !important;
+  grid-template-columns: 40px minmax(0, 1fr) 40px !important;
+  align-items: center !important;
+  gap: 7px !important;
+  margin: 0 0 9px !important;
+  padding: 0 !important;
+}
+
+.nv-jalali-picker .nv-jp-period-label.tw-sr-only,
+.persian-datepicker .nv-jp-period-label.tw-sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.nv-jalali-picker .nv-jp-selects,
+.persian-datepicker .nv-jp-selects {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.2fr) minmax(88px, .8fr) !important;
+  align-items: center !important;
+  gap: 6px !important;
+  min-width: 0 !important;
+}
+
+.nv-jalali-picker .nv-calendar-listbox-trigger,
+.persian-datepicker .nv-calendar-listbox-trigger {
+  width: 100% !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  padding-inline: 30px 12px !important;
+  border-radius: 12px !important;
+  font-size: 12.5px !important;
+  line-height: 1 !important;
+}
+
+.nv-jalali-picker .nv-jp-head > button,
+.persian-datepicker .nv-jp-head > button {
+  width: 40px !important;
+  min-width: 40px !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  border-radius: 12px !important;
+  line-height: 1 !important;
+}
+
+.nv-jalali-picker .nv-jp-week,
+.nv-jalali-picker .nv-jp-days,
+.persian-datepicker .nv-jp-week,
+.persian-datepicker .nv-jp-days {
+  display: grid !important;
+  grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+  gap: 3px !important;
+  direction: rtl !important;
+}
+
+.nv-jalali-picker .nv-jp-week,
+.persian-datepicker .nv-jp-week {
+  margin: 0 0 4px !important;
+}
+
+.nv-jalali-picker .nv-jp-week > span,
+.persian-datepicker .nv-jp-week > span {
+  display: grid !important;
+  place-items: center !important;
+  min-width: 0 !important;
+  height: 24px !important;
+  min-height: 24px !important;
+  padding: 0 !important;
+  color: #64748b !important;
+  font-size: 11.5px !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+}
+
+.nv-jalali-picker .nv-jp-days,
+.persian-datepicker .nv-jp-days {
+  grid-auto-rows: 38px !important;
+}
+
+.nv-jalali-picker .nv-jp-days > span,
+.persian-datepicker .nv-jp-days > span,
+.nv-jalali-picker .nv-jp-day,
+.persian-datepicker .nv-jp-day {
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 38px !important;
+  min-height: 38px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: 10px !important;
+  line-height: 1 !important;
+}
+
+.nv-jalali-picker .nv-jp-day,
+.persian-datepicker .nv-jp-day {
+  display: grid !important;
+  place-items: center !important;
+  border: 1px solid transparent !important;
+  background: transparent !important;
+  color: #334155 !important;
+  font-family: inherit !important;
+  font-size: 13px !important;
+  font-weight: 850 !important;
+  cursor: pointer !important;
+}
+
+.nv-jalali-picker .nv-jp-day:hover,
+.nv-jalali-picker .nv-jp-day:focus-visible,
+.persian-datepicker .nv-jp-day:hover,
+.persian-datepicker .nv-jp-day:focus-visible {
+  border-color: #7dd3fc !important;
+  background: #eaf8ff !important;
+  color: #075985 !important;
+  outline: none !important;
+}
+
+.nv-jalali-picker .nv-jp-day.today:not(.active),
+.persian-datepicker .nv-jp-day.today:not(.active) {
+  border-color: #bae6fd !important;
+  background: #f0f9ff !important;
+  color: #0369a1 !important;
+}
+
+.nv-jalali-picker .nv-jp-day.active,
+.persian-datepicker .nv-jp-day.active {
+  border-color: #0284c7 !important;
+  background: linear-gradient(135deg, #0ea5e9, #0878ad) !important;
+  color: #fff !important;
+  box-shadow: 0 6px 14px rgba(2, 132, 199, .22) !important;
+}
+
+.nv-jalali-picker .nv-jp-actions,
+.persian-datepicker .nv-jp-actions {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 8px !important;
+  margin-top: 9px !important;
+  padding-top: 9px !important;
+  border-top: 1px solid #e2e8f0 !important;
+}
+
+.nv-jalali-picker .nv-jp-actions button,
+.persian-datepicker .nv-jp-actions button {
+  min-height: 40px !important;
+  padding: 0 10px !important;
+  border: 1px solid #bae6fd !important;
+  border-radius: 11px !important;
+  background: #f0f9ff !important;
+  color: #075985 !important;
+  font-family: inherit !important;
+  font-size: 12px !important;
+  font-weight: 900 !important;
+  cursor: pointer !important;
+}
+
+.nv-jalali-picker .nv-jp-actions button:last-child,
+.persian-datepicker .nv-jp-actions button:last-child {
+  border-color: #fecdd3 !important;
+  background: #fff1f2 !important;
+  color: #be123c !important;
+}
+
+@media (max-width: 420px) {
+  .nv-jalali-picker,
+  .persian-datepicker {
+    width: calc(100vw - 16px) !important;
+    max-width: calc(100vw - 16px) !important;
+    padding: 10px !important;
+    border-radius: 16px !important;
+  }
+
+  .nv-jalali-picker .nv-jp-head,
+  .persian-datepicker .nv-jp-head {
+    grid-template-columns: 38px minmax(0, 1fr) 38px !important;
+    gap: 5px !important;
+  }
+
+  .nv-jalali-picker .nv-jp-head > button,
+  .persian-datepicker .nv-jp-head > button {
+    width: 38px !important;
+    min-width: 38px !important;
+    height: 38px !important;
+    min-height: 38px !important;
+  }
+
+  .nv-jalali-picker .nv-jp-selects,
+  .persian-datepicker .nv-jp-selects {
+    grid-template-columns: minmax(0, 1.15fr) minmax(78px, .85fr) !important;
+    gap: 5px !important;
+  }
+
+  .nv-jalali-picker .nv-calendar-listbox-trigger,
+  .persian-datepicker .nv-calendar-listbox-trigger {
+    height: 38px !important;
+    min-height: 38px !important;
+    padding-inline: 26px 9px !important;
+    font-size: 12px !important;
+  }
+
+  .nv-jalali-picker .nv-jp-days,
+  .persian-datepicker .nv-jp-days {
+    grid-auto-rows: 36px !important;
+  }
+
+  .nv-jalali-picker .nv-jp-days > span,
+  .persian-datepicker .nv-jp-days > span,
+  .nv-jalali-picker .nv-jp-day,
+  .persian-datepicker .nv-jp-day {
+    height: 36px !important;
+    min-height: 36px !important;
+  }
+}

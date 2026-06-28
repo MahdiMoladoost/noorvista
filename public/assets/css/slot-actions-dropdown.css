@@ -1,0 +1,176 @@
+/* NOORVISTA Slot Actions Dropdown
+   ستون عملیات به یک دکمه مرتب تبدیل شد تا دکمه‌ها بالا/پایین و شلوغ دیده نشوند.
+*/
+
+body[data-appointment-page="slots"] .appt-table,
+body[data-appointment-page="slots"] .appt-table tbody,
+body[data-appointment-page="slots"] .appt-table tr,
+body[data-appointment-page="slots"] .appt-table td {
+  overflow: visible !important;
+}
+
+body[data-appointment-page="slots"] .appt-table th:last-child,
+body[data-appointment-page="slots"] .appt-table td:last-child {
+  width: 150px !important;
+  min-width: 150px !important;
+  max-width: 150px !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+body[data-appointment-page="slots"] .slot-status-actions {
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 42px !important;
+  min-height: 42px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+body[data-appointment-page="slots"] .slot-action-clean {
+  width: 100% !important;
+  height: 36px !important;
+  min-height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+body[data-appointment-page="slots"] .slot-more-actions {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 20 !important;
+}
+
+body[data-appointment-page="slots"] .slot-action-main {
+  height: 32px !important;
+  min-height: 32px !important;
+  padding: 0 14px !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(14, 165, 233, .32) !important;
+  background: #e0f2fe !important;
+  color: #075985 !important;
+  font-size: 11.5px !important;
+  font-weight: 950 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  cursor: pointer !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  box-shadow: 0 8px 18px rgba(14, 165, 233, .10) !important;
+}
+
+body[data-appointment-page="slots"] .slot-action-main::after {
+  content: "" !important;
+  font-size: 13px !important;
+  font-weight: 950 !important;
+  line-height: 1 !important;
+}
+
+body[data-appointment-page="slots"] .slot-action-view::after {
+  content: "" !important;
+}
+
+body[data-appointment-page="slots"] .slot-action-view {
+  background: #eef2ff !important;
+  color: #4338ca !important;
+  border-color: rgba(99, 102, 241, .26) !important;
+}
+
+body[data-appointment-page="slots"] .slot-more-menu {
+  position: absolute !important;
+  top: calc(100% + 8px) !important;
+  left: 50% !important;
+  transform: translateX(-50%) translateY(-4px) !important;
+  width: 150px !important;
+  padding: 7px !important;
+  border-radius: 16px !important;
+  border: 1px solid rgba(203, 213, 225, .85) !important;
+  background: rgba(255, 255, 255, .98) !important;
+  box-shadow: 0 20px 46px rgba(15, 23, 42, .18) !important;
+  display: none !important;
+  grid-template-columns: 1fr !important;
+  gap: 6px !important;
+  z-index: 9999 !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+body[data-appointment-page="slots"] .slot-more-actions:hover .slot-more-menu,
+body[data-appointment-page="slots"] .slot-more-actions:focus-within .slot-more-menu {
+  display: grid !important;
+  transform: translateX(-50%) translateY(0) !important;
+}
+
+body[data-appointment-page="slots"] .slot-more-menu button {
+  width: 100% !important;
+  min-height: 32px !important;
+  height: 32px !important;
+  padding: 0 10px !important;
+  border-radius: 11px !important;
+  border: 1px solid transparent !important;
+  background: #f8fafc !important;
+  color: #0f172a !important;
+  font-size: 11.5px !important;
+  font-weight: 950 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+body[data-appointment-page="slots"] .slot-more-menu button.success {
+  background: #dcfce7 !important;
+  color: #166534 !important;
+  border-color: rgba(34, 197, 94, .22) !important;
+}
+
+body[data-appointment-page="slots"] .slot-more-menu button.warning {
+  background: #fffbeb !important;
+  color: #92400e !important;
+  border-color: rgba(245, 158, 11, .24) !important;
+}
+
+body[data-appointment-page="slots"] .slot-more-menu button.neutral {
+  background: #f1f5f9 !important;
+  color: #334155 !important;
+  border-color: rgba(148, 163, 184, .28) !important;
+}
+
+body[data-appointment-page="slots"] .slot-more-menu button.danger {
+  background: #fef2f2 !important;
+  color: #dc2626 !important;
+  border-color: rgba(248, 113, 113, .28) !important;
+}
+
+/* خنثی‌سازی کامل استایل دکمه‌های قدیمی داخل عملیات */
+body[data-appointment-page="slots"] .slot-status-actions .appt-btn,
+body[data-appointment-page="slots"] .slot-status-actions .appt-btn-mini,
+body[data-appointment-page="slots"] .slot-action-group {
+  margin: 0 !important;
+  float: none !important;
+  position: static !important;
+  top: auto !important;
+  transform: none !important;
+}
+
+/* Prevent table container from cutting dropdown */
+body[data-appointment-page="slots"] .nv-table-surface,
+body[data-appointment-page="slots"] .table-container,
+body[data-appointment-page="slots"] .appt-table-wrap,
+body[data-appointment-page="slots"] .data-table-container {
+  overflow: visible !important;
+}

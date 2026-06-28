@@ -1,0 +1,56 @@
+/* Social media .webp icons */
+.social-link {
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  border-radius: 14px !important;
+  display: inline-grid !important;
+  place-items: center !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+  text-decoration: none !important;
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+
+.social-link img {
+  width: 24px !important;
+  height: 24px !important;
+  object-fit: contain !important;
+  display: block !important;
+  pointer-events: none !important;
+}
+
+.social-link:hover {
+  transform: translateY(-2px);
+  filter: saturate(1.08);
+}
+
+/* If old background colors exist, keep a clean rounded icon tile */
+.social-link.whatsapp,
+.social-link.telegram,
+.social-link.instagram,
+.social-link.rubika,
+.social-link.bale,
+.social-link.eitaa,
+.social-link.gap,
+.social-link.igap,
+.social-link.soroush,
+.social-link.nava {
+  background: rgba(255,255,255,.10) !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  box-shadow: 0 8px 18px rgba(15,23,42,.12);
+}
+
+.footer .social-link,
+.contact-footer .social-link {
+  background: rgba(255,255,255,.08) !important;
+  border-color: rgba(255,255,255,.14) !important;
+}
+
+
+/* NoorVista 2.1.136 — strict public config display */
+.social-link{display:none!important}
+.social-link.nv-social-visible{display:inline-grid!important}
+.social-link[hidden],.social-link.is-hidden,.social-link.is-empty-social{display:none!important;visibility:hidden!important;pointer-events:none!important}
+.footer-bottom:empty{display:none!important}

@@ -1,0 +1,159 @@
+/* NoorVista 3.0.8 — static, non-flickering footer */
+body:not([data-panel-role]) .footer .nv-footer306-info {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+body:not([data-panel-role]) .footer .contact-list.nv-footer-static-contact-list,
+body:not([data-panel-role]) .footer .footer-socials.nv-footer-static-socials,
+body:not([data-panel-role]) .footer .footer-bottom.nv-footer-bottom-static {
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+body:not([data-panel-role]) .footer .contact-list.nv-footer-static-contact-list,
+body:not([data-panel-role]) .footer .contact-list.nv-footer-static-contact-list * ,
+body:not([data-panel-role]) .footer .footer-bottom.nv-footer-bottom-static,
+body:not([data-panel-role]) .footer .footer-bottom.nv-footer-bottom-static * {
+  transition: none !important;
+  animation: none !important;
+  box-sizing: border-box !important;
+}
+
+body:not([data-panel-role]) .footer .contact-list.nv-footer-static-contact-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 142px !important;
+  list-style: none !important;
+  direction: rtl !important;
+}
+
+body:not([data-panel-role]) .footer .contact-list.nv-footer-static-contact-list .nv-footer-contact-row {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+  min-height: 25px !important;
+  line-height: 1.85 !important;
+  color: #d9edf8 !important;
+}
+
+body:not([data-panel-role]) .footer .contact-list.nv-footer-static-contact-list .nv-contact-icon {
+  width: 20px !important;
+  min-width: 20px !important;
+  min-height: 22px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-top: 4px !important;
+  color: #9fe8ff !important;
+}
+
+body:not([data-panel-role]) .footer .contact-list.nv-footer-static-contact-list .nv-contact-main {
+  display: inline-flex !important;
+  align-items: baseline !important;
+  gap: 4px !important;
+  flex-wrap: wrap !important;
+  min-width: 0 !important;
+  color: #d9edf8 !important;
+  text-decoration: none !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  line-height: 1.85 !important;
+}
+
+body:not([data-panel-role]) .footer .contact-list.nv-footer-static-contact-list .nv-contact-label {
+  color: #f8fbff !important;
+  font-weight: 900 !important;
+  white-space: nowrap !important;
+}
+
+body:not([data-panel-role]) .footer .contact-list.nv-footer-static-contact-list .nv-contact-value {
+  color: #d9edf8 !important;
+  font-weight: 800 !important;
+}
+
+body:not([data-panel-role]) .footer .contact-list.nv-footer-static-contact-list .nv-footer-phone .nv-contact-value {
+  direction: rtl !important;
+  unicode-bidi: plaintext !important;
+}
+
+body:not([data-panel-role]) .footer .footer-socials.nv-footer-static-socials {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+  min-height: 40px !important;
+  margin-top: 16px !important;
+  direction: ltr !important;
+}
+
+body:not([data-panel-role]) .footer .footer-socials.nv-footer-static-socials a:not([hidden]) {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 12px !important;
+  background: rgba(255,255,255,.08) !important;
+  border: 1px solid rgba(125,211,252,.16) !important;
+  line-height: 0 !important;
+}
+
+body:not([data-panel-role]) .footer .footer-socials.nv-footer-static-socials img {
+  width: 24px !important;
+  height: 24px !important;
+  display: block !important;
+  object-fit: contain !important;
+}
+
+body:not([data-panel-role]) .footer .footer-bottom.nv-footer-bottom-static {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+  min-height: 50px !important;
+  padding-top: 18px !important;
+  margin-top: 28px !important;
+  border-top: 1px solid rgba(226,232,240,.12) !important;
+  direction: rtl !important;
+  color: #cfe7f2 !important;
+}
+
+body:not([data-panel-role]) .footer .footer-bottom.nv-footer-bottom-static span,
+body:not([data-panel-role]) .footer .footer-bottom.nv-footer-bottom-static a {
+  color: #cfe7f2 !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  line-height: 1.8 !important;
+}
+
+body:not([data-panel-role]) .footer .footer-bottom.nv-footer-bottom-static a {
+  direction: ltr !important;
+  unicode-bidi: isolate !important;
+  text-decoration: none !important;
+}
+
+@media (max-width: 720px) {
+  body:not([data-panel-role]) .footer .contact-list.nv-footer-static-contact-list {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  body:not([data-panel-role]) .footer .contact-list.nv-footer-static-contact-list .nv-footer-contact-row {
+    justify-content: center !important;
+  }
+
+  body:not([data-panel-role]) .footer .footer-socials.nv-footer-static-socials,
+  body:not([data-panel-role]) .footer .footer-bottom.nv-footer-bottom-static {
+    justify-content: center !important;
+  }
+}

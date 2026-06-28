@@ -1,0 +1,222 @@
+/* NoorVista admin appointments page hardening and responsive layout. */
+
+body[data-panel-role="admin"][data-nv-page="appointments"] {
+  min-width: 320px;
+  overflow-x: hidden;
+  background: #eef4f8;
+  color: #16344d;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] *,
+body[data-panel-role="admin"][data-nv-page="appointments"] *::before,
+body[data-panel-role="admin"][data-nv-page="appointments"] *::after {
+  box-sizing: border-box;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .nv3-shell {
+  min-height: 100vh;
+  isolation: isolate;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .nv3-main,
+body[data-panel-role="admin"][data-nv-page="appointments"] .nv3-page,
+body[data-panel-role="admin"][data-nv-page="appointments"] .nv3-page-block,
+body[data-panel-role="admin"][data-nv-page="appointments"] .card,
+body[data-panel-role="admin"][data-nv-page="appointments"] .table-container {
+  min-width: 0;
+  max-width: 100%;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .nv3-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  background: rgba(255, 255, 255, 0.98);
+  border-bottom: 1px solid #c8d9e5;
+  backdrop-filter: blur(10px);
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .nv3-page {
+  width: 100%;
+  padding: clamp(16px, 2vw, 28px);
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .nv3-brand-copy {
+  min-width: 0;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .nv3-brand-copy strong {
+  display: block;
+  max-width: 190px;
+  overflow: hidden;
+  color: #ffffff;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .nv3-brand-copy small {
+  color: #d7edf7;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .stats-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .stat-card,
+body[data-panel-role="admin"][data-nv-page="appointments"] .nv-appointments-toolbox,
+body[data-panel-role="admin"][data-nv-page="appointments"] .card {
+  border: 1px solid #c9dbe7;
+  box-shadow: 0 10px 30px rgba(29, 67, 91, 0.08);
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .stat-card {
+  min-height: 112px;
+  overflow: hidden;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .stat-info h3,
+body[data-panel-role="admin"][data-nv-page="appointments"] .stat-info p,
+body[data-panel-role="admin"][data-nv-page="appointments"] .detail-value,
+body[data-panel-role="admin"][data-nv-page="appointments"] td,
+body[data-panel-role="admin"][data-nv-page="appointments"] th {
+  overflow-wrap: anywhere;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .nv-appointments-filter-fields {
+  display: grid;
+  grid-template-columns: minmax(220px, 1.4fr) minmax(180px, 0.8fr) minmax(180px, 0.8fr) auto;
+  gap: 12px;
+  align-items: end;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] input,
+body[data-panel-role="admin"][data-nv-page="appointments"] select,
+body[data-panel-role="admin"][data-nv-page="appointments"] textarea,
+body[data-panel-role="admin"][data-nv-page="appointments"] button,
+body[data-panel-role="admin"][data-nv-page="appointments"] .btn {
+  min-height: 44px;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] input:focus-visible,
+body[data-panel-role="admin"][data-nv-page="appointments"] select:focus-visible,
+body[data-panel-role="admin"][data-nv-page="appointments"] textarea:focus-visible,
+body[data-panel-role="admin"][data-nv-page="appointments"] button:focus-visible,
+body[data-panel-role="admin"][data-nv-page="appointments"] a:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 3px;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .nv-appointments-commandbar-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .table-container {
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-gutter: stable;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] table {
+  width: 100%;
+  min-width: 1040px;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #eaf3f8;
+  color: #17364d;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .table-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-width: 220px;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .action-btn {
+  min-height: 38px;
+  padding-inline: 10px;
+  white-space: nowrap;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .modal-overlay {
+  padding: clamp(10px, 3vw, 28px);
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .modal {
+  width: min(920px, 100%);
+  max-height: calc(100dvh - 24px);
+  overflow: hidden;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .modal-body {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .slot-chip {
+  min-width: 72px;
+}
+
+@media (max-width: 1180px) {
+  body[data-panel-role="admin"][data-nv-page="appointments"] .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body[data-panel-role="admin"][data-nv-page="appointments"] .nv-appointments-filter-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  body[data-panel-role="admin"][data-nv-page="appointments"] .nv3-page {
+    padding: 12px;
+  }
+
+  body[data-panel-role="admin"][data-nv-page="appointments"] .stats-grid,
+  body[data-panel-role="admin"][data-nv-page="appointments"] .nv-appointments-filter-fields {
+    grid-template-columns: 1fr;
+  }
+
+  body[data-panel-role="admin"][data-nv-page="appointments"] .nv3-page-heading p,
+  body[data-panel-role="admin"][data-nv-page="appointments"] .nv3-date-box,
+  body[data-panel-role="admin"][data-nv-page="appointments"] .nv3-user-copy {
+    display: none;
+  }
+
+  body[data-panel-role="admin"][data-nv-page="appointments"] .nv-toolbox-head,
+  body[data-panel-role="admin"][data-nv-page="appointments"] .nv-appointments-commandbar-layout,
+  body[data-panel-role="admin"][data-nv-page="appointments"] .nv-appointments-list-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  body[data-panel-role="admin"][data-nv-page="appointments"] .nv-toolbox-tabs,
+  body[data-panel-role="admin"][data-nv-page="appointments"] .nv-appointments-commandbar-layout .btn {
+    width: 100%;
+  }
+
+  body[data-panel-role="admin"][data-nv-page="appointments"] .modal-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  body[data-panel-role="admin"][data-nv-page="appointments"] .modal {
+    width: 100%;
+    max-height: 94dvh;
+    border-radius: 18px 18px 0 0;
+  }
+}

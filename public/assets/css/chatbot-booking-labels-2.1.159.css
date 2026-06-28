@@ -1,0 +1,7 @@
+
+/* NoorVista 2.1.159 — chatbot booking handoff + receive wording */
+.chat-action-btn.nav-booking,
+[data-open-booking],
+.nav-booking {
+  white-space: nowrap;
+}

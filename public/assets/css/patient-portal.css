@@ -1,0 +1,1971 @@
+@charset "UTF-8";
+
+/* NoorVista patient portal accessibility and UX layer — v2.1.49 */
+
+body.nv-patient-portal {
+  overflow-x: hidden;
+}
+
+body.nv-patient-portal .nv3-main,
+body.nv-patient-portal .nv3-page,
+body.nv-patient-portal #patientPageContent,
+body.nv-patient-portal #patientPageContent > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+body.nv-patient-portal #patientPageContent {
+  width: min(100%, 1500px);
+  margin-inline: auto;
+}
+
+/* Keep the navbar accent inside the rounded frame. */
+body.nv-patient-portal .nv3-topbar {
+  overflow: visible !important;
+  background-clip: padding-box;
+}
+
+body.nv-patient-portal .nv3-topbar-inner {
+  position: relative;
+  border-radius: inherit;
+}
+
+body.nv-patient-portal .nv3-topbar-inner::before {
+  top: 1px !important;
+  right: 12px !important;
+  left: 12px !important;
+  width: auto !important;
+  max-width: calc(100% - 24px) !important;
+  border-radius: 999px !important;
+}
+
+/* A single responsive representation: table on desktop, cards on mobile. */
+body.nv-patient-portal .nv-patient-desktop-only {
+  display: none !important;
+}
+
+body.nv-patient-portal .nv-patient-mobile-only {
+  display: block !important;
+}
+
+@media (min-width: 768px) {
+  body.nv-patient-portal .nv-patient-desktop-only {
+    display: block !important;
+  }
+
+  body.nv-patient-portal .nv-patient-mobile-only {
+    display: none !important;
+  }
+}
+
+/* Unified select fallback: never show the native select beside the custom trigger. */
+body.nv-patient-portal .nvps-select {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+
+body.nv-patient-portal select.nvps-native {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+body.nv-patient-portal .nvps-trigger {
+  width: 100%;
+  min-width: 0;
+  min-height: 46px;
+}
+
+body.nv-patient-portal .nv-profile-input-wrap > .nvps-select,
+body.nv-patient-portal .nv-pa-field > .nvps-select,
+body.nv-patient-portal .nv-pa-list-tools > .nvps-select {
+  flex: 1 1 auto;
+  width: 100%;
+}
+
+body.nv-patient-portal .nv-jalali-selects .nvps-trigger {
+  min-height: 42px;
+  padding-block: .55rem;
+  text-align: center;
+}
+
+body.nv-patient-portal .nv-jalali-selects .nvps-value {
+  text-align: center;
+}
+
+/* Defensive cleanup for orphan visual controls from older cached enhancers. */
+body.nv-patient-portal .nvps-select > .nvps-select,
+body.nv-patient-portal .nvps-select + .nvps-select {
+  display: none !important;
+}
+
+/* Common card spacing, especially on older cached Tailwind builds. */
+body.nv-patient-portal .nv-tw-card {
+  min-width: 0;
+  overflow: visible;
+}
+
+body.nv-patient-portal .nv-tw-card-header {
+  gap: 16px;
+  padding: 18px 22px;
+}
+
+body.nv-patient-portal .nv-tw-card-body {
+  padding: 22px;
+}
+
+body.nv-patient-portal .nv-tw-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Plain-language consent introduction; technical hashes stay server-side. */
+body.nv-patient-portal .nv-patient-consent-intro {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 16px;
+  padding: clamp(20px, 3vw, 28px);
+  border: 1px solid #cfe8f3;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(94, 234, 212, .18), transparent 18rem),
+    linear-gradient(135deg, #f8fdff 0%, #eef9ff 55%, #f0fdfa 100%);
+  box-shadow: 0 14px 38px rgba(15, 86, 119, .08);
+}
+
+body.nv-patient-portal .nv-patient-consent-intro-icon {
+  display: grid;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  border-radius: 17px;
+  color: #fff;
+  background: linear-gradient(135deg, #1689c4, #0f766e);
+  box-shadow: 0 10px 24px rgba(15, 118, 110, .20);
+  font-size: 20px;
+}
+
+body.nv-patient-portal .nv-patient-consent-kicker {
+  display: block;
+  color: #0f766e;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+body.nv-patient-portal .nv-patient-consent-intro h2 {
+  margin-top: 5px;
+  color: #123047;
+  font-size: 19px;
+  font-weight: 950;
+}
+
+body.nv-patient-portal .nv-patient-consent-intro p {
+  margin-top: 8px;
+  max-width: 1000px;
+  color: #526b7b;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 2;
+}
+
+@media (max-width: 767px) {
+  body.nv-patient-portal .nv3-topbar-inner::before {
+    right: 9px !important;
+    left: 9px !important;
+    max-width: calc(100% - 18px) !important;
+  }
+
+  body.nv-patient-portal .nv-tw-card-header,
+  body.nv-patient-portal .nv-tw-card-body {
+    padding: 16px;
+  }
+
+  body.nv-patient-portal .nv-patient-consent-intro {
+    grid-template-columns: 1fr;
+    border-radius: 20px;
+  }
+}
+
+/* NoorVista patient portal completion layer — v2.1.47 */
+
+/* Compact calendar: stays inside the viewport on every patient page. */
+body.nv-patient-portal .nv-jalali-modal {
+  box-sizing: border-box;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 12px !important;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+body.nv-patient-portal .nv-jalali-panel {
+  width: min(100%, 420px) !important;
+  max-width: 420px !important;
+  max-height: min(720px, calc(100dvh - 24px)) !important;
+  overflow: auto !important;
+  border-radius: 22px !important;
+}
+
+body.nv-patient-portal .nv-jalali-header {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  padding: 14px 16px !important;
+}
+
+body.nv-patient-portal .nv-jalali-header h2 {
+  margin-top: 2px !important;
+  font-size: 16px !important;
+}
+
+body.nv-patient-portal .nv-jalali-close,
+body.nv-patient-portal .nv-jalali-nav {
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 11px !important;
+}
+
+body.nv-patient-portal .nv-jalali-toolbar {
+  gap: 8px !important;
+  padding: 10px 12px !important;
+}
+
+body.nv-patient-portal .nv-jalali-selects {
+  min-width: 0;
+  gap: 7px !important;
+}
+
+body.nv-patient-portal .nv-jalali-selects .nvps-trigger,
+body.nv-patient-portal .nv-jalali-selects select {
+  min-height: 38px !important;
+  height: 38px !important;
+  padding-block: 6px !important;
+  border-radius: 11px !important;
+  font-size: 12px !important;
+}
+
+body.nv-patient-portal .nv-jalali-weekdays {
+  padding: 8px 12px 0 !important;
+}
+
+body.nv-patient-portal .nv-jalali-weekdays span {
+  padding-block: 5px !important;
+  font-size: 10px !important;
+}
+
+body.nv-patient-portal .nv-jalali-grid {
+  grid-template-columns: repeat(7, minmax(34px, 1fr)) !important;
+  gap: 4px !important;
+  padding: 4px 12px 10px !important;
+}
+
+body.nv-patient-portal .nv-jalali-day,
+body.nv-patient-portal .nv-jalali-blank {
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 36px !important;
+  max-height: 42px !important;
+  aspect-ratio: 1 / 1 !important;
+}
+
+body.nv-patient-portal .nv-jalali-day {
+  position: relative;
+  border-radius: 11px !important;
+  font-size: 12px !important;
+}
+
+body.nv-patient-portal .nv-jalali-day-available:not(.nv-jalali-day-selected) {
+  color: #ffffff !important;
+  background: #0b4f82 !important;
+  box-shadow:
+    inset 0 0 0 2px #073a60,
+    0 5px 12px rgba(7, 58, 96, .22) !important;
+  font-weight: 950 !important;
+}
+
+body.nv-patient-portal .nv-jalali-day-available:not(.nv-jalali-day-selected):hover {
+  background: #073a60 !important;
+  transform: translateY(-1px);
+}
+
+body.nv-patient-portal .nv-jalali-day-available:not(.nv-jalali-day-selected)::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, .28);
+}
+
+body.nv-patient-portal .nv-jalali-day-unavailable {
+  color: #cbd5e1 !important;
+  background: #f8fafc !important;
+  box-shadow: none !important;
+}
+
+body.nv-patient-portal .nv-jalali-day-selected {
+  color: #fff !important;
+  background: #062f52 !important;
+  box-shadow:
+    0 0 0 3px #ffffff,
+    0 0 0 6px #1d70b7,
+    0 9px 20px rgba(6, 47, 82, .30) !important;
+  font-weight: 950 !important;
+}
+
+body.nv-patient-portal .nv-jalali-availability {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  padding: 9px 14px;
+  border-top: 1px solid #e7eef3;
+  color: #64748b;
+  background: #fbfdfe;
+  font-size: 10.5px;
+  font-weight: 750;
+}
+
+body.nv-patient-portal .nv-jalali-availability > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+body.nv-patient-portal .nv-jalali-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+}
+
+body.nv-patient-portal .nv-jalali-dot.is-available {
+  background: #0b4f82;
+  box-shadow: 0 0 0 3px #dbeafe;
+}
+
+body.nv-patient-portal .nv-jalali-dot.is-unavailable {
+  background: #cbd5e1;
+  box-shadow: 0 0 0 3px #f1f5f9;
+}
+
+body.nv-patient-portal .nv-jalali-footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 4;
+  padding: 10px 12px !important;
+}
+
+/* Input icons must reserve their own space and never cover typed text. */
+body.nv-patient-portal .nv-profile-input-wrap > i {
+  right: 14px !important;
+  z-index: 2 !important;
+  width: 18px;
+  text-align: center;
+}
+
+body.nv-patient-portal .nv-profile-input-wrap input.nv-profile-input,
+body.nv-patient-portal .nv-profile-input-wrap textarea.nv-profile-input {
+  padding-right: 44px !important;
+}
+
+body.nv-patient-portal .nv-profile-input-wrap > .nvps-select .nvps-trigger,
+body.nv-patient-portal .nv-profile-input-wrap > .nv-pselect .nv-pselect-trigger {
+  padding-right: 44px !important;
+}
+
+body.nv-patient-portal .tw-relative:has(> i[class*="icon-"]) .noor-tw-input {
+  padding-right: 42px !important;
+}
+
+body.nv-patient-portal .nv-patient-password-toggle {
+  right: auto !important;
+  left: 7px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 3;
+}
+
+body.nv-patient-portal #patientPasswordForm input[type="password"],
+body.nv-patient-portal #patientPasswordForm input[type="text"] {
+  padding-left: 48px !important;
+  padding-right: 14px !important;
+}
+
+body.nv-patient-portal .nv-jalali-trigger:disabled,
+body.nv-patient-portal .nv-jalali-display:disabled {
+  cursor: not-allowed;
+  opacity: .66;
+}
+
+@media (max-width: 639px) {
+  body.nv-patient-portal .nv-jalali-modal {
+    align-items: center !important;
+    padding: 8px !important;
+  }
+
+  body.nv-patient-portal .nv-jalali-panel {
+    width: min(100%, 390px) !important;
+    max-width: 390px !important;
+    max-height: calc(100dvh - 16px) !important;
+    border-radius: 18px !important;
+  }
+
+  body.nv-patient-portal .nv-jalali-grid {
+    grid-template-columns: repeat(7, minmax(31px, 1fr)) !important;
+    gap: 3px !important;
+    padding-inline: 9px !important;
+  }
+
+  body.nv-patient-portal .nv-jalali-day,
+  body.nv-patient-portal .nv-jalali-blank {
+    min-height: 33px !important;
+    max-height: 38px !important;
+  }
+}
+
+/* Patient dashboard appointment summary — compact and touch-friendly on mobile. */
+body.nv-patient-portal .nv-pd-pay-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 7px;
+  padding: 0;
+  border: 0;
+  color: #0b6f9f;
+  background: transparent;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+body.nv-patient-portal .nv-pd-recent-list {
+  display: grid;
+  gap: 12px;
+}
+
+body.nv-patient-portal .nv-pd-recent-card {
+  display: grid;
+  grid-template-columns: 94px minmax(0, 1fr);
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 8px 22px rgba(15, 47, 66, .055);
+}
+
+body.nv-patient-portal .nv-pd-recent-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 16px 10px;
+  color: #0b5275;
+  background: linear-gradient(180deg, #eff9fd, #f8fcfe);
+  border-left: 1px solid #dbeef6;
+  text-align: center;
+}
+
+body.nv-patient-portal .nv-pd-recent-date span {
+  font-size: 11px;
+  line-height: 1.7;
+  font-weight: 800;
+}
+
+body.nv-patient-portal .nv-pd-recent-date strong {
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 950;
+}
+
+body.nv-patient-portal .nv-pd-recent-main {
+  min-width: 0;
+  padding: 14px;
+}
+
+body.nv-patient-portal .nv-pd-recent-doctor {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+body.nv-patient-portal .nv-pd-recent-icon {
+  display: inline-flex;
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  color: #0b6f9f;
+  background: #eef8fc;
+}
+
+body.nv-patient-portal .nv-pd-recent-doctor div {
+  min-width: 0;
+}
+
+body.nv-patient-portal .nv-pd-recent-doctor strong,
+body.nv-patient-portal .nv-pd-recent-doctor small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body.nv-patient-portal .nv-pd-recent-doctor strong {
+  color: #17364a;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+body.nv-patient-portal .nv-pd-recent-doctor small {
+  margin-top: 3px;
+  color: #64748b;
+  font-size: 10.5px;
+}
+
+body.nv-patient-portal .nv-pd-recent-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+body.nv-patient-portal .nv-pd-recent-badges .nv-tw-badge {
+  max-width: 100%;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+body.nv-patient-portal .nv-pd-recent-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 12px;
+  padding-top: 11px;
+  border-top: 1px solid #edf2f7;
+}
+
+body.nv-patient-portal .nv-pd-recent-bottom > span {
+  color: #334155;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+body.nv-patient-portal .nv-pd-pay-button {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 7px 13px;
+  border: 0;
+  border-radius: 11px;
+  color: #fff;
+  background: #0b78a8;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 7px 16px rgba(11, 120, 168, .2);
+}
+
+@media (max-width: 639px) {
+  body.nv-patient-portal[data-patient-page="dashboard"] .nv3-page {
+    padding-inline: 10px !important;
+  }
+
+  body.nv-patient-portal[data-patient-page="dashboard"] #patientPageContent {
+    gap: 14px;
+  }
+
+  body.nv-patient-portal .nv-pd-recent-section .nv-tw-card-header {
+    align-items: flex-start;
+    gap: 10px;
+    padding: 15px !important;
+  }
+
+  body.nv-patient-portal .nv-pd-recent-section .nv-tw-card-header .noor-tw-btn-secondary {
+    flex: 0 0 auto;
+    min-height: 36px;
+    padding: 8px 11px;
+    font-size: 11px;
+  }
+
+  body.nv-patient-portal .nv-pd-recent-section .nv-tw-card-body {
+    padding: 12px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  body.nv-patient-portal .nv-pd-recent-card {
+    grid-template-columns: 80px minmax(0, 1fr);
+  }
+
+  body.nv-patient-portal .nv-pd-recent-date {
+    padding-inline: 7px;
+  }
+
+  body.nv-patient-portal .nv-pd-recent-main {
+    padding: 12px 10px;
+  }
+}
+
+/* Patient visual-accessibility layer — v2.1.49
+   Designed for an ophthalmology audience: readable type, strong contrast,
+   large controls and visible keyboard focus without enlarging the calendar
+   beyond the viewport. */
+body.nv-patient-portal {
+  color: #17364a;
+  font-size: 16px;
+  line-height: 1.85;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.nv-patient-portal .noor-tw-label,
+body.nv-patient-portal .nv-pa-field-note,
+body.nv-patient-portal .nv-profile-field label {
+  color: #263f52;
+  font-size: 14px !important;
+  line-height: 1.9 !important;
+}
+
+body.nv-patient-portal .noor-tw-label,
+body.nv-patient-portal .nv-profile-field label {
+  font-weight: 900 !important;
+}
+
+body.nv-patient-portal .noor-tw-input,
+body.nv-patient-portal .nv-profile-input,
+body.nv-patient-portal .nvps-trigger,
+body.nv-patient-portal button,
+body.nv-patient-portal a.noor-tw-btn-primary,
+body.nv-patient-portal a.noor-tw-btn-secondary {
+  min-height: 44px;
+}
+
+body.nv-patient-portal .noor-tw-input,
+body.nv-patient-portal .nv-profile-input,
+body.nv-patient-portal .nvps-trigger {
+  border-color: #9fb4c4 !important;
+  color: #102f44 !important;
+  background-color: #ffffff !important;
+  font-size: 15px !important;
+}
+
+body.nv-patient-portal .noor-tw-input::placeholder,
+body.nv-patient-portal .nv-profile-input::placeholder {
+  color: #667b8b !important;
+  opacity: 1;
+}
+
+body.nv-patient-portal :where(button, a, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid #1d70b7 !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 5px rgba(29, 112, 183, .18) !important;
+}
+
+body.nv-patient-portal .nv-jalali-panel {
+  border: 1px solid #b8c9d6 !important;
+  box-shadow: 0 24px 70px rgba(7, 42, 66, .28) !important;
+}
+
+body.nv-patient-portal .nv-jalali-header h2 {
+  color: #102f44 !important;
+  font-size: 18px !important;
+  font-weight: 950 !important;
+}
+
+body.nv-patient-portal .nv-jalali-eyebrow,
+body.nv-patient-portal .nv-jalali-weekdays span,
+body.nv-patient-portal .nv-jalali-availability {
+  color: #425b6d !important;
+}
+
+body.nv-patient-portal .nv-jalali-selects .nvps-trigger,
+body.nv-patient-portal .nv-jalali-selects select {
+  font-size: 13px !important;
+  font-weight: 850 !important;
+}
+
+body.nv-patient-portal .nv-jalali-weekdays span {
+  font-size: 11.5px !important;
+  font-weight: 900 !important;
+}
+
+body.nv-patient-portal .nv-jalali-day {
+  min-height: 39px !important;
+  max-height: 43px !important;
+  border: 1px solid #d5e0e8 !important;
+  color: #29485e;
+  font-size: 14px !important;
+  font-weight: 850;
+}
+
+body.nv-patient-portal .nv-jalali-day-unavailable {
+  border-color: #e5ebf0 !important;
+  color: #8a9ba8 !important;
+  background: #f5f7f9 !important;
+  opacity: 1 !important;
+}
+
+body.nv-patient-portal .nv-jalali-day-today:not(.nv-jalali-day-selected) {
+  outline: 2px solid #f59e0b;
+  outline-offset: 1px;
+}
+
+body.nv-patient-portal .nv-jalali-availability {
+  gap: 10px 18px;
+  padding: 11px 14px;
+  border-top-color: #cbd8e2;
+  background: #f8fbfd;
+  font-size: 12px !important;
+  font-weight: 850;
+}
+
+body.nv-patient-portal .nv-jalali-dot {
+  width: 12px;
+  height: 12px;
+}
+
+body.nv-patient-portal .nv-pa-date-chip {
+  min-height: 52px;
+  border: 2px solid #0b4f82 !important;
+  color: #0a3e68 !important;
+  background: #eff6ff !important;
+  font-size: 13px !important;
+  box-shadow: 0 7px 16px rgba(11, 79, 130, .10);
+}
+
+body.nv-patient-portal .nv-pa-date-chip:hover,
+body.nv-patient-portal .nv-pa-date-chip:focus-visible {
+  color: #ffffff !important;
+  background: #0b4f82 !important;
+}
+
+body.nv-patient-portal .nv-pa-date-chip small {
+  color: inherit !important;
+  opacity: .9;
+}
+
+@media (max-width: 639px) {
+  body.nv-patient-portal {
+    font-size: 15.5px;
+  }
+
+  body.nv-patient-portal .nv-jalali-panel {
+    width: min(100%, 380px) !important;
+    max-width: 380px !important;
+  }
+
+  body.nv-patient-portal .nv-jalali-grid {
+    grid-template-columns: repeat(7, minmax(34px, 1fr)) !important;
+  }
+
+  body.nv-patient-portal .nv-jalali-day,
+  body.nv-patient-portal .nv-jalali-blank {
+    min-height: 36px !important;
+    max-height: 40px !important;
+  }
+
+  body.nv-patient-portal .nv-jalali-day {
+    font-size: 13.5px !important;
+  }
+}
+
+@media (prefers-contrast: more) {
+  body.nv-patient-portal .noor-tw-input,
+  body.nv-patient-portal .nv-profile-input,
+  body.nv-patient-portal .nvps-trigger,
+  body.nv-patient-portal .nv-tw-card {
+    border-width: 2px !important;
+    border-color: #5f7789 !important;
+  }
+
+  body.nv-patient-portal .nv-jalali-day-available:not(.nv-jalali-day-selected) {
+    background: #073a60 !important;
+    box-shadow: inset 0 0 0 2px #001f36 !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.nv-patient-portal *,
+  body.nv-patient-portal *::before,
+  body.nv-patient-portal *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+
+/* Remaining generic patient calendars stay fully inside short laptop screens — v2.1.50 */
+@media (min-width: 640px) and (max-height: 820px) {
+  body.nv-patient-portal .nv-jalali-modal {
+    padding: 8px !important;
+  }
+
+  body.nv-patient-portal .nv-jalali-panel {
+    width: min(100%, 390px) !important;
+    max-width: 390px !important;
+    max-height: calc(100dvh - 16px) !important;
+  }
+
+  body.nv-patient-portal .nv-jalali-grid {
+    gap: 3px !important;
+    padding-block: 2px 7px !important;
+  }
+
+  body.nv-patient-portal .nv-jalali-day,
+  body.nv-patient-portal .nv-jalali-blank {
+    min-height: 31px !important;
+    max-height: 34px !important;
+  }
+
+  body.nv-patient-portal .nv-jalali-availability {
+    padding-block: 6px !important;
+  }
+}
+
+/* NoorVista 2.1.51 — payment summary unit placement */
+.nv-payment-stat-unit {
+  position: absolute;
+  top: 0.75rem;
+  left: 1rem;
+  z-index: 1;
+  font-size: 0.7rem;
+  line-height: 1;
+  font-weight: 800;
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+/* NoorVista 2.1.52 — guided booking focus and resilient money cards */
+body.nv-patient-portal .nv-pa-step-attention {
+  position: relative;
+  border-radius: 18px;
+  outline: 4px solid rgba(20, 137, 196, 0.18);
+  outline-offset: 5px;
+  box-shadow: 0 0 0 1px rgba(20, 137, 196, 0.38), 0 16px 34px rgba(11, 95, 140, 0.12);
+  transition: outline-color .2s ease, box-shadow .2s ease;
+}
+
+body.nv-patient-portal .nv-tw-stat-card,
+body.nv-patient-portal .nv-tw-stat-card > div,
+body.nv-patient-portal .nv-pa-book-footer > div,
+body.nv-patient-portal .nv-pa-summary-copy {
+  min-width: 0;
+}
+
+body.nv-patient-portal .nv-tw-stat-card > div > strong,
+body.nv-patient-portal .nv-pa-fee-value,
+body.nv-patient-portal .nv-pa-summary-value {
+  max-width: 100%;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.035em;
+}
+
+@media (max-width: 640px) {
+  body.nv-patient-portal .nv-pa-step-attention {
+    outline-width: 3px;
+    outline-offset: 3px;
+  }
+}
+
+/* NoorVista 2.1.53 — launch-ready patient UI polish */
+body.nv-patient-portal .nv3-page-heading,
+body.nv-patient-portal .nv-tw-card-header > div,
+body.nv-patient-portal .nv-pa-card-title,
+body.nv-patient-portal .nv-patient-detail-item,
+body.nv-patient-portal .nv-patient-mobile-card,
+body.nv-patient-portal .nv-pd-recent-main {
+  min-width: 0;
+}
+
+body.nv-patient-portal :where(h1, h2, h3, p, strong, span, small) {
+  overflow-wrap: break-word;
+}
+
+body.nv-patient-portal :where(.noor-tw-btn-primary, .noor-tw-btn-secondary, .nv-patient-action-btn, .nv3-user-menu-item) {
+  white-space: normal;
+  line-height: 1.65;
+  text-align: center;
+}
+
+body.nv-patient-portal textarea.noor-tw-input,
+body.nv-patient-portal textarea.nv-profile-input {
+  line-height: 2;
+}
+
+body.nv-patient-portal .nv-tw-stat-card > div {
+  container-type: inline-size;
+}
+
+body.nv-patient-portal .nv-tw-stat-card > div > strong {
+  font-size: clamp(1.05rem, 12cqw, 1.5rem) !important;
+}
+
+body.nv-patient-portal .nv-patient-modal-panel {
+  width: min(100%, 760px);
+  max-width: calc(100vw - 24px);
+  max-height: calc(100dvh - 24px);
+  overflow: auto;
+}
+
+body.nv-patient-portal .nv-patient-empty p,
+body.nv-patient-portal .nv-pa-guided-placeholder span {
+  max-width: 46rem;
+}
+
+@media (max-width: 1279px) {
+  body.nv-patient-portal aside .tw-sticky {
+    position: static !important;
+    top: auto !important;
+  }
+}
+
+@media (max-width: 767px) {
+  body.nv-patient-portal .nv3-page-heading h1 {
+    font-size: 1.05rem !important;
+    line-height: 1.7;
+  }
+
+  body.nv-patient-portal .nv3-page-heading p {
+    display: none;
+  }
+
+  body.nv-patient-portal .nv-tw-card-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  body.nv-patient-portal .nv-tw-card-header > :where(a, button, .nv-tw-badge) {
+    align-self: flex-start;
+  }
+}
+
+/* NoorVista 2.1.54 — unified patient sidebar, stable summary cards and notifications */
+body.nv-patient-portal .nv3-sidebar {
+  border-left-color: rgba(255, 255, 255, .12);
+  background:
+    radial-gradient(circle at 72% -4%, rgba(56, 189, 248, .26), transparent 15rem),
+    linear-gradient(180deg, #0d4c6c 0%, #0a3c58 48%, #072d43 100%);
+  box-shadow: -14px 0 38px rgba(7, 39, 59, .18);
+}
+
+body.nv-patient-portal .nv3-sidebar-header {
+  align-items: center;
+  gap: 8px;
+  padding: 18px 14px 12px;
+}
+
+body.nv-patient-portal .nv3-brand {
+  min-height: 64px;
+  gap: 11px;
+  padding: 8px 9px 8px 44px;
+  border: 1px solid rgba(255, 255, 255, .10);
+  border-radius: 18px;
+  color: #fff;
+  background: rgba(255, 255, 255, .055);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08);
+  transition: background .18s ease, border-color .18s ease, transform .18s ease;
+}
+
+body.nv-patient-portal .nv3-brand:hover {
+  border-color: rgba(255, 255, 255, .18);
+  background: rgba(255, 255, 255, .09);
+  transform: translateY(-1px);
+}
+
+body.nv-patient-portal .nv3-brand-mark {
+  width: 44px;
+  height: 44px;
+  flex-basis: 44px;
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: 14px;
+  color: #fff;
+  background: linear-gradient(145deg, #28a9de, #0a6a98);
+  box-shadow: 0 9px 20px rgba(0, 35, 54, .25);
+  font-size: 19px;
+}
+
+body.nv-patient-portal .nv3-brand-copy {
+  line-height: 1.5;
+}
+
+body.nv-patient-portal .nv3-brand-copy strong {
+  max-width: 176px;
+  overflow: hidden;
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body.nv-patient-portal .nv3-brand-copy small {
+  margin-top: 1px;
+  color: #bfe9fb;
+  font-size: 11.5px;
+  font-weight: 800;
+}
+
+body.nv-patient-portal .nv3-sidebar-collapse {
+  left: 5px;
+  width: 36px;
+  height: 36px;
+  border-color: rgba(255, 255, 255, .14);
+  color: #eaf8ff;
+  background: rgba(4, 36, 53, .72);
+  box-shadow: 0 8px 18px rgba(0, 25, 39, .22);
+}
+
+body.nv-patient-portal .nv3-sidebar-collapse:hover {
+  color: #fff;
+  background: rgba(6, 52, 76, .94);
+}
+
+body.nv-patient-portal .nv3-nav {
+  padding: 8px 13px 18px;
+}
+
+body.nv-patient-portal .nv3-nav ul {
+  gap: 6px;
+}
+
+body.nv-patient-portal .nv3-nav-link {
+  min-height: 49px;
+  padding: 7px 10px;
+  border: 1px solid transparent;
+  border-radius: 15px;
+  color: #d9eff8;
+  font-size: 13px;
+}
+
+body.nv-patient-portal .nv3-nav-link:hover {
+  border-color: rgba(255, 255, 255, .09);
+  background: rgba(255, 255, 255, .08);
+}
+
+body.nv-patient-portal .nv3-nav-link.is-active {
+  border-color: rgba(207, 232, 243, .95);
+  color: #0c557d;
+  background: #f8fdff;
+  box-shadow: 0 10px 24px rgba(2, 27, 43, .20);
+}
+
+body.nv-patient-portal .nv3-nav-link.is-active::before {
+  inset: 10px auto 10px 0;
+  width: 4px;
+  background: #159ed5;
+}
+
+body.nv-patient-portal .nv3-nav-icon {
+  width: 36px;
+  height: 36px;
+  flex-basis: 36px;
+  border: 1px solid rgba(255, 255, 255, .06);
+  background: rgba(255, 255, 255, .09);
+}
+
+body.nv-patient-portal .nv3-sidebar-footer {
+  padding: 14px;
+  background: rgba(2, 23, 36, .22);
+}
+
+body.nv-patient-portal .nv3-sidebar-logout {
+  min-height: 48px;
+  border-radius: 15px;
+}
+
+body.nv-patient-portal.nv3-dashboard .nv3-notification-entry {
+  color: #12658f;
+}
+
+body.nv-patient-portal .nv-patient-stat-card {
+  position: relative;
+  display: grid !important;
+  grid-template-columns: 56px minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  min-height: 118px;
+  padding: 18px !important;
+  overflow: hidden;
+}
+
+body.nv-patient-portal .nv-patient-stat-icon {
+  display: grid;
+  width: 56px;
+  height: 56px;
+  place-items: center;
+  border-radius: 18px;
+  font-size: 20px;
+}
+
+body.nv-patient-portal .nv-patient-stat-copy {
+  display: grid;
+  min-width: 0;
+  width: 100%;
+  gap: 3px;
+  container-type: normal !important;
+}
+
+body.nv-patient-portal .nv-patient-stat-value {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  color: #123047;
+  font-size: clamp(1.15rem, 2.1vw, 1.55rem) !important;
+  font-weight: 950;
+  line-height: 1.45;
+  letter-spacing: -.025em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow-wrap: normal !important;
+  word-break: keep-all;
+}
+
+body.nv-patient-portal .nv-patient-stat-label {
+  display: block;
+  min-width: 0;
+  color: #475569;
+  font-size: 13px;
+  font-weight: 850;
+  line-height: 1.65;
+  overflow-wrap: normal !important;
+  word-break: normal;
+}
+
+body.nv-patient-portal .nv-patient-stat-note {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  color: #94a3b8;
+  font-size: 11px;
+  line-height: 1.6;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow-wrap: normal !important;
+}
+
+body.nv-patient-portal .nv-patient-money-stat {
+  padding-top: 24px !important;
+}
+
+body.nv-patient-portal .nv-patient-money-value {
+  font-size: clamp(1rem, 1.85vw, 1.42rem) !important;
+}
+
+body.nv-patient-portal .nv-patient-notification-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: clamp(22px, 4vw, 34px);
+  overflow: hidden;
+  border-radius: 24px;
+  color: #fff;
+  background:
+    radial-gradient(circle at 8% 10%, rgba(125, 211, 252, .24), transparent 18rem),
+    linear-gradient(135deg, #123f57 0%, #12658f 58%, #0f766e 100%);
+  box-shadow: 0 18px 42px rgba(15, 55, 78, .14);
+}
+
+body.nv-patient-portal .nv-patient-notification-hero > div > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .13);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+body.nv-patient-portal .nv-patient-notification-hero h2 {
+  margin-top: 14px;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 950;
+}
+
+body.nv-patient-portal .nv-patient-notification-hero p {
+  margin-top: 8px;
+  color: #dff5ff;
+  font-size: 13px;
+  line-height: 2;
+}
+
+body.nv-patient-portal .nv-patient-notification-hero-icon {
+  display: grid;
+  width: 76px;
+  height: 76px;
+  flex: 0 0 76px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, .10);
+  font-size: 29px;
+}
+
+body.nv-patient-portal .nv-patient-notification-list {
+  display: grid;
+  gap: 12px;
+}
+
+body.nv-patient-portal .nv-patient-notification-card {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid #dbe7ed;
+  border-radius: 18px;
+  background: #fff;
+}
+
+body.nv-patient-portal .nv-patient-notification-card.is-unread {
+  border-color: #9dd7f0;
+  background: linear-gradient(135deg, #f8fdff, #eef9ff);
+  box-shadow: 0 9px 24px rgba(20, 137, 196, .08);
+}
+
+body.nv-patient-portal .nv-patient-notification-icon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border-radius: 15px;
+  color: #12658f;
+  background: #e8f7ff;
+  font-size: 18px;
+}
+
+body.nv-patient-portal .nv-patient-notification-card.is-success .nv-patient-notification-icon {
+  color: #047857;
+  background: #ecfdf5;
+}
+
+body.nv-patient-portal .nv-patient-notification-card.is-warning .nv-patient-notification-icon {
+  color: #b45309;
+  background: #fffbeb;
+}
+
+body.nv-patient-portal .nv-patient-notification-card.is-danger .nv-patient-notification-icon {
+  color: #be123c;
+  background: #fff1f2;
+}
+
+body.nv-patient-portal .nv-patient-notification-copy {
+  min-width: 0;
+}
+
+body.nv-patient-portal .nv-patient-notification-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+body.nv-patient-portal .nv-patient-notification-title-row h3 {
+  min-width: 0;
+  color: #123047;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+body.nv-patient-portal .nv-patient-notification-new {
+  flex: 0 0 auto;
+  padding: 3px 8px;
+  border-radius: 999px;
+  color: #075985;
+  background: #dff4ff;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+body.nv-patient-portal .nv-patient-notification-copy p {
+  margin-top: 5px;
+  color: #526b7b;
+  font-size: 12.5px;
+  line-height: 1.9;
+}
+
+body.nv-patient-portal .nv-patient-notification-copy time {
+  display: block;
+  margin-top: 6px;
+  color: #94a3b8;
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+body.nv-patient-portal .nv-patient-notification-read,
+body.nv-patient-portal .nv-patient-notification-read-state {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 40px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-size: 11.5px;
+  font-weight: 850;
+  white-space: nowrap;
+}
+
+body.nv-patient-portal .nv-patient-notification-read {
+  border: 1px solid #b8e3f4;
+  color: #0b648f;
+  background: #fff;
+}
+
+body.nv-patient-portal .nv-patient-notification-read:hover {
+  background: #eefaff;
+}
+
+body.nv-patient-portal .nv-patient-notification-read-state {
+  color: #64748b;
+  background: #f8fafc;
+}
+
+@media (min-width: 1024px) {
+  .nv3-sidebar-collapsed body.nv-patient-portal .nv3-brand,
+  body.nv-patient-portal.nv3-sidebar-collapsed .nv3-brand {
+    min-height: 58px;
+    padding: 7px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  body.nv-patient-portal .nv-patient-stat-card {
+    min-height: 104px;
+    grid-template-columns: 50px minmax(0, 1fr);
+    padding: 15px !important;
+  }
+
+  body.nv-patient-portal .nv-patient-stat-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 16px;
+  }
+
+  body.nv-patient-portal .nv-patient-notification-hero-icon {
+    display: none;
+  }
+
+  body.nv-patient-portal .nv-patient-notification-card {
+    grid-template-columns: 44px minmax(0, 1fr);
+    align-items: start;
+  }
+
+  body.nv-patient-portal .nv-patient-notification-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  body.nv-patient-portal .nv-patient-notification-read,
+  body.nv-patient-portal .nv-patient-notification-read-state {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+}
+
+
+/* NoorVista 2.1.55 — unread indicator and refined patient sidebar scrolling */
+body.nv-patient-portal .nv3-notification-entry {
+  position: relative;
+  overflow: visible;
+}
+
+body.nv-patient-portal .nv3-notification-dot {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 11px;
+  height: 11px;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  background: #e11d48;
+  box-shadow: 0 0 0 2px rgba(225, 29, 72, .14), 0 3px 8px rgba(159, 18, 57, .35);
+  pointer-events: none;
+}
+
+body.nv-patient-portal .nv3-notification-dot[hidden] {
+  display: none !important;
+}
+
+body.nv-patient-portal .nv3-notification-entry.has-unread i {
+  animation: nvPatientBellAttention 1.8s ease-in-out 1;
+}
+
+@keyframes nvPatientBellAttention {
+  0%, 100% { transform: rotate(0); }
+  20% { transform: rotate(10deg); }
+  40% { transform: rotate(-8deg); }
+  60% { transform: rotate(5deg); }
+  80% { transform: rotate(-3deg); }
+}
+
+body.nv-patient-portal .nv3-sidebar,
+body.nv-patient-portal .nv3-nav {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(154, 221, 246, .72) rgba(2, 30, 45, .16);
+}
+
+body.nv-patient-portal .nv3-sidebar::-webkit-scrollbar,
+body.nv-patient-portal .nv3-nav::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+body.nv-patient-portal .nv3-sidebar::-webkit-scrollbar-track,
+body.nv-patient-portal .nv3-nav::-webkit-scrollbar-track {
+  margin-block: 10px;
+  border-radius: 999px;
+  background: rgba(2, 30, 45, .16);
+}
+
+body.nv-patient-portal .nv3-sidebar::-webkit-scrollbar-thumb,
+body.nv-patient-portal .nv3-nav::-webkit-scrollbar-thumb {
+  min-height: 42px;
+  border: 1px solid rgba(255, 255, 255, .22);
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(177, 231, 250, .88), rgba(80, 181, 221, .80));
+  background-clip: padding-box;
+}
+
+body.nv-patient-portal .nv3-sidebar::-webkit-scrollbar-thumb:hover,
+body.nv-patient-portal .nv3-nav::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(217, 246, 255, .96), rgba(91, 198, 236, .92));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.nv-patient-portal .nv3-notification-entry.has-unread i {
+    animation: none;
+  }
+}
+
+/* NoorVista 2.1.56 — patient content polish: searches, consent cards and date fields */
+body.nv-patient-portal .nv-prescription-tools {
+  display: flex;
+  flex: 0 1 auto;
+  align-items: center;
+  gap: 12px;
+  width: min(100%, 510px);
+  min-width: 0;
+}
+
+body.nv-patient-portal .nv-prescription-search {
+  flex: 1 1 300px;
+  width: min(100%, 320px);
+  min-width: 240px;
+}
+
+body.nv-patient-portal .nv-prescription-search .noor-tw-input {
+  width: 100%;
+  min-width: 0;
+  padding-right: 44px !important;
+  text-overflow: clip;
+}
+
+body.nv-patient-portal .nv-prescription-filter {
+  flex: 0 0 168px;
+  width: 168px;
+}
+
+body.nv-patient-portal .nv-consent-document-head {
+  direction: ltr;
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  align-items: stretch;
+  gap: 15px;
+  padding: 20px;
+  border-bottom: 1px solid #dce9f1;
+  background:
+    radial-gradient(circle at 8% 12%, rgba(14, 165, 233, .10), transparent 10rem),
+    linear-gradient(135deg, #f9fdff 0%, #f4faff 54%, #f6fffd 100%);
+}
+
+body.nv-patient-portal .nv-consent-document-icon {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  align-self: center;
+  place-items: center;
+  border-radius: 17px;
+  color: #0b6595;
+  background: #e3f4fc;
+  box-shadow: inset 0 0 0 1px #c5e5f4;
+  font-size: 20px;
+}
+
+body.nv-patient-portal .nv-consent-document-copy {
+  position: relative;
+  direction: rtl;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-right: 18px;
+}
+
+body.nv-patient-portal .nv-consent-document-copy::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  right: 0;
+  bottom: 2px;
+  width: 3px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #7dd3fc 0%, #0ea5e9 50%, #7dd3fc 100%);
+  box-shadow: 0 0 0 1px rgba(14, 165, 233, .04);
+}
+
+body.nv-patient-portal .nv-consent-document-title-row {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+body.nv-patient-portal .nv-consent-document-type {
+  min-width: 0;
+  color: #075985;
+  font-size: 15px;
+  font-weight: 950;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+body.nv-patient-portal .nv-consent-document-version {
+  display: block;
+  margin-top: 1px;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.8;
+}
+
+body.nv-patient-portal .nv-consent-document-copy h2 {
+  margin-top: 4px;
+  color: #102f44;
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}
+
+
+/* NoorVista 2.1.58 — clear consent history timeline and right-side document accent */
+body.nv-patient-portal .nv-consent-history-panel {
+  overflow: hidden;
+}
+
+body.nv-patient-portal .nv-consent-history-panel-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 18px 16px;
+  border-bottom: 1px solid #e2ebf1;
+  background: linear-gradient(135deg, #fbfdff 0%, #f4f9fc 100%);
+}
+
+body.nv-patient-portal .nv-consent-history-panel-icon {
+  display: grid;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 14px;
+  color: #6d28d9;
+  background: #f2eafe;
+  box-shadow: inset 0 0 0 1px #e4d5fb;
+  font-size: 18px;
+}
+
+body.nv-patient-portal .nv-consent-history-panel-head h2 {
+  margin: 0;
+  color: #102f44;
+  font-size: 17px;
+  font-weight: 950;
+  line-height: 1.7;
+}
+
+body.nv-patient-portal .nv-consent-history-panel-head p {
+  margin: 2px 0 0;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.8;
+}
+
+body.nv-patient-portal .nv-consent-history-list {
+  position: relative;
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+}
+
+body.nv-patient-portal .nv-consent-history-list::before {
+  content: "";
+  position: absolute;
+  top: 34px;
+  right: 34px;
+  bottom: 34px;
+  width: 2px;
+  border-radius: 999px;
+  background: #dbe8ef;
+}
+
+body.nv-patient-portal .nv-consent-history-item {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  align-items: start;
+  gap: 10px;
+  min-width: 0;
+}
+
+body.nv-patient-portal .nv-consent-history-marker {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  margin-top: 12px;
+  place-items: center;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px #dbe8ef, 0 4px 10px rgba(15, 55, 78, .08);
+  font-size: 12px;
+}
+
+body.nv-patient-portal .nv-consent-history-item.is-active .nv-consent-history-marker {
+  color: #047857;
+  background: #d1fae5;
+}
+
+body.nv-patient-portal .nv-consent-history-item.is-revoked .nv-consent-history-marker {
+  color: #be123c;
+  background: #ffe4e6;
+}
+
+body.nv-patient-portal .nv-consent-history-body {
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid #dfe9ef;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 8px 22px rgba(15, 55, 78, .055);
+}
+
+body.nv-patient-portal .nv-consent-history-item.is-active .nv-consent-history-body {
+  border-color: #bfe9d5;
+  background: linear-gradient(145deg, #ffffff 0%, #f4fff9 100%);
+}
+
+body.nv-patient-portal .nv-consent-history-item.is-revoked .nv-consent-history-body {
+  border-color: #eadde2;
+  background: linear-gradient(145deg, #ffffff 0%, #fff8fa 100%);
+}
+
+body.nv-patient-portal .nv-consent-history-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px 10px;
+}
+
+body.nv-patient-portal .nv-consent-history-title-wrap {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 180px;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+}
+
+body.nv-patient-portal .nv-consent-history-title-wrap strong {
+  min-width: 0;
+  color: #15384e;
+  font-size: 14px;
+  font-weight: 950;
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}
+
+body.nv-patient-portal .nv-consent-history-state,
+body.nv-patient-portal .nv-consent-history-version {
+  display: inline-flex;
+  min-height: 25px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 2px 9px;
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+body.nv-patient-portal .nv-consent-history-state {
+  color: #047857;
+  background: #dff8eb;
+}
+
+body.nv-patient-portal .is-revoked .nv-consent-history-state {
+  color: #be123c;
+  background: #ffe7ec;
+}
+
+body.nv-patient-portal .nv-consent-history-version {
+  color: #475569;
+  background: #eef3f6;
+}
+
+body.nv-patient-portal .nv-consent-history-meta {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 0;
+}
+
+body.nv-patient-portal .nv-consent-history-meta > div {
+  display: grid;
+  grid-template-columns: 82px minmax(0, 1fr);
+  gap: 8px;
+  align-items: start;
+  padding-top: 8px;
+  border-top: 1px dashed #dfe8ed;
+}
+
+body.nv-patient-portal .nv-consent-history-meta dt {
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 850;
+  line-height: 1.9;
+}
+
+body.nv-patient-portal .nv-consent-history-meta dd {
+  min-width: 0;
+  margin: 0;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 750;
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}
+
+body.nv-patient-portal .nv-consent-history-meta .is-revoked-row dt,
+body.nv-patient-portal .nv-consent-history-meta .is-revoked-row dd {
+  color: #9f1239;
+}
+
+body.nv-patient-portal .nv-consent-history-revoke {
+  display: inline-flex;
+  width: 100%;
+  min-height: 42px;
+  margin-top: 13px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid #fecdd3;
+  border-radius: 13px;
+  color: #be123c;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 900;
+  transition: border-color .16s ease, background-color .16s ease, transform .16s ease;
+}
+
+body.nv-patient-portal .nv-consent-history-revoke:hover {
+  border-color: #fda4af;
+  background: #fff1f2;
+}
+
+body.nv-patient-portal .nv-consent-history-revoke:focus-visible {
+  outline: 3px solid rgba(14, 165, 233, .28);
+  outline-offset: 2px;
+}
+
+/* Keep the date-of-birth calendar icon inside its input at every width. */
+body.nv-patient-portal .nv-jalali-field {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  overflow: visible;
+}
+
+body.nv-patient-portal .nv-jalali-field .nv-jalali-display {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  padding-right: 14px !important;
+  padding-left: 54px !important;
+}
+
+body.nv-patient-portal .nv-jalali-field .nv-jalali-trigger {
+  position: absolute !important;
+  top: 50% !important;
+  right: auto !important;
+  left: 6px !important;
+  z-index: 3;
+  display: inline-flex !important;
+  width: 38px !important;
+  height: 38px !important;
+  min-height: 38px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: translateY(-50%) !important;
+  border-radius: 11px !important;
+}
+
+@media (max-width: 767px) {
+  body.nv-patient-portal .nv-prescription-tools {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  body.nv-patient-portal .nv-prescription-search,
+  body.nv-patient-portal .nv-prescription-filter {
+    flex-basis: auto;
+    width: 100%;
+    min-width: 0;
+  }
+
+  body.nv-patient-portal .nv-consent-document-head {
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 11px;
+    padding: 16px;
+  }
+
+  body.nv-patient-portal .nv-consent-document-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+  }
+
+  body.nv-patient-portal .nv-consent-document-type {
+    font-size: 14px;
+  }
+
+  body.nv-patient-portal .nv-consent-document-copy h2 {
+    font-size: 15px;
+  }
+
+  body.nv-patient-portal .nv-consent-document-copy {
+    padding-right: 14px;
+  }
+
+  body.nv-patient-portal .nv-consent-history-panel-head {
+    padding: 16px;
+  }
+
+  body.nv-patient-portal .nv-consent-history-list {
+    padding: 14px 12px 16px;
+  }
+
+  body.nv-patient-portal .nv-consent-history-list::before {
+    right: 29px;
+  }
+
+  body.nv-patient-portal .nv-consent-history-item {
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  body.nv-patient-portal .nv-consent-history-marker {
+    width: 32px;
+    height: 32px;
+  }
+
+  body.nv-patient-portal .nv-consent-history-body {
+    padding: 13px;
+  }
+
+  body.nv-patient-portal .nv-consent-history-meta > div {
+    grid-template-columns: 1fr;
+    gap: 1px;
+  }
+}
+
+
+/* NoorVista 2.1.114 - supplementary insurance fields in beauty/client panel */
+.nv-pa-insurance-box {
+  grid-column: 1 / -1;
+  border: 1px solid #cde8f5;
+  border-radius: 18px;
+  padding: 14px;
+  background: linear-gradient(180deg, #f7fcff, #ffffff);
+}
+.nv-pa-insurance-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #0f3d57;
+  font-weight: 900;
+  cursor: pointer;
+}
+.nv-pa-insurance-toggle input {
+  width: 20px;
+  height: 20px;
+  accent-color: #0891b2;
+}
+.nv-pa-insurance-details {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.nv-pa-insurance-details[hidden] { display: none !important; }
+.nv-pa-insurance-notice {
+  grid-column: 1 / -1;
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: #fff7ed;
+  color: #9a3412;
+  font-size: .82rem;
+  line-height: 1.8;
+}
+.nv-pa-slot-insurance {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: #ecfeff;
+  color: #0e7490;
+  border: 1px solid #a5f3fc;
+  font-size: .76rem;
+  font-weight: 900;
+}
+@media (max-width: 680px) {
+  .nv-pa-insurance-details { grid-template-columns: 1fr; }
+}

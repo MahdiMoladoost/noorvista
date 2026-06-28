@@ -1,0 +1,76 @@
+/* NOORVISTA Welcome Banner Hard Fix */
+
+/* رنگ و سایز KPIهای welcome-banner را قفل می‌کند تا با CSSهای دیگر مشکی/ناخوانا نشود */
+body .main-content .welcome-banner,
+body .content .welcome-banner,
+body .welcome-banner {
+  color: #ffffff !important;
+}
+
+body .main-content .welcome-banner .welcome-stats,
+body .welcome-banner .welcome-stats {
+  position: relative !important;
+  z-index: 2 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 34px !important;
+}
+
+body .main-content .welcome-banner .welcome-stat,
+body .welcome-banner .welcome-stat {
+  min-width: 116px !important;
+  text-align: center !important;
+}
+
+body .main-content .welcome-banner .welcome-stat .number,
+body .welcome-banner .welcome-stat .number,
+body .main-content .welcome-banner .welcome-stat .nv-live-metric,
+body .welcome-banner .welcome-stat .nv-live-metric {
+  display: block !important;
+  color: #ffffff !important;
+  font-size: 24px !important;
+  line-height: 1.35 !important;
+  font-weight: 950 !important;
+  letter-spacing: -0.2px !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, .22) !important;
+  white-space: nowrap !important;
+  opacity: 1 !important;
+}
+
+body .main-content .welcome-banner .welcome-stat .label,
+body .welcome-banner .welcome-stat .label {
+  display: block !important;
+  color: rgba(255, 255, 255, .88) !important;
+  font-size: 12px !important;
+  line-height: 1.6 !important;
+  font-weight: 850 !important;
+  margin-top: 4px !important;
+  white-space: nowrap !important;
+  opacity: 1 !important;
+}
+
+body .main-content .welcome-banner .welcome-text,
+body .welcome-banner .welcome-text {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+body .welcome-banner .nv-empty-metric {
+  color: #ffffff !important;
+}
+
+@media (max-width: 768px) {
+  body .welcome-banner .welcome-stats {
+    gap: 18px !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+  }
+
+  body .welcome-banner .welcome-stat {
+    min-width: 110px !important;
+  }
+
+  body .welcome-banner .welcome-stat .number {
+    font-size: 22px !important;
+  }
+}

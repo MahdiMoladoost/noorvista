@@ -1,0 +1,208 @@
+/* NoorVista v2.1.66 — admin appointments list and checkout action polish */
+body[data-panel-role="admin"][data-nv-page="appointments"] .nv-appointments-list-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+  align-items: stretch;
+  padding-block: 16px;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .nv-appointments-list-title {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .nv-appointments-sort-panel {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(210px, .75fr) minmax(250px, .9fr) minmax(240px, 1.2fr);
+  align-items: center;
+  gap: 12px 16px;
+  padding: 14px 16px;
+  border: 1px solid #cfe0eb;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #f8fcff 0%, #eef7fb 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .85);
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .nv-sort-field-heading {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .nv-sort-field-icon {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  color: #075985;
+  background: #dff3fb;
+  border: 1px solid #b9e1f1;
+  font-size: 18px;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .nv-sort-field-heading label {
+  display: block;
+  margin: 0;
+  color: #153b54;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1.8;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .nv-sort-field-heading small {
+  display: block;
+  color: #5c7283;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .nv-sort-select-shell {
+  position: relative;
+  min-width: 0;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .nv-sort-preset-select {
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 10px 46px 10px 44px;
+  border: 1px solid #9fc8dc;
+  border-radius: 13px;
+  color: #123a55;
+  background: #fff;
+  box-shadow: 0 6px 16px rgba(25, 77, 106, .08);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.8;
+  cursor: pointer;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .nv-sort-preset-select:hover {
+  border-color: #4fa8cf;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .nv-sort-preset-select:focus-visible {
+  border-color: #087aaa;
+  outline: 3px solid rgba(14, 165, 233, .24);
+  outline-offset: 2px;
+  box-shadow: 0 8px 20px rgba(8, 122, 170, .13);
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .nv-sort-select-leading,
+body[data-panel-role="admin"][data-nv-page="appointments"] .nv-sort-select-chevron {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .nv-sort-select-leading {
+  right: 16px;
+  color: #087aaa;
+  font-size: 16px;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .nv-sort-select-chevron {
+  left: 16px;
+  color: #466579;
+  font-size: 13px;
+}
+
+body[data-panel-role="admin"][data-nv-page="appointments"] .nv-sort-summary {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 8px 12px;
+  border-inline-start: 3px solid #70bedc;
+  border-radius: 10px;
+  color: #486274;
+  background: rgba(255, 255, 255, .66);
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.8;
+  text-align: right;
+}
+
+#appointmentFormModal #nvWizardSubmit.nv-wizard-submit.is-payment {
+  border-color: #5b21b6 !important;
+  color: #fff !important;
+  background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 55%, #4c1d95 100%) !important;
+  box-shadow: 0 10px 24px rgba(91, 33, 182, .28) !important;
+}
+
+#appointmentFormModal #nvWizardSubmit.nv-wizard-submit.is-payment:hover:not(:disabled) {
+  border-color: #4c1d95 !important;
+  background: linear-gradient(135deg, #6d28d9 0%, #4c1d95 100%) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 13px 28px rgba(76, 29, 149, .34) !important;
+}
+
+#appointmentFormModal #nvWizardSubmit.nv-wizard-submit.is-free {
+  border-color: #047857 !important;
+  color: #fff !important;
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%) !important;
+  box-shadow: 0 10px 24px rgba(4, 120, 87, .24) !important;
+}
+
+#appointmentFormModal #nvWizardSubmit.nv-wizard-submit:disabled {
+  cursor: wait;
+  opacity: .68;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+@media (max-width: 980px) {
+  body[data-panel-role="admin"][data-nv-page="appointments"] .nv-appointments-sort-panel {
+    grid-template-columns: minmax(210px, .8fr) minmax(250px, 1.2fr);
+  }
+
+  body[data-panel-role="admin"][data-nv-page="appointments"] .nv-sort-summary {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  body[data-panel-role="admin"][data-nv-page="appointments"] .nv-appointments-sort-panel {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 12px;
+  }
+
+  body[data-panel-role="admin"][data-nv-page="appointments"] .nv-sort-summary {
+    grid-column: auto;
+  }
+
+  body[data-panel-role="admin"][data-nv-page="appointments"] .nv-sort-preset-select {
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #appointmentFormModal #nvWizardSubmit.nv-wizard-submit {
+    transition: none !important;
+  }
+}
+
+/* NoorVista 2.1.101: prevent invalid actions on terminal appointments */
+body[data-panel-role="admin"][data-nv-page="appointments"] .action-btn:disabled,
+body[data-panel-role="admin"][data-nv-page="appointments"] .action-btn.is-disabled {
+  opacity: .58;
+  cursor: not-allowed !important;
+  filter: grayscale(.08);
+  transform: none !important;
+  box-shadow: none !important;
+}
+body[data-panel-role="admin"][data-nv-page="appointments"] .action-btn.is-disabled {
+  background: #f8fafc !important;
+  color: #64748b !important;
+  border: 1px solid #dbe6ed !important;
+}

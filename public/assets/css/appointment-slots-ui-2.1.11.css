@@ -1,0 +1,202 @@
+@charset "UTF-8";
+/* NoorVista 2.1.11 — Jalali filter input spacing in generated appointment slots */
+body[data-appointment-page="slots"] .nv-appt-jalali-wrap,
+body[data-appointment-page="slots"] .appt-filter-field .nv-date-field {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+
+body[data-appointment-page="slots"] .nv-appt-jalali-wrap > input,
+body[data-appointment-page="slots"] .appt-filter-field .nv-date-field > input,
+body[data-appointment-page="slots"] .appt-filter-field .nv3-date-control {
+  box-sizing: border-box;
+  padding-inline-start: 16px !important;
+  padding-inline-end: 50px !important;
+  text-align: right !important;
+  direction: rtl !important;
+  text-indent: 0 !important;
+}
+
+
+body[data-appointment-page="slots"] .appt-filter-field .nv-date-field > input::placeholder,
+body[data-appointment-page="slots"] .nv-appt-jalali-wrap > input::placeholder {
+  color: #8aa0ad;
+  opacity: 1;
+}
+
+/* NoorVista 2.1.18 — keep Jalali date text away from the input edges */
+body[data-appointment-page="slots"] .nv-appt-filter-grid .nv-appt-jalali-wrap > input {
+  min-height: 48px;
+  padding-inline-start: 22px !important;
+  padding-inline-end: 52px !important;
+  line-height: 1.6 !important;
+}
+
+body[data-appointment-page="slots"] .nv-appt-filter-grid .nv-appt-jalali-wrap > i {
+  left: 16px;
+}
+
+/* NoorVista 2.1.19 — apply spacing to the generated .nv-date-field, not only the original wrapper */
+body.nv3-dashboard[data-appointment-page="slots"] .nv-appt-filter-grid .nv-appt-jalali-wrap .nv-date-field > input.nv3-date-control,
+body.nv3-dashboard[data-appointment-page="slots"] .nv-appt-filter-grid .nv-appt-jalali-wrap .nv-date-field > input.nv-jalali-input {
+  box-sizing: border-box !important;
+  padding: 10px 24px 10px 56px !important;
+  direction: rtl !important;
+  text-align: right !important;
+  text-indent: 0 !important;
+}
+
+body.nv3-dashboard.nv3-role-admin[data-appointment-page="slots"] .nv-appt-filter-grid .nv-appt-jalali-wrap .nv-date-field > input.nv3-date-control {
+  padding-right: 24px !important;
+  padding-left: 56px !important;
+}
+
+
+/* NoorVista 2.1.20 — click-controlled row actions (keyboard/touch safe) */
+body[data-appointment-page="slots"] .slot-actions-menu.is-open {
+  z-index: 1000001 !important;
+}
+
+body[data-appointment-page="slots"] .slot-actions-menu.is-open .nv-row-action-menu {
+  display: grid !important;
+  transform: translateX(-50%) translateY(0) !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+body[data-appointment-page="slots"] .appt-table tbody tr:has(.slot-actions-menu.is-open),
+body[data-appointment-page="slots"] .appt-table tbody tr:has(.slot-actions-menu.is-open) td {
+  position: relative !important;
+  z-index: 1000000 !important;
+  overflow: visible !important;
+}
+
+/* NoorVista 2.1.21 — viewport-safe slot actions */
+body[data-appointment-page="slots"] .slot-actions-menu.is-open .nv-row-action-menu {
+  position: fixed !important;
+  right: auto !important;
+  bottom: auto !important;
+  z-index: 12020 !important;
+  display: grid !important;
+  min-width: 156px;
+  max-width: calc(100vw - 24px) !important;
+  margin: 0 !important;
+  transform: none !important;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+body[data-appointment-page="slots"] .nv-row-action-menu button {
+  min-height: 40px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+
+
+/* NoorVista 2.1.139 — appointment slots filters + booking wizard flow */
+
+/* Appointment slots filters: keep status aligned with date-from/date-to row */
+body[data-appointment-page="slots"] .nv-appt-filter-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(220px, 1fr)) !important;
+  gap: 18px 12px !important;
+  align-items: end !important;
+}
+body[data-appointment-page="slots"] .nv-appt-filter-grid > :is(select,.slot-filter,.nv-appt-jalali-wrap) {
+  min-height: 48px !important;
+  align-self: end !important;
+}
+body[data-appointment-page="slots"] #filter_status {
+  grid-column: 3 !important;
+  grid-row: 2 !important;
+}
+body[data-appointment-page="slots"] .nv-appt-jalali-wrap:has(#date_from) {
+  grid-column: 2 !important;
+  grid-row: 2 !important;
+}
+body[data-appointment-page="slots"] .nv-appt-jalali-wrap:has(#date_to) {
+  grid-column: 1 !important;
+  grid-row: 2 !important;
+}
+
+/* Remove the extra/outside calendar icon; keep the proper input trigger only */
+body[data-appointment-page="slots"] .nv-appt-jalali-wrap > i,
+body[data-appointment-page="slots"] .nv-appt-jalali-wrap::before,
+body[data-appointment-page="slots"] .nv-appt-jalali-wrap > .icon-calendar,
+body[data-appointment-page="slots"] .nv-date-field > i,
+body[data-appointment-page="slots"] .nv-date-field > .nv-date-icon,
+body[data-appointment-page="slots"] .nv-date-field > .nv-date-trigger:not([data-nv-date-primary="1"]):not(:only-of-type) {
+  display: none !important;
+}
+body[data-appointment-page="slots"] .nv-appt-jalali-wrap .nv-date-field > input,
+body[data-appointment-page="slots"] .nv-appt-jalali-wrap > input {
+  padding-inline-end: 24px !important;
+  padding-inline-start: 54px !important;
+}
+
+/* Booking wizard selected summary */
+.nv-booking-selection-summary {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+  align-items: center !important;
+  padding: 14px 22px !important;
+  background: linear-gradient(135deg, rgba(6,182,212,.11), rgba(124,58,237,.10)) !important;
+  border-top: 1px solid rgba(186,230,253,.85) !important;
+  border-bottom: 1px solid rgba(186,230,253,.85) !important;
+}
+.nv-booking-selection-summary[hidden] { display: none !important; }
+.nv-booking-summary-chip {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  min-height: 36px !important;
+  padding: 7px 12px !important;
+  border-radius: 999px !important;
+  background: rgba(255,255,255,.92) !important;
+  border: 1px solid rgba(125,211,252,.85) !important;
+  box-shadow: 0 10px 22px rgba(8,145,178,.10) !important;
+}
+.nv-booking-summary-chip em {
+  font-style: normal !important;
+  color: #0891b2 !important;
+  font-weight: 950 !important;
+  font-size: 12px !important;
+}
+.nv-booking-summary-chip strong {
+  color: #0f172a !important;
+  font-weight: 950 !important;
+  font-size: 13px !important;
+}
+
+/* Highlight selected/completed steps more clearly */
+.nv-public-booking__progress-item.is-active {
+  background: linear-gradient(135deg, #e0f2fe, #ccfbf1) !important;
+  border-color: #67e8f9 !important;
+  box-shadow: 0 14px 30px rgba(8,145,178,.15) !important;
+}
+.nv-public-booking__progress-item.is-done {
+  background: #f0fdfa !important;
+  border-color: #99f6e4 !important;
+}
+
+/* Hide insurance block for services without configured insurance */
+.nv-booking-insurance-box[hidden],
+.nv-booking-insurance-details[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  body[data-appointment-page="slots"] .nv-appt-filter-grid {
+    grid-template-columns: 1fr !important;
+  }
+  body[data-appointment-page="slots"] #filter_status,
+  body[data-appointment-page="slots"] .nv-appt-jalali-wrap:has(#date_from),
+  body[data-appointment-page="slots"] .nv-appt-jalali-wrap:has(#date_to) {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+}

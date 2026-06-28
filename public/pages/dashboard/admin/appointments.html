@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa">
+<head>
+<meta content="noindex,nofollow,noarchive" name="robots"/>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>مدیریت نوبت‌ها | سامانه کلینیک</title>
+<meta content="#0b3954" name="theme-color"/><link href="/css/local-fonts.css" rel="stylesheet"/><link href="/css/open-iconic-bootstrap.min.css" rel="stylesheet"/><link href="/css/ionicons.min.css" rel="stylesheet"/><link href="/css/icomoon.css" rel="stylesheet"/><link href="/assets/css/noorvista-dashboard-tailwind.css?v=2.1.70" rel="stylesheet"/><link href="/assets/css/calendar-select-tailwind-2.1.32.css?v=2.1.70" rel="stylesheet"/>
+<link href="/assets/css/admin-ui-2.1.13.css" rel="stylesheet"/><link href="/assets/css/appointments-v2.css?v=2.1.114" rel="stylesheet"/><link href="/assets/css/appointments-commandbar-tailwind-2.1.38.css" rel="stylesheet"/><link href="/assets/css/appointments-table-sort-2.1.41.css" rel="stylesheet"/><link href="/assets/css/appointment-workflow-2.1.8.css" rel="stylesheet"/><link href="/assets/css/appointment-modal-scroll-2.1.9.css" rel="stylesheet"/><link href="/assets/css/appointment-wizard-2.1.16.css?v=2.1.22" rel="stylesheet"/><link href="/css/persian-datepicker.css?v=2.1.70" rel="stylesheet"/> <script src="/assets/js/auth-cookie-client.js"></script>
+<link href="/assets/css/admin-modal-system-2.1.14.css" rel="stylesheet"/>
+<link href="/assets/css/admin-appointments-refactor-2.1.63.css?v=2.1.63" rel="stylesheet"/>
+<link href="/assets/css/admin-appointments-polish-2.1.66.css?v=2.1.66" rel="stylesheet"/>
+<link href="/assets/css/panel-sidebar-patient-parity-2.1.65.css?v=2.1.65" rel="stylesheet"/>
+
+<link href="/assets/css/panel-pretty-selects-global.css?v=2.1.67" rel="stylesheet"/>
+<link href="/assets/css/panel-form-controls-pro-2.1.67.css?v=2.1.67" rel="stylesheet"/>
+<link href="/assets/css/nv-uiux-stability-2.1.129.css?v=2.1.157" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/css/persian-digits-global-2.1.130.css?v=2.1.130">
+<link href="/assets/css/nv-uiux-stability-2.1.131.css?v=2.1.131" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/css/nv-comprehensive-audit-2.1.146.css?v=2.1.146"/>
+<link rel="stylesheet" href="/assets/css/topbar-footer-hardfix-2.1.154.css?v=2.1.154"/>
+<link rel="stylesheet" href="/assets/css/footer-visit-info-refine-2.1.156.css?v=2.1.156"/>
+<link rel="stylesheet" href="/assets/css/chatbot-booking-labels-2.1.159.css?v=2.1.160"/>
+<link rel="stylesheet" href="/assets/css/public-mobile-ux-cleanup-2.1.160.css?v=2.1.161"/>
+<link rel="stylesheet" href="/assets/css/public-mobile-topbar-doctor-2.1.162.css?v=2.1.162"/>
+<link rel="stylesheet" href="/assets/css/noorvista-international-uiux.css?v=3.0.0"/>
+</head>
+<body class="nv3-dashboard nv3-role-admin nv3-sidebar-patient-parity" data-nv-page="appointments" data-panel-role="admin">
+<a class="nv3-skip-link" href="#main-content">رفتن به محتوای اصلی</a>
+<div class="nv3-shell">
+<div class="nv3-sidebar-overlay" data-nv3-sidebar-overlay=""></div>
+<aside aria-label="منوی مدیر سیستم" class="sidebar nv3-sidebar" data-nv3-sidebar="">
+<div class="nv3-sidebar-header">
+<a aria-label="داشبورد سامانه کلینیک" class="nv3-brand" href="index.html">
+<span class="nv3-brand-mark nv3-brand-logo-image" aria-hidden="true"><img src="/assets/brand/sadra-clinic-mark.svg" alt=""/></span>
+<span class="nv3-brand-copy"><strong>سامانه کلینیک</strong><small>در حال بارگذاری...</small></span>
+</a>
+<button aria-label="جمع کردن منوی کناری" class="nv3-sidebar-collapse" data-nv3-sidebar-collapse="" title="جمع کردن منوی کناری" type="button"><i aria-hidden="true" class="icon-chevron-right"></i></button>
+<button aria-label="بستن منو" class="nv3-sidebar-mobile-close" data-nv3-sidebar-close="" type="button"><i aria-hidden="true" class="icon-close"></i></button>
+</div>
+<nav aria-label="دسترسی‌های پنل" class="nv3-nav"><ul><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="index.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-dashboard"></i></span><span class="nv3-nav-label">داشبورد</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="users.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-users"></i></span><span class="nv3-nav-label">کاربران</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="doctors.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-user-md"></i></span><span class="nv3-nav-label">پزشکان</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="schedule.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-clock-o"></i></span><span class="nv3-nav-label">برنامه کاری پزشکان</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="patients.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-people"></i></span><span class="nv3-nav-label">بیماران</span></a></li><li class="nv3-nav-item"><a aria-current="page" class="nav-link nv3-nav-link is-active" href="appointments.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-calendar"></i></span><span class="nv3-nav-label">نوبت‌ها</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="staff.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-briefcase"></i></span><span class="nv3-nav-label">کارکنان</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="payments.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-credit-card"></i></span><span class="nv3-nav-label">امور مالی</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="medical-centers.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-medkit"></i></span><span class="nv3-nav-label">مراکز درمانی</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="services-management.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-list"></i></span><span class="nv3-nav-label">خدمات کلینیک</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="faqs.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-comments"></i></span><span class="nv3-nav-label">پرسش‌های پرتکرار</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="notifications.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-bell"></i></span><span class="nv3-nav-label">اعلان‌ها</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="reports.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-bar-chart"></i></span><span class="nv3-nav-label">گزارش‌ها</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="visitor-analytics.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-bar-chart"></i></span><span class="nv3-nav-label">بازدیدکنندگان سایت</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="logs.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-file-text"></i></span><span class="nv3-nav-label">رویدادهای سیستم</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="settings.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-cog"></i></span><span class="nv3-nav-label">تنظیمات سامانه</span></a></li><li class="nv3-nav-item"><a class="nav-link nv3-nav-link" href="backup.html"><span class="nv3-nav-icon"><i aria-hidden="true" class="icon-database"></i></span><span class="nv3-nav-label">پشتیبان‌گیری</span></a></li></ul></nav>
+<div class="nv3-sidebar-footer"><button class="nv3-sidebar-logout" data-nv3-logout="" type="button"><i aria-hidden="true" class="icon-sign-out"></i><span class="nv3-nav-label">خروج امن</span></button></div>
+</aside>
+<div class="main-content nv3-main">
+<header class="top-header nv3-topbar">
+<div class="nv3-topbar-inner">
+<div class="nv3-heading-wrap"><button aria-label="باز کردن منو" class="nv3-mobile-menu" data-nv3-sidebar-open="" type="button"><i aria-hidden="true" class="icon-menu"></i></button><div class="nv3-page-heading"><h1>مدیریت نوبت‌ها</h1><p>ثبت، مشاهده، تأیید و لغو کنترل‌شده نوبت‌های بیماران</p></div></div>
+<div class="nv3-topbar-actions"><a aria-label="صفحه اصلی" class="nv3-icon-button nv3-home-button" href="/" title="صفحه اصلی"><i aria-hidden="true" class="icon-home"></i></a><div class="nv3-date-box"><small>امروز</small><strong data-nv3-today="">—</strong></div><a aria-label="اعلان‌ها" class="nv3-icon-button" href="notifications.html" title="اعلان‌ها"><i aria-hidden="true" class="icon-bell"></i><span aria-hidden="true" class="nv3-notification-dot"></span></a><div class="nv3-user-menu"><button aria-expanded="false" aria-haspopup="true" class="user-menu-trigger nv3-user-menu-trigger" data-nv3-user-menu-toggle="" type="button"><span class="user-avatar nv3-user-avatar" data-fallback="مد" data-nv3-user-avatar="">مد</span><span class="nv3-user-copy"><strong class="user-name" data-nv3-user-name="">مدیر سیستم</strong><small data-nv3-user-role="">مدیر سیستم</small></span><i aria-hidden="true" class="icon-chevron-down"></i></button><div class="user-dropdown nv3-user-dropdown" data-nv3-user-menu="" role="menu"><a class="nv3-user-menu-item" href="account.html"><i aria-hidden="true" class="icon-user"></i><span>اطلاعات حساب و حساب کاربری</span></a><a class="nv3-user-menu-item" href="account.html#password"><i aria-hidden="true" class="icon-lock"></i><span>تغییر رمز عبور</span></a><button class="nv3-user-menu-item is-danger" data-nv3-logout="" type="button"><i aria-hidden="true" class="icon-sign-out"></i><span>خروج از حساب</span></button></div></div></div>
+</div>
+</header>
+<main class="nv3-page" id="main-content"><div class="stats-grid nv3-responsive-grid nv3-page-block">
+<div class="stat-card">
+<div class="stat-icon"><i aria-hidden="true" class="icon-calendar"></i></div>
+<div class="stat-info"><h3 id="totalAppointmentsCount">۰</h3><p>کل نوبت‌ها</p></div>
+</div>
+<div class="stat-card">
+<div class="stat-icon" style="background: #fef3c7;"><i aria-hidden="true" class="icon-hourglass"></i></div>
+<div class="stat-info"><h3 id="pendingAppointmentsCount">۰</h3><p>در انتظار تأیید</p></div>
+</div>
+<div class="stat-card">
+<div class="stat-icon"><i aria-hidden="true" class="icon-check"></i></div>
+<div class="stat-info"><h3 id="confirmedAppointmentsCount">۰</h3><p>تأیید شده</p></div>
+</div>
+<div class="stat-card">
+<div class="stat-icon"><i aria-hidden="true" class="icon-star"></i></div>
+<div class="stat-info"><h3 id="todayAppointmentsCount">۰</h3><p>نوبت‌های امروز</p></div>
+</div>
+</div><div class="nv-appointments-toolbox nv3-page-block">
+<div class="nv-toolbox-head">
+<div class="nv-toolbox-title"><i aria-hidden="true" class="icon-filter_list"></i><div><h2>ابزار نوبت‌ها</h2><p>فیلتر جدول و بررسی سابقه بیمار در یک بخش جمع‌وجور</p></div></div>
+<div aria-label="ابزارهای نوبت" class="nv-toolbox-tabs" role="tablist">
+<button aria-controls="appointmentsFilterPanel" aria-selected="true" class="is-selected" data-appointments-tool-tab="filter" id="appointmentsFilterTab" role="tab" type="button"><i aria-hidden="true" class="icon-filter_list"></i><span>فیلتر نوبت‌ها</span></button>
+<button aria-controls="patientHistoryPanel" aria-selected="false" data-appointments-tool-tab="history" id="patientHistoryTab" role="tab" type="button"><i aria-hidden="true" class="icon-history"></i><span>سابقه بیمار</span></button>
+</div>
+</div>
+<section aria-labelledby="appointmentsFilterTab" class="nv-toolbox-panel is-selected" data-appointments-tool-panel="filter" id="appointmentsFilterPanel" role="tabpanel">
+<div class="nv-appointments-filter-fields">
+<div class="filter-group nv-filter-search"><label for="filterSearch">جست‌وجو</label><input id="filterSearch" placeholder="نام بیمار یا پزشک" type="text"/></div>
+<div class="filter-group"><label for="filterStatus">وضعیت</label><select id="filterStatus"><option value="all">همه وضعیت‌ها</option><option value="pending">در انتظار</option><option value="confirmed">تأیید شده</option><option value="completed">انجام شده</option><option value="cancelled">لغو شده</option></select></div>
+<div class="filter-group nv-filter-date"><label for="filterDate">تاریخ نوبت</label><input autocomplete="off" class="date-input jalali-date-input" id="filterDate" placeholder="انتخاب تاریخ" type="text"/></div>
+<div class="filter-group nv-filter-clear-action"><button class="btn btn-outline" id="clearAppointmentsFiltersBtn" type="button"><i aria-hidden="true" class="icon-refresh"></i><span>پاک‌سازی</span></button></div>
+</div>
+</section>
+<section aria-labelledby="patientHistoryTab" class="nv-toolbox-panel" data-appointments-tool-panel="history" hidden id="patientHistoryPanel" role="tabpanel">
+<div class="nv-history-controls">
+<div class="filter-group nv-history-patient"><label for="historyPatientId">بیمار</label><select id="historyPatientId"><option value="">انتخاب بیمار...</option></select></div>
+<div class="filter-group nv-history-range"><label for="historyRange">بازه بررسی</label><select id="historyRange"><option value="30">۳۰ روز گذشته</option><option value="90">۳ ماه گذشته</option><option value="180">۶ ماه گذشته</option><option value="365">۱۲ ماه گذشته</option><option value="all">کل سوابق</option><option value="custom">بازه سفارشی</option></select></div>
+<div class="nv-history-custom-dates" hidden id="historyCustomDates">
+<div class="filter-group"><label for="historyDateFrom">از تاریخ</label><input autocomplete="off" class="date-input jalali-date-input" id="historyDateFrom" placeholder="از تاریخ" type="text"/></div>
+<div class="filter-group"><label for="historyDateTo">تا تاریخ</label><input autocomplete="off" class="date-input jalali-date-input" id="historyDateTo" placeholder="تا تاریخ" type="text"/></div>
+</div>
+<button class="btn btn-primary nv-history-apply" id="historyApplyBtn" type="button"><i aria-hidden="true" class="icon-search"></i><span>بررسی سابقه</span></button>
+</div>
+<div class="nv-history-result-wrap">
+<div class="nv-history-summary"><div class="nv-history-count"><strong id="historyTotalCount">۰</strong><span>نوبت در بازه</span></div><div class="nv-history-summary-copy"><p id="historyRangeMeta">برای مشاهده سابقه، بیمار را انتخاب کنید.</p><div class="nv-history-breakdown" id="historyStatusBreakdown"></div></div></div>
+<div class="nv-history-recent" id="historyRecentList"><div class="nv-history-empty">هنوز بیماری انتخاب نشده است.</div></div>
+</div>
+</section>
+</div><div class="nv-appointments-commandbar nv3-page-block">
+<div class="nv-appointments-commandbar-layout">
+<div aria-label="بازه‌های سریع نمایش نوبت" class="nv-appointments-range-shortcuts" role="group">
+<span class="nv-range-shortcuts-title"><i aria-hidden="true" class="icon-clock-o"></i> نمایش آینده</span>
+<button aria-pressed="false" data-appointments-range="7" type="button">هفته</button>
+<button aria-pressed="false" data-appointments-range="30" type="button">ماه</button>
+<button aria-pressed="false" data-appointments-range="90" type="button">سه‌ماه</button>
+<button aria-pressed="false" data-appointments-range="365" type="button">یک‌سال</button>
+</div>
+<div aria-label="جابجایی روزهای نوبت" class="nv-appointments-day-nav" role="group">
+<button class="nv-day-nav-btn" id="appointmentsPrevDay" type="button"><i aria-hidden="true" class="icon-chevron-right"></i><span>روز قبل</span></button>
+<button class="nv-day-current-btn" id="appointmentsTodayDay" title="نمایش نوبت‌های امروز" type="button"><i aria-hidden="true" class="icon-calendar"></i><span class="nv-day-current-copy"><strong id="appointmentsSelectedDayLabel">همه روزها</strong><small>رفتن به امروز</small></span></button>
+<button class="nv-day-nav-btn" id="appointmentsNextDay" type="button"><span>روز بعد</span><i aria-hidden="true" class="icon-chevron-left"></i></button>
+</div>
+<div class="nv-appointments-primary-actions">
+<button class="btn btn-outline" id="refreshAppointmentsBtn" type="button"><i aria-hidden="true" class="icon-refresh"></i> به‌روزرسانی</button>
+<button class="btn btn-success" id="openAppointmentModalBtn" type="button"><i aria-hidden="true" class="icon-plus"></i> نوبت جدید</button>
+</div>
+</div>
+</div>
+<div class="card nv3-surface nv3-page-block">
+<div class="card-header nv-appointments-list-header">
+<div class="nv-appointments-list-title">
+<h4><i aria-hidden="true" class="icon-calendar"></i> لیست نوبت‌ها</h4>
+<span class="nv-appointments-result-count">تعداد: <span id="filteredCount">۰</span> مورد</span>
+</div>
+<div class="nv-appointments-sort-panel" role="group" aria-label="مرتب‌سازی نوبت‌ها">
+<div class="nv-sort-field-heading">
+<span class="nv-sort-field-icon" aria-hidden="true"><i class="icon-filter_list"></i></span>
+<div><label for="appointmentsSortPreset">ترتیب نمایش نوبت‌ها</label><small>فهرست را بدون تغییر فیلترها مرتب کنید</small></div>
+</div>
+<div class="nv-sort-select-shell">
+<select id="appointmentsSortPreset" class="nv-sort-preset-select" aria-describedby="appointmentsSortSummary">
+<option value="nearest">نزدیک‌ترین نوبت</option>
+<option value="created_desc">جدیدترین ثبت</option>
+<option value="unpaid_first">پرداخت‌نشده‌ها</option>
+<option value="pending_first">در انتظار تأیید</option>
+<option value="custom" disabled>مرتب‌سازی ستونی</option>
+</select>
+</div>
+<span class="nv-sort-summary" id="appointmentsSortSummary" aria-live="polite">نزدیک‌ترین نوبت‌ها در ابتدای جدول</span>
+</div>
+</div>
+<div class="card-body nv-table-surface">
+<div class="nv3-table-scroll"><table class="data-table" id="appointmentsTable">
+<thead>
+<tr>
+<th class="nv-sortable-column" scope="col" aria-sort="none"><button class="nv-table-sort" type="button" data-appointment-sort-key="id" data-sort-label="شناسه"><span>شناسه</span><span class="nv-sort-indicator" aria-hidden="true">↕</span></button></th>
+<th class="nv-sortable-column" scope="col" aria-sort="none"><button class="nv-table-sort" type="button" data-appointment-sort-key="created_at" data-sort-label="زمان ثبت"><span>زمان ثبت</span><span class="nv-sort-indicator" aria-hidden="true">↕</span></button></th>
+<th class="nv-sortable-column" scope="col" aria-sort="none"><button class="nv-table-sort" type="button" data-appointment-sort-key="appointment_date" data-sort-label="تاریخ"><span>تاریخ</span><span class="nv-sort-indicator" aria-hidden="true">↕</span></button></th>
+<th class="nv-sortable-column" scope="col" aria-sort="none"><button class="nv-table-sort" type="button" data-appointment-sort-key="appointment_time" data-sort-label="ساعت"><span>ساعت</span><span class="nv-sort-indicator" aria-hidden="true">↕</span></button></th>
+<th class="nv-sortable-column" scope="col" aria-sort="none"><button class="nv-table-sort" type="button" data-appointment-sort-key="patient_name" data-sort-label="بیمار"><span>بیمار</span><span class="nv-sort-indicator" aria-hidden="true">↕</span></button></th>
+<th class="nv-sortable-column" scope="col" aria-sort="none"><button class="nv-table-sort" type="button" data-appointment-sort-key="doctor_name" data-sort-label="پزشک"><span>پزشک</span><span class="nv-sort-indicator" aria-hidden="true">↕</span></button></th>
+<th class="nv-sortable-column" scope="col" aria-sort="none"><button class="nv-table-sort" type="button" data-appointment-sort-key="type" data-sort-label="نوع"><span>نوع</span><span class="nv-sort-indicator" aria-hidden="true">↕</span></button></th>
+<th class="nv-sortable-column" scope="col" aria-sort="none"><button class="nv-table-sort" type="button" data-appointment-sort-key="amount" data-sort-label="هزینه"><span>هزینه</span><span class="nv-sort-indicator" aria-hidden="true">↕</span></button></th>
+<th class="nv-sortable-column" scope="col" aria-sort="none"><button class="nv-table-sort" type="button" data-appointment-sort-key="payment_status" data-sort-label="پرداخت"><span>پرداخت</span><span class="nv-sort-indicator" aria-hidden="true">↕</span></button></th>
+<th class="nv-sortable-column" scope="col" aria-sort="none"><button class="nv-table-sort" type="button" data-appointment-sort-key="status" data-sort-label="وضعیت"><span>وضعیت</span><span class="nv-sort-indicator" aria-hidden="true">↕</span></button></th>
+<th scope="col">عملیات</th>
+</tr>
+</thead>
+<tbody id="appointmentsTableBody">
+<tr><td class="table-empty-state" colspan="11">در حال بارگذاری...</td></tr>
+</tbody>
+</table></div>
+</div>
+</div></main>
+</div>
+</div>
+<div class="modal-overlay" id="appointmentFormModal">
+<div class="modal-container">
+<div class="modal-header">
+<h3><i aria-hidden="true" class="icon-calendar"></i> <span id="formModalTitle">ثبت نوبت جدید</span></h3>
+<button class="modal-close" data-close-modal="appointmentFormModal" type="button"><i aria-hidden="true" class="icon-close"></i><span class="nv3-sr-only">بستن</span></button>
+</div>
+<div class="modal-body">
+<form id="appointmentForm">
+<input id="appointmentId" type="hidden"/>
+<div class="selected-slot-banner selected-slot-sticky empty" id="selectedSlotBanner">
+<i aria-hidden="true" class="icon-calendar"></i>
+<div>
+<strong>هنوز نوبتی انتخاب نشده است</strong>
+<span>از زودترین نوبت خالی یا لیست نوبت‌های خالی پزشک انتخاب کنید.</span>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label>بیمار</label>
+<select aria-label="بیمار id" class="form-control" id="patientId" required="">
+<option value="">انتخاب بیمار...</option>
+</select>
+</div>
+<div class="form-group">
+<label>پزشک</label>
+<select aria-label="پزشک id" class="form-control" id="doctorId" required="">
+<option value="">انتخاب پزشک...</option>
+</select>
+</div>
+</div>
+<div class="clinic-slot-finder">
+<div class="slot-finder-header">
+<div>
+<strong>انتخاب هوشمند نوبت خالی</strong>
+<span>به‌جای انتخاب روز از تقویم، پزشک را انتخاب کن و سیستم نوبت‌های واقعاً خالی را پیشنهاد می‌دهد.</span>
+</div>
+</div>
+<div class="form-row compact-row">
+<div class="form-group">
+<label>بازه نمایش نوبت‌ها</label>
+<div class="slot-window-info" id="slotWindowInfo">بازه از تنظیمات زمان‌بندی پزشک خوانده می‌شود.</div>
+</div>
+<div class="form-group slot-finder-actions">
+<label>پیشنهاد سیستم</label>
+<div class="slot-action-row">
+<button class="btn btn-primary btn-sm" id="findEarliestSlotBtn" type="button">زودترین نوبت خالی</button>
+<button class="btn btn-outline btn-sm" id="loadAllSlotsBtn" type="button">همه نوبت‌های خالی</button>
+</div>
+</div>
+</div>
+<div class="slot-finder-status" id="slotFinderStatus">ابتدا بیمار و پزشک را انتخاب کنید.</div>
+<div class="available-slots-panel" id="availableSlotsPanel"></div>
+</div>
+<div class="advanced-booking-toggle-row">
+<button class="btn btn-link clinic-advanced-date-toggle" id="manualDateModeBtn" type="button">انتخاب دستی تاریخ و ساعت (پیشرفته)</button>
+</div>
+<div class="form-row clinic-booking-field-row" id="bookingFieldRow" style="display:none;">
+<div class="form-group">
+<label>تاریخ انتخاب‌شده</label>
+<input class="form-control date-input clinic-selected-date" id="appointmentDateJalali" placeholder="مثال: ۱۴۰۵/۰۳/۱۲" readonly="" required="" type="text"/>
+<small class="field-hint">در حالت عادی این مقدار با انتخاب نوبت خالی پر می‌شود.</small>
+</div>
+<div class="form-group">
+<label>ساعت انتخاب‌شده</label>
+<select aria-label="نوبت زمان" class="form-control" id="appointmentTime" required="">
+<option value="">ابتدا پزشک و نوبت خالی را انتخاب کنید</option>
+</select>
+<small class="field-hint">فقط ساعت‌های تعریف‌شده در زمان‌بندی پزشک قابل انتخاب هستند.</small>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label>نوع نوبت</label>
+<select aria-label="نوبت نوع" class="form-control" id="appointmentType">
+<option value="regular">عادی</option>
+<option value="follow_up">پیگیری</option>
+<option value="emergency">اورژانسی</option>
+<option value="surgery">جراحی</option>
+</select>
+</div>
+<div class="form-group">
+<label>وضعیت</label>
+<select aria-label="نوبت وضعیت" class="form-control" id="appointmentStatus">
+<option value="pending">در انتظار</option>
+<option selected="" value="confirmed">تأیید شده</option>
+<option value="completed">انجام شده</option>
+<option value="cancelled">لغو شده</option>
+</select>
+</div>
+</div>
+<div class="form-group">
+<label>توضیحات</label>
+<textarea class="form-control" id="appointmentReason" placeholder="توضیحات..." rows="2"></textarea>
+</div>
+</form>
+</div>
+<div class="modal-footer nv-wizard-footer">
+<button class="btn btn-outline" data-close-modal="appointmentFormModal" id="nvWizardCancel" type="button">انصراف</button>
+<div class="nv-wizard-footer-spacer"></div>
+<button class="btn btn-outline nv-wizard-back" hidden id="nvWizardBack" type="button"><i aria-hidden="true" class="icon-chevron-right"></i> مرحله قبل</button>
+<button class="btn btn-primary nv-wizard-next" id="nvWizardNext" type="button">مرحله بعد <i aria-hidden="true" class="icon-chevron-left"></i></button>
+<button class="btn btn-success nv-wizard-submit is-payment" hidden id="nvWizardSubmit" type="button"><i aria-hidden="true" class="icon-check"></i> <span id="formSubmitText">ادامه به پرداخت</span></button>
+</div>
+</div>
+</div><div class="modal-overlay" id="viewAppointmentModal">
+<div class="modal-container" style="max-width: 650px;">
+<div class="modal-header">
+<h3><i aria-hidden="true" class="icon-eye"></i> جزئیات نوبت</h3>
+<button class="modal-close" data-close-modal="viewAppointmentModal" type="button"><i aria-hidden="true" class="icon-close"></i><span class="nv3-sr-only">بستن</span></button>
+</div>
+<div class="modal-body">
+<div class="detail-grid" id="viewAppointmentContent"></div>
+</div>
+<div class="modal-footer nv-appointment-detail-footer">
+<button class="btn btn-outline" data-close-modal="viewAppointmentModal" type="button">بستن</button>
+<button class="btn btn-success" id="viewConfirmBtn">تأیید نوبت</button>
+<button class="btn btn-danger" id="viewDeleteBtn">لغو نوبت</button>
+</div>
+</div>
+</div><div class="modal-overlay" id="confirmActionModal">
+<div class="modal-container" style="max-width: 400px;">
+<div class="modal-header">
+<h3><i aria-hidden="true" class="icon-info"></i> <span id="confirmActionTitle">تأیید عملیات</span></h3>
+<button class="modal-close" data-close-modal="confirmActionModal" type="button"><i aria-hidden="true" class="icon-close"></i><span class="nv3-sr-only">بستن</span></button>
+</div>
+<div class="modal-body" style="text-align: center;">
+<div style="font-size: 48px; margin-bottom: 10px;"><i aria-hidden="true" class="icon-question_answer" id="confirmActionMainIcon"></i></div>
+<h4 id="confirmActionQuestion" style="margin: 0 0 8px; font-size: 16px;">آیا مطمئن هستید؟</h4>
+<p id="confirmActionText" style="margin: 0; color: #6b7280; font-size: 13px;">این عملیات قابل انجام است.</p>
+</div>
+<div class="modal-footer" style="justify-content: center;">
+<button class="btn btn-outline" data-close-modal="confirmActionModal" type="button">انصراف</button>
+<button class="btn btn-primary" id="confirmActionSubmitBtn">تأیید</button>
+</div>
+</div>
+</div><script src="/assets/js/noorvista-dashboard-v3.js?v=2.1.93"></script><script src="/assets/js/admin-ui-2.1.6.js?v=2.1.8"></script><script src="/js/jquery.min.js"></script><script src="/js/panel-common.js?v=2.1.63"></script><script src="/js/jalali.js"></script><script src="/assets/js/jalali-date-bridge.js?v=2.1.63"></script><script src="/js/persian-datepicker.js?v=2.1.70"></script><script src="/assets/js/admin-appointments-page.js?v=2.1.63"></script><script src="/assets/js/appointments-day-history.js?v=2.1.37"></script><script src="/assets/js/appointments-v2.js?v=2.1.117"></script><script src="/assets/js/panel-pretty-selects-global.js?v=2.1.67"></script><script src="/assets/js/admin-modal-system-2.1.15.js"></script>
+<script src="/assets/js/nv-uiux-stability-2.1.129.js?v=2.1.158"></script>
+<script defer src="/assets/js/persian-digits-global-2.1.130.js?v=2.1.130"></script>
+<script defer src="/assets/js/nv-public-text-uiux-2.1.131.js?v=3.0.4"></script>
+<script defer src="/assets/js/nv-comprehensive-audit-2.1.146.js?v=2.1.146"></script>
+<script defer src="/assets/js/topbar-footer-hardfix-2.1.154.js?v=2.1.154"></script>
+<script defer src="/assets/js/chatbot-booking-labels-2.1.159.js?v=2.1.160"></script>
+<script defer src="/assets/js/public-mobile-ux-cleanup-2.1.160.js?v=2.1.161"></script>
+<script defer src="/assets/js/public-mobile-topbar-doctor-2.1.162.js?v=2.1.162"></script>
+<script defer src="/assets/js/noorvista-international-uiux.js?v=3.0.0"></script>
+</body>
+</html>

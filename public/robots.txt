@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /admin/
+Disallow: /panel/
+Disallow: /login
+Disallow: /reset-password
+Disallow: /forgot-password
+Disallow: /uploads/
+Disallow: /private-files/
+
+Sitemap: https://noorvista.ir/sitemap.xml

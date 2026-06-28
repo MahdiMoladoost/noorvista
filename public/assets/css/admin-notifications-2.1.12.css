@@ -1,0 +1,221 @@
+/* NoorVista 2.1.12 — interactive notification dropdown for the dashboard topbar */
+body.nv3-dashboard .nv3-notification-menu{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 auto;
+  z-index:5100;
+}
+body.nv3-dashboard .nv3-notification-trigger{
+  position:relative;
+  cursor:pointer;
+}
+body.nv3-dashboard .nv3-notification-badge{
+  position:absolute;
+  top:-6px;
+  left:-6px;
+  min-width:20px;
+  height:20px;
+  padding:0 5px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:2px solid #fff;
+  border-radius:999px;
+  color:#fff;
+  background:#e11d48;
+  box-shadow:0 5px 12px rgba(190,24,93,.28);
+  font-size:9px;
+  font-weight:900;
+  line-height:1;
+}
+body.nv3-dashboard .nv3-notification-badge[hidden]{display:none!important}
+body.nv3-dashboard .nv3-notification-dropdown{
+  position:absolute;
+  top:calc(100% + 12px);
+  left:0;
+  width:min(390px,calc(100vw - 28px));
+  max-height:min(520px,calc(100vh - 120px));
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  border:1px solid #cce4ee;
+  border-radius:20px;
+  background:#fff;
+  box-shadow:0 24px 58px rgba(15,63,87,.22),0 3px 12px rgba(15,63,87,.09);
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(-8px) scale(.985);
+  transform-origin:top left;
+  pointer-events:none;
+  transition:opacity .17s ease,transform .17s ease,visibility .17s ease;
+  z-index:5200;
+}
+body.nv3-dashboard .nv3-notification-menu.is-open .nv3-notification-dropdown{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0) scale(1);
+  pointer-events:auto;
+}
+body.nv3-dashboard .nv3-notification-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:16px 17px 13px;
+  border-bottom:1px solid #e3eef3;
+  background:linear-gradient(135deg,#f6fcff,#eef9fd);
+}
+body.nv3-dashboard .nv3-notification-head>div{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+body.nv3-dashboard .nv3-notification-head strong{
+  color:#153f55;
+  font-size:14px;
+  font-weight:950;
+}
+body.nv3-dashboard .nv3-notification-head span{
+  color:#6b8998;
+  font-size:10px;
+  font-weight:650;
+}
+body.nv3-dashboard .nv3-notification-head a{
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:34px;
+  padding:7px 12px;
+  border:1px solid #bce2f1;
+  border-radius:10px;
+  color:#0b739f;
+  background:#fff;
+  font-size:10px;
+  font-weight:900;
+  text-decoration:none;
+}
+body.nv3-dashboard .nv3-notification-head a:hover{
+  border-color:#62bddf;
+  background:#eaf8fe;
+}
+body.nv3-dashboard .nv3-notification-list{
+  min-height:110px;
+  overflow:auto;
+  overscroll-behavior:contain;
+  scrollbar-width:thin;
+  scrollbar-color:#a6d3e4 transparent;
+}
+body.nv3-dashboard .nv3-notification-item{
+  width:100%;
+  display:grid;
+  grid-template-columns:42px minmax(0,1fr);
+  align-items:start;
+  gap:11px;
+  padding:13px 15px;
+  border:0;
+  border-bottom:1px solid #edf3f6;
+  text-align:right;
+  color:#264d60;
+  background:#fff;
+  cursor:pointer;
+  transition:background .14s ease;
+}
+body.nv3-dashboard .nv3-notification-item:hover{background:#f3fbfe}
+body.nv3-dashboard .nv3-notification-item.is-unread{
+  background:linear-gradient(90deg,#f5fcff,#fff);
+  box-shadow:inset -3px 0 0 #16a3d7;
+}
+body.nv3-dashboard .nv3-notification-item-icon{
+  width:40px;
+  height:40px;
+  display:grid;
+  place-items:center;
+  border-radius:13px;
+  color:#0f78a4;
+  background:#e6f7fd;
+  font-size:16px;
+}
+body.nv3-dashboard .nv3-notification-item-copy{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+}
+body.nv3-dashboard .nv3-notification-item-copy strong{
+  overflow:hidden;
+  color:#183f54;
+  font-size:11.5px;
+  font-weight:950;
+  line-height:1.7;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+body.nv3-dashboard .nv3-notification-item-copy>span{
+  display:-webkit-box;
+  overflow:hidden;
+  color:#5e7d8c;
+  font-size:10px;
+  font-weight:600;
+  line-height:1.75;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+}
+body.nv3-dashboard .nv3-notification-item-copy small{
+  color:#8aa1ac;
+  font-size:8.5px;
+  font-weight:700;
+}
+body.nv3-dashboard .nv3-notification-empty,
+body.nv3-dashboard .nv3-notification-loading{
+  min-height:130px;
+  padding:24px 20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  color:#6b8997;
+  text-align:center;
+}
+body.nv3-dashboard .nv3-notification-empty i{
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  border-radius:14px;
+  color:#1688b7;
+  background:#e9f8fd;
+  font-size:18px;
+}
+body.nv3-dashboard .nv3-notification-empty strong{color:#31566a;font-size:11.5px}
+body.nv3-dashboard .nv3-notification-empty span{font-size:9.5px;line-height:1.7}
+body.nv3-dashboard .nv3-notification-empty.is-error i{color:#b45309;background:#fff5e5}
+body.nv3-dashboard .nv3-notification-loading>span:first-child{
+  width:25px;
+  height:25px;
+  border:3px solid #d5edf6;
+  border-top-color:#1596c7;
+  border-radius:50%;
+  animation:nv3NotificationSpin .75s linear infinite;
+}
+body.nv3-dashboard .nv3-notification-loading>span:last-child{font-size:10px;font-weight:750}
+@keyframes nv3NotificationSpin{to{transform:rotate(360deg)}}
+@media(max-width:620px){
+  body.nv3-dashboard .nv3-notification-dropdown{
+    position:fixed;
+    top:78px;
+    right:14px;
+    left:14px;
+    width:auto;
+    max-height:calc(100vh - 96px);
+    transform-origin:top center;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  body.nv3-dashboard .nv3-notification-dropdown{transition:none}
+  body.nv3-dashboard .nv3-notification-loading>span:first-child{animation-duration:1.4s}
+}
